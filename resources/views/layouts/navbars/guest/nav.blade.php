@@ -14,7 +14,7 @@
     @if(\Request::is('inscription'))    
       <a class="border px-3 py-2 mx-2 rounded-pill text-light" href="{{url('/Accueil')}}">
         <i class="fas fa-key opacity-6 me-1" aria-hidden="true"></i>
-        s'identifier
+        S'identifier
       </a>
     @else
     <a class="border px-3 py-2 mx-2 rounded-pill text-light" href="{{url('/inscription')}}">
