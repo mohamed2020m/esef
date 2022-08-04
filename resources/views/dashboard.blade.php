@@ -35,7 +35,7 @@
             <div class="d-flex flex-wrap mt-2 subContainer">
                 <div class="mx-2 box">
                     <div class="d-flex justify-content-center mb-3">
-                        <div class=" py-2 px-3 text-white fw-bold rounded-circle" style="background-color: #0f233a;">3</div>
+                        <div class=" py-2 px-3 text-white fw-bold rounded-circle" style="background-color: #0f233a;">4</div>
                     </div>
                     <a href="#" id="condidat">
                         <input type="text" value="{{$user_id}}" id="user_id" hidden>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="mx-2 box">
                     <div class="d-flex justify-content-center mb-3">
-                        <div class=" py-2 px-3 text-white fw-bold rounded-circle" style="background-color: #0f233a;">4</div>
+                        <div class=" py-2 px-3 text-white fw-bold rounded-circle" style="background-color: #0f233a;">3</div>
                     </div>
                     <a href="#" id="dossier_condidat">
                         <img src="../public/img/images dashboard/folder.png" alt="dossier_condidat" width="200px" height="200px">
