@@ -33,7 +33,7 @@
             <div class="icon-btn icon-shape icon-sm shadow border-radius-md  text-center me-2 d-flex align-items-center justify-content-center {{ (Request::is('user-profile') ? 'bg-dark' : 'bg-white') }}">
                 <i style="font-size: 1rem;" class="fa fa-lg fa-user ps-2 pe-2 text-center {{ (Request::is('user-profile') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
             </div>
-            <span class="nav-link-text ms-1 {{ (Request::is('user-profile') ? 'text-dark' : 'text-white') }}">Profil</span>
+            <span class="nav-link-text ms-1 {{ (Request::is('user-profile') ? 'text-dark' : 'text-white') }}">Profile</span>
           </a>
         </li>
         <!-- <li class="nav-item">
