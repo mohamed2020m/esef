@@ -1,6 +1,7 @@
 @extends('layouts.user_type.auth')
 
 @section('content')
+
 <div class=""> 
   <div class="row">
     <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
@@ -616,6 +617,8 @@
     </div>
   </div>
 </div>
+
+
 @endsection
 @push('dashboard')
   <script>
