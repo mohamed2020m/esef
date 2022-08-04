@@ -1,0 +1,12 @@
+[31-Jul-2022 14:33:12 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home2/toubkali/public_html/esef/routes/web.php:32
+Stack trace:
+#0 {main}
+  thrown in /home2/toubkali/public_html/esef/routes/web.php on line 32
+[31-Jul-2022 14:33:15 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home2/toubkali/public_html/esef/routes/web.php:32
+Stack trace:
+#0 {main}
+  thrown in /home2/toubkali/public_html/esef/routes/web.php on line 32
+[04-Aug-2022 12:31:02 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home2/toubkali/public_html/esef/routes/web.php:32
+Stack trace:
+#0 {main}
+  thrown in /home2/toubkali/public_html/esef/routes/web.php on line 32
