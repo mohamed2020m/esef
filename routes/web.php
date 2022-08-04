@@ -79,13 +79,17 @@ Route::group(['middleware' => 'auth'], function () {
 
             /** fin les routes pour charafeddine */
 
-                    /* debut les routes de abdessamad* */
 
-            Route::get('/candidats',[HomeController::class,'select_filiere'])->name('selectFiliere');
-            Route::get('/candidatsList',[HomeController::class,'showCandidats'])->name('candidats');
-            Route::get('/candidats/{id}',[InfoUserController::class,'detailUser'])->name('user-detail');
-            Route::get('delete/user/{id}',[InfoUserController::class,'deleteUser']);
-                /* debut les routes de abdessamad* */
+
+                    /* debut les routes de abdessamad* */
+               //Gestion des utilisateurs
+    Route::get('utilisateurs', [UserController::class,'afficher'])->name('Gestion_des_candidats_inscrits');
+
+    Route::get('/candidats',[HomeController::class,'select_filiere'])->name('selectFiliere');
+    Route::get('/candidatsList',[HomeController::class,'showCandidats'])->name('candidats');
+    Route::get('/candidats/{id}',[InfoUserController::class,'detailUser'])->name('user-detail');
+    Route::get('delete/user/{id}',[InfoUserController::class,'deleteUser']);
+                
     Route::get('/Accueil', function () {return view('session/Accueil');})->name('Accueil');
     // Route::get('/inscription',[UserController::class,'index']);
 				 /* debut des routes pour entitie bac  * */
