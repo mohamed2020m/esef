@@ -9,8 +9,13 @@
       </a>
     </div>
   </div>
+  @if(auth()->user()->role == "admin")
   <div class="d-flex flex-column align-items-center" id="sidenav-collapse-main">
     <ul class="navbar-nav text-ligh">
+  @else
+  <div class="d-flex align-items-center" id="sidenav-collapse-main">
+    <ul class="flex-grow-1 navbar-nav text-ligh">
+  @endif
       <li class="nav-item nav_btn">
         <a class="nav-link {{ (Request::is('dashboard') ? 'active' : '') }}" href="{{ url('dashboard') }}">
           <div class="icon-btn icon-shape icon-sm shadow border-radius-md text-center me-2 d-flex align-items-center justify-content-center {{ (Request::is('dashboard') ? 'bg-dark' : 'bg-white') }} ">
