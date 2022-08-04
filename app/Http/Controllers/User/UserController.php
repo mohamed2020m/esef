@@ -9,5 +9,15 @@ use PhpParser\Node\Stmt\Global_;
 
 class UserController extends Controller
 {
-
+    public function afficher(){
+        if(Auth::user()->role =="admin"){
+           
+    $inscrits=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')->get();
+            
+            return view('second-view/candidat/liste_des_inscrits',compact('inscrits'));
+        }
+        else{
+            return  redirect('dashboard');
+        }
+    }
 }
