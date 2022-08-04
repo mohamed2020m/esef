@@ -55,7 +55,7 @@
 
                             <td>
                                 <div>
-                                    <img src="{{ URL::to('/images/images_profiles/'. $item->photo) }}" class="avatar avatar-sm me-3">
+                                    <img src="{{ URL::to('/public/images/images_profiles/'. $item->photo) }}" class="avatar avatar-sm me-3">
                                 </div>
                             </td>
 
