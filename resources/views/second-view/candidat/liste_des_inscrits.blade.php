@@ -37,7 +37,7 @@
                             </th>
 
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                CNE
+                                Role
                             </th>
 
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -70,13 +70,13 @@
                                 <p class="font-weight-bold mb-0">{{$item->cin}}</p>
                             </td>
                             <td class="text-center">
-                                <p class="font-weight-bold mb-0">{{$item->cne}}</p>
+                                <p class="font-weight-bold mb-0">{{$item->role}}</p>
                             </td>
                             <td class="text-center">
-                                <a href="{{ url('candidats/'.$item->id) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="modifier Bac">
+                                <a href="{{ url('candidats-'.$item->id) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="modifier Bac">
                                     <i class="fas fa-edit text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
                                 </a>
-                                <a href="{{ url('delete/user/'.$item->id) }}"  class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" onclick="return confirm('est ce que vous etes sur ?')">
+                                <a href="{{ url('delete/candidat/'.$item->id) }}"  class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" onclick="return confirm('est ce que vous etes sur ?')">
                                     <i class="cursor-pointer fa fa-trash text-white bg-danger rounded-circle p-3" style="font-weight:normal"></i>
                                 </a>
                             </td>

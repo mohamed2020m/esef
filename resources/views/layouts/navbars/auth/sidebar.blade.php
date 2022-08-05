@@ -47,16 +47,7 @@
       @endif
 
 
-      @if(auth()->user()->role =='admin')
-      <li class="nav-item pb-2 nav_btn mt-2">
-        <a class="nav-link {{ (Request::is('utilisateurs') ? 'active' : '') }}" href="{{ url('utilisateurs') }}">
-            <div class="icon-btn icon-shape icon-sm shadow border-radius-md text-center me-2 d-flex align-items-center justify-content-center  {{ (Request::is('utilisateurs') ? 'bg-dark' : 'bg-white') }}">
-                <i style="font-size: 1rem;" class="fas fa-lg fa-user-plus ps-2 pe-2 text-center  {{ (Request::is('utilisateurs') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
-            </div>
-            <span class="nav-link-text ms-1 {{ (Request::is('utilisateurs') ? 'text-dark' : 'text-white') }}">Gestion des utilisateurs</span>
-        </a>
-      </li>
-      @endif
+      
 
       @if(auth()->user()->role =='admin')
       <li class="nav-item pb-2 nav_btn mt-2">
@@ -73,6 +64,16 @@
       <li class="nav-item mt-2">
         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Gestion De Préselection </h6>
       </li>
+     
+      <li class="nav-item pb-2 nav_btn mt-2">
+        <a class="nav-link {{ (Request::is('utilisateurs') ? 'active' : '') }}" href="{{ url('utilisateurs') }}">
+            <div class="icon-btn icon-shape icon-sm shadow border-radius-md text-center me-2 d-flex align-items-center justify-content-center  {{ (Request::is('utilisateurs') ? 'bg-dark' : 'bg-white') }}">
+                <i style="font-size: 1rem;" class="fas fa-lg fa-user-plus ps-2 pe-2 text-center  {{ (Request::is('utilisateurs') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+            </div>
+            <span class="nav-link-text ms-1 {{ (Request::is('utilisateurs') ? 'text-dark' : 'text-white') }}">Gestion des utilisateurs</span>
+        </a>
+      </li>
+      
       <li class="nav-item nav_btn">
         <a class="nav-link {{ (Request::is('filiere') ? 'active' : '') }}" href="{{ url('filiere') }}">
           <div class="icon-btn icon-shape icon-sm shadow border-radius-md text-center me-2 d-flex align-items-center justify-content-center {{ (Request::is('filiere') ? 'bg-dark' : 'bg-white') }}">
