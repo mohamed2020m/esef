@@ -31,7 +31,7 @@
           <div class="d-flex">
             <div class="mx-3">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">le nombre des candidats</p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">Nombre des Filières</p>
                 <div class="font-weight-bolder text-center mb-0" style="font-size:25px">
                     250
                 </div>
@@ -54,7 +54,7 @@
         <div class="card-header pb-0">
           <h6>Sales overview</h6>
           <p class="text-sm">
-            <span class="font-weight-bold">le nombre des candidats</span>
+            <span class="font-weight-bold">Nombre des Candidats</span>
           </p>
         </div>
         <div class="card-body p-3">
