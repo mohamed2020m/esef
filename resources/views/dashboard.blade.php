@@ -82,7 +82,7 @@
                     // console.log(response.data[0].name !="");
                     if(response.data[0] !=null){
                         const a = document.querySelector('#condidat');
-                        a.href = '/server.php/ps-filiere';
+                        a.href = '/server.php/condidature';
                     }
                     var fname = response.user_data[0].first_name;
                     var lname = response.user_data[0].last_name;

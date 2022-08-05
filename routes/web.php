@@ -73,7 +73,7 @@ Route::group(['middleware' => 'auth'], function () {
 
         //routes pour tables filieres
 
-    Route::get('/ps-filiere',[PostFiliereController::class,'index']);
+    Route::get('/condidature',[PostFiliereController::class,'index']);
     Route::get('/get/mt/filiere/{id}',[PostFiliereController::class,'matieres']);
 
 
