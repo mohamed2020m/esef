@@ -12,7 +12,7 @@
               <div class="numbers">
                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Nombre des Filières</p>
                 <div class="font-weight-bolder text-center mb-0" style="font-size:25px">
-                    8
+                    4
                 </div>
               </div>
             </div>
@@ -52,14 +52,16 @@
     <div class="flex-grow-1">
       <div class="card z-index-2">
         <div class="card-header pb-0">
-          <h6>Sales overview</h6>
-          <p class="text-sm">
+          <h6>Nombre des candidats par rapport au nombre des filières</h6>
+          <!-- <p class="text-sm">
             <span class="font-weight-bold">Nombre des Candidats</span>
-          </p>
+          </p> -->
         </div>
         <div class="card-body p-3">
-          <div class="chart">
-            <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
+          <div class="">
+            <div class="chart">
+              <canvas id="chart-line" class="chart-canvas" ></canvas>
+            </div>
           </div>
         </div>
       </div>
@@ -180,7 +182,7 @@
           data: {
               labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES - Mathématique'],
               datasets: [{
-                  label: '',
+                  label: 'Nombre des candidat',
                   data: [52, 19, 30, 50, 20, 23],
                   backgroundColor: [
                       'rgba(255, 99, 132, 0.2)',
