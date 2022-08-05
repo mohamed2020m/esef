@@ -51,16 +51,14 @@
     </div>
 
 
- <!-- Script -->
- <script type="text/javascript"> 
-     $(document).ready(function(){
-
-         // DataTable
-        $('#empTable').DataTable({
-             processing: true,
-             serverSide: true,
-             ajax: "{{route('getUtilisateurs')}}",
-             columns: [
+    <script>
+    $(document).ready(function() {
+    $('#empTable').DataTable({
+        "serverSide": true,
+        "ajax": {
+            url: "{{ action('UserController@getUtilisateurs') }}", 
+            method: "get",
+            columns: [
                  { data: 'id' },
                  { data: 'photo' },
                  { data: 'first_name' },
@@ -68,10 +66,14 @@
                  { data: 'cin' },
                  { data: 'role' },
              ]
-         });
-
-      });
-      </script>
+        },
+        "columnDefs" : [{
+            'targets': [6], 
+            'orderable': false
+        }],
+    });
+});
+</script>
     
 @endsection
 
