@@ -93,7 +93,7 @@
                                         <p class=" font-weight-bold mb-0">12</p>
                                     </td>
                                     <td class="text-center">
-                                        <a href="{{url('/download/recu/'.$item->id)}}"><img src="{{URL::to('img/image_recu/valide.png')}}" alt="" width="50px"><i class="fa fa-download"></i></a>
+                                    <a href="#" id="recu" name="{{$item->id}}"><img src="{{URL::to('img/image_recu/valide.png')}}" alt="" width="50px" onclick="validate()"><i class="fa fa-download"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -130,9 +130,38 @@
         </div>
     </div>
 </div>
-
+<div class="modal fade mt-6" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="max-width: 800px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Veuillez remplir vos formations personnelles</h5>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">X</button>
+      </div>
+    </div>
+  </div>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
+    $(document).ready(function(){
+            var tag = document.getElementById("recu");
+            var id = tag.getAttribute('name');
+            $.ajax({
+                type:"GET",
+                url :"/verification/data/user",
+                dataType:"json",
+                success:function(response){
+                    var fname = response.user_data[0].first_name;
+                    var lname = response.user_data[0].last_name;
+                    var phone = response.user_data[0].phone;
+                    var cin = response.user_data[0].cin
+                    if(fname != null && lname !=null && phone !=null && cin !=null){
+                        const a = document.querySelector('#recu');
+                        a.href = "/download/recu/"+id
+                    }
+
+                }
+            });
+        });
         function reply_click(clicked_object){
             var id = clicked_object.getAttribute('id');
 
@@ -162,6 +191,31 @@
             var name =clicked_object.getAttribute('name');
             document.getElementById('ModalLabel').innerHTML = "Pré-candidature à la licence d'éducation.<br/> Filière: " + `<span class="text-info">${name}</span>`;
             $('#modalForm').modal('show');
+        }
+
+        function validate(){
+            var tag = document.getElementById("recu");
+            var id = tag.getAttribute('name');
+            $.ajax({
+                type:"GET",
+                url :"/server.php/verification/data/user",
+                dataType:"json",
+                success:function(response){
+                    var fname = response.user_data[0].first_name;
+                    var lname = response.user_data[0].last_name;
+                    var phone = response.user_data[0].phone;
+                    var cin = response.user_data[0].cin
+                    if(fname != null && lname !=null && phone !=null && cin !=null){
+                        const a = document.querySelector('#recu');
+                        a.href = "/download/recu/"+id
+                    }
+                    else{
+                        // alert("vous devez remplir votre informations");
+                        $('#exampleModal').modal('show');
+                    }
+
+                }
+            });
         }
 </script>
 @endsection
