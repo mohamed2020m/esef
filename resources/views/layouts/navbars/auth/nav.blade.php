@@ -3,7 +3,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                 <!-- <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li> -->
-                <li class="breadcrumb-item text-dark active text-capitalize" aria-current="page"><?php echo htmlentities(html_entity_decode(str_replace('-', ' ', Request::path()), ENT_HTML5, 'ISO-8859-1')) ?> /</li>
+                <li class="breadcrumb-item text-dark active text-capitalize" aria-current="page"><?php echo htmlentities(str_replace('-', ' ', Request::path()), ENT_NOQUOTES, 'UTF-8') ?> /</li>
             </ol>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 d-flex justify-content-between" id="nav-header"> 
