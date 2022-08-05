@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container-fluid"> 
+<div class="container-fluid mb-3"> 
   <div class="d-flex flex-wrap justify-content-around mb-4">
     <div class="mb-xl-0 mb-4">
       <div class="card">
