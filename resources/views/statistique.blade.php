@@ -28,7 +28,7 @@
     <div class="mb-xl-0 mb-4">
       <div class="card">
         <div class="card-body p-3">
-          <div class="d-fle">
+          <div class="d-flex">
             <div class="mx-3">
               <div class="numbers">
                 <p class="text-sm mb-0 text-capitalize font-weight-bold">le nombre des candidats</p>
@@ -49,7 +49,7 @@
   </div>
   
   <div class="row mt-4">
-    <!-- <div class="col-lg-5 mb-lg-0 mb-4">
+    <div class="col-lg-5 mb-lg-0 mb-4">
       <div class="card z-index-2">
         <div class="card-body p-3">
           <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
@@ -164,7 +164,7 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
     <div class="col-lg-7">
       <div class="card z-index-2">
         <div class="card-header pb-0">
