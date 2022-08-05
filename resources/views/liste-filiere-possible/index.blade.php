@@ -157,7 +157,7 @@
                     var cin = response.user_data[0].cin
                     if(fname != null && lname !=null && phone !=null && cin !=null){
                         const a = document.querySelector('#recu');
-                        a.href = "/download/recu/"+id
+                        a.href = "/server.php/download/recu/"+id
                     }
 
                 }
@@ -194,6 +194,31 @@
             var name =clicked_object.getAttribute('name');
             document.getElementById('ModalLabel').innerHTML = "Pré-candidature à la licence d'éducation.<br/> Filière: " + `<span class="text-info">${name}</span>`;
             $('#modalForm').modal('show');
+        }
+
+        function validate(){
+            var tag = document.getElementById("recu");
+            var id = tag.getAttribute('name');
+            $.ajax({
+                type:"GET",
+                url :"/server.php/verification/data/user",
+                dataType:"json",
+                success:function(response){
+                    var fname = response.user_data[0].first_name;
+                    var lname = response.user_data[0].last_name;
+                    var phone = response.user_data[0].phone;
+                    var cin = response.user_data[0].cin
+                    if(fname != null && lname !=null && phone !=null && cin !=null){
+                        const a = document.querySelector('#recu');
+                        a.href = "/server.php/download/recu/"+id
+                    }
+                    else{
+                        // alert("vous devez remplir votre informations");
+                        $('#exampleModal').modal('show');
+                    }
+
+                }
+            });
         }
 
 </script>
