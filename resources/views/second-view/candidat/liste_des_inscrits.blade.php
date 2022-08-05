@@ -56,7 +56,7 @@
     $('#empTable').DataTable({
         "serverSide": true,
         "ajax": {
-            url: "{{ action('UserController@getUtilisateurs') }}", 
+            url: "{{route('getUtilisateurs') }}", 
             method: "get",
             columns: [
                  { data: 'id' },
