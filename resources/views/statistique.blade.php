@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container-fluid"> 
-  <div class="d-flex flex-wrap justify-content-around">
+  <div class="d-flex flex-wrap justify-content-around mb-4">
     <div class="mb-xl-0 mb-4">
       <div class="card">
         <div class="card-body p-3">
@@ -481,7 +481,7 @@
     new Chart(ctx, {
       type: "bar",
       data: {
-        labels: [52, 19, 30, 50, 20, 23],
+        labels: "Nombre des candidat",
         datasets: [{
           label: "Nombre des candidats",
           tension: 0.4,
@@ -489,7 +489,7 @@
           borderRadius: 4,
           borderSkipped: false,
           backgroundColor: "#fff",
-          data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
+          data: [52, 19, 30, 50, 20, 23],
           maxBarThickness: 6
         }, ],
       },
@@ -547,9 +547,9 @@
 
     var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
 
-    gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
-    gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-    gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
+    gradientStroke1.addColorStop(1, '#0f233a');
+    gradientStroke1.addColorStop(0.2, '#71a2da');
+    gradientStroke1.addColorStop(0, '#0f233a'); 
 
     // var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
 
