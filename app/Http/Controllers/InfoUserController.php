@@ -136,7 +136,7 @@ class InfoUserController extends Controller
     public function deleteCandidat($id){
         if(Auth::user()->role =="admin" ){
             DB::table('users')->where('id',$id)->delete();
-            return redirect('second-view/candidat/liste_des_inscrits');
+            return redirect('utilisateurs');
         }
         else{
             return view('dashboard');
