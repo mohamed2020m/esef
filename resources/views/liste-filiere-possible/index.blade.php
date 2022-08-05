@@ -150,7 +150,6 @@
                 url :"/server.php/verification/data/user",
                 dataType:"json",
                 success:function(response){
-                    console.log("valide");
                     var fname = response.user_data[0].first_name;
                     var lname = response.user_data[0].last_name;
                     var phone = response.user_data[0].phone;
@@ -162,7 +161,6 @@
 
                 }
             });
-            console.log("tttttt");
     })
 
         function reply_click(clicked_object){
@@ -197,29 +195,12 @@
         }
 
         function validate(){
-            var tag = document.getElementById("recu");
-            var id = tag.getAttribute('name');
-            $.ajax({
-                type:"GET",
-                url :"/server.php/verification/data/user",
-                dataType:"json",
-                success:function(response){
-                    var fname = response.user_data[0].first_name;
-                    var lname = response.user_data[0].last_name;
-                    var phone = response.user_data[0].phone;
-                    var cin = response.user_data[0].cin
-                    if(fname != null && lname !=null && phone !=null && cin !=null){
-                        const a = document.querySelector('#recu');
-                        a.href = "/server.php/download/recu/"+id
-                    }
-                    else{
-                        // alert("vous devez remplir votre informations");
-                        $('#exampleModal').modal('show');
-                    }
-
-                }
-            });
+            const href = document.getElementById("recu");
+            const attributHref = href.getAttribute("href");
+            if(attributHref =="#"){
+                alert("vous devez remplir votre informations");
+                // $('#exampleModal').modal('show');
+            }
         }
-
 </script>
 @endsection
