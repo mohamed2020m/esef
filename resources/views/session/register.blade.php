@@ -8,7 +8,7 @@
 
           <div class="card-header pb-0 text-center">
             <div>
-              <img class="" src="../assets/img/logo.png" width="100px" alt="logo" >
+              <img class="" src="../assets/img/newLogo.png" width="100px" alt="logo" >
             </div>
             <p class="mt-1 logoTitle">
                 Plateforme de préinscription à l'Ecole Supérieure d'Education 
