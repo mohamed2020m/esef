@@ -76,13 +76,13 @@
   window.onload = function() {
     let ctx = document.getElementById("chart-line").getContext("2d");
 
-    var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+    var gradientStroke1 = ctx.createLinearGradient(0, 230, 0, 50);
 
     gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
     gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
     gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); 
 
-    var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+    var gradientStroke2 = ctx.createLinearGradient(0, 230, 0, 50);
 
     gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
     gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
