@@ -88,7 +88,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/candidats',[HomeController::class,'select_filiere'])->name('selectFiliere');
     Route::get('/candidatsList',[HomeController::class,'showCandidats'])->name('candidats');
     Route::get('/candidats-{id}',[InfoUserController::class,'detailUser'])->name('user-detail');
-    Route::get('delete/candidat/{id}',[InfoUserController::class,'deleteCandidat']);
+    Route::get('/candidat-delete-{id}',[InfoUserController::class,'deleteCandidat']);
                 
     Route::get('/Accueil', function () {return view('session/Accueil');})->name('Accueil');
     // Route::get('/inscription',[UserController::class,'index']);
