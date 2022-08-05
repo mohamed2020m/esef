@@ -529,10 +529,10 @@
           },
           x: {
             grid: {
-              drawBorder: false,
+              drawBorder: true,
               display: true,
-              drawOnChartArea: false,
-              drawTicks: false
+              drawOnChartArea: true,
+              drawTicks: true
             },
             ticks: {
               display: true
