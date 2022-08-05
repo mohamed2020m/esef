@@ -34,7 +34,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [HomeController::class, 'home']);
 	Route::get('dashboard',[HomeController::class,'dashboard'])->name('dashboard');
     Route::get('verification/user/{id}',[HomeController::class,'verification']);
-    Route::get('/verification/data/user',[HomeController::class,'verification_recu']);
 
 	Route::get('profile', function () {
 		return view('profile');
@@ -74,7 +73,7 @@ Route::group(['middleware' => 'auth'], function () {
 
         //routes pour tables filieres
 
-    Route::get('/condidature',[PostFiliereController::class,'index']);
+    Route::get('/ps-filiere',[PostFiliereController::class,'index']);
     Route::get('/get/mt/filiere/{id}',[PostFiliereController::class,'matieres']);
 
 
@@ -85,6 +84,7 @@ Route::group(['middleware' => 'auth'], function () {
                     /* debut les routes de abdessamad* */
                //Gestion des utilisateurs
     Route::get('utilisateurs', [UserController::class,'afficher'])->name('Gestion_des_candidats_inscrits');
+   //   This is used to send AJAX POST request to fetch the datatables data.
     Route::get('getUtilisateurs',[UserController::class,'getUtilisateurs'])->name('getUtilisateurs');
 
     Route::get('/candidats',[HomeController::class,'select_filiere'])->name('selectFiliere');
