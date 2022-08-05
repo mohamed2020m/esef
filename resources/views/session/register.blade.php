@@ -11,7 +11,7 @@
               <img class="" src="../assets/img/newLogo.png" width="100px" alt="logo" >
             </div>
             <p class="mt-1 logoTitle">
-                Plateforme de Pré-candidature à Licence d'éducation <br/> Ecole Supérieure d'Education 
+                Plateforme de Pré-candidature à la Licence d'éducation <br/> Ecole Supérieure d'Education 
                 et de Formation <br/> de l'Université Chouaîb Doukkali
             </p>
             <hr>
