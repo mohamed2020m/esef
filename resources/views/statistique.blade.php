@@ -481,7 +481,7 @@
     new Chart(ctx, {
       type: "bar",
       data: {
-        labels: "Nombre des candidat",
+        labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES - Mathématique'],
         datasets: [{
           label: "Nombre des candidats",
           tension: 0.4,
@@ -509,7 +509,7 @@
           y: {
             grid: {
               drawBorder: false,
-              display: false,
+              display: true,
               drawOnChartArea: false,
               drawTicks: false,
             },
@@ -530,12 +530,12 @@
           x: {
             grid: {
               drawBorder: false,
-              display: false,
+              display: true,
               drawOnChartArea: false,
               drawTicks: false
             },
             ticks: {
-              display: false
+              display: true
             },
           },
         },
@@ -549,7 +549,7 @@
 
     gradientStroke1.addColorStop(1, '#0f233a');
     gradientStroke1.addColorStop(0.2, '#71a2da');
-    gradientStroke1.addColorStop(0, '#0f233a'); 
+    gradientStroke1.addColorStop(0, '#c2d7ef'); 
 
     // var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
 
