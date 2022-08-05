@@ -49,7 +49,7 @@
   </div>
   
   <div class="d-flex flex-column justify-content-center mt-4">
-    <div class="flex-grow-1 mb-lg-0 mb-4">
+    <div class="flex-grow-1  mb-4">
       <div class="card z-index-2">
         <div class="card-header pb-0">
           <h6 class="font-weight-bold"> Nombre des candidats par rapport au nombre des filières </h6>
@@ -63,7 +63,7 @@
         </div>
       </div>
     </div>
-    <div class="flex-grow-1">
+    <div class="flex-grow-1 mbt-3">
       <div class="card z-index-2">
         <div class="card-header pb-0">
           <h6>Nombre d'utilisateurs rejoints chaque mois</h6>
