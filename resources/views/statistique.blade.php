@@ -74,26 +74,26 @@
 @push('dashboard')
 <script>
   window.onload = function() {
-    let ctx = document.getElementById("chart-line").getContext("2d");
+    let ctx2 = document.getElementById("chart-line").getContext("2d");
 
-    var gradientStroke1 = ctx.createLinearGradient(0, 230, 0, 50);
+    var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
 
     gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
     gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
     gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); 
 
-    var gradientStroke2 = ctx.createLinearGradient(0, 230, 0, 50);
+    var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
 
     gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
     gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
     gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)');
 
-    new Chart(ctx, {
+    new Chart(ctx2, {
       type: "bar",
       data: {
-        labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES - Mathématique'],
+        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         datasets: [{
-            label: "Nombre des candidat",
+            label: "Mobile apps",
             tension: 0.4,
             borderWidth: 0,
             pointRadius: 0,
@@ -101,22 +101,22 @@
             borderWidth: 3,
             backgroundColor: gradientStroke1,
             fill: true,
-            data: [52, 19, 30, 50, 20, 23],
+            data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
             maxBarThickness: 6
 
           },
-          // {
-          //   label: "Websites",
-          //   tension: 0.4,
-          //   borderWidth: 0,
-          //   pointRadius: 0,
-          //   borderColor: "#3A416F",
-          //   borderWidth: 3,
-          //   backgroundColor: gradientStroke2,
-          //   fill: true,
-          //   data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
-          //   maxBarThickness: 6
-          // },
+          {
+            label: "Websites",
+            tension: 0.4,
+            borderWidth: 0,
+            pointRadius: 0,
+            borderColor: "#3A416F",
+            borderWidth: 3,
+            backgroundColor: gradientStroke2,
+            fill: true,
+            data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
+            maxBarThickness: 6
+          },
         ],
       },
       options: {
