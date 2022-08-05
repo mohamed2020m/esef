@@ -180,7 +180,7 @@
           data: {
               labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES - Mathématique'],
               datasets: [{
-                  label: '# of Votes',
+                  label: '',
                   data: [52, 19, 30, 50, 20, 23],
                   backgroundColor: [
                       'rgba(255, 99, 132, 0.2)',
