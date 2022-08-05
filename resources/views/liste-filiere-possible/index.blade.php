@@ -198,7 +198,7 @@
             const href = document.getElementById("recu");
             const attributHref = href.getAttribute("href");
             if(attributHref =="#"){
-                alert("vous devez remplir votre informations");
+                alert("Veuillez remplir vos formations personnelles");
                 // $('#exampleModal').modal('show');
             }
         }
