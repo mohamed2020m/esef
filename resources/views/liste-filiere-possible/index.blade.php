@@ -150,6 +150,7 @@
                 url :"/server.php/verification/data/user",
                 dataType:"json",
                 success:function(response){
+                    console.log("valide");
                     var fname = response.user_data[0].first_name;
                     var lname = response.user_data[0].last_name;
                     var phone = response.user_data[0].phone;
