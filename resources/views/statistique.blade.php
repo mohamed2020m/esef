@@ -529,10 +529,10 @@
           },
           x: {
             grid: {
-              drawBorder: false,
+              drawBorder: true,
               display: true,
-              drawOnChartArea: false,
-              drawTicks: false
+              drawOnChartArea: true,
+              drawTicks: true
             },
             ticks: {
               display: true
@@ -549,7 +549,7 @@
 
     gradientStroke1.addColorStop(1, '#347acb');
     gradientStroke1.addColorStop(0.2, '#71a2da');
-    gradientStroke1.addColorStop(0, '#c2d7ef'); 
+    gradientStroke1.addColorStop(0, '#eaf1fa'); 
 
     // var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
 
