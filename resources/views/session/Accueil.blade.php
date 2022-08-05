@@ -12,7 +12,7 @@
             </div>
             <p class="mt-1 logoTitle">
                 Plateforme de Pré-candidature à Licence d'éducation <br/> Ecole Supérieure d'Education 
-                et de Formation de l'Université Chouaîb Doukkali
+                et de Formation<br/> de l'Université Chouaîb Doukkali
             </p>
             <hr>
           </div>
