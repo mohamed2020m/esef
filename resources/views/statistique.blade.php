@@ -7,13 +7,13 @@
     <div class="mb-xl-0 mb-4">
       <div class="card">
         <div class="card-body p-3">
-          <div class="d-flex">
+          <div class="d-flex flex-wrap">
             <div class="mx-3">
               <div class="numbers">
                 <p class="text-sm mb-0 text-capitalize font-weight-bold">le nombre de filière</p>
-                <h5 class="font-weight-bolder mb-0">
+                <div class="font-weight-bolder text-center mb-0" style="font-size:25px">
                     8
-                </h5>
+                </div>
               </div>
             </div>
             <div class="mx-3 text-end">
@@ -32,9 +32,9 @@
             <div class="mx-3">
               <div class="numbers">
                 <p class="text-sm mb-0 text-capitalize font-weight-bold">le nombre des candidats</p>
-                <h5 class="font-weight-bolder mb-0">
+                <div class="font-weight-bolder text-center mb-0" style="font-size:25px">
                     250
-                </h5>
+                </div>
               </div>
             </div>
             <div class="mx-3 text-end">
