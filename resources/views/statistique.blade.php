@@ -481,9 +481,9 @@
     new Chart(ctx, {
       type: "bar",
       data: {
-        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: [52, 19, 30, 50, 20, 23],
         datasets: [{
-          label: "Sales",
+          label: "Nombre des candidats",
           tension: 0.4,
           borderWidth: 0,
           borderRadius: 4,
@@ -560,9 +560,9 @@
     new Chart(ctx2, {
       type: "line",
       data: {
-        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: ["jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         datasets: [{
-            label: "Nombre Des Candidats",
+            label: "Nombre d'utilisateurs rejoints",
             tension: 0.4,
             borderWidth: 0,
             pointRadius: 0,
