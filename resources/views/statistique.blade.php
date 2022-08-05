@@ -63,7 +63,7 @@
         </div>
       </div>
     </div>
-    <div class="flex-grow-1 mbt-3">
+    <div class="flex-grow-1 mb">
       <div class="card z-index-2">
         <div class="card-header pb-0">
           <h6>Nombre d'utilisateurs rejoints chaque mois</h6>
@@ -481,15 +481,15 @@
     new Chart(ctx, {
       type: "bar",
       data: {
-        labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES - Mathématique'],
+        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         datasets: [{
-          label: "Nombre des candidat",
+          label: "Sales",
           tension: 0.4,
           borderWidth: 0,
           borderRadius: 4,
           borderSkipped: false,
           backgroundColor: "#fff",
-          data: [52, 19, 30, 50, 20, 23],
+          data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
           maxBarThickness: 6
         }, ],
       },
@@ -562,7 +562,7 @@
       data: {
         labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         datasets: [{
-            label: "Nombre d'utilisateurs rejoints",
+            label: "Nombre Des Candidats",
             tension: 0.4,
             borderWidth: 0,
             pointRadius: 0,
