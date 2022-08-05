@@ -49,7 +49,7 @@
   </div>
   
   <div class="d-flex justify-content-center mt-4">
-    <div class="">
+    <div class="flex-grow-1">
       <div class="card z-index-2">
         <div class="card-header pb-0">
           <h6>Sales overview</h6>
