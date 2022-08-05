@@ -549,7 +549,7 @@
 
     gradientStroke1.addColorStop(1, '#0f233a');
     gradientStroke1.addColorStop(0.2, '#71a2da');
-    gradientStroke1.addColorStop(0, '#0f233a'); 
+    gradientStroke1.addColorStop(0, '#c2d7ef'); 
 
     // var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
 
