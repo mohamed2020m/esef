@@ -34,7 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [HomeController::class, 'home']);
 	Route::get('dashboard',[HomeController::class,'dashboard'])->name('dashboard');
     Route::get('verification/user/{id}',[HomeController::class,'verification']);
-    Route::get('/verification/data/user',HomeController::class,'verification_recu');
+    Route::get('/verification/data/user',[HomeController::class,'verification_recu']);
 
 	Route::get('profile', function () {
 		return view('profile');
