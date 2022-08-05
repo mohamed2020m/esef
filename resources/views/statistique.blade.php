@@ -535,7 +535,7 @@
               drawTicks: false
             },
             ticks: {
-              display: true
+              display: false
             },
           },
         },
