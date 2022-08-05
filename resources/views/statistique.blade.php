@@ -566,11 +566,11 @@
             tension: 0.4,
             borderWidth: 0,
             pointRadius: 0,
-            borderColor: "#cb0c9f",
+            borderColor: "#0f233a",
             borderWidth: 3,
             backgroundColor: gradientStroke1,
             fill: true,
-            data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+            data: [50, 220, 500, 40, 300, 220, 500, 250, 400, 230, 40, 500],
             maxBarThickness: 6
 
           },
