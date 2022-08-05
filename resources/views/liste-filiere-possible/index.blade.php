@@ -93,7 +93,7 @@
                                         <p class=" font-weight-bold mb-0">12</p>
                                     </td>
                                     <td class="text-center">
-                                    <a href="#" id="recu" name="{{$item->id}}"><img src="#" alt="" width="50px" onclick="validate()"><i class="fa fa-download"></i></a>
+                                    <a href="#" id="recu" name="{{$item->id}}"><img src="#" alt="" width="50px" ><i class="fa fa-download" onclick="validate()"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
