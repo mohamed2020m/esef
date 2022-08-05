@@ -84,6 +84,7 @@ Route::group(['middleware' => 'auth'], function () {
                     /* debut les routes de abdessamad* */
                //Gestion des utilisateurs
     Route::get('utilisateurs', [UserController::class,'afficher'])->name('Gestion_des_candidats_inscrits');
+    Route::get('getUtilisateurs',[UserController::class,'getUtilisateurs'])->name('getUtilisateurs');
 
     Route::get('/candidats',[HomeController::class,'select_filiere'])->name('selectFiliere');
     Route::get('/candidatsList',[HomeController::class,'showCandidats'])->name('candidats');

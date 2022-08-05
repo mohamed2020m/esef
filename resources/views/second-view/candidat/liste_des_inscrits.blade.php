@@ -13,7 +13,7 @@
         <div class="card-body px-3 pt-0 pb-2">
            
             <div class="table-responsive p-0">
-                <table class="table table-striped table-hover mb-0">
+                <table  id='empTable' class="table table-striped table-hover mb-0">
                     <thead>
                         <tr>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -45,49 +45,33 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
-                    @foreach($inscrits as $key =>$item)
-                        <tr class="align-middle" style="font-size: 18px;">
-
-                            <td class="ps-4">
-                                <p class="font-weight-bold mb-0">{{$item->id}}</p>
-                            </td>
-
-                            <td>
-                                <div>
-                                    <img src="{{ URL::to('../public/images/images_profiles/'. $item->photo) }}" class="avatar avatar-sm me-3">
-                                </div>
-                            </td>
-
-                            <td class="text-center">
-                                <p class="font-weight-bold mb-0">{{$item->last_name}}</p>
-                            </td>
-
-                            <td class="text-center">
-                                <p class="font-weight-bold mb-0">{{$item->first_name}}</p>
-                            </td>
-                            <td class="text-center">
-                                <p class="font-weight-bold mb-0">{{$item->cin}}</p>
-                            </td>
-                            <td class="text-center">
-                                <p class="font-weight-bold mb-0">{{$item->role}}</p>
-                            </td>
-                            <td class="text-center">
-                                <a href="{{ url('candidats-'.$item->id) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="modifier Bac">
-                                    <i class="fas fa-edit text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
-                                </a>
-                                <a href="{{url('candidat-delete-'.$item->id)}}"  class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" onclick="return confirm('est ce que vous etes sur ?')">
-                                    <i class="cursor-pointer fa fa-trash text-white bg-danger rounded-circle p-3" style="font-weight:normal"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
                 </table>
             </div>
         </div>
     </div>
 
+
+ <!-- Script -->
+ <script type="text/javascript"> 
+     $(document).ready(function(){
+
+         // DataTable
+        $('#empTable').DataTable({
+             processing: true,
+             serverSide: true,
+             ajax: "{{route('getUtilisateurs')}}",
+             columns: [
+                 { data: 'id' },
+                 { data: 'photo' },
+                 { data: 'first_name' },
+                 { data: 'last_name' },
+                 { data: 'cin' },
+                 { data: 'role' },
+             ]
+         });
+
+      });
+      </script>
     
 @endsection
 
