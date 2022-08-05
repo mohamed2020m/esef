@@ -142,7 +142,7 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-    $(document).ready(function(){
+    function valide(){
             var tag = document.getElementById("recu");
             var id = tag.getAttribute('name');
             $.ajax({
@@ -161,7 +161,7 @@
 
                 }
             });
-        });
+        }
         function reply_click(clicked_object){
             var id = clicked_object.getAttribute('id');
 

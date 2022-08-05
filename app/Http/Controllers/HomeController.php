@@ -123,4 +123,13 @@ class HomeController extends Controller
                                  'user_data' => $user_data,
                                 ]);
     }
+
+    public function verification_recu(){
+        $user_id = Auth::user()->id;
+        $user_data = DB::table('users')->where('id',$user_id)->get();
+        return response()->json([
+            'user_data' => $user_data,
+        ]);
+
+    }
 }
