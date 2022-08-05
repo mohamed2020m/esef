@@ -40,9 +40,7 @@
                                 Role
                             </th>
 
-                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                
-                            </th>
+                            
                         </tr>
                     </thead>
                 </table>
@@ -67,10 +65,7 @@
                  { data: 'role' },
              ]
         },
-        "columnDefs" : [{
-            'targets': [6], 
-            'orderable': false
-        }],
+       
     });
 });
 </script>
