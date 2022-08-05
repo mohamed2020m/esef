@@ -40,9 +40,7 @@
                                 Role
                             </th>
 
-                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                
-                            </th>
+                            
                         </tr>
                     </thead>
                 </table>
@@ -51,16 +49,14 @@
     </div>
 
 
- <!-- Script -->
- <script type="text/javascript"> 
-     $(document).ready(function(){
-
-         // DataTable
-        $('#empTable').DataTable({
-             processing: true,
-             serverSide: true,
-             ajax: "{{route('getUtilisateurs')}}",
-             columns: [
+    <script>
+    $(document).ready(function() {
+    $('#empTable').DataTable({
+        "serverSide": true,
+        "ajax": {
+            url: "{{route('getUtilisateurs') }}", 
+            method: "get",
+            columns: [
                  { data: 'id' },
                  { data: 'photo' },
                  { data: 'first_name' },
@@ -68,10 +64,11 @@
                  { data: 'cin' },
                  { data: 'role' },
              ]
-         });
-
-      });
-      </script>
+        },
+       
+    });
+});
+</script>
     
 @endsection
 

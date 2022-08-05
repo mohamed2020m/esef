@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Stmt\Global_;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -26,64 +27,65 @@ class UserController extends Controller
 
     public function getUtilisateurs(Request $request){
         if(Auth::user()->role =="admin"){
-           ## Read value
-        $draw = $request->get('draw');
-        $start = $request->get("start");
-        $rowperpage = $request->get("length"); // Rows display per page
-
-        $columnIndex_arr = $request->get('order');
-        $columnName_arr = $request->get('columns');
-        $order_arr = $request->get('order');
-        $search_arr = $request->get('search');
-
-
-        $columnIndex = $columnIndex_arr[0]['column']; // Column index
-        $columnName = $columnName_arr[$columnIndex]['data']; // Column name
-        $columnSortOrder = $order_arr[0]['dir']; // asc or desc
-        $searchValue = $search_arr['value']; // Search value
-
-
-         // Total records
          
-         $totalRecords =DB::table('users')->select('count(*) as allcount')->join('filiere_user','filiere_user.user_id','=','users.id')->count();
-         $totalRecordswithFilter = DB::table('users')->select('count(*) as allcount')->join('filiere_user','filiere_user.user_id','=','users.id')->where('last_name', 'like', '%' .$searchValue . '%')->count();
-   
-
-            // Fetch records
-            $records =  DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')->
-            where('users.last_name','like', '%' .$searchValue . '%')->orderBy($columnName,$columnSortOrder)->
-            skip($start)->take($rowperpage)->get();
-
-
-            $data_arr = array();
-
-            foreach($records as $record){
-               $id = $record->id;
-               $photo = $record->photo;
-               $first_name = $record->first_name;
-               $last_name = $record->last_name;
-               $cin =$record->cin;
-               $role=$record->role;
-    
-               $data_arr[] = array(
-                   "id" => $id,
-                   "photo" => $photo,
-                   "first_name" => $first_name,
-                   "last_name" => $last_name,
-                   "cin" => $cin,
-                   "role" => $role
-               );
-            }
-
-
-            $response = array(
-                "draw" => intval($draw),
-                "iTotalRecords" => $totalRecords,
-                "iTotalDisplayRecords" => $totalRecordswithFilter,
-                "aaData" => $data_arr
-             );
-
-             return response()->json($response); 
+          $search = $request->query('search', array('value' => '', 'regex' => false));
+          $draw = $request->query('draw', 0);
+          $start = $request->query('start', 0);
+          $length = $request->query('length', 25);
+          $order = $request->query('order', array(1, 'asc'));        
+      
+          $filter = $search['value'];
+      
+          $sortColumns = array(
+              0 => 'users.id',
+              1 => 'users.photo',
+              2 => 'users.first_name',
+              3 => 'users.last_name',
+              4 => 'users.cin',
+              5 => 'users.role',
+            
+          );
+      
+          $query = User::join('filiere_user', 'filiere_user.user_id', '=', 'users.id')->select('users.*');
+      
+          if (!empty($filter)) {
+              $query->where('users.first_name', 'like', '%'.$filter.'%')
+              ->orwhere('users.last_name', 'like', '%'.$filter.'%')
+              ->orwhere('users.cin', 'like', '%'.$filter.'%')
+              ->orwhere('users.role', 'like', '%'.$filter.'%');
+          }
+      
+          $recordsTotal = $query->count();
+      
+          $sortColumnName = $sortColumns[$order[0]['column']];
+      
+          $query->orderBy($sortColumnName, $order[0]['dir'])
+                  ->take($length)
+                  ->skip($start);
+      
+          $json = array(
+              'draw' => $draw,
+              'recordsTotal' => $recordsTotal,
+              'recordsFiltered' => $recordsTotal,
+              'data' => [],
+          );
+      
+          $users = $query->get();
+      
+          foreach ($users as $user) {
+      
+              $json['data'][] = [
+                  $user->id,
+                  $user->photo,
+                  $user->first_name,
+                  $user->last_name,
+                  $user->cin,
+                  $user->role,
+                 
+              ];
+          }
+      
+          return $json;
         }
         else{
             return  redirect('dashboard');
