@@ -198,7 +198,7 @@
             var id = tag.getAttribute('name');
             $.ajax({
                 type:"GET",
-                url :"/server.php/verification/data/user",
+                url :"/verification/data/user",
                 dataType:"json",
                 success:function(response){
                     var fname = response.user_data[0].first_name;
