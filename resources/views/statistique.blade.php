@@ -74,8 +74,7 @@
 @push('dashboard')
 <script>
   window.onload = function() {
-    let ctx = document.getElementById("chart-line")
-    // getContext("2d");
+    let ctx = document.getElementById("chart-line").getContext("2d");
 
     var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
 
@@ -89,12 +88,12 @@
     gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
     gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)');
 
-    new Chart(ctx2, {
+    new Chart(ctx, {
       type: "bar",
       data: {
-        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES - Mathématique'],
         datasets: [{
-            label: "Mobile apps",
+            label: "Nombre des candidat",
             tension: 0.4,
             borderWidth: 0,
             pointRadius: 0,
@@ -102,22 +101,22 @@
             borderWidth: 3,
             backgroundColor: gradientStroke1,
             fill: true,
-            data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+            data: [52, 19, 30, 50, 20, 23],
             maxBarThickness: 6
 
           },
-          {
-            label: "Websites",
-            tension: 0.4,
-            borderWidth: 0,
-            pointRadius: 0,
-            borderColor: "#3A416F",
-            borderWidth: 3,
-            backgroundColor: gradientStroke2,
-            fill: true,
-            data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
-            maxBarThickness: 6
-          },
+          // {
+          //   label: "Websites",
+          //   tension: 0.4,
+          //   borderWidth: 0,
+          //   pointRadius: 0,
+          //   borderColor: "#3A416F",
+          //   borderWidth: 3,
+          //   backgroundColor: gradientStroke2,
+          //   fill: true,
+          //   data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
+          //   maxBarThickness: 6
+          // },
         ],
       },
       options: {
