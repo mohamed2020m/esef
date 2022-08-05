@@ -74,6 +74,16 @@ class UserController extends Controller
                    "role" => $role
                );
             }
+
+
+            $response = array(
+                "draw" => intval($draw),
+                "iTotalRecords" => $totalRecords,
+                "iTotalDisplayRecords" => $totalRecordswithFilter,
+                "aaData" => $data_arr
+             );
+
+             return response()->json($response); 
         }
         else{
             return  redirect('dashboard');
