@@ -76,7 +76,7 @@
                                 <a href="{{ url('candidats-'.$item->id) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="modifier Bac">
                                     <i class="fas fa-edit text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
                                 </a>
-                                <a href="{{ url('delete/candidat/'.$item->id) }}"  class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" onclick="return confirm('est ce que vous etes sur ?')">
+                                <a href="{{url('candidat-delete-'.$item->id)}}"  class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" onclick="return confirm('est ce que vous etes sur ?')">
                                     <i class="cursor-pointer fa fa-trash text-white bg-danger rounded-circle p-3" style="font-weight:normal"></i>
                                 </a>
                             </td>
@@ -88,6 +88,6 @@
         </div>
     </div>
 
-
+    
 @endsection
 
