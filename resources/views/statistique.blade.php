@@ -481,15 +481,15 @@
     new Chart(ctx, {
       type: "bar",
       data: {
-        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES - Mathématique'],
         datasets: [{
-          label: "Sales",
+          label: "Nombre des candidat",
           tension: 0.4,
           borderWidth: 0,
           borderRadius: 4,
           borderSkipped: false,
           backgroundColor: "#fff",
-          data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
+          data: [52, 19, 30, 50, 20, 23],
           maxBarThickness: 6
         }, ],
       },
@@ -562,7 +562,7 @@
       data: {
         labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         datasets: [{
-            label: "Nombre Des Candidats",
+            label: "Nombre d'utilisateurs rejoints",
             tension: 0.4,
             borderWidth: 0,
             pointRadius: 0,
