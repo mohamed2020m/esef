@@ -132,4 +132,14 @@ class InfoUserController extends Controller
             return view('dashboard');
         }
     }
+
+    public function deleteCandidat($id){
+        if(Auth::user()->role =="admin" ){
+            DB::table('users')->where('id',$id)->delete();
+            return redirect('utilisateurs');
+        }
+        else{
+            return view('dashboard');
+        }
+    }
 }

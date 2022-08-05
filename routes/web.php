@@ -73,7 +73,7 @@ Route::group(['middleware' => 'auth'], function () {
 
         //routes pour tables filieres
 
-    Route::get('/ps-filiere',[PostFiliereController::class,'index']);
+    Route::get('/condidature',[PostFiliereController::class,'index']);
     Route::get('/get/mt/filiere/{id}',[PostFiliereController::class,'matieres']);
 
 
@@ -87,8 +87,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/candidats',[HomeController::class,'select_filiere'])->name('selectFiliere');
     Route::get('/candidatsList',[HomeController::class,'showCandidats'])->name('candidats');
-    Route::get('/candidats/{id}',[InfoUserController::class,'detailUser'])->name('user-detail');
-    Route::get('delete/user/{id}',[InfoUserController::class,'deleteUser']);
+    Route::get('/candidats-{id}',[InfoUserController::class,'detailUser'])->name('user-detail');
+    Route::get('/candidat-delete-{id}',[InfoUserController::class,'deleteCandidat']);
                 
     Route::get('/Accueil', function () {return view('session/Accueil');})->name('Accueil');
     // Route::get('/inscription',[UserController::class,'index']);
