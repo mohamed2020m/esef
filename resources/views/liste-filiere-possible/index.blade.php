@@ -210,8 +210,8 @@
                         a.href = "/download/recu/"+id
                     }
                     else{
-                        // alert("vous devez remplir votre informations");
-                        $('#exampleModal').modal('show');
+                        alert("vous devez remplir votre informations");
+                        // $('#exampleModal').modal('show');
                     }
 
                 }
