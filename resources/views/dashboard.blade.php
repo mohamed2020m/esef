@@ -102,11 +102,9 @@
                     if(response.data[0] !=null && fname!=null ){
                         const a = document.querySelector('#condidat');
                         a.href = '/server.php/condidature';
-                    }
-                   
-                    if(fname != null){
-                        const a = document.querySelector('#dossier_condidat');
-                        a.href = '/server.php/dossier-personnelle';
+
+                        const aa = document.querySelector('#dossier_condidat');
+                        aa.href = '/server.php/dossier-personnelle';
                     }
                 }
             });
