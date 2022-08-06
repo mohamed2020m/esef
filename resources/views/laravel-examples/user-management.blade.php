@@ -48,7 +48,7 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="UserDataTable">
                         <tr class="align-middle" style="font-size: 18px;">
                             <td class="ps-4">
                                 <p class="font-weight-bold mb-0">------</p>
@@ -102,24 +102,26 @@
                 success: function(data){
                     console.log("succes");
                     console.log("data: ", data);
-                    //console.log(data.length);
-                
                     for(var i=0;i<data.length;i++){
-                        
-                        table+='<tr>';
-                        table+= '<td class="ps-4"><p class="text-xs font-weight-bold mb-0"> '+data[i].id+'</p></td>';
-                        table+='<td><div><img src="" class="avatar avatar-sm me-3"></div></td>';
-                        table+= '<td class="ps-4"><p class="text-xs font-weight-bold mb-0"> '+data[i].last_name+'</p></td>';
-                        table+= '<td class="ps-4"><p class="text-xs font-weight-bold mb-0"> '+data[i].first_name+'</p></td>';
-                        table+= '<td class="ps-4"><p class="text-xs font-weight-bold mb-0"> '+data[i].cin+'</p></td>';
-                        table+= '<td class="ps-4"><p class="text-xs font-weight-bold mb-0"> '+data[i].cne+'</p></td>';
-                        table+='<td class="text-center"><a href="" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="View user"><i class="fas fa-address-card"></i></a></td>';
-                        table+='</tr>';
+                        table = 
+                        `<tr class="align-middle" style="font-size: 18px;">
+                            <td class="ps-4"><p class="font-weight-bold mb-0"> ' + data[i].id+'</p></td>
+                            <td><img src="" alt="avatar" class="avatar avatar-sm me-3"></td>
+                            <td class="ps-4"><p class="font-weight-bold mb-0"> ' ${data[i].last_name}'</p></td>
+                            <td class="ps-4"><p class="font-weight-bold mb-0"> ' ${data[i].first_name}'</p></td>
+                            <td class="ps-4"><p class="font-weight-bold mb-0"> ' ${data[i].cin}'</p></td>
+                            <td class="ps-4"><p class="font-weight-bold mb-0"> ' ${data[i].cne}'</p></td>
+                            <td class="text-center">
+                                <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="modifier Bac">
+                                    <i class="fas fa-edit text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
+                                </a>
+                                <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" onclick="return confirm('est ce que vous etes sur ?')">
+                                    <i class="cursor-pointer fa fa-trash text-white bg-danger rounded-circle p-3" style="font-weight:normal"></i>
+                                </a>
+                            </td>
+                        </tr>`
                     }  
-                    $( ".select_candidat" ).html("");
-                    $( ".select_candidat" ).append(op);
-                    $( ".tableview" ).html("");
-                    $( ".tableview" ).html(table);
+                    $("#UserDataTable" ).append(table);
                 },
                 error:function(){
                     console.log("error")
