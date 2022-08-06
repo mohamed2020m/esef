@@ -12,7 +12,7 @@
               <div class="numbers">
                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Nombre Des Filières</p>
                 <div class="font-weight-bolder text-center mb-0" style="font-size:25px">
-                    4
+                    {{nombre_filieres}}
                 </div>
               </div>
             </div>
@@ -33,7 +33,7 @@
               <div class="numbers">
                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Nombre Des Candidats</p>
                 <div class="font-weight-bolder text-center mb-0" style="font-size:25px">
-                    250
+                  {{nombre_candidats_inscrits}}
                 </div>
               </div>
             </div>
