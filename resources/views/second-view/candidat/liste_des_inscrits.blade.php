@@ -35,9 +35,7 @@
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 Role
                             </th>
-                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                
-                            </th>
+                            
 
                             
                         </tr>
@@ -61,11 +59,7 @@
                  { data: 'last_name' },
                  { data: 'cin' },
                  { data: 'role' },
-                 { "data": "id",
-                    fnCreatedCell: function (nTd, sData, oData, iRow, iCol) {
-                   
-                $(nTd).html("<a href='user-management-"+oData.id+"'   >"View"</a>");}
-                },
+                
              ]
         },
        
