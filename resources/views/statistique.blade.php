@@ -473,7 +473,20 @@
 
 
 @endsection
-<!-- @push('dashboard') -->
+
+<script>
+  window.addEventListener('resize', () => {
+    if(window.innerHeight >= 1200){
+      document.querySelector('#auth-wrap-nav-content').classList.replace("col", "col-10");
+    }
+    else{
+      document.querySelector('#auth-wrap-nav-content').classList.replace("col-10", "col-12");
+    }
+  })
+
+</script>
+
+@push('dashboard')
 <script>
   window.onload = function() {
     var ctx = document.getElementById("chart-bars").getContext("2d");
@@ -646,5 +659,5 @@
     });
   }
 </script>
-<!-- @endpush -->
+@endpush
 
