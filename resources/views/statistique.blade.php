@@ -473,7 +473,7 @@
 
 
 @endsection
-@push('dashboard')
+<!-- @push('dashboard') -->
 <script>
   window.onload = function() {
     var ctx = document.getElementById("chart-bars").getContext("2d");
@@ -646,5 +646,5 @@
     });
   }
 </script>
-@endpush
+<!-- @endpush -->
 
