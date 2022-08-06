@@ -30,7 +30,7 @@
                             <p class="mb-0">Nom</p>
                         </div>
                         <div class="@error('user.name')border border-danger rounded-3 @enderror">
-                            <input class="form-control" value="{{ auth()->user()->last_name }}" type="text" placeholder="votre nom" id="user-last_name" name="last_name">
+                            <input class="form-control" value="{{ auth()->user()->last_name }}" type="text" placeholder="votre nom" id="user-last_name" name="last_name" required>
                             @error('name')
                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                             @enderror
@@ -42,7 +42,7 @@
                             <p class="mb-0 text-end">الإسم العائلي</p>
                         </div>
                         <div class="@error('user.name')border border-danger rounded-3 @enderror">
-                            <input class="form-control" value="{{ auth()->user()->last_name_arabic }}" type="text" placeholder="votre nom en arabe" id="user-last_name_arabic" name="last_name_arabic">
+                            <input class="form-control" value="{{ auth()->user()->last_name_arabic }}" type="text" placeholder="votre nom en arabe" id="user-last_name_arabic" name="last_name_arabic" required>
                             @error('name')
                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                             @enderror
@@ -54,7 +54,7 @@
                             <p class="mb-0">Prénom</p>
                         </div>
                         <div class="@error('user.name')border border-danger rounded-3 @enderror">
-                            <input class="form-control" value="{{ auth()->user()->first_name }}" type="text" placeholder="votre prénom" id="user-first_name" name="first_name">
+                            <input class="form-control" value="{{ auth()->user()->first_name }}" type="text" placeholder="votre prénom" id="user-first_name" name="first_name" required>
                             @error('name')
                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                             @enderror
@@ -66,7 +66,7 @@
                             <p class="mb-0 text-end">الإسم الشخصي</p>
                         </div>
                         <div class="@error('user.name')border border-danger rounded-3 @enderror">
-                            <input class="form-control" value="{{ auth()->user()->first_name_arabic }}" type="text" placeholder="votre prénom en arabe" id="user-first_name_arabic" name="first_name_arabic">
+                            <input class="form-control" value="{{ auth()->user()->first_name_arabic }}" type="text" placeholder="votre prénom en arabe" id="user-first_name_arabic" name="first_name_arabic" required>
                             @error('name')
                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                             @enderror
@@ -79,7 +79,7 @@
                             <p class="mb-0">Date Naissance</p>
                         </div>
                         <div class="@error('user.name')border border-danger rounded-3 @enderror">
-                            <input class="form-control" value="{{auth()->user()->birthday}}" type="date"  id="user-birthday" name="birthday">
+                            <input class="form-control" value="{{auth()->user()->birthday}}" type="date"  id="user-birthday" name="birthday" required>
                             @error('name')
                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                             @enderror
@@ -92,7 +92,7 @@
                             <p class="mb-0">Lieu Naissance</p>
                         </div>
                         <div class="@error('user.name')border border-danger rounded-3 @enderror">
-                            <input class="form-control" value="{{auth()->user()->birth_place}}" type="text" placeholder="votre lieu de naissance" id="user-birth_place" name="birth_place">
+                            <input class="form-control" value="{{auth()->user()->birth_place}}" type="text" placeholder="votre lieu de naissance" id="user-birth_place" name="birth_place" required>
                             @error('name')
                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                             @enderror
@@ -105,7 +105,7 @@
                             <p class="mb-0">CIN</p>
                         </div>
                         <div class="@error('user.name')border border-danger rounded-3 @enderror">
-                            <input class="form-control" value="{{auth()->user()->cin}}" type="text" placeholder="votre cin" id="user-cin" name="cin">
+                            <input class="form-control" value="{{auth()->user()->cin}}" type="text" placeholder="votre cin" id="user-cin" name="cin" required>
                             @error('name')
                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                             @enderror
@@ -118,7 +118,7 @@
                             <p class="mb-0">CNE</p>
                         </div>
                         <div class="@error('user.name')border border-danger rounded-3 @enderror">
-                            <input class="form-control" value="{{auth()->user()->cne}}" type="text" placeholder="votre cne" id="user-first_name" name="cne">
+                            <input class="form-control" value="{{auth()->user()->cne}}" type="text" placeholder="votre cne" id="user-first_name" name="cne" required>
                             @error('name')
                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                             @enderror
@@ -130,7 +130,7 @@
                             <p class="mb-0">Téléphone</p>
                         </div>
                         <div class="@error('user.name')border border-danger rounded-3 @enderror">
-                            <input class="form-control" value="{{auth()->user()->phone}}" type="tel" placeholder="Votre numéro de téléphone" id="user-phone" name="phone">
+                            <input class="form-control" value="{{auth()->user()->phone}}" type="tel" placeholder="Votre numéro de téléphone" id="user-phone" name="phone" required>
                             @error('name')
                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                             @enderror
