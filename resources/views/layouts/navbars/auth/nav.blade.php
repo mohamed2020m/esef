@@ -19,9 +19,9 @@
                 <li class="nav-item d-flex align-items-center logout-btn">
                     <!-- <a href="{{ url('/logout')}}" >
                         </a> -->
-                        <button class="nav-link text-body font-weight-bold px-0 border-0 bg-transparent" type="button" data-bs-toggle="modal" data-bs-target="#deconnecter">
-                            <i class="fa fa-sign-out me-sm-1"></i>
-                            <span class="d-sm-inline d-none" id="span_logout">Se déconnecter</span>
+                    <button class="nav-link text-body font-weight-bold px-0 border-0 bg-transparent" id="btn_logout" type="button" data-bs-toggle="modal" data-bs-target="#deconnecter">
+                        <i class="fa fa-sign-out me-sm-1"></i>
+                        <span class="d-sm-inline d-none" id="span_logout">Se déconnecter</span>
                     </button>
                 </li>
                 <li class="nav-item d-xl-none ps-3 d-flex align-items-center" id="toggler_btn">
@@ -49,9 +49,9 @@
                 Êtes-vous sûr de vouloir vous déconnecter ?
             </div>
             <div class="modal-footer d-flex align-items-center">
-                <button type="button" class="btn btn-secondary mt-3" data-bs-dismiss="modal">No</button>
-                <a href="{{ url('/logout')}}" class="nav-link text-white py-2 px-3 rounded font-weight-bold bg-danger">
-                    <span class="d-sm-inline d-none bg-daner" id="span_logout">Oui</span>
+                <button type="button" class="btn btn-secondary mt-3 rounded-pill" data-bs-dismiss="modal">Non</button>
+                <a href="{{ url('/logout')}}" class="nav-link text-white py-2 px-4 rounded-pill font-weight-bold bg-danger">
+                    <span class="d-sm-inline d-none bg-daner" id="span_logout">OUI</span>
                 </a>
             </div>
         </div>

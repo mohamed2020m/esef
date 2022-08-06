@@ -37,17 +37,17 @@ Route::group(['middleware' => 'auth'], function () {
     
     Route::get('/verification/data/user',[HomeController::class,'verification_recu']);
 
-	Route::get('profile', function () {
-		return view('profile');
-	})->name('profile');
+	// Route::get('profile', function () {
+	// 	return view('profile');
+	// })->name('profile');
 
-    Route::get('static-sign-in', function () {
-		return view('static-sign-in');
-	})->name('sign-in');
+    // Route::get('static-sign-in', function () {
+	// 	return view('static-sign-in');
+	// })->name('sign-in');
 
-    Route::get('static-sign-up', function () {
-		return view('static-sign-up');
-	})->name('sign-up');
+    // Route::get('static-sign-up', function () {
+	// 	return view('static-sign-up');
+	// })->name('sign-up');
 
     Route::get('/logout', [SessionsController::class, 'destroy']);
 	Route::get('/user-profile', [InfoUserController::class, 'create']);
@@ -84,6 +84,9 @@ Route::group(['middleware' => 'auth'], function () {
 
 
                     /* debut les routes de abdessamad* */
+                    //test 
+    Route::get('users', [UserController::class,'index'])->name('users-inscrits');
+    Route::post('users-Store', [UserController::class,'store'])->name('users-store');
                //Gestion des utilisateurs
     Route::get('utilisateurs', [UserController::class,'afficher'])->name('Gestion_des_candidats_inscrits');
    //   This is used to send AJAX POST request to fetch the datatables data.

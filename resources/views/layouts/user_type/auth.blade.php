@@ -44,7 +44,7 @@
         @else
         <div class="container-fluid">
             <div class="row">
-                <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 cusotom-sideBar" style="display:block">
+                <div class="col-2 px-sm-2 px-0 cusotom-sideBar">
                     @include('layouts.navbars.auth.sidebar')
                 </div>
                 <div class="col" id="auth-wrap-nav-content">

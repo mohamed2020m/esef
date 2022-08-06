@@ -33,12 +33,15 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../assets/css/custom-css.css">
 
-  <!-- Datatable CSS -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"/>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- Datatable JS -->
-  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  
+<!-- Datatable CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"/>
 
+<!-- jQuery Library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Datatable JS -->
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 </head>
 
 <body class="g-sidenav-show  bg-gray-100 {{ (\Request::is('rtl') ? 'rtl' : (Request::is('virtual-reality') ? 'virtual-reality' : '')) }} ">
@@ -74,6 +77,7 @@
     </div>
   @endif
     <!--   Core JS Files   -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/fullcalendar.min.js"></script>
@@ -115,20 +119,48 @@
         if(sidebar.style.display === 'block'){
             sidebar.removeAttribute('style')
             sidebar.setAttribute('style', 'display:none !important')
+            document.querySelector('#auth-wrap-nav-content').classList.remove("col-10");
+            document.querySelector('#auth-wrap-nav-content').classList.add("col-12");
         }
         else{
             sidebar.removeAttribute('style')
             sidebar.setAttribute('style', 'display:block !important');
             btn.setAttribute('style', 'display:none !important');
+            document.querySelector('#auth-wrap-nav-content').classList.add("col-10");
+            document.querySelector('#auth-wrap-nav-content').classList.remove("col", "col-12");
         }
     })
     btnCloseSidebar.addEventListener('click', () => {
         sidebar.setAttribute('style', 'display:none !important');
         btn.setAttribute('style', 'display:block !important');
+        document.querySelector('#auth-wrap-nav-content').classList.remove("col-10");
+        document.querySelector('#auth-wrap-nav-content').classList.add("col-12");
+    })
+    
+    window.addEventListener('resize', () => {
+      if(window.innerWidth >= 1200){
+        sidebar.setAttribute('style', 'display:block !important');
+        btn.setAttribute('style', 'display:none !important');
+      }
+      if(window.innerWidth <= 400){
+        sidebar.setAttribute('style', 'display:none !important');
+        btn.setAttribute('style', 'display:block !important');
+      }
+    })
+    
+    document.querySelector("#btn_logout").addEventListener('click', () => {
+      if(window.innerWidth >= 1200){
+        sidebar.setAttribute('style', 'display:block !important');
+        btn.setAttribute('style', 'display:none !important');
+      }
+      if(window.innerWidth <= 400){
+        sidebar.setAttribute('style', 'display:none !important');
+        btn.setAttribute('style', 'display:block !important');
+      }
     })
   </script>
 
-  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
   <script>  
     $(window).on('load', function(event) {
         $('.preloader').delay(500).fadeOut(500);
@@ -139,7 +171,7 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
-  <!-- jQuery Library -->
+ 
   
 </body>
 

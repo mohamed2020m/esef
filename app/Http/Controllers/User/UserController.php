@@ -38,11 +38,10 @@ class UserController extends Controller
       
           $sortColumns = array(
               0 => 'users.id',
-              1 => 'users.photo',
-              2 => 'users.first_name',
-              3 => 'users.last_name',
-              4 => 'users.cin',
-              5 => 'users.role',
+              1 => 'users.first_name',
+              2 => 'users.last_name',
+              3 => 'users.cin',
+              4 => 'users.role',
             
           );
       
@@ -76,7 +75,6 @@ class UserController extends Controller
       
               $json['data'][] = [
                   $user->id,
-                  $user->photo,
                   $user->first_name,
                   $user->last_name,
                   $user->cin,
@@ -91,4 +89,36 @@ class UserController extends Controller
             return  redirect('dashboard');
         }
     }
+
+
+
+
+
+
+    public function index(){
+        if(Auth::user()->role =="admin"){
+
+
+            return view('second-view/candidat/index');
+        }
+        else{
+            return  redirect('dashboard');
+        }
+
+    }
+
+
+
+    	// handle insert a new employee ajax request
+	public function store(Request $request) {
+		$file = $request->file('avatar');
+		$fileName = time() . '.' . $file->getClientOriginalExtension();
+		$file->storeAs('public/images/images_profiles', $fileName);
+
+		$userData = ['first_name' => $request->fname, 'last_name' => $request->lname, 'email' => $request->email, 'phone' => $request->phone, 'cin' => $request->cin, 'photo' => $fileName];
+		User::create($userData);
+		return response()->json([
+			'status' => 200,
+		]);
+	}
 }

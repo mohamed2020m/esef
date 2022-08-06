@@ -12,7 +12,7 @@
               <div class="numbers">
                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Nombre Des Filières</p>
                 <div class="font-weight-bolder text-center mb-0" style="font-size:25px">
-                    4
+                    {{$nombre_filieres}}
                 </div>
               </div>
             </div>
@@ -33,7 +33,7 @@
               <div class="numbers">
                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Nombre Des Candidats</p>
                 <div class="font-weight-bolder text-center mb-0" style="font-size:25px">
-                    250
+                  {{$nombre_candidats_inscrits}}
                 </div>
               </div>
             </div>
@@ -475,10 +475,20 @@
 @endsection
 
 <script>
-  window.addEventListener('resize', () => {
-    if(window.innerHeight >= 1200){
+  window.addEventListener('load', () => {
+    if(window.innerWidth >= 1200){
       document.querySelector('#auth-wrap-nav-content').classList.add("col-10");
-      document.querySelector('#auth-wrap-nav-content').classList.add("col");
+      document.querySelector('#auth-wrap-nav-content').classList.remove("col", "col-12");
+    }
+    else{
+      document.querySelector('#auth-wrap-nav-content').classList.remove("col-10");
+      document.querySelector('#auth-wrap-nav-content').classList.add("col-12");
+    }
+  })
+  window.addEventListener('resize', () => {
+    if(window.innerWidth >= 1200){
+      document.querySelector('#auth-wrap-nav-content').classList.add("col-10");
+      document.querySelector('#auth-wrap-nav-content').classList.remove("col", "col-12");
     }
     else{
       document.querySelector('#auth-wrap-nav-content').classList.remove("col-10");
