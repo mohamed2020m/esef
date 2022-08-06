@@ -58,11 +58,7 @@
             method: "get",
             columns: [
                  { data: 'id' },
-                 { data: 'photo' ,
-                    "render":function(data){
-                        const imgPath = "{{ URL::to('../public/images/images_profiles/') }}"";
-                        const img = "<img src='"+imgPath+"'  class="avatar avatar-sm me-3" >";
-                    }},
+                 { data: 'photo' },
                  { data: 'first_name' },
                  { data: 'last_name' },
                  { data: 'cin' },
