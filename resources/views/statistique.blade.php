@@ -478,7 +478,7 @@
   window.addEventListener('resize', () => {
     if(window.innerHeight >= 1200){
       document.querySelector('#auth-wrap-nav-content').classList.add("col-10");
-      document.querySelector('#auth-wrap-nav-content').classList.add("col");
+      document.querySelector('#auth-wrap-nav-content').classList.remove("col", "col-12");
     }
     else{
       document.querySelector('#auth-wrap-nav-content').classList.remove("col-10");
