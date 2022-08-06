@@ -106,4 +106,19 @@ class UserController extends Controller
         }
 
     }
+
+
+
+    	// handle insert a new employee ajax request
+	public function store(Request $request) {
+		$file = $request->file('avatar');
+		$fileName = time() . '.' . $file->getClientOriginalExtension();
+		$file->storeAs('public/images/images_profiles', $fileName);
+
+		$userData = ['first_name' => $request->fname, 'last_name' => $request->lname, 'email' => $request->email, 'phone' => $request->phone, 'cin' => $request->cin, 'photo' => $fileName];
+		User::create($userData);
+		return response()->json([
+			'status' => 200,
+		]);
+	}
 }
