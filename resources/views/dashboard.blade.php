@@ -65,40 +65,13 @@
     </div>
 </div>
 
-<div class="modal fade" id="" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-   aria-hidden="true">
-   <div class="modal-dialog modal-notify modal-success" role="document">
-     <!--Content-->
-        <div class="modal-content">
-            <button type="button" class="btn btn-secondary rounded-circle px-2 py-1" data-bs-dismiss="modal" aria-label="Close">
-                <i class="fa fa-close"></i>
-            </button>
-       </div>
 
-       <!--Body-->
-       <div class="modal-body">
-         <div class="text-center">
-           <!-- <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i> -->
-           <i class="fas fa-exclamation-circle"></i>
-           <p>Veuillez remplir vos informations personnelles et insérez vos diplômes</p>
-         </div>
-       </div>
-
-       <div class="modal-footer justify-content-center">
-        <button class="btn btn-success">OK</button>
-       </div> 
-     </div>
-     <!--/.Content-->
-   </div>
-
-
-
-   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="deconnecterModalLabel" aria-hidden="true">
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <i class="fas fa-exclamation-circle"></i>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <i class="fas fa-exclamation-circle align-items-center"></i>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
             </div>
             <div class="modal-body">
                 <p>Veuillez remplir vos informations personnelles et insérez vos diplômes</p>
