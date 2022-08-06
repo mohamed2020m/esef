@@ -134,7 +134,7 @@
   <div class="modal-dialog" role="document" style="max-width: 800px;">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Veuillez remplir vos formations personnelles</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Veuillez remplir vos informations personnelles</h5>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">X</button>
       </div>
     </div>
@@ -198,7 +198,7 @@
             const href = document.getElementById("recu");
             const attributHref = href.getAttribute("href");
             if(attributHref =="#"){
-                // alert("Veuillez remplir vos formations personnelles");
+                // alert("Veuillez remplir vos informations personnelles");
                 $('#exampleModal').modal('show');
             }
         }
