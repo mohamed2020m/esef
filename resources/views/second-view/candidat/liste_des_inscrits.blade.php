@@ -1,7 +1,7 @@
 @extends('layouts.user_type.auth')
 
 @section('content')
-    <div class="card mb-4 mx-4">
+    <div class="card mb-4 ml-auto">
         <div class="card-header pb-0">
             <div class="d-flex flex-row justify-content-center">
                 <div  sytle="text-overflow: ellipsis !important; overflow: hidden !important; width: 40px; white-space: nowrap !important;">
@@ -10,7 +10,7 @@
             </div>
         </div>
         <hr>
-        <div class="card-body px-3 pt-0 pb-2 ml-5">
+        <div class="card-body px-3 pt-0 pb-2 ">
            
             <div class="table-responsive p-0 ">
                 <table  id='empTable' class="table table-striped table-hover mb-0">
@@ -35,6 +35,7 @@
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 Role
                             </th>
+                            
 
                             
                         </tr>
@@ -58,6 +59,7 @@
                  { data: 'last_name' },
                  { data: 'cin' },
                  { data: 'role' },
+                
              ]
         },
        
