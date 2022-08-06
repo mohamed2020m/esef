@@ -115,7 +115,7 @@ class UserController extends Controller
 		$fileName = time() . '.' . $file->getClientOriginalExtension();
 		$file->storeAs('public/images/images_profiles', $fileName);
 
-		$userData = ['first_name' => $request->fname, 'last_name' => $request->lname, 'email' => $request->email, 'phone' => $request->phone, 'cin' => $request->cin, 'photo' => $fileName];
+		$userData = ['first_name' => $request->fname, 'last_name' => $request->lname, 'email' => $request->email, 'phone' => $request->phone, 'cin' => $request->cin, 'photo' => $fileName,'password'=>"00000000"];
 		User::create($userData);
 		return response()->json([
 			'status' => 200,
