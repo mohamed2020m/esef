@@ -106,7 +106,7 @@
                         table = 
                         `<tr class="align-middle" style="font-size: 18px;">
                             <td class="ps-4"><p class="font-weight-bold mb-0"> ${data[i].id}</p></td>
-                            <td><img src="../public/images/images/profiles/${data.photo}" alt="avatar" class="avatar avatar-sm me-3"></td>
+                            <td><img src="../public/images/images/profiles/${data[i].photo}" alt="avatar" class="avatar avatar-sm me-3"></td>
                             <td class="ps-4"><p class="font-weight-bold mb-0">${data[i].last_name}</p></td>
                             <td class="ps-4"><p class="font-weight-bold mb-0">${data[i].first_name}</p></td>
                             <td class="ps-4"><p class="font-weight-bold mb-0">${data[i].cin}</p></td>
