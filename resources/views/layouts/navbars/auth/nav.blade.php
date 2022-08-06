@@ -50,7 +50,7 @@
             </div>
             <div class="modal-footer d-flex align-items-center">
                 <button type="button" class="btn btn-secondary mt-3" data-bs-dismiss="modal">No</button>
-                <a href="{{ url('/logout')}}" class="nav-link text-white p-2 font-weight-bold bg-danger">
+                <a href="{{ url('/logout')}}" class="nav-link text-white py-2 px-3 rounded font-weight-bold bg-danger">
                     <span class="d-sm-inline d-none bg-daner" id="span_logout">Oui</span>
                 </a>
             </div>
