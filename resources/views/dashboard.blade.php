@@ -65,7 +65,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<div class="modal fade" id="" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
    aria-hidden="true">
    <div class="modal-dialog modal-notify modal-success" role="document">
      <!--Content-->
@@ -84,13 +84,28 @@
          </div>
        </div>
 
-       <!--Footer-->
-       <!-- <div class="modal-footer justify-content-center">
+       <div class="modal-footer justify-content-center">
         <button class="btn btn-success">OK</button>
-       </div> -->
+       </div> 
      </div>
      <!--/.Content-->
    </div>
+
+
+
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="deconnecterModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fas fa-exclamation-circle"></i>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Veuillez remplir vos informations personnelles et insérez vos diplômes</p>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 @endsection
