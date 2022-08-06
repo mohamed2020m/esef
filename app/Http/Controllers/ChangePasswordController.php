@@ -38,4 +38,16 @@ class ChangePasswordController extends Controller
                     ? redirect('/login')->with('success', __($status))
                     : back()->withErrors(['email' => [__($status)]]);
     }
+
+    public function updatePasswordDB(Request $request){
+        $request->validate([
+            'current_password' => ['required', new MatchOldPassword],
+            'new_password' => ['required'],
+            'new_confirm_password' => ['same:new_password'],
+        ]);
+   
+        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+        return redirect('dashboard');
+    }
+    
 }

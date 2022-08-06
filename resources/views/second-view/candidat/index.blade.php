@@ -11,7 +11,7 @@
         <h5 class="modal-title" id="exampleModalLabel">Add New Employee</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form action="#" method="POST" id="add_user_form" enctype="multipart/form-data">
+      <form action="/server.php/users-Store" method="POST" id="add_user_form" enctype="multipart/form-data">
         @csrf
         <div class="modal-body p-4 bg-light">
           <div class="row">
