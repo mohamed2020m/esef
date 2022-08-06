@@ -33,12 +33,30 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../assets/css/custom-css.css">
 
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <!-- Datatable CSS -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"/>
-    <!-- Datatable JS -->
-  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+   <!-- ✅ Load CSS file for DataTables  -->
+   <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/jquery.dataTables.min.css"
+      integrity="sha512-1k7mWiTNoyx2XtmI96o+hdjP8nn0f3Z2N4oF/9ZZRgijyV4omsKOXEnqL1gKQNPy2MTSP9rIEWGcH/CInulptA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+     <!-- ✅ load jQuery ✅ -->
+     <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+
+        <!-- ✅ load DataTables ✅ -->
+        <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
+      integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
 
 </head>
 
