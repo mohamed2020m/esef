@@ -130,16 +130,40 @@
         </div>
     </div>
 </div>
-<div class="modal fade mt-6" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document" style="max-width: 800px;">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Veuillez remplir vos informations personnelles</h5>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">X</button>
-      </div>
-    </div>
-  </div>
-</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+   aria-hidden="true">
+   <div class="modal-dialog modal-notify modal-success" role="document">
+     <!--Content-->
+     <div class="modal-content">
+       <!--Header-->
+       <div class="modal-header">
+         <p class="heading lead">ESEF</p>
+
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true" class="white-text">&times;</span>
+         </button>
+       </div>
+
+       <!--Body-->
+       <div class="modal-body">
+         <div class="text-center">
+           <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+           <p>Veuillez remplir vos informations personnelles.</p>
+         </div>
+       </div>
+
+       <!--Footer-->
+       <div class="modal-footer justify-content-center">
+        <button class="btn btn-success">OK</button>
+       </div>
+     </div>
+     <!--/.Content-->
+   </div>
+ </div>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
