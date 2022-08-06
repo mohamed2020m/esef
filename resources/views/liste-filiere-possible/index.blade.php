@@ -1,6 +1,5 @@
 @extends('layouts.user_type.auth')
 @section('content')
-st
 
 <div>
     <div class="row">
