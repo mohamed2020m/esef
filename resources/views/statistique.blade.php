@@ -477,10 +477,12 @@
 <script>
   window.addEventListener('resize', () => {
     if(window.innerHeight >= 1200){
-      document.querySelector('#auth-wrap-nav-content').classList.replace("col", "col-10");
+      document.querySelector('#auth-wrap-nav-content').classList.add("col-10");
+      document.querySelector('#auth-wrap-nav-content').classList.add("col");
     }
     else{
-      document.querySelector('#auth-wrap-nav-content').classList.replace("col-10", "col-12");
+      document.querySelector('#auth-wrap-nav-content').classList.remove("col-10");
+      document.querySelector('#auth-wrap-nav-content').classList.add("col-12");
     }
   })
 
