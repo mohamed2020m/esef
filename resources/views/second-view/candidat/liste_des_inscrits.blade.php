@@ -1,7 +1,7 @@
 @extends('layouts.user_type.auth')
 
 @section('content')
-    <div class="card mb-4 ml-5">
+    <div class="card mb-4 ml-auto">
         <div class="card-header pb-0">
             <div class="d-flex flex-row justify-content-center">
                 <div  sytle="text-overflow: ellipsis !important; overflow: hidden !important; width: 40px; white-space: nowrap !important;">
@@ -35,6 +35,9 @@
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 Role
                             </th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                
+                            </th>
 
                             
                         </tr>
@@ -58,6 +61,11 @@
                  { data: 'last_name' },
                  { data: 'cin' },
                  { data: 'role' },
+                 { "data": "id",
+                    fnCreatedCell: function (nTd, sData, oData, iRow, iCol) {
+                   
+                $(nTd).html("<a href='user-management-"+oData.id+"'   >"View"</a>");}
+                },
              ]
         },
        
