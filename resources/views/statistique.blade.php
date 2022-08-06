@@ -18,7 +18,7 @@
             </div>
             <div class="mx-3 text-end">
               <div class="icon icon-shape text-center border-radius-md text-white" style="background-color:#0f233a">
-                <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                <i class="fa fa-book text-lg opacity-10" aria-hidden="true"></i>
               </div>
             </div>
           </div>
