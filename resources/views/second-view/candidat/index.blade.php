@@ -11,7 +11,7 @@
         <h5 class="modal-title" id="exampleModalLabel">Add New Employee</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form action="#" method="POST" id="add_employee_form" enctype="multipart/form-data">
+      <form action="#" method="POST" id="add_user_form" enctype="multipart/form-data">
         @csrf
         <div class="modal-body p-4 bg-light">
           <div class="row">
@@ -33,17 +33,17 @@
             <input type="tel" name="phone" class="form-control" placeholder="Phone" required>
           </div>
           <div class="my-2">
-            <label for="post">Post</label>
-            <input type="text" name="post" class="form-control" placeholder="Post" required>
+            <label for="post">cin</label>
+            <input type="text" name="cin" class="form-control" placeholder="Post" required>
           </div>
           <div class="my-2">
-            <label for="avatar">Select Avatar</label>
+            <label for="avatar">Image</label>   
             <input type="file" name="avatar" class="form-control" required>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" id="add_employee_btn" class="btn btn-primary">Add Employee</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermez</button>
+          <button type="submit" id="add_user_btn" class="btn btn-primary">Ajoutez un utilisateur</button>
         </div>
       </form>
     </div>
@@ -105,15 +105,15 @@
 </div>
 {{-- edit employee modal end --}}
 
-<body class="bg-light">
+
   <div class="container">
     <div class="row my-5">
       <div class="col-lg-12">
         <div class="card shadow">
           <div class="card-header bg-danger d-flex justify-content-between align-items-center">
-            <h3 class="text-light">Manage Employees</h3>
+            <h3 class="text-light">Gestion des utilisateurs </h3>
             <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addEmployeeModal"><i
-                class="bi-plus-circle me-2"></i>Add New Employee</button>
+                class="bi-plus-circle me-2"></i>Ajoutez un utilisateur</button>
           </div>
           <div class="card-body" id="show_all_employees">
             <h1 class="text-center text-secondary my-5">Loading...</h1>
@@ -121,5 +121,27 @@
         </div>
       </div>
     </div>
-  </div>    
+  </div>  
+
+   <script>
+    $(function() {
+
+      // add new employee ajax request
+      $("#add_user_form").submit(function(e) {
+        e.preventDefault();
+        const fd = new FormData(this);
+        $("#add_user_btn").text("En train d'ajouter un utilsateur...");
+        $.ajax({
+          url: '{{ route('users-store') }}',
+          method: 'post',
+          data: fd,
+          cache: false,
+          contentType: false,
+          processData: false,
+          dataType: 'json',
+          success: function(response) {
+            console.log(response);
+          }
+        });
+      });  
 @endsection
