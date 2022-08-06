@@ -10,7 +10,7 @@
             </div>
         </div>
         <hr>
-        <div class="card-body px-3 pt-0 pb-2 ml-auto">
+        <div class="card-body px-3 pt-0 pb-2 ml-5">
            
             <div class="table-responsive p-0 ">
                 <table  id='empTable' class="table table-striped table-hover mb-0">
