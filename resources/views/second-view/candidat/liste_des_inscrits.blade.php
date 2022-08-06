@@ -21,10 +21,6 @@
                             </th>
 
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                Photo
-                            </th>
-
-                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 Nom
                             </th>
 
@@ -58,7 +54,6 @@
             method: "get",
             columns: [
                  { data: 'id' },
-                 { data: 'photo' },
                  { data: 'first_name' },
                  { data: 'last_name' },
                  { data: 'cin' },
