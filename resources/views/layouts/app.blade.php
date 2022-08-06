@@ -132,6 +132,17 @@
         document.querySelector('#auth-wrap-nav-content').classList.remove("col-10");
         document.querySelector('#auth-wrap-nav-content').classList.add("col-12");
     })
+
+    window.addEventListener('resize', () => {
+      if(window.innerWidth >= 1200){
+        sidebar.setAttribute('style', 'display:block !important');
+        btn.setAttribute('style', 'display:none !important');
+      }
+      if(window.innerWidth <= 400){
+        sidebar.setAttribute('style', 'display:none !important');
+        btn.setAttribute('style', 'display:block !important');
+      }
+    })
   </script>
 
   <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
