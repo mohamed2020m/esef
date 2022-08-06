@@ -60,7 +60,7 @@
                  { data: 'id' },
                  { data: 'photo' ,
                     "render":function(data){
-                        const imgPath = "{{ URL::to('/images/images_profiles/'.data) }}"";
+                        const imgPath = "{{ URL::to('/images/images_profiles/'.photo) }}"";
                         const img = "<img src='"+imgPath+"'  class="avatar avatar-sm me-3" >";
                     }},
                  { data: 'first_name' },
