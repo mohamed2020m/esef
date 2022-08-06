@@ -12,7 +12,7 @@
         <hr>
         <div class="card-body px-3 pt-0 pb-2">
            
-            <div class="table-responsive p-0">
+            <div class="table-responsive p-0 ml-auto">
                 <table  id='empTable' class="table table-striped table-hover mb-0">
                     <thead>
                         <tr>
@@ -58,7 +58,11 @@
             method: "get",
             columns: [
                  { data: 'id' },
-                 { data: 'photo' },
+                 { data: 'photo' ,
+                    "render":function(data){
+                        const imgPath = "{{ URL::to('/images/images_profiles/'.data) }}"";
+                        const img = "<img src='"+imgPath+"'  class="avatar avatar-sm me-3" >";
+                    }},
                  { data: 'first_name' },
                  { data: 'last_name' },
                  { data: 'cin' },
