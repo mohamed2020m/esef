@@ -89,4 +89,21 @@ class UserController extends Controller
             return  redirect('dashboard');
         }
     }
+
+
+
+
+
+
+    public function index(){
+        if(Auth::user()->role =="admin"){
+
+
+            return view('second-view/candidat/index');
+        }
+        else{
+            return  redirect('dashboard');
+        }
+
+    }
 }
