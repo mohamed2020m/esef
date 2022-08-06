@@ -110,6 +110,11 @@ class HomeController extends Controller
         return view('dashboard',compact('user_id'));
         }
         else{
+
+            $nombre_filieres = DB::table('filieres')->count();
+            $nombre_candidats_inscrits=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->count();
+            //echo($nombre_candidats_inscrits);
+            //echo($nombre_filieres);
             return view('statistique');
         }
 
