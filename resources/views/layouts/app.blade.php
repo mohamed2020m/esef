@@ -34,15 +34,14 @@
   <link rel="stylesheet" href="../assets/css/custom-css.css">
 
   
- 
-   
-  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<!-- Datatable CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"/>
 
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
-  
-  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+<!-- jQuery Library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-
+<!-- Datatable JS -->
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 </head>
 
 <body class="g-sidenav-show  bg-gray-100 {{ (\Request::is('rtl') ? 'rtl' : (Request::is('virtual-reality') ? 'virtual-reality' : '')) }} ">
@@ -149,7 +148,7 @@
     })
   </script>
 
- 
+
   <script>  
     $(window).on('load', function(event) {
         $('.preloader').delay(500).fadeOut(500);
