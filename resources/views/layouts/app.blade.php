@@ -147,6 +147,17 @@
         btn.setAttribute('style', 'display:block !important');
       }
     })
+    
+    document.querySelector("#btn_logout").addEventListener('click', () => {
+      if(window.innerWidth >= 1200){
+        sidebar.setAttribute('style', 'display:block !important');
+        btn.setAttribute('style', 'display:none !important');
+      }
+      if(window.innerWidth <= 400){
+        sidebar.setAttribute('style', 'display:none !important');
+        btn.setAttribute('style', 'display:block !important');
+      }
+    })
   </script>
 
 

@@ -37,17 +37,17 @@ Route::group(['middleware' => 'auth'], function () {
     
     Route::get('/verification/data/user',[HomeController::class,'verification_recu']);
 
-	Route::get('profile', function () {
-		return view('profile');
-	})->name('profile');
+	// Route::get('profile', function () {
+	// 	return view('profile');
+	// })->name('profile');
 
-    Route::get('static-sign-in', function () {
-		return view('static-sign-in');
-	})->name('sign-in');
+    // Route::get('static-sign-in', function () {
+	// 	return view('static-sign-in');
+	// })->name('sign-in');
 
-    Route::get('static-sign-up', function () {
-		return view('static-sign-up');
-	})->name('sign-up');
+    // Route::get('static-sign-up', function () {
+	// 	return view('static-sign-up');
+	// })->name('sign-up');
 
     Route::get('/logout', [SessionsController::class, 'destroy']);
 	Route::get('/user-profile', [InfoUserController::class, 'create']);

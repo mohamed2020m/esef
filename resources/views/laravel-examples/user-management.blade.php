@@ -100,8 +100,8 @@
                 url:'{{URL::to("candidatsList")}}',
                 data:{'id':filiere_id},
                 success: function(data){
-                    //console.log("succes");
-                    //console.log(data);
+                    console.log("succes");
+                    console.log("data: ", data);
                     //console.log(data.length);
                 
                     for(var i=0;i<data.length;i++){
