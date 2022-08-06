@@ -70,11 +70,11 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <i class="fas fa-exclamation-circle text-center"></i>
+                <i class="fas fa-exclamation-circle align-items-center"></i>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
             </div>
             <div class="modal-body">
-                <p>Veuillez remplir vos informations personnelles et insérez vos diplômes</p>
+                <p>D'abord, vous devez finaliser l'étape (1) et (2)</p>
             </div>
         </div>
     </div>
@@ -102,11 +102,9 @@
                     if(response.data[0] !=null && fname!=null ){
                         const a = document.querySelector('#condidat');
                         a.href = '/server.php/condidature';
-                    }
-                   
-                    if(fname != null){
-                        const a = document.querySelector('#dossier_condidat');
-                        a.href = '/server.php/dossier-personnelle';
+
+                        const aa = document.querySelector('#dossier_condidat');
+                        aa.href = '/server.php/dossier-personnelle';
                     }
                 }
             });

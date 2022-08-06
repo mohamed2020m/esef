@@ -473,7 +473,22 @@
 
 
 @endsection
-<!-- @push('dashboard') -->
+
+<script>
+  window.addEventListener('resize', () => {
+    if(window.innerWidth >= 1200){
+      document.querySelector('#auth-wrap-nav-content').classList.add("col-10");
+      document.querySelector('#auth-wrap-nav-content').classList.remove("col", "col-12");
+    }
+    else{
+      document.querySelector('#auth-wrap-nav-content').classList.remove("col-10");
+      document.querySelector('#auth-wrap-nav-content').classList.add("col-12");
+    }
+  })
+
+</script>
+
+@push('dashboard')
 <script>
   window.onload = function() {
     var ctx = document.getElementById("chart-bars").getContext("2d");
@@ -646,5 +661,5 @@
     });
   }
 </script>
-<!-- @endpush -->
+@endpush
 
