@@ -47,7 +47,7 @@
                 <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 cusotom-sideBar" style="display:block">
                     @include('layouts.navbars.auth.sidebar')
                 </div>
-                <div class="col">
+                <div class="col" id="auth-wrap-nav-content">
                     <div class="mb-3">
                         @include('layouts.navbars.auth.nav')
                     </div>
