@@ -94,10 +94,10 @@
             var op="";
             var table="";
             
-            //console.log(filiere_id);
+            console.log(filiere_id);
             $.ajax({
                 type:'get',
-                // url:'{!!URL::to('candidatsList')!!}',
+                url:'{{URL::to("candidatsList")}}',
                 data:{'id':filiere_id},
                 success: function(data){
                     //console.log("succes");
@@ -122,6 +122,7 @@
                     $( ".tableview" ).html(table);
                 },
                 error:function(){
+                    console.log("error")
                 }
             });
         });
