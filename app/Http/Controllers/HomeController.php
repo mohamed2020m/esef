@@ -40,7 +40,7 @@ class HomeController extends Controller
                     $matieres=DB::table('matiere_user')->select('matiere_user.*')->join('matieres','matieres.id','=','matiere_user.matiere_id')
                     ->where('matiere_user.user_id',$candidat->user_id);
                     foreach($matieres as $matiere){
-                        echo($matiere->note);
+                        echo(gettype($matiere));
                         echo("</br>");
                     }
                     echo("other candidat");
