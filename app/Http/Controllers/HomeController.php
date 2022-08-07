@@ -43,7 +43,7 @@ class HomeController extends Controller
 
                   foreach($matieres as $matiere){
 
-                    dd($matiere);
+                    
 
                   }
 
