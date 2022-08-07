@@ -50,21 +50,21 @@
                     { data: 'id' },
                     { 
                         data: 'first_name',
-                        defaultContent:"Pas encore défini"
+                        "defaultContent":"Pas encore défini"
                     },
                     { 
                         data: 'last_name',
-                        defaultContent:"Pas encore défini"
+                        "defaultContent":"Pas encore défini"
                     },
                     { 
                         data: 'cin',
-                        defaultContent:"Pas encore défini"
+                        "defaultContent":"Pas encore défini"
                     },
                     { 
                         data: 'role',
-                        render: function ( data, type, row, meta ){
+                        render: function ( data, type, row){
                             if(data == 'normal user'){
-                                data = 'condidat'
+                                return 'condidat'
                             }
                         }  
                     },
