@@ -39,6 +39,9 @@
     <div class="m-3">
         <a  id="backto" href="https://esef.toubkalit.com/server.php/candidats"><i class="fa fa-lg fa-arrow-left ps-2 pe-2 text-center text-dark" aria-hidden="true"></i>Retour</a>
     </div>
+    <div>
+        data: {{$data}}
+    </div>
     @foreach($data as $key => $item)
     <div class="">
         <div class="card mb-4">
