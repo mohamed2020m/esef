@@ -40,7 +40,7 @@
 
 <script>
     $(document).ready(function() {
-        let utilisateurs = $('#empTable').DataTable({
+        $('#empTable').DataTable({
             "serverSide": true,
             "processing": true,
             "ajax": {
@@ -79,17 +79,13 @@
                 "loadingRecords": "Chargement...",
             }
         });
-        console.log("ust: ", utilisateurs);
-        $(utilisateurs).ready(
-            function(){
-                utilisateurs.column(5).nodes().each(function(node, index, dt){
-                    if(utilisateurs.cell(node).data() == 'normal user'){
-                        utilisateurs.cell(node).data('candidat');
-                    }
-                });
+
+        $('#empTable').DataTable().column(5).nodes().each(function(node, index, dt){
+            if(utilisateurs.cell(node).data() == 'normal user'){
+                utilisateurs.cell(node).data('candidat');
             }
-        )
-    });
+        });
+    })
 </script>
     
 @endsection
