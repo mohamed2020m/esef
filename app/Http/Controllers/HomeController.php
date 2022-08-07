@@ -38,9 +38,9 @@ class HomeController extends Controller
                 foreach($data as $candidat){
 
                     $matieres=DB::table('matiere_user')->select('matiere_user.*')->join('matieres','matieres.id','=','matiere_user.matiere_id')
-                    ->where('matiere_user.user_id',$candidat->user_id);
+                    ->where('matiere_user.user_id',$candidat->user_id)->get();
                     foreach($matieres as $matiere){
-                        echo(gettype($matiere));
+                        echo($matiere->note);
                         echo("</br>");
                     }
                     echo("other candidat");
