@@ -560,7 +560,10 @@ to {
     margin-top:5px;
     margin-bottom:5px;
 }
-.paginate_button .previous{
-    
+.dataTables_paginate .current {
+    background-color: #0f233a !important;
+    color:white !important;
+    border-radius: 50% !important;
+    border: none !important;
 }
 /* DataTable :: End */
