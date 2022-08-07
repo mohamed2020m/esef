@@ -32,8 +32,8 @@ class HomeController extends Controller
     public function showCandidats(Request $request){
             if(Auth::user()->role =="admin"){
     
-    $data=DB::table('users')->select('users.*')->join('filiere_user','filiere_user.user_id','=','users.id')
-    ->where('filiere_user.filiere_id',$request->filiere)->get();
+                $data=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')
+                ->join('filieres','filieres.id','=','filiere_user.filiere_id')->where('filieres.id',$request->id)->get();
                  
     return response()->json($data);
 
