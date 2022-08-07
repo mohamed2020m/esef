@@ -292,8 +292,8 @@ to {
 /* ==== Scroll bar====*/
 /* width */
 ::-webkit-scrollbar {
-    width: 5px;
-    min-height: 5px;
+    width: 8px;
+    height: 5px;
 }
 
   /* Track */
