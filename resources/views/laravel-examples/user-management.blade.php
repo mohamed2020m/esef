@@ -51,7 +51,7 @@
                     </thead>
                     <tbody id="UserDataTable">
                         <tr class="align-middle" style="font-size: 18px;">
-                            <td colspan="7" class="text-center">Sélectionner une filière</td>
+                            <td colspan="7" class="text-center">Sélectionner une filière &#128515;</td>
                         </tr>
                     </tbody>
                 </table>
