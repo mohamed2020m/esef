@@ -63,6 +63,7 @@
                     { 
                         data: 'role',
                         render: function ( data, type, row){
+                            console.log("data: ", data)
                             if(data == 'normal user'){
                                 return 'condidat'
                             }
@@ -86,12 +87,6 @@
                 "loadingRecords": "Chargement...",
             }
         });
-
-        // $('#empTable').DataTable().column(5).nodes().each(function(node, index, dt){
-        //     if(utilisateurs.cell(node).data() == 'normal user'){
-        //         utilisateurs.cell(node).data('candidat');
-        //     }
-        // });
     })
 </script>
     
