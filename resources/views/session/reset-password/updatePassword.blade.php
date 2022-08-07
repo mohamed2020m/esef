@@ -7,7 +7,7 @@
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
                     <br>
-                    <form method="POST" action="/server.php/change/password/db" class="md-float-material">
+                    <form method="POST" action="/server.php/change/password" class="md-float-material">
                         @csrf
                         <div class="form-group position-relative has-icon-left mb-4">
                             <input type="password" class="form-control form-control-lg @error('current_password') is-invalid @enderror" 
