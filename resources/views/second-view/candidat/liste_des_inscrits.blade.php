@@ -71,6 +71,7 @@
             }
         });
         let role = $('td:last-child');
+        console.log("role: ", role);
         $.each(role, function( index, value) {
             console.log( index + ": " + value );
         });
