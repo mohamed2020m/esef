@@ -103,8 +103,9 @@ class HomeController extends Controller
     
                      
                      $score=(($note_partie_bac*$coefficient_bac)+($note_partie_licence*$coefficient_licence))/($coefficient_bac+$coefficient_licence);
-                     echo($score);
-                     echo('</br>');
+                     $candidat->score = $score;
+                     //echo($candidat->score);
+                     //echo('</br>');
 
                      }
                                return response()->json($data);
