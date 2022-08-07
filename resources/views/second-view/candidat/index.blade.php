@@ -11,7 +11,7 @@
         <h5 class="modal-title" id="exampleModalLabel">Add New Employee</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form action="/server.php/users-Store" method="POST" id="add_user_form" enctype="multipart/form-data">
+      <form action="#" method="POST" id="add_user_form" enctype="multipart/form-data">
         @csrf
         <div class="modal-body p-4 bg-light">
           <div class="row">
@@ -132,7 +132,7 @@
         const fd = new FormData(this);
         $("#add_user_btn").text("En train d'ajouter un utilsateur...");
         $.ajax({
-          url: '{{ route('users-store') }}',
+          url: '{{ route('users') }}',
           method: 'post',
           data: fd,
           cache: false,
@@ -140,7 +140,7 @@
           processData: false,
           dataType: 'json',
           success: function(response) {
-            console.log(response);
+         console.log(response);
           }
         });
       });  

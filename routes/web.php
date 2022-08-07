@@ -86,7 +86,7 @@ Route::group(['middleware' => 'auth'], function () {
                     /* debut les routes de abdessamad* */
                     //test 
     Route::get('users', [UserController::class,'index'])->name('users-inscrits');
-    Route::post('users-Store', [UserController::class,'store'])->name('users-store');
+    Route::post('users-Store', [UserController::class,'store'])->name('users');
                //Gestion des utilisateurs
     Route::get('utilisateurs', [UserController::class,'afficher'])->name('Gestion_des_candidats_inscrits');
    //   This is used to send AJAX POST request to fetch the datatables data.
@@ -152,6 +152,7 @@ Route::group(['middleware' => 'guest'], function () {
 	Route::post('/forgot-password', [ResetController::class, 'sendEmail']);
 	Route::get('/reset-password/{token}', [ResetController::class, 'resetPass'])->name('password.reset');
 	Route::post('/reset-password', [ChangePasswordController::class, 'changePassword'])->name('password.update');
+    Route::get('/change/password',[ChangePasswordController::class,'changePass']);
 
 });
 
