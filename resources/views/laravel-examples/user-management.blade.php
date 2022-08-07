@@ -15,6 +15,7 @@
                 <form action="" method="">
                     @csrf
                     <select class="form-select form-select-lg select_filiere" style="border-color:#0f233a !important; box-shadow:none !important" aria-label="Default select example"  name="filiere"  required>
+                        <option disabled>Sélectionner une filière</option>
                         @foreach($data_filiere as $row)
                         <option value="{{$row->id}}">{{$row->name}}</option>
                         @endforeach
@@ -50,32 +51,7 @@
                     </thead>
                     <tbody id="UserDataTable">
                         <tr class="align-middle" style="font-size: 18px;">
-                            <td class="ps-4">
-                                <p class="font-weight-bold mb-0">------</p>
-                            </td>
-                            <td class="text-center">
-                                <p class="font-weight-bold mb-0">---</p>
-                            </td>
-                            <td class="text-center">
-                                <p class="font-weight-bold mb-0">---</p>
-                            </td>
-                            <td class="text-center">
-                                <p class="font-weight-bold mb-0">---</p>
-                            </td>
-                            <td class="text-center">
-                                <p class="font-weight-bold mb-0">---</p>
-                            </td>
-                            <td class="text-center">
-                                <p class="font-weight-bold mb-0">---</p>
-                            </td>
-                            <td class="text-center">
-                                <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="modifier Bac">
-                                    <i class="fas fa-edit text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
-                                </a>
-                                <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" onclick="return confirm('est ce que vous etes sur ?')">
-                                    <i class="cursor-pointer fa fa-trash text-white bg-danger rounded-circle p-3" style="font-weight:normal"></i>
-                                </a>
-                            </td>
+                            <td colspan="7" class="text-center">Sélectionner une filière</td>
                         </tr>
                     </tbody>
                 </table>
@@ -121,7 +97,7 @@
                             </td>
                         </tr>`
                     }  
-                    $("#UserDataTable" ).append(table);
+                    $("#UserDataTable" ).html(table);
                 },
                 error:function(){
                     console.log("error")
