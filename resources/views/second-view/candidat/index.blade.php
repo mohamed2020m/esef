@@ -132,7 +132,7 @@
         const fd = new FormData(this);
         $("#add_user_btn").text("En train d'ajouter un utilsateur...");
         $.ajax({
-          url: '{{ route('users') }}',
+          url: {{ url('/server.php/users-Store') }},
           method: 'post',
           data: fd,
           cache: false,
