@@ -79,11 +79,16 @@
                 "loadingRecords": "Chargement...",
             }
         });
-        utilisateurs.column(5).nodes().each(function(node, index, dt){
-            if(utilisateurs.cell(node).data() == 'normal user'){
-                utilisateurs.cell(node).data('candidat');
+        console.log("ust: ", utilisateurs);
+        $(utilisateurs).ready(
+            function(){
+                utilisateurs.column(5).nodes().each(function(node, index, dt){
+                    if(utilisateurs.cell(node).data() == 'normal user'){
+                        utilisateurs.cell(node).data('candidat');
+                    }
+                });
             }
-        });
+        )
     });
 </script>
     
