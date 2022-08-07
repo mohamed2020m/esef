@@ -40,7 +40,7 @@
 
 <script>
     $(document).ready(function() {
-        $('#empTable').DataTable({
+        let users = $('#empTable').DataTable({
             "serverSide": true,
             "ajax": {
                 url: "{{route('getUtilisateurs') }}", 
@@ -68,9 +68,6 @@
                 "search":         "Chercher:",
                 "loadingRecords": "Chargement...",
             },
-        });
-
-        $('#empTable').DataTable({
             "columnDefs": [ {
                 "targets": -1,
                 "data": function ( row, type, val, meta ) {
