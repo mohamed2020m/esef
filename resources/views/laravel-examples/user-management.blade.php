@@ -78,7 +78,7 @@
                     console.log("succes");
                     console.log("data: ", data);
                     for(var i=0;i<data.length;i++){
-                        table = 
+                        table += 
                         `<tr class="align-middle" style="font-size: 18px;">
                             <td class="ps-4"><p class="font-weight-bold mb-0"> ${data[i].id}</p></td>
                             <td class="ps-4"><img src="../public/images/images_profiles/${data[i].photo}" alt="avatar" class="avatar avatar-sm me-3"></td>
