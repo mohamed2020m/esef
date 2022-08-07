@@ -29,15 +29,6 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ (Request::is('change-password') ? 'active' : '') }}" href="{{ url('change-password') }}">
-            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i style="font-size: 1rem;" class="fa fa-lg fa-lock ps-2 pe-2 text-center text-dark {{ (Request::is('change-password') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
-            </div>
-            <span class="nav-link-text ms-1">Changer mot de passe</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
           <a class="nav-link {{ (Request::is('logout') ? 'active' : '') }}" href="{{ url('logout') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <i style="font-size: 1rem;" class="fa fa-lg fa-sign-out ps-2 pe-2 text-center text-dark {{ (Request::is('logout') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
@@ -46,6 +37,7 @@
           </a>
         </li>
       @endif
+
       @if(auth()->user()->role =='admin')
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('user-management') ? 'active' : '') }}" href="{{ url('candidats') }}">
