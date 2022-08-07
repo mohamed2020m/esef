@@ -39,7 +39,7 @@
     <div class="m-3">
         <a  id="backto" href="https://esef.toubkalit.com/server.php/candidats"><i class="fa fa-lg fa-arrow-left ps-2 pe-2 text-center text-dark" aria-hidden="true"></i>Retour</a>
     </div>
-
+    @foreach($data as $key => $item)
     <div class="">
         <div class="card mb-4">
             <div class="card-header">
@@ -63,7 +63,7 @@
                         <p class="mb-0">Nom</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{$data[0].phone}}" type="text"  disabled>
+                        <input class="form-control" value="{{$item->last_name}}" type="text"  disabled>
                     </div>
                 </div>
 
@@ -72,7 +72,7 @@
                         <p class="mb-0 text-end">الإسم العائلي</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{ $data[0].last_name_arabic }}" type="text"  disabled>
+                        <input class="form-control" value="{{ $item->last_name_arabic }}" type="text"  disabled>
                     </div>
                 </div>
 
@@ -81,7 +81,7 @@
                         <p class="mb-0">Prénom</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{ $data[0].first_name }}" type="text" disabled>
+                        <input class="form-control" value="{{ $item->.first_name }}" type="text" disabled>
                     </div>
                 </div>
 
@@ -90,7 +90,7 @@
                         <p class="mb-0 text-end">الإسم الشخصي</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{ $data[0].first_name_arabic }}" type="text" disabled>
+                        <input class="form-control" value="{{ $item->first_name_arabic }}" type="text" disabled>
                     </div>
                 </div>
 
@@ -100,7 +100,7 @@
                         <p class="mb-0">Date Naissance</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{$data[0].birthday}}" type="date"  disabled>
+                        <input class="form-control" value="{{$item->birthday}}" type="date"  disabled>
                     </div>
                 </div>
 
@@ -110,7 +110,7 @@
                         <p class="mb-0">Lieu Naissance</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{$data[0].birth_place}}" type="text"  disabled>
+                        <input class="form-control" value="{{$item->birth_place}}" type="text"  disabled>
                     </div>
                 </div>
 
@@ -120,7 +120,7 @@
                         <p class="mb-0">CIN</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{$data[0].cin}}" type="text" disabled>
+                        <input class="form-control" value="{{$item->cin}}" type="text" disabled>
                     </div>
                 </div>
 
@@ -130,7 +130,7 @@
                         <p class="mb-0">CNE</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{$data[0].cne}}" type="text"  disabled>
+                        <input class="form-control" value="{{$item->cne}}" type="text"  disabled>
                     </div>
                 </div>
 
@@ -139,7 +139,7 @@
                         <p class="mb-0">Téléphone</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{$data[0].phone}}" type="tel"  disabled>
+                        <input class="form-control" value="{{$item->phone}}" type="tel"  disabled>
                     </div>
                 </div>
 
@@ -148,7 +148,7 @@
                         <p class="mb-0">E-mail</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{ $data[0].email }}" type="email" disabled>
+                        <input class="form-control" value="{{ $item->email }}" type="email" disabled>
                     </div>
                 </div>
 
@@ -172,6 +172,7 @@
             </div>
         </div>
     </div>
+    @endforeach
 @endsection
 
 <!-- <script>
