@@ -68,12 +68,15 @@
                 },
                 "search":         "Chercher:",
                 "loadingRecords": "Chargement...",
-            }
-        });
-        let role = $('td:last-child');
-        console.log("role: ", role);
-        $.each(role, function( index, value) {
-            console.log( index + ": " + value );
+            },
+            "columnDefs": [ {
+                "targets": -1,
+                "data": function ( row, type, val, meta ) {
+                    if (val === 'normal user') {
+                        return 'condidat';
+                    }
+                }
+            }]
         });
     })
 </script>
