@@ -53,6 +53,21 @@
                     { data: 'role' },
                 ]
             },
+            "language": {
+                "lengthMenu": "Afficher _MENU_ enregistrements par page",
+                "zeroRecords": "Rien n'a été trouvé",
+                "info": "Affichage de la page _PAGE_ sur _PAGES_",
+                "infoEmpty": "Aucun enregistrement disponible",
+                "infoFiltered": "(filtré à partir de _MAX_ enregistrements au total)",
+                "paginate": {
+                    "first":      "Première",
+                    "last":       "Dernier",
+                    "next":       "Suivant",
+                    "previous":   "Précédent"
+                },
+                "search":         "Chercher:",
+                "loadingRecords": "Chargement...",
+            }
         });
     });
 </script>
