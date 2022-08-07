@@ -87,7 +87,7 @@
                             <td class="ps-4"><p class="font-weight-bold mb-0">${data[i].cin}</p></td>
                             <td class="ps-4"><p class="font-weight-bold mb-0">${data[i].cne}</p></td>
                             <td class="text-center">
-                                <a href="/server.php/user-management-${data[i].id}" class="mr-3" data-bs-toggle="tooltip" data-bs-original-title="view condidature">
+                                <a href="/server.php/user-management-${data[i].user_id}" class="mr-3" data-bs-toggle="tooltip" data-bs-original-title="view condidature">
                                     <i class="fas fa-eye text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
                                 </a>
                                 <a href="#" class="" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" onclick="return confirm('est ce que vous etes sur ?')">
