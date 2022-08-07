@@ -77,6 +77,7 @@
                 data:{'id':filiere_id},
                 success: function(data){
                     for(var i=0;i<data.length;i++){
+                        console.log("score: ", data[i].score);
                         table += 
                         `<tr class="align-middle" style="font-size: 18px;">
                             <td class="text-center"><p class="font-weight-bold mb-0"> ${data[i].user_id}</p></td>
