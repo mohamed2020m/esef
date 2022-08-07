@@ -48,27 +48,10 @@
                 method: "get",
                 columns: [
                     { data: 'id' },
-                    { 
-                        data: 'first_name',
-                        "defaultContent":"Pas encore défini"
-                    },
-                    { 
-                        data: 'last_name',
-                        "defaultContent":"Pas encore défini"
-                    },
-                    { 
-                        data: 'cin',
-                        "defaultContent":"Pas encore défini"
-                    },
-                    { 
-                        data: 'role',
-                        render: function ( data, type, row){
-                            console.log("data: ", data)
-                            if(data == 'normal user'){
-                                return 'condidat'
-                            }
-                        }  
-                    },
+                    { data: 'first_name',},
+                    { data: 'last_name',},
+                    { data: 'cin',},
+                    { data: 'role',},
                 ]
             },
             "language": {
@@ -86,6 +69,10 @@
                 "search":         "Chercher:",
                 "loadingRecords": "Chargement...",
             }
+        });
+        let role = $('td:last-child');
+        $.each(role, function( index, value) {
+            alert( index + ": " + value );
         });
     })
 </script>
