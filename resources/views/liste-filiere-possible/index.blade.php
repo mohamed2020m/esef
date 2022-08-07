@@ -93,7 +93,7 @@
                                         <p class=" font-weight-bold mb-0">12</p>
                                     </td>
                                     <td class="text-center">
-                                    <a href="{{url('/server.php/download/recu/'.$item->id)}}"><img src="#" alt="" width="50px" ><i class="fa fa-download"></i></a>
+                                    <a href="{{url('/download/recu/'.$item->id)}}"><img src="#" alt="" width="50px" ><i class="fa fa-download"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
