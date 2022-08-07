@@ -66,17 +66,13 @@
         $(document).on('change','.select_filiere',function(){
           //console.log("hmm");
             var filiere_id=$(this).val();
-            var op="";
             var table="";
-            
-            console.log(filiere_id);
+
             $.ajax({
                 type:'get',
                 url:'{{URL::to("candidatsList")}}',
                 data:{'id':filiere_id},
                 success: function(data){
-                    console.log("succes");
-                    console.log("data: ", data);
                     for(var i=0;i<data.length;i++){
                         table += 
                         `<tr class="align-middle" style="font-size: 18px;">
