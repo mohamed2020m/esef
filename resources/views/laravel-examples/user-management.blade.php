@@ -92,7 +92,7 @@
                                     <i class="fas fa-eye text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
                                 </a>
                                 <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" onclick="return confirm('est ce que vous etes sur ?')">
-                                    <i class="cursor-pointer fa fa-trash text-white bg-danger rounded-circle p-3" style="font-weight:normal"></i>
+                                    <i class="cursor-pointer fa fa-file-excel text-white bg-success rounded-circle p-3" style="font-weight:normal"></i>
                                 </a>
                             </td>
                         </tr>`
