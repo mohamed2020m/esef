@@ -1,7 +1,7 @@
 @extends('layouts.user_type.auth')
 
 @section('content')
-<div class="container text-center mt-2">
+<div class="container text-center my-3">
     <div class="d-flex justify-content-center">
         <div>
             <div class="d-flex flex-wrap mb-2 subContainer">
