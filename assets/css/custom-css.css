@@ -549,7 +549,18 @@ to {
 /* Charts :: End */
 
 /* DataTable :: Start*/
-#empTable > tbody td{
+#empTable > tbody tr{
     text-align: center !important;
+}
+.dataTables_info{
+    margin-top:5px ;
+    margin-bottom:5px;
+}
+.dataTables_paginate{
+    margin-top:5px;
+    margin-bottom:5px;
+}
+.paginate_button .previous{
+    
 }
 /* DataTable :: End */
