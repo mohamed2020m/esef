@@ -39,6 +39,10 @@ class ChangePasswordController extends Controller
                     : back()->withErrors(['email' => [__($status)]]);
     }
 
+
+    public function changePass(){
+        return view('session/reset-password/updatePassword');
+    }
     public function updatePasswordDB(Request $request){
         $request->validate([
             'current_password' => ['required', new MatchOldPassword],
