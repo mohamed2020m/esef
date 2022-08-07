@@ -42,8 +42,8 @@
     @foreach($data as $key => $item)
     <div class="">
         <div class="card mb-4">
-            <div class="card-header d-flex justify-content-center">
-                <i class="fa fa-user"></i>
+            <div class="card-header d-flex justify-content-center align-items-center">
+                <i class="fa fa-user mr-3"></i>
                 Informations sur le profil
             </div>
             <hr>
@@ -167,7 +167,7 @@
                     <div class="col-sm-3">
                         <p class="mb-0">CIN (face 2)</p>
                     </div>
-                    <div class="border border-danger rounded-3">
+                    <div class="">
                         <img class="" src="{{URL::to('../public/images/images_cin/second_face/'. $item->cin_image_face2)}}" alt="face 2"/>
                     </div>
                 </div>
