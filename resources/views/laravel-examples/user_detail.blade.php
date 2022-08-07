@@ -43,7 +43,7 @@
     <div class="">
         <div class="card mb-4">
             <div class="card-header d-flex justify-content-center align-items-center">
-                <i class="fa fa-user mr-3"></i>
+                <i class="fa fa-user me-3"></i>
                 <div>Informations sur le profil</div>
             </div>
             <hr>
