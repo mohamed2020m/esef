@@ -40,7 +40,7 @@
 
 <script>
     $(document).ready(function() {
-        let utilisateurs = $('#empTable').DataTable({
+        $('#empTable').DataTable({
             "serverSide": true,
             "processing": true,
             "ajax": {
@@ -60,7 +60,14 @@
                         data: 'cin',
                         defaultContent:"Pas encore défini"
                     },
-                    { data: 'role' },
+                    { 
+                        data: 'role',
+                        render: function ( data, type, row, meta ){
+                            if(data == 'normal user'){
+                                data = 'condidat'
+                            }
+                        }  
+                    },
                 ]
             },
             "language": {
@@ -79,12 +86,13 @@
                 "loadingRecords": "Chargement...",
             }
         });
-        utilisateurs.column(5).nodes().each(function(node, index, dt){
-            if(utilisateurs.cell(node).data() == 'normal user'){
-                utilisateurs.cell(node).data('candidat');
-            }
-        });
-    });
+
+        // $('#empTable').DataTable().column(5).nodes().each(function(node, index, dt){
+        //     if(utilisateurs.cell(node).data() == 'normal user'){
+        //         utilisateurs.cell(node).data('candidat');
+        //     }
+        // });
+    })
 </script>
     
 @endsection
