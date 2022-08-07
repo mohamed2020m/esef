@@ -11,33 +11,25 @@
         </div>
         <hr>
         <div class="card-body px-3 pt-0 pb-2 ">
-           
             <div class="table-responsive p-0 ">
-                <table  id='empTable' class="table table-striped table-hover mb-0">
+                <table id='empTable' class="table table-striped table-hover mb-0">
                     <thead>
                         <tr>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 ID
                             </th>
-
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 Nom
                             </th>
-
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 Prénom
                             </th>
-
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 CIN
                             </th>
-
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 Role
                             </th>
-                            
-
-                            
                         </tr>
                     </thead>
                 </table>
@@ -46,25 +38,38 @@
     </div>
 
 
-    <script>
+<script>
     $(document).ready(function() {
-    $('#empTable').DataTable({
-        "serverSide": true,
-        "ajax": {
-            url: "{{route('getUtilisateurs') }}", 
-            method: "get",
-            columns: [
-                 { data: 'id' },
-                 { data: 'first_name' },
-                 { data: 'last_name' },
-                 { data: 'cin' },
-                 { data: 'role' },
-                
-             ]
-        },
-       
+        $('#empTable').DataTable({
+            "serverSide": true,
+            "ajax": {
+                url: "{{route('getUtilisateurs') }}", 
+                method: "get",
+                columns: [
+                    { data: 'id' },
+                    { data: 'first_name' },
+                    { data: 'last_name' },
+                    { data: 'cin' },
+                    { data: 'role' },
+                ]
+            },
+            "language": {
+                "lengthMenu": "Afficher _MENU_ enregistrements par page",
+                "zeroRecords": "Rien n'a été trouvé",
+                "info": "Affichage de la page _PAGE_ sur _PAGES_",
+                "infoEmpty": "Aucun enregistrement disponible",
+                "infoFiltered": "(filtré à partir de _MAX_ enregistrements au total)",
+                "paginate": {
+                    "first":      "Première",
+                    "last":       "Dernier",
+                    "next":       "Suivant",
+                    "previous":   "Précédent"
+                },
+                "search":         "Chercher:",
+                "loadingRecords": "Chargement...",
+            }
+        });
     });
-});
 </script>
     
 @endsection

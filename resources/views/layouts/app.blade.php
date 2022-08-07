@@ -32,19 +32,15 @@
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../assets/css/custom-css.css">
-
-  
-<!-- Datatable CSS -->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"/>
-
-<!-- jQuery Library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-<!-- Datatable JS -->
-<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  <!-- Datatable CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"/>
+  <!-- jQuery Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- Datatable JS -->
+  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 </head>
 
-<body class="g-sidenav-show  bg-gray-100 {{ (\Request::is('rtl') ? 'rtl' : (Request::is('virtual-reality') ? 'virtual-reality' : '')) }} ">
+<body class="g-sidenav-show  bg-gray-100 ">
   <div class="preloader">
         <div class="loader">
             <div class="ytp-spinner">
@@ -76,7 +72,8 @@
       <p class="m-0">{{ session('success')}}</p>
     </div>
   @endif
-    <!--   Core JS Files   -->
+
+  <!--   Core JS Files   -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
@@ -85,6 +82,7 @@
   
   @stack('rtl')
   @stack('dashboard')
+  
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -109,6 +107,31 @@
         navbar.classList.remove("sticky");
       }
     }
+  </script>
+
+  <!-- responsive SideBar -->
+  <script>
+    window.addEventListener('load', () => {
+      if(window.innerWidth >= 1200){
+        document.querySelector('#auth-wrap-nav-content').classList.add("col-10");
+        document.querySelector('#auth-wrap-nav-content').classList.remove("col", "col-12");
+      }
+      else{
+        document.querySelector('#auth-wrap-nav-content').classList.remove("col-10");
+        document.querySelector('#auth-wrap-nav-content').classList.add("col-12");
+      }
+    })
+    window.addEventListener('resize', () => {
+      if(window.innerWidth >= 1200){
+        document.querySelector('#auth-wrap-nav-content').classList.add("col-10");
+        document.querySelector('#auth-wrap-nav-content').classList.remove("col", "col-12");
+      }
+      else{
+        document.querySelector('#auth-wrap-nav-content').classList.remove("col-10");
+        document.querySelector('#auth-wrap-nav-content').classList.add("col-12");
+      }
+    })
+
   </script>
 
   <script>
@@ -160,7 +183,7 @@
     })
   </script>
 
-
+  <!-- preload -->
   <script>  
     $(window).on('load', function(event) {
         $('.preloader').delay(500).fadeOut(500);
@@ -169,10 +192,10 @@
 
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
- 
-  
+
 </body>
 
 </html>

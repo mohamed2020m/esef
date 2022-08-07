@@ -115,14 +115,38 @@ class InfoUserController extends Controller
 
     public function detailUser($id){
         if(Auth::user()->role =="admin"){
-            $data = DB::table('users')->where('id',$id)->get();
-            return view('laravel-examples/user_detail',compact('data'));
+            $user_data = DB::table('users')->where('id',$id)->get();
+            $user_bac_name  = DB::table('bacs')->selectRaw('bacs.id,bacs.name')->join('bac_user','bac_user.bac_id','=','bacs.id')->join('users','users.id','=','bac_user.user_id')->where('users.id',Auth::user()->id)->get();
+            $user_bac_data = DB::table('bac_user')->where('user_id',$id)->get();
+            
+            $user_licence_name = DB::table('licences')->selectRaw('licences.id,licences.name')->join('licence_user','licence_user.licence_id','=','licences.id')->join('users','users.id','=','licence_user.user_id')->where('users.id',Auth::user()->id)->get();
+            $user_licence_data = DB::table('licence_user')->where('user_id',$id)->get();
+            
+            // $data = DB::table('users')->where('id',$id)->get();
+            // return view('laravel-examples/user_detail',compact('data'));
+            return view('laravel-examples/user_detail', compact('user_data','user_bac_name','user_licence_name','user_bac_data','user_licence_data'));
         }
         else{
             return view('dashboard');
         }
 
     }
+
+    public function viewDossier(){
+        if(Auth::user()->role =="normal user"){
+            $user_data  = DB::table('users')->where('id',Auth::user()->id)->get();
+            $user_bac_name  = DB::table('bacs')->selectRaw('bacs.id,bacs.name')->join('bac_user','bac_user.bac_id','=','bacs.id')->join('users','users.id','=','bac_user.user_id')->where('users.id',Auth::user()->id)->get();
+            $user_bac_data = DB::table('bac_user')->where('user_id',Auth::user()->id)->get();
+
+            $user_licence_name = DB::table('licences')->selectRaw('licences.id,licences.name')->join('licence_user','licence_user.licence_id','=','licences.id')->join('users','users.id','=','licence_user.user_id')->where('users.id',Auth::user()->id)->get();
+            $user_licence_data = DB::table('licence_user')->where('user_id',Auth::user()->id)->get();
+            return view('dossier-condidat/dossier-condidat',compact('user_data','user_bac_name','user_licence_name','user_bac_data','user_licence_data'));
+        }
+        else{
+            return redirect('dashboard');
+        }
+    }
+
     public function deleteUser($id){
         if(Auth::user()->role =="admin" ){
             DB::table('users')->where('id',$id)->delete();

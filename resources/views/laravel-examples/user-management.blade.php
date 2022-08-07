@@ -26,7 +26,7 @@
                 <table class="table table-striped table-hover mb-0">
                     <thead>
                         <tr>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 ID
                             </th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -45,6 +45,9 @@
                                 CNE
                             </th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                Score
+                            </th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 
                             </th>
                         </tr>
@@ -59,7 +62,6 @@
         </div>
     </div>
 
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -67,31 +69,28 @@
         $(document).on('change','.select_filiere',function(){
           //console.log("hmm");
             var filiere_id=$(this).val();
-            var op="";
             var table="";
-            
-            console.log(filiere_id);
+
             $.ajax({
                 type:'get',
                 url:'{{URL::to("candidatsList")}}',
                 data:{'id':filiere_id},
                 success: function(data){
-                    console.log("succes");
-                    console.log("data: ", data);
                     for(var i=0;i<data.length;i++){
-                        table = 
+                        table += 
                         `<tr class="align-middle" style="font-size: 18px;">
-                            <td class="ps-4"><p class="font-weight-bold mb-0"> ${data[i].id}</p></td>
-                            <td class="ps-4"><img src="../public/images/images_profiles/${data[i].photo}" alt="avatar" class="avatar avatar-sm me-3"></td>
-                            <td class="ps-4"><p class="font-weight-bold mb-0">${data[i].last_name}</p></td>
-                            <td class="ps-4"><p class="font-weight-bold mb-0">${data[i].first_name}</p></td>
-                            <td class="ps-4"><p class="font-weight-bold mb-0">${data[i].cin}</p></td>
-                            <td class="ps-4"><p class="font-weight-bold mb-0">${data[i].cne}</p></td>
+                            <td class="text-center"><p class="font-weight-bold mb-0"> ${data[i].user_id}</p></td>
+                            <td class="text-center"><img src="../public/images/images_profiles/${data[i].photo}" alt="avatar" class="avatar avatar-sm me-3"></td>
+                            <td class="text-center"><p class="font-weight-bold mb-0">${data[i].last_name}</p></td>
+                            <td class="text-center"><p class="font-weight-bold mb-0">${data[i].first_name}</p></td>
+                            <td class="text-center"><p class="font-weight-bold mb-0">${data[i].cin}</p></td>
+                            <td class="text-center"><p class="font-weight-bold mb-0">${data[i].cne}</p></td>
+                            <td class="text-center"><p class="font-weight-bold mb-0">0</p></td>
                             <td class="text-center">
-                                <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="modifier Bac">
+                                <a href="/server.php/user-management-${data[i].user_id}" class="mr-3" data-bs-toggle="tooltip" data-bs-original-title="view condidature">
                                     <i class="fas fa-eye text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
                                 </a>
-                                <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" onclick="return confirm('est ce que vous etes sur ?')">
+                                <a href="#" class="" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" onclick="return confirm('est ce que vous etes sur ?')">
                                     <i class="cursor-pointer fa fa-file-excel text-white bg-success rounded-circle p-3" style="font-weight:normal"></i>
                                 </a>
                             </td>
