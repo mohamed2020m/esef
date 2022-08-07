@@ -70,6 +70,8 @@
   @endif
   <!-- jQuery Library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- Datatable JS -->
+  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
   <!--   Core JS Files   -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../assets/js/core/popper.min.js"></script>
@@ -186,9 +188,6 @@
         $('.preloader').delay(500).fadeOut(500);
     });
   </script>
-
-  <!-- Datatable JS -->
-  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
