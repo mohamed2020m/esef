@@ -52,7 +52,15 @@
                     { data: 'last_name',},
                     { data: 'cin',},
                     { data: 'role',},
-                ]
+                ],
+                "columnDefs": [ {
+                    "targets": -1,
+                    "data": function ( row, type, val, meta ) {
+                        if (val === 'normal user') {
+                            return 'condidat';
+                        }
+                    }
+                }]
             },
             "language": {
                 "lengthMenu": "Afficher _MENU_ enregistrements par page",
@@ -69,14 +77,6 @@
                 "search":         "Chercher:",
                 "loadingRecords": "Chargement...",
             },
-            "columnDefs": [ {
-                "targets": -1,
-                "data": function ( row, type, val, meta ) {
-                    if (val === 'normal user') {
-                        return 'condidat';
-                    }
-                }
-            }]
         });
     })
 </script>
