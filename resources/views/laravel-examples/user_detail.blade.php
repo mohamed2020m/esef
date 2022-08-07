@@ -63,7 +63,7 @@
                         <p class="mb-0">Nom</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{data[0].phone}}" type="text"  disabled>
+                        <input class="form-control" value="{{$data[0].phone}}" type="text"  disabled>
                     </div>
                 </div>
 
@@ -72,7 +72,7 @@
                         <p class="mb-0 text-end">الإسم العائلي</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{ data[0].last_name_arabic }}" type="text"  disabled>
+                        <input class="form-control" value="{{ $data[0].last_name_arabic }}" type="text"  disabled>
                     </div>
                 </div>
 
@@ -81,7 +81,7 @@
                         <p class="mb-0">Prénom</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{ data[0].first_name }}" type="text" disabled>
+                        <input class="form-control" value="{{ $data[0].first_name }}" type="text" disabled>
                     </div>
                 </div>
 
@@ -90,7 +90,7 @@
                         <p class="mb-0 text-end">الإسم الشخصي</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{ data[0].first_name_arabic }}" type="text" disabled>
+                        <input class="form-control" value="{{ $data[0].first_name_arabic }}" type="text" disabled>
                     </div>
                 </div>
 
@@ -100,7 +100,7 @@
                         <p class="mb-0">Date Naissance</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{data[0].birthday}}" type="date"  disabled>
+                        <input class="form-control" value="{{$data[0].birthday}}" type="date"  disabled>
                     </div>
                 </div>
 
@@ -110,7 +110,7 @@
                         <p class="mb-0">Lieu Naissance</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{data[0].birth_place}}" type="text"  disabled>
+                        <input class="form-control" value="{{$data[0].birth_place}}" type="text"  disabled>
                     </div>
                 </div>
 
@@ -120,7 +120,7 @@
                         <p class="mb-0">CIN</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{data[0].cin}}" type="text" disabled>
+                        <input class="form-control" value="{{$data[0].cin}}" type="text" disabled>
                     </div>
                 </div>
 
@@ -130,7 +130,7 @@
                         <p class="mb-0">CNE</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{data[0].cne}}" type="text"  disabled>
+                        <input class="form-control" value="{{$data[0].cne}}" type="text"  disabled>
                     </div>
                 </div>
 
@@ -139,7 +139,7 @@
                         <p class="mb-0">Téléphone</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{data[0].phone}}" type="tel"  disabled>
+                        <input class="form-control" value="{{$data[0].phone}}" type="tel"  disabled>
                     </div>
                 </div>
 
@@ -148,7 +148,7 @@
                         <p class="mb-0">E-mail</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{ data[0].email }}" type="email" disabled>
+                        <input class="form-control" value="{{ $data[0].email }}" type="email" disabled>
                     </div>
                 </div>
 
@@ -157,7 +157,7 @@
                         <p class="mb-0">CIN (face 1)</p>
                     </div>
                     <div class="">
-                        <img class="" src="{{URL::to('../public/images/images_cin/first_face/' . data[0].cin_image_face1)}}" alt="face 1"/>
+                        <img class="" src="{{URL::to('../public/images/images_cin/first_face/' . $data[0].cin_image_face1)}}" alt="face 1"/>
                     </div>
                 </div>
 
@@ -166,7 +166,7 @@
                         <p class="mb-0">CIN (face 2)</p>
                     </div>
                     <div class="border border-danger rounded-3">
-                        <img class="" src="{{URL::to('../public/images/images_cin/second_face/'. data[0].cin_image_face2)}}" alt="face 2"/>
+                        <img class="" src="{{URL::to('../public/images/images_cin/second_face/'. $data[0].cin_image_face2)}}" alt="face 2"/>
                     </div>
                 </div>
             </div>
