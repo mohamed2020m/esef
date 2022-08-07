@@ -61,7 +61,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/change-password',[ChangePasswordController::class,'changePass']);
 
     Route::get('/user-management',[HomeController::class,'userManagement'])->name('user-management');
-    Route::get('/user-management_{filiere_id}',[HomeController::class,'display_candidat'])->name('display_candidats');
+    // Route::get('/user-management_{filiere_id}',[HomeController::class,'display_candidat'])->name('display_candidats');
     Route::get('/user-management-{id}',[InfoUserController::class,'detailUser'])->name('user-detail');
     Route::get('delete/user/{id}',[InfoUserController::class,'deleteUser']);
     Route::post('/user-profile/update',[InfoUserController::class,'updateProfile']);

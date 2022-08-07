@@ -59,7 +59,6 @@
         </div>
     </div>
 
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -88,10 +87,10 @@
                             <td class="ps-4"><p class="font-weight-bold mb-0">${data[i].cin}</p></td>
                             <td class="ps-4"><p class="font-weight-bold mb-0">${data[i].cne}</p></td>
                             <td class="text-center">
-                                <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="modifier Bac">
+                                <a href="/user-management-${data[i].id}" class="mr-3" data-bs-toggle="tooltip" data-bs-original-title="view condidature">
                                     <i class="fas fa-eye text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
                                 </a>
-                                <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" onclick="return confirm('est ce que vous etes sur ?')">
+                                <a href="#" class="" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" onclick="return confirm('est ce que vous etes sur ?')">
                                     <i class="cursor-pointer fa fa-file-excel text-white bg-success rounded-circle p-3" style="font-weight:normal"></i>
                                 </a>
                             </td>
