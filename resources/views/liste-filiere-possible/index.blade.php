@@ -93,7 +93,7 @@
                                         <p class=" font-weight-bold mb-0">12</p>
                                     </td>
                                     <td class="text-center">
-                                    <a href="#" id="recu" name="{{$item->id}}"><img src="#" alt="" width="50px" ><i class="fa fa-download" onclick="validate()"></i></a>
+                                    <a href="{{url('/server.php/download/recu/'.$item->id)}}"><img src="#" alt="" width="50px" ><i class="fa fa-download"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -132,56 +132,9 @@
 </div>
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-   aria-hidden="true">
-   <div class="modal-dialog modal-notify modal-success" role="document">
-     <!--Content-->
-        <div class="modal-content">
-            <button type="button" class="btn btn-secondary rounded-circle px-2 py-1" data-bs-dismiss="modal" aria-label="Close">
-                <i class="fa fa-close"></i>
-            </button>
-       </div>
-
-       <!--Body-->
-       <div class="modal-body">
-         <div class="text-center">
-           <!-- <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i> -->
-           <i class="fas fa-exclamation-circle"></i>
-           <p>Veuillez remplir vos informations personnelles.</p>
-         </div>
-       </div>
-
-       <!--Footer-->
-       <!-- <div class="modal-footer justify-content-center">
-        <button class="btn btn-success">OK</button>
-       </div> -->
-     </div>
-     <!--/.Content-->
-   </div>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-    $(document).ready(function(){
-            var tag = document.getElementById("recu");
-            var id = tag.getAttribute('name');
-            $.ajax({
-                type:"GET",
-                url :"/server.php/verification/data/user",
-                dataType:"json",
-                success:function(response){
-                    var fname = response.user_data[0].first_name;
-                    var lname = response.user_data[0].last_name;
-                    var phone = response.user_data[0].phone;
-                    var cin = response.user_data[0].cin
-                    if(fname != null && lname !=null && phone !=null && cin !=null){
-                        const a = document.querySelector('#recu');
-                        a.href = "/server.php/download/recu/"+id
-                    }
-
-                }
-            });
-    })
 
         function reply_click(clicked_object){
             var id = clicked_object.getAttribute('id');
@@ -214,13 +167,5 @@
             $('#modalForm').modal('show');
         }
 
-        function validate(){
-            const href = document.getElementById("recu");
-            const attributHref = href.getAttribute("href");
-            if(attributHref =="#"){
-                // alert("Veuillez remplir vos informations personnelles");
-                $('#exampleModal').modal('show');
-            }
-        }
 </script>
 @endsection
