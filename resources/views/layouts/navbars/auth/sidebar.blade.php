@@ -73,6 +73,14 @@
             <span class="nav-link-text ms-1 {{ (Request::is('utilisateurs') ? 'text-dark' : 'text-white') }}">Gestion des utilisateurs</span>
         </a>
       </li>
+      <li class="nav-item pb-2 nav_btn mt-2">
+        <a class="nav-link {{ (Request::is('administrateurs') ? 'active' : '') }}" href="{{ url('administrateurs') }}">
+            <div class="icon-btn icon-shape icon-sm shadow border-radius-md text-center me-2 d-flex align-items-center justify-content-center  {{ (Request::is('administrateurs') ? 'bg-dark' : 'bg-white') }}">
+                <i style="font-size: 1rem;" class="fa fa-lg fa-cogs ps-2 pe-2 text-center  {{ (Request::is('administrateurs') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+            </div>
+            <span class="nav-link-text ms-1 {{ (Request::is('administrateurs') ? 'text-dark' : 'text-white') }}">Gestion des administrateurs</span>
+        </a>
+      </li>
       
       <li class="nav-item nav_btn">
         <a class="nav-link {{ (Request::is('filiere') ? 'active' : '') }}" href="{{ url('filiere') }}">
