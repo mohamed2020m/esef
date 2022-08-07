@@ -63,6 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/user-management',[HomeController::class,'userManagement'])->name('user-management');
     // Route::get('/user-management_{filiere_id}',[HomeController::class,'display_candidat'])->name('display_candidats');
     Route::get('/user-management-{id}',[InfoUserController::class,'detailUser'])->name('user-detail');
+    Route::get('users-export', [InfoUserController::class,'export'])->name('users.export');
     Route::get('delete/user/{id}',[InfoUserController::class,'deleteUser']);
     Route::post('/user-profile/update',[InfoUserController::class,'updateProfile']);
 

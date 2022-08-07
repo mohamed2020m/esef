@@ -91,7 +91,7 @@
                                 <a href="/server.php/user-management-${data[i].user_id}" class="mr-3" data-bs-toggle="tooltip" data-bs-original-title="view condidature">
                                     <i class="fas fa-eye text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
                                 </a>
-                                <a href="#" class="" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" onclick="return confirm('est ce que vous etes sur ?')">
+                                <a href="{{ route('users.export') }}" class="" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" onclick="return confirm('est ce que vous etes sur ?')">
                                     <i class="cursor-pointer fa fa-file-excel text-white bg-success rounded-circle p-3" style="font-weight:normal"></i>
                                 </a>
                             </td>
