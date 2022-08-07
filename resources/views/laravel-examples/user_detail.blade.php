@@ -81,7 +81,7 @@
                         <p class="mb-0">Prénom</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{ $item->.first_name }}" type="text" disabled>
+                        <input class="form-control" value="{{ $item->first_name }}" type="text" disabled>
                     </div>
                 </div>
 
@@ -157,7 +157,7 @@
                         <p class="mb-0">CIN (face 1)</p>
                     </div>
                     <div class="">
-                        <img class="" src="{{URL::to('../public/images/images_cin/first_face/' . $data[0].cin_image_face1)}}" alt="face 1"/>
+                        <img class="" src="{{URL::to('../public/images/images_cin/first_face/' . $item->cin_image_face1)}}" alt="face 1"/>
                     </div>
                 </div>
 
@@ -166,7 +166,7 @@
                         <p class="mb-0">CIN (face 2)</p>
                     </div>
                     <div class="border border-danger rounded-3">
-                        <img class="" src="{{URL::to('../public/images/images_cin/second_face/'. $data[0].cin_image_face2)}}" alt="face 2"/>
+                        <img class="" src="{{URL::to('../public/images/images_cin/second_face/'. $item->cin_image_face2)}}" alt="face 2"/>
                     </div>
                 </div>
             </div>
