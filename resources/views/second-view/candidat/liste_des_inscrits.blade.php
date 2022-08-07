@@ -40,27 +40,17 @@
 
 <script>
     $(document).ready(function() {
-        $('#empTable').DataTable({
+        let users = $('#empTable').DataTable({
             "serverSide": true,
-            "processing": true,
             "ajax": {
                 url: "{{route('getUtilisateurs') }}", 
                 method: "get",
                 columns: [
                     { data: 'id' },
-                    { 
-                        data: 'first_name',
-                        defaultContent:"Pas encore défini"
-                    },
-                    { 
-                        data: 'last_name',
-                        defaultContent:"Pas encore défini"
-                    },
-                    { 
-                        data: 'cin',
-                        defaultContent:"Pas encore défini"
-                    },
-                    { data: 'role' },
+                    { data: 'first_name',},
+                    { data: 'last_name',},
+                    { data: 'cin',},
+                    { data: 'role',},
                 ]
             },
             "language": {
@@ -77,12 +67,6 @@
                 },
                 "search":         "Chercher:",
                 "loadingRecords": "Chargement...",
-            }
-        });
-
-        $('#empTable').DataTable().column(5).nodes().each(function(node, index, dt){
-            if(utilisateurs.cell(node).data() == 'normal user'){
-                utilisateurs.cell(node).data('candidat');
             }
         });
     })
