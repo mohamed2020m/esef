@@ -42,7 +42,7 @@ class HomeController extends Controller
 
 
                   foreach($matieres as $matiere){
-                        echo($matiere->note);
+                        
 
                   }
 
