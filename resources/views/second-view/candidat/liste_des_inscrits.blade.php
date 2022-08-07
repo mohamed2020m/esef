@@ -72,7 +72,7 @@
         });
         let role = $('td:last-child');
         $.each(role, function( index, value) {
-            alert( index + ": " + value );
+            console.log( index + ": " + value );
         });
     })
 </script>
