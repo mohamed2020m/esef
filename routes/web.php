@@ -58,7 +58,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
             /** les routes pour charafeddine */
-    Route::get('/change-password',[ChangePasswordController::class,'changePass']);
+
 
     Route::get('/user-management',[HomeController::class,'userManagement'])->name('user-management');
     // Route::get('/user-management_{filiere_id}',[HomeController::class,'display_candidat'])->name('display_candidats');
