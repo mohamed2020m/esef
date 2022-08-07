@@ -111,6 +111,31 @@
     }
   </script>
 
+
+<script>
+  window.addEventListener('load', () => {
+    if(window.innerWidth >= 1200){
+      document.querySelector('#auth-wrap-nav-content').classList.add("col-10");
+      document.querySelector('#auth-wrap-nav-content').classList.remove("col", "col-12");
+    }
+    else{
+      document.querySelector('#auth-wrap-nav-content').classList.remove("col-10");
+      document.querySelector('#auth-wrap-nav-content').classList.add("col-12");
+    }
+  })
+  window.addEventListener('resize', () => {
+    if(window.innerWidth >= 1200){
+      document.querySelector('#auth-wrap-nav-content').classList.add("col-10");
+      document.querySelector('#auth-wrap-nav-content').classList.remove("col", "col-12");
+    }
+    else{
+      document.querySelector('#auth-wrap-nav-content').classList.remove("col-10");
+      document.querySelector('#auth-wrap-nav-content').classList.add("col-12");
+    }
+  })
+
+</script>
+
   <script>
     let btn = document.querySelector('#toggler_btn'); 
     let sidebar = document.querySelector('.cusotom-sideBar');
