@@ -58,6 +58,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
             /** les routes pour charafeddine */
+    Route::get('/change/password',[ChangePasswordController::class,'changePass']);
 
     Route::get('/user-management',[HomeController::class,'userManagement'])->name('user-management');
     Route::get('/user-management_{filiere_id}',[HomeController::class,'display_candidat'])->name('display_candidats');
@@ -152,7 +153,7 @@ Route::group(['middleware' => 'guest'], function () {
 	Route::post('/forgot-password', [ResetController::class, 'sendEmail']);
 	Route::get('/reset-password/{token}', [ResetController::class, 'resetPass'])->name('password.reset');
 	Route::post('/reset-password', [ChangePasswordController::class, 'changePassword'])->name('password.update');
-    Route::get('/change/password',[ChangePasswordController::class,'changePass']);
+    
 
 });
 

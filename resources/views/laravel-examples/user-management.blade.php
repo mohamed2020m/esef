@@ -15,7 +15,7 @@
                 <form action="" method="">
                     @csrf
                     <select class="form-select form-select-lg select_filiere" style="border-color:#0f233a !important; box-shadow:none !important" aria-label="Default select example"  name="filiere"  required>
-                        <option disabled>Sélectionner une filière</option>
+                        <option disabled selected>Sélectionner une filière</option>
                         @foreach($data_filiere as $row)
                         <option value="{{$row->id}}">{{$row->name}}</option>
                         @endforeach
