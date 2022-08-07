@@ -551,10 +551,7 @@ to {
 /* DataTable :: Start*/
 #empTable > tbody tr{
     text-align: center !important;
-}
-
-table.dataTable.no-footer {
-    border-bottom: 0 !important;
+    border-bottom:1px solid white;
 }
 
 .dataTables_info{
