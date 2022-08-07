@@ -34,8 +34,20 @@ class HomeController extends Controller
     
                 $data=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')
                 ->join('filieres','filieres.id','=','filiere_user.filiere_id')->where('filieres.id',$request->id)->get();
+
+                foreach($data as $candidat){
+
+                    $matieres=DB::table('matiere_user')->select('matiere_user.*')->join('matieres','matieres.id','=','matiere_user.matiere_id')
+                    ->where('matiere_user.user_id',$candidat->user_id);
+                    foreach($matieres as $matiere){
+                        echo($matiere->note);
+                        echo("</br>");
+                    }
+                    echo("other candidat");
+                    echo("</br>");
+                }
                  
-    return response()->json($data);
+            return response()->json($data);
 
                       }else{
 
