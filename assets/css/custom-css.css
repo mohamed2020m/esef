@@ -292,8 +292,8 @@ to {
 /* ==== Scroll bar====*/
 /* width */
 ::-webkit-scrollbar {
-    width: 5px;
-    min-height: 5px;
+    width: 8px;
+    height: 5px;
 }
 
   /* Track */
@@ -304,7 +304,7 @@ to {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #707070; 
+    background: #9b9999; 
     border-radius: 5px;
 }
 
