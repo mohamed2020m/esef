@@ -42,9 +42,11 @@
     @foreach($data as $key => $item)
     <div class="">
         <div class="card mb-4">
-            <div class="card-header">
+            <div class="card-header d-flex justify-content-center">
+                <i class="fa fa-user"></i>
                 Informations sur le profil
             </div>
+            <hr>
             <div class="card-body text-center">
                 <div>
                     <img src="{{ URL::to('../public/images/images_profiles/'. auth()->user()->photo) }}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
