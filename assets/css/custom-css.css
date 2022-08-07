@@ -551,6 +551,7 @@ to {
 /* DataTable :: Start*/
 #empTable > tbody tr{
     text-align: center !important;
+    border:none !important;
 }
 .dataTables_info{
     margin-top:5px ;
