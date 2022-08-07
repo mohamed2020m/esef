@@ -87,7 +87,7 @@ Route::group(['middleware' => 'auth'], function () {
                     /* debut les routes de abdessamad* */
                     //test 
     Route::get('users', [UserController::class,'index'])->name('users-inscrits');
-    Route::post('users-Store', [UserController::class,'store'])->name('users');
+    Route::post('usersStore', [UserController::class,'store'])->name('users');
                //Gestion des utilisateurs
     Route::get('utilisateurs', [UserController::class,'afficher'])->name('Gestion_des_candidats_inscrits');
    //   This is used to send AJAX POST request to fetch the datatables data.
