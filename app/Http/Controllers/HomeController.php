@@ -42,8 +42,8 @@ class HomeController extends Controller
 
 
                   foreach($matieres as $matiere){
-                        
 
+                    console.log($matiere->note);
                   }
 
 
