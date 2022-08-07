@@ -2,12 +2,18 @@
 @extends('layouts.user_type.auth')
 
 @section('content')
-<div id="auth">
-        <div class="row h-100">
-            <div class="col-lg-5 col-12">
-                <div id="auth-left">
-                    <br>
-                    <form method="POST" action="/server.php/change/password" class="md-float-material">
+<div class="card mb-4 mx-4">
+    <div class="card-header pb-0">
+        <div class="d-flex flex-row justify-content-center">
+            <div  sytle="text-overflow: ellipsis !important; overflow: hidden !important; width: 40px; white-space: nowrap !important;">
+                <h5 class="mb-0"><i class="fa fa-lg fa-lock ps-2 pe-2 text-center text-dark" aria-hidden="true"></i>Changement de mot de passe</h5>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="card-body px-3 pt-0 pb-2">
+        <div class="mb-3">
+            <form method="POST" action="/server.php/change/password" class="md-float-material">
                         @csrf
                         <div class="form-group position-relative has-icon-left mb-4">
                             <input type="password" class="form-control form-control-lg @error('current_password') is-invalid @enderror" 
@@ -45,6 +51,5 @@
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
+</div>
 @endsection
