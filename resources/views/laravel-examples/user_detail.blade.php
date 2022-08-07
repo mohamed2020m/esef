@@ -167,7 +167,7 @@
                     <div class="col-sm-3">
                         <p class="mb-0">CIN (face 2)</p>
                     </div>
-                    <div class="border border-danger rounded-3">
+                    <div class="">
                         <img class="" src="{{URL::to('../public/images/images_cin/second_face/'. $item->cin_image_face2)}}" alt="face 2"/>
                     </div>
                 </div>
