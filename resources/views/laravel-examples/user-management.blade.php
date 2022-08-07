@@ -45,6 +45,9 @@
                                 CNE
                             </th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                Score
+                            </th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 
                             </th>
                         </tr>
@@ -82,6 +85,7 @@
                             <td class="text-center"><p class="font-weight-bold mb-0">${data[i].first_name}</p></td>
                             <td class="text-center"><p class="font-weight-bold mb-0">${data[i].cin}</p></td>
                             <td class="text-center"><p class="font-weight-bold mb-0">${data[i].cne}</p></td>
+                            <td class="text-center"><p class="font-weight-bold mb-0">score</p></td>
                             <td class="text-center">
                                 <a href="/server.php/user-management-${data[i].user_id}" class="mr-3" data-bs-toggle="tooltip" data-bs-original-title="view condidature">
                                     <i class="fas fa-eye text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
