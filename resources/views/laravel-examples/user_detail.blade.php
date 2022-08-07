@@ -90,7 +90,7 @@
                         <p class="mb-0 text-end">الإسم الشخصي</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{ data[0].first_name_arabic }}" type="text" placeholder="votre prénom en arabe" id="user-first_name_arabic" name="first_name_arabic" required>
+                        <input class="form-control" value="{{ data[0].first_name_arabic }}" type="text" disabled>
                     </div>
                 </div>
 
@@ -100,7 +100,7 @@
                         <p class="mb-0">Date Naissance</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{data[0].birthday}}" type="date"  id="user-birthday" name="birthday" required>
+                        <input class="form-control" value="{{data[0].birthday}}" type="date"  disabled>
                     </div>
                 </div>
 
@@ -110,7 +110,7 @@
                         <p class="mb-0">Lieu Naissance</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{data[0].>birth_place}}" type="text" placeholder="votre lieu de naissance" id="user-birth_place" name="birth_place" required>
+                        <input class="form-control" value="{{data[0].birth_place}}" type="text"  disabled>
                     </div>
                 </div>
 
@@ -120,7 +120,7 @@
                         <p class="mb-0">CIN</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{data[0].>cin}}" type="text" placeholder="votre cin" id="user-cin" name="cin" required>
+                        <input class="form-control" value="{{data[0].cin}}" type="text" disabled>
                     </div>
                 </div>
 
@@ -130,7 +130,7 @@
                         <p class="mb-0">CNE</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{data[0].cne}}" type="text" placeholder="votre cne" id="user-first_name" name="cne" required>
+                        <input class="form-control" value="{{data[0].cne}}" type="text"  disabled>
                     </div>
                 </div>
 
@@ -139,7 +139,7 @@
                         <p class="mb-0">Téléphone</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{data[0].phone}}" type="tel" placeholder="Votre numéro de téléphone" id="user-phone" name="phone" required>
+                        <input class="form-control" value="{{data[0].phone}}" type="tel"  disabled>
                     </div>
                 </div>
 
@@ -148,7 +148,7 @@
                         <p class="mb-0">E-mail</p>
                     </div>
                     <div class="">
-                        <input class="form-control" value="{{ data[0].email }}" type="email" placeholder="@example.com" id="user-email" name="email" disabled>
+                        <input class="form-control" value="{{ data[0].email }}" type="email" disabled>
                     </div>
                 </div>
 
