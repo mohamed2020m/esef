@@ -67,15 +67,7 @@
                 },
                 "search":         "Chercher:",
                 "loadingRecords": "Chargement...",
-            },
-            "columnDefs": [ {
-                targets: -1,
-                data: function ( row, type, val, meta ) {
-                    if (val === 'normal user') {
-                        return 'condidat';
-                    }
-                }
-            }]
+            }
         });
     })
 </script>
