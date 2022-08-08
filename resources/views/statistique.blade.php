@@ -51,9 +51,9 @@
   <div class="d-flex flex-column justify-content-center mt-4">
     <div class="flex-grow-1  mb-4">
       <div class="card z-index-2">
-        <div class="card-header pb-0">
+        <!-- <div class="card-header pb-0">
           <h6 class="font-weight-bold"> Nombre des candidats par rapport au nombre des filières </h6>
-        </div>
+        </div> -->
         <div class="card-body p-3">
           <!-- <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
             <div class="chart">
@@ -66,11 +66,11 @@
     </div>
     <div class="flex-grow-1 mb">
       <div class="card z-index-2">
-        <div class="card-header pb-0">
+        <!-- <div class="card-header pb-0">
           <h6>Nombre d'utilisateurs rejoints chaque mois</h6>
           <p class="text-sm">
           </p>
-        </div>
+        </div> -->
         <div class="card-body p-3">
             <div id="chartUtilisateurs" style="height: 300px; width: 100%;"></div>
         </div>
