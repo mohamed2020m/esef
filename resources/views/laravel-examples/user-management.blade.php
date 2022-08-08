@@ -27,9 +27,9 @@
                     <i class="cursor-pointer fa fa-file-excel text-white bg-success rounded p-3" style="font-weight:normal"></i>
                     Export
                 </a> -->
-                <div class="col-2">
+                <div class="col-2 d-flex">
                     <div class="d-flex justify-content-center">
-                        <button class="text-white font-weight-bold px-2 border-0 bg-success rounded " id="btn_logout" type="button" data-bs-toggle="modal" data-bs-target="#export">
+                        <button class="text-white font-weight-bold px-2 border-0 bg-success flex-grow-1 rounded " id="btn_logout" type="button" data-bs-toggle="modal" data-bs-target="#export">
                             <i class="fa fa-file-excel me-sm-1"></i>
                             <span class="d-sm-inline d-none" id="span_export">Export</span>
                         </button>
