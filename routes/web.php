@@ -68,6 +68,7 @@ Route::group(['middleware' => 'auth'], function () {
     /** fin les routes pour charafeddine */
 
     Route::get('/admin-create',[UserController::class,'createadmin'])->name('administrateurs');
+    Route::post('/admin-store',[UserController::class,'storeadmin'])->name('store');
   
     
     /* debut les routes de abdessamad* */
