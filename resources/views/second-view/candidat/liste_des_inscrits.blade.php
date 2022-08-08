@@ -54,7 +54,12 @@
                     { data: 'cin',},
                     { data: 'role',
                          render: function(datum, type, row) {
-            return row.role;
+                            if((row.role)=="admin"){
+                                return "admin";
+                            }else{
+                                return "candidat";
+                            }
+            
                     }},
                 ]
             },
