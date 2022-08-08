@@ -94,23 +94,6 @@ class UserController extends Controller
 
 
 
-   
-    public function showAdmin(){
-        if(Auth::user()->role =="admin"){
-            $admins = DB::table('users')->where('users.role', 'like', 'admin')->get();
-
-            return view('second-view/Admin/Gestion_Admin',compact('admins'));
-        }
-        else{
-            return  redirect('dashboard');
-        }
-
-    }
-
-
-
-
-
         public function createadmin(){
             if(Auth::user()->role =="admin"){
                 return view('second-view/Admin/index');
