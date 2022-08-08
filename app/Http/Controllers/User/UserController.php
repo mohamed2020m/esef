@@ -94,12 +94,12 @@ class UserController extends Controller
 
 
 
-   //video
-    public function index(){
+   
+    public function showAdmin(){
         if(Auth::user()->role =="admin"){
+            $admins = DB::table('users')->where('users.role', 'like', 'admin')->get();
 
-
-            return view('second-view/candidat/index');
+            return view('second-view/Admin/Gestion_Admin',compact('admins'));
         }
         else{
             return  redirect('dashboard');
@@ -109,18 +109,6 @@ class UserController extends Controller
 
 
 
-    	// handle insert a new employee ajax request
-	public function store(Request $request) {
-		$file = $request->file('avatar');
-		$fileName = time() . '.' . $file->getClientOriginalExtension();
-		$file->storeAs('public/images/images_profiles', $fileName);
-
-		$userData = ['first_name' => $request->fname, 'last_name' => $request->lname, 'email' => $request->email, 'phone' => $request->phone, 'cin' => $request->cin, 'photo' => $fileName,'password'=>"00000000"];
-		User::create($userData);
-		return response()->json([
-			'status' => 200,
-		]);
-	}
 
 
         public function createadmin(){
