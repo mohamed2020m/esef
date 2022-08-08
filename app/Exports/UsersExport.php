@@ -5,6 +5,8 @@ namespace App\Exports;
 use App\Models\User;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Illuminate\Support\Facades\DB;
+use App\Models\Filiere;
 
 class UsersExport implements FromCollection, WithHeadings
 {
@@ -13,11 +15,14 @@ class UsersExport implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        return User::select("id", "last_name", "first_name", "cin", "cne")->get();
-    }
+        // return User::select("id", "last_name", "first_name", "cin", "cne")->get();
+        return DB::table('users')->select("id", "photo", "last_name", "first_name", "cin", "cne")
+        ->join('filiere_user','filiere_user.user_id','=','users.id')->get();
+        // ->join('filieres','filieres.id','=','filiere_user.filiere_id')->where('filieres.id',$id)->get();
+    }   
 
     public function headings(): array
     {
-        return ["id", "last_name", "first_name", "cin", "cne"];
+        return ["ID", "PHOTO", "Nom", "PRÉNOM", "CIN", "CNE"];
     }
 }
