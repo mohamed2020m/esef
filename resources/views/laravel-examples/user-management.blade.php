@@ -109,6 +109,7 @@
                 url:'{{URL::to("candidatsList")}}',
                 data:{'id':filiere_id},
                 success: function(data){
+                    console.log("data: ", data);
                     for(var i=0;i<data.length;i++){
                         console.log("score: ", data[i].score);
                         table += 
