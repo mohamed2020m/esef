@@ -52,15 +52,7 @@
                     { data: 'first_name'},
                     { data: 'last_name'},
                     { data: 'cin'},
-                    {
-                        data: 'role',
-                        render: function(data,type,row){
-                            console.log(data);
-                            console.log(type);
-                            console.log(row);
-
-                        }
-                    },
+                    {data: 'role'},
                 ]
             },
             "language": {
