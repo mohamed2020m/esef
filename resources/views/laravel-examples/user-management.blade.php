@@ -28,12 +28,10 @@
                     Export
                 </a> -->
                 <div class="col-2 d-flex">
-                    <div class="d-flex justify-content-center">
-                        <button class="text-white font-weight-bold px-2 border-0 bg-success flex-grow-1 rounded " id="btn_logout" type="button" data-bs-toggle="modal" data-bs-target="#export">
-                            <i class="fa fa-file-excel me-sm-1"></i>
-                            <span class="d-sm-inline d-none" id="span_export">Export</span>
-                        </button>
-                    </div>
+                    <button class="text-white font-weight-bold px-2 border-0 bg-success flex-grow-1 rounded " id="btn_logout" type="button" data-bs-toggle="modal" data-bs-target="#export">
+                        <i class="fa fa-file-excel me-sm-1"></i>
+                        <span class="d-sm-inline d-none" id="span_export">Export</span>
+                    </button>
                 </div>
             </div>
             <div class="table-responsive p-0">
@@ -80,21 +78,18 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exportModalLabel">Export</h5>
+                <h5 class="modal-title" id="exportModalLabel">Exporter candidatures</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 Êtes-vous sûr de vouloir vous exporter les condidatures ?
             </div>
             <div class="modal-footer d-flex align-items-center">
-                <button type="button" class="btn btn-secondary mt-3 rounded-pill" data-bs-dismiss="modal">Non</button>
-                <!-- <a href="{{ url('/logout')}}" class="nav-link text-white py-2 px-4 rounded-pill font-weight-bold bg-danger">
-                    <span class="d-sm-inline d-none bg-daner" id="span_logout">OUI</span>
-                </a> -->
-                <a href="{{ route('users.export') }}" class="" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac"> 
+                <button type="button" class="btn btn-secondary mt-3 rounded-pill" data-bs-dismiss="modal">Annuler</button>
+                <a href="{{ route('users.export') }}" class="bg-success rounded-pill px-3 py-2" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac"> 
                     <!-- onclick="return confirm('est ce que vous etes sur ?')"> -->
-                    <i class="cursor-pointer fa fa-file-excel text-white bg-success rounded p-3" style="font-weight:normal"></i>
-                    <span class="d-sm-inline d-none bg-success" id="span_export">Export</span>
+                    <i class="cursor-pointer fa fa-file-excel text-white" style="font-weight:normal"></i>
+                    <span class="d-sm-inline d-none " id="span_export">Export</span>
                 </a>
             </div>
         </div>
