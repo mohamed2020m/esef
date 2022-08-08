@@ -91,6 +91,7 @@ class HomeController extends Controller
                 // adding score to condidate
                 $candidat['score'] = $score;
             }
+            var_dump($data);
             return response()->json($data);
         }
         else{
