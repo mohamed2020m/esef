@@ -89,7 +89,7 @@
                 <a href="{{ route('users.export') }}" class="bg-success rounded-pill px-3 py-2" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac"> 
                     <!-- onclick="return confirm('est ce que vous etes sur ?')"> -->
                     <i class="cursor-pointer fa fa-file-excel text-white" style="font-weight:normal"></i>
-                    <span class="d-sm-inline d-none text-whit" id="span_export">Export</span>
+                    <span class="d-sm-inline d-none text-white" id="span_export">Export</span>
                 </a>
             </div>
         </div>
