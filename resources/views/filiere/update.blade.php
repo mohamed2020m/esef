@@ -22,13 +22,26 @@
                         <label class="form-label" for="filiere_name">Nom de Filières</label>
                         <input type="text" class="form-control" name="filiere_name" id="filiere_name" value="{{$item->name}}" placeholder="Nom de filiere" required>
                     </div>
+                    @endforeach
 
                     <div class="d-flex p-3 my-3 border rounded">
                         <div class="flex-grow-1 row">
                             <div class="col-4">
                                 <div>
                                     <label>BAC :</label>
-                                    @foreach($data_bac as $key =>$item)
+
+                                    @foreach($bacs as $item)
+                                    @foreach($bac_in_filiere as $element)
+                                    @if($item->id == $element->bac_id)
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input box" data-box="bac-{{$item->id}}" type="checkbox" name="checkbox_bac[]" value="{{$item->id}}" checked >
+                                        <label class="form-check-label" >{{$item->name}}</label>
+                                    </div>
+                                    @endif
+                                    @endforeach
+                                    @endforeach
+
+                                    @foreach($bac_not_in_filiere as $item)
                                     <div class="form-check mb-3">
                                         <input class="form-check-input box" data-box="bac-{{$item->id}}" type="checkbox" name="checkbox_bac[]" value="{{$item->id}}" >
                                         <label class="form-check-label" >{{$item->name}}</label>
@@ -36,19 +49,32 @@
                                     @endforeach
                                 </div>
                             </div>
-        
+
                             <div class="col-4">
                                 <label>Bonus :</label>
-                                @foreach($data_bac as $key =>$item)
+                                @foreach($bac_in_filiere as $key =>$item)
+                                <div class="mb-2">
+                                    <input class="form-control bac-{{$item->id}}" type="number" min="0" name="{{'bonus_bac'.$item->bac_id}}" value="{{$item->bonus_bac}}">
+                                </div>
+                                @endforeach
+
+                                @foreach($bac_not_in_filiere as $key =>$item)
                                 <div class="mb-2">
                                     <input class="form-control bac-{{$item->id}}" type="number" min="0" name="{{'bonus_bac'.$item->id}}" disabled>
                                 </div>
                                 @endforeach
+
                             </div>
-    
+
                             <div class="col-4">
                                 <label>Coefficient :</label>
-                                @foreach($data_bac as $key =>$item)
+                                @foreach($bac_in_filiere as $key =>$item)
+                                <div class="mb-2">
+                                    <input class="form-control bac-{{$item->id}}" type="number" min="0" name="{{'coefficient_bac'.$item->bac_id}}" value="{{$item->coefficient_bac}}">
+                                </div>
+                                @endforeach
+
+                                @foreach($bac_not_in_filiere as $key =>$item)
                                 <div class="mb-2">
                                     <input class="form-control bac-{{$item->id}}" type="number" min="0" name="{{'coefficient_bac'.$item->id}}" disabled>
                                 </div>
@@ -61,16 +87,32 @@
                         <div class="flex-grow-1 row">
                             <div class="col-6">
                                 <label>Matières :</label>
-                                @foreach($data_matiere as $key =>$item)
+                                @foreach($matieres as $item)
+                                @foreach($matiere_in_filiere as $element)
+                                @if($item->id == $element->matiere_id)
                                 <div class="form-check mb-3">
-                                    <input class="form-check-input box" data-box="matiere-{{$item->id}}" type="checkbox" name="checkbox_matiere[]" value="{{$item->id}}"  >
+                                    <input class="form-check-input box" data-box="matiere-{{$item->id}}" type="checkbox" name="checkbox_matiere[]" value="{{$item->id}}" checked >
+                                    <label class="form-check-label" >{{$item->name}} </label>
+                                </div>
+                                @endif
+                                @endforeach
+                                @endforeach
+
+                                @foreach($matiere_not_in_filiere as $item)
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input box" data-box="matiere-{{$item->id}}" type="checkbox" name="checkbox_matiere[]" value="{{$item->id}}" >
                                     <label class="form-check-label" >{{$item->name}} </label>
                                 </div>
                                 @endforeach
                             </div>
                             <div class="col-6">
                                 <label>Coefficient :</label>
-                                @foreach($data_matiere as $key =>$item)
+                                @foreach($matiere_in_filiere as $item)
+                                <div class="mb-2">
+                                    <input class="form-control matiere-{{$item->id}}" type="number" min="0" name="{{'coefficient_matiere'.$item->matiere_id}}" value="{{$item->coefficient_matiere}}">
+                                </div>
+                                @endforeach
+                                @foreach($matiere_not_in_filiere as $item)
                                 <div class="mb-2">
                                     <input class="form-control matiere-{{$item->id}}" type="number" min="0" name="{{'coefficient_matiere'.$item->id}}" disabled>
                                 </div>
@@ -83,7 +125,18 @@
                         <div class="flex-grow-1 row">
                             <div class="col-4">
                                 <label>Licence :</label>
-                                @foreach($data_licence as $key =>$item)
+                                @foreach($licences as $item)
+                                @foreach($licence_in_filiere as $element)
+                                @if($item->id ==$element->licence_id)
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input box" data-box="licence-{{$item->id}}" type="checkbox" name="checkbox_licence[]" value="{{$item->id}}" checked>
+                                    <label class="form-check-label" >{{$item->name}}</label>
+                                </div>
+                                @endif
+                                @endforeach
+                                @endforeach
+
+                                @foreach($licence_not_in_filiere as $item)
                                 <div class="form-check mb-3">
                                     <input class="form-check-input box" data-box="licence-{{$item->id}}" type="checkbox" name="checkbox_licence[]" value="{{$item->id}}">
                                     <label class="form-check-label" >{{$item->name}}</label>
@@ -92,7 +145,13 @@
                             </div>
                             <div class="col-4">
                                 <label>Bonus :</label>
-                                @foreach($data_licence as $key =>$item)
+                                @foreach($licence_in_filiere as $item)
+                                <div class="mb-2">
+                                    <input class="form-control licence-{{$item->id}}" type="text"  name="{{'bonus_licence'.$item->licence_id}}" value="{{$item->bonus_licence}}">
+                                </div>
+                                @endforeach
+
+                                @foreach($licence_not_in_filiere as $item)
                                 <div class="mb-2">
                                     <input class="form-control licence-{{$item->id}}" type="text"  name="{{'bonus_licence'.$item->id}}" disabled>
                                 </div>
@@ -100,7 +159,12 @@
                             </div>
                             <div class="col-4">
                                 <label>Coefficient</label>
-                                @foreach($data_licence as $key =>$item)
+                                @foreach($licence_in_filiere as $item)
+                                <div class="mb-2">
+                                    <input class="form-control licence-{{$item->id}}" type="text"  name="{{'coefficient_licence'.$item->licence_id}}" value="{{$item->coefficient_licence}}" >
+                                </div>
+                                @endforeach
+                                @foreach($licence_not_in_filiere as $item)
                                 <div class="mb-2">
                                     <input class="form-control licence-{{$item->id}}" type="text"  name="{{'coefficient_licence'.$item->id}}" disabled >
                                 </div>
@@ -109,7 +173,6 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
                 <div class="mb-3 d-flex justify-content-end">
                     <button type="submit" class="btn" style="background-color: #0f233a !important;color:white">Modifier</button>
                 </div>
