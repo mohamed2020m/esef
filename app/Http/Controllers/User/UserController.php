@@ -17,7 +17,7 @@ class UserController extends Controller
     //$inscrits=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')->get();
     $inscrits=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')
     ->join('filieres','filieres.id','=','filiere_user.filiere_id')->get();  
-        
+
             return view('second-view/candidat/liste_des_inscrits',compact('inscrits'));
         }
         else{
@@ -98,7 +98,29 @@ class UserController extends Controller
 
         public function createadmin(){
             if(Auth::user()->role =="admin"){
+
                 return view('second-view/Admin/index');
+            }
+            else{
+                return  redirect('dashboard');
+            }
+
+
+        }
+
+
+
+        public function storeadmin(Request $request){
+            if(Auth::user()->role =="admin"){
+
+                $admin = new User();
+                $admin->last_name=$request->lname;
+                $admin->first_name=$request->fname;
+                $admin->email=$request->email;
+                $admin->password=$request->mdp;
+                $admin->role=$request->role;
+                $admin->save();
+                return  redirect('utilisateurs');
             }
             else{
                 return  redirect('dashboard');
