@@ -35,7 +35,7 @@ class HomeController extends Controller
             // ->join('filieres','filieres.id','=','filiere_user.filiere_id')->where('filieres.id',$request->id)->get();
             // return response()->json($data);
             
-            $data=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')
+            $data=DB::table('users')->select('users.*')->join('filiere_user','filiere_user.user_id','=','users.id')
             ->join('filieres','filieres.id','=','filiere_user.filiere_id')->where('filieres.id',$request->id)->get();
 
             //calcul du partie bac : 
@@ -51,8 +51,8 @@ class HomeController extends Controller
 
             foreach ($data as $candidat) {
                 //calcul du partie bac : 
-                $matieres=DB::table('matiere_user')->select('*')->join('matieres','matieres.id','=','matiere_user.matiere_id')->where('matiere_user.user_id',$candidat->user_id)->get();
-                $bacs=DB::table('bac_user')->select('*')->join('bacs','bacs.id','=','bac_user.bac_id')->where('bac_user.user_id',$candidat->user_id)->get();
+                $matieres=DB::table('matiere_user')->select('*')->join('matieres','matieres.id','=','matiere_user.matiere_id')->where('matiere_user.user_id',$candidat->id)->get();
+                $bacs=DB::table('bac_user')->select('*')->join('bacs','bacs.id','=','bac_user.bac_id')->where('bac_user.user_id',$candidat->id)->get();
 
                 //calcul du partie bac : 
                 foreach($matieres as $matiere){
@@ -73,7 +73,7 @@ class HomeController extends Controller
 
                 //calcul du partie licence :
 
-                $licences=DB::table('licence_user')->select('*')->join('licences','licences.id','=','licence_user.user_id')->where('licence_user.user_id',$candidat->user_id)->get();
+                $licences=DB::table('licence_user')->select('*')->join('licences','licences.id','=','licence_user.user_id')->where('licence_user.user_id',$candidat->id)->get();
                 foreach($licences as $licence){
                     $note_S1_S2=( ( $licence->note_s1 + $licence->note_s2 )/2);
                     $bonus_licences=DB::table('filiere_licence')->select('*')->join('licences','licences.id','=','filiere_licence.licence_id')->where('filiere_licence.licence_id',$licence->licence_id)->get();
@@ -104,7 +104,6 @@ class HomeController extends Controller
         return view('dashboard',compact('user_id'));
         }
         else{
-
             $nombre_filieres = DB::table('filieres')->count();
             $nombre_candidats_inscrits=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->count();
             //echo($nombre_candidats_inscrits);
