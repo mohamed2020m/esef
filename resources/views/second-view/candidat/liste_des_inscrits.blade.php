@@ -11,7 +11,7 @@
                     </div>
             </div>
         <hr>
-        <div class="card-body px-3 pt-0 pb-2 ">
+        <div class="card-body px-3 pt-0 pb-2 mt-4 ">
             <div class="table-responsive p-0 ">
                 <table id='empTable' class="table table-striped table-hover mb-0">
                     <thead>
@@ -30,6 +30,9 @@
                             </th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 Role
+                            </th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                link
                             </th>
                         </tr>
                     </thead>
@@ -51,7 +54,10 @@
                     { data: 'first_name',},
                     { data: 'last_name',},
                     { data: 'cin',},
-                    { data: 'role',},
+                    { data: 'role',
+                         render: function(datum, type, row) {
+            return row.role;
+                    }},
                 ]
             },
             "language": {
