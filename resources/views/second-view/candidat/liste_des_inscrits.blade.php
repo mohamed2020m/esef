@@ -31,9 +31,7 @@
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 Role
                             </th>
-                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                link
-                            </th>
+                            
                         </tr>
                     </thead>
                 </table>
@@ -51,13 +49,10 @@
                 method: "get",
                 columns: [
                     { data: 'id' },
-                    { data: 'first_name',},
-                    { data: 'last_name',},
-                    { data: 'cin',},
-                    { data: 'role',
-                         render: function(datum, type, row) {
-            return row.role;
-                    }},
+                    { data: 'first_name'},
+                    { data: 'last_name'},
+                    { data: 'cin'},
+                    {data: 'role'},
                 ]
             },
             "language": {
