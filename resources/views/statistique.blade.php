@@ -60,7 +60,7 @@
               <canvas id="chart-bars" class="chart-canvas" height="300"></canvas>
             </div>
           </div> -->
-          <div id="chartCondidate" style="height: 500px; width: 100%;"></div>
+          <div id="chartCondidate" style="height: 300px; width: 100%;"></div>
         </div>
       </div>
     </div>
@@ -485,7 +485,7 @@ var chart = new CanvasJS.Chart("chartCondidate", {
 		text: "Nombre des candidats par rapport au nombre des filières"
 	},
 	axisY: {
-		title: "Candidats"
+		title: "Nombre de candidatures"
 		// suffix: "%"
 	},
 	axisX: {
