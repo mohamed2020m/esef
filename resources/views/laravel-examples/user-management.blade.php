@@ -28,10 +28,12 @@
                     Export
                 </a> -->
                 <div class="col-2">
-                    <button class="nav-link text-body font-weight-bold px-0 border-0 bg-success" id="btn_logout" type="button" data-bs-toggle="modal" data-bs-target="#export">
-                        <i class="fa fa-file-excel me-sm-1"></i>
-                        <span class="d-sm-inline d-none" id="span_export">Export</span>
-                    </button>
+                    <div class="d-flex justify-content-center">
+                        <button class="text-white font-weight-bold px-2 border-0 bg-success rounded " id="btn_logout" type="button" data-bs-toggle="modal" data-bs-target="#export">
+                            <i class="fa fa-file-excel me-sm-1"></i>
+                            <span class="d-sm-inline d-none" id="span_export">Export</span>
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="table-responsive p-0">
