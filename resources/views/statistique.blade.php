@@ -56,9 +56,10 @@
         </div>
         <div class="card-body p-3">
           <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
-            <div class="chart">
+            <!-- <div class="chart">
               <canvas id="chart-bars" class="chart-canvas" height="300"></canvas>
-            </div>
+            </div> -->
+            <div id="chartCondidate" style="height: 300px; width: 100%;"></div>
           </div>
         </div>
       </div>
@@ -71,7 +72,7 @@
           </p>
         </div>
         <div class="card-body p-3">
-            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+            <div id="chartUtilisateurs" style="height: 300px; width: 100%;"></div>
         </div>
       </div>
     </div>
@@ -477,7 +478,7 @@
 <script>
 window.onload = function () {
 
-var chart = new CanvasJS.Chart("chartContainer", {
+var chart = new CanvasJS.Chart("chartCondidate", {
 	animationEnabled: true,
 	theme: "light2", // "light1", "light2", "dark1", "dark2"
 	title: {
@@ -497,12 +498,47 @@ var chart = new CanvasJS.Chart("chartContainer", {
 			{ label: "SEP", y: 54 },	
 			{ label: "SES - Anglaise", y: 19 },	
 			{ label: "SES - sc.Ind", y: 34 },
-			{ label: "SES - Mathématique", y: 23 }
+			{ label: "SES", y: 23 }
 		]
 	}]
 });
 chart.render();
 }
+
+var chart_2 = new CanvasJS.Chart("chartUtilisateurs", {
+	animationEnabled: true,
+	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	title: {
+		text: "Nombre d'utilisateurs rejoints chaque mois"
+	},
+	axisY: {
+		title: "les Mois"
+		// suffix: "%"
+	},
+	axisX: {
+		title: "Nombre des utilisateurs"
+	},
+	data: [{
+		type: "column",
+		// yValueFormatString: "#,##0.0#\"%\"",
+		dataPoints: [
+			{ label: "jan", y: 54 },	
+			{ label: "Feb", y: 19 },	
+			{ label: "Mar", y: 34 },
+			{ label: "Apr", y: 23 },
+      { label: "May", y: 23 },
+      { label: "Jun", y: 2 },
+      { label: "Jul", y: 43 },
+      { label: "Aug", y: 13 },
+      { label: "Sep", y: 9 },
+      { label: "Oct", y: 18 },
+      { label: "Nov", y: 12 },
+      { label: "Dec", y: 30 }
+		]
+	}]
+});
+chart_2.render();
+
 </script>
 
 <!-- <script>
@@ -512,7 +548,7 @@ chart.render();
     new Chart(ctx, {
       type: "bar",
       data: {
-        labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES - Mathématique'],
+        labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES'],
         datasets: [{
           label: "Nombre des candidats",
           tension: 0.4,
