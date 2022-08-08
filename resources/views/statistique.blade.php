@@ -60,7 +60,7 @@
               <canvas id="chart-bars" class="chart-canvas" height="300"></canvas>
             </div>
           </div> -->
-          <div id="chartCondidate" style="height: 300px; width: 100%;"></div>
+          <div id="chartCondidate" style="height: 500px; width: 100%;"></div>
         </div>
       </div>
     </div>
@@ -512,11 +512,11 @@ var chart_2 = new CanvasJS.Chart("chartUtilisateurs", {
 		text: "Nombre d'utilisateurs rejoints chaque mois"
 	},
 	axisY: {
-		title: "les Mois"
+		title: "Nombre des utilisateurs"
 		// suffix: "%"
 	},
 	axisX: {
-		title: "Nombre des utilisateurs"
+		title: "les Mois"
 	},
 	data: [{
 		type: "line",
