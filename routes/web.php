@@ -84,7 +84,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     Route::get('administrateurs',[UserController::class,'createadmin'])->name('administrateurs');
-    Route::get('admin', [UserController::class,'index'])->name('gestion_admin');
+    Route::get('admin', [UserController::class,'showAdmin'])->name('gestion_admin');
                     /* debut les routes de abdessamad* */
                     //test 
     Route::get('users', [UserController::class,'index'])->name('users-inscrits');
