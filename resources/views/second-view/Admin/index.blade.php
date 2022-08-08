@@ -33,11 +33,9 @@
                 </div>
                 <div class="form-outline mb-4 mt-6">
                     <label class="form-label" for="name">Role</label>
-                    <select class="form-select" aria-label="Default select example">
-                         <option selected>role</option>
-                         <option value="1">Professeur</option>
-                         <option value="1">admin</option>
-                         
+                    <select class="form-select" aria-label="Default select example" placeholder="role" >
+                         <option value="professeur">Professeur</option>
+                         <option value="admin">admin</option>    
                     </select>
                 </div>
                 <button type="submit" class="btn" style="background-color: #0f233a !important;color:white">Enregistrer</button>
