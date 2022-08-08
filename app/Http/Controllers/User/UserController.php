@@ -94,7 +94,7 @@ class UserController extends Controller
 
 
 
-
+   //video
     public function index(){
         if(Auth::user()->role =="admin"){
 
@@ -121,4 +121,18 @@ class UserController extends Controller
 			'status' => 200,
 		]);
 	}
+
+
+        public function createadmin(){
+            if(Auth::user()->role =="admin"){
+                return view('second-view/Admin/index');
+            }
+            else{
+                return  redirect('dashboard');
+            }
+
+
+        }
+
+
 }

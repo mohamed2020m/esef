@@ -35,9 +35,8 @@ class HomeController extends Controller
                 $data=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')
                 ->join('filieres','filieres.id','=','filiere_user.filiere_id')->where('filieres.id',$request->id)->get();
 
-                
-                 
-            return response()->json($data);
+                return response()->json($data);
+              
 
                       }else{
 

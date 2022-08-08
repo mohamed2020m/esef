@@ -67,13 +67,19 @@ Route::group(['middleware' => 'auth'], function () {
 
     /** fin les routes pour charafeddine */
 
+    Route::get('administrateurs',[UserController::class,'createadmin'])->name('administrateurs');
+    Route::get('admin', [UserController::class,'index'])->name('gestion_admin');
+    
     /* debut les routes de abdessamad* */
     //test 
+    
     Route::get('users', [UserController::class,'index'])->name('users-inscrits');
     Route::post('usersStore', [UserController::class,'store'])->name('users');
-               //Gestion des utilisateurs
+    
+    //Gestion des utilisateurs
     Route::get('utilisateurs', [UserController::class,'afficher'])->name('Gestion_des_candidats_inscrits');
-   //   This is used to send AJAX POST request to fetch the datatables data.
+    
+    //This is used to send AJAX POST request to fetch the datatables data.
     Route::get('getUtilisateurs',[UserController::class,'getUtilisateurs'])->name('getUtilisateurs');
 
     Route::get('/candidats',[HomeController::class,'select_filiere'])->name('selectFiliere');
@@ -83,16 +89,16 @@ Route::group(['middleware' => 'auth'], function () {
                 
     Route::get('/Accueil', function () {return view('session/Accueil');})->name('Accueil');
     // Route::get('/inscription',[UserController::class,'index']);
-				 /* debut des routes pour entitie bac  * */
+	/* debut des routes pour entitie bac  * */
     Route::get('bac', [BacController::class,'index'])->name('Gestion_Baccalaureat');
     Route::get('/bac-create',[BacController::class,'create']);
     Route::post('/table/bac_create',[BacController::class,'store']);
     Route::get('/bac/delete-{id}',[BacController::class,'delete']);
     Route::get('/updatebac-{id}',[BacController::class,'edit']);
     Route::post('bac_update/{id}',[BacController::class,'update']);
-	          /* fin des routes pour entitie bac* */
+	/* fin des routes pour entitie bac* */
 
-				 /* debut des routes pour entitie matiere  * */
+	/* debut des routes pour entitie matiere  * */
 	Route::get('matiere', [MatiereController::class,'index'])->name('Gestion_Matieres');
     Route::get('/matiere-create',[MatiereController::class,'create']);
     Route::post('/matiere/create',[MatiereController::class,'store']);

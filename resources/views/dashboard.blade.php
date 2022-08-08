@@ -74,7 +74,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
             </div>
             <div class="modal-body">
-                <p>D'abord, vous devez finaliser l'étape (1) et (2)</p>
+                <p>D'abord, vous devez finaliser l'étape (1) et l'étape (2)</p>
             </div>
         </div>
     </div>
