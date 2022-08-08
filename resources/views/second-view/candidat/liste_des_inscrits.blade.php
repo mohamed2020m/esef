@@ -49,14 +49,10 @@
                 method: "get",
                 columns: [
                     { data: 'id' },
-                    { data: 'first_name',},
-                    { data: 'last_name',},
-                    { data: 'cin',},
-                    { data: 'role',
-                         render: function(data, type, row) {
-                            return type;
-            
-                    }},
+                    { data: 'first_name'},
+                    { data: 'last_name'},
+                    { data: 'cin'},
+                    {data: 'role'},
                 ]
             },
             "language": {
