@@ -37,18 +37,6 @@ Route::group(['middleware' => 'auth'], function () {
     
     Route::get('/verification/data/user',[HomeController::class,'verification_recu']);
 
-	// Route::get('profile', function () {
-	// 	return view('profile');
-	// })->name('profile');
-
-    // Route::get('static-sign-in', function () {
-	// 	return view('static-sign-in');
-	// })->name('sign-in');
-
-    // Route::get('static-sign-up', function () {
-	// 	return view('static-sign-up');
-	// })->name('sign-up');
-
     Route::get('/logout', [SessionsController::class, 'destroy']);
 	Route::get('/user-profile', [InfoUserController::class, 'create']);
 	Route::post('/user-profile', [InfoUserController::class, 'store']);
@@ -56,10 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('dashboard');
 	})->name('sign-up');
 
-
-            /** les routes pour charafeddine */
-
-
+    /** les routes pour charafeddine */
     Route::get('/user-management',[HomeController::class,'userManagement'])->name('user-management');
     // Route::get('/user-management_{filiere_id}',[HomeController::class,'display_candidat'])->name('display_candidats');
     Route::get('/user-management-{id}',[InfoUserController::class,'detailUser'])->name('user-detail');
@@ -75,18 +60,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('ps/filiere/pre-insc',[CondidatController::class,'inscription_in_filiere']);
     Route::get('/download/recu/{id}',[CondidatController::class,'downloadPdf']);
 
-        //routes pour tables filieres
+    //routes pour tables filieres
 
     Route::get('/condidature',[PostFiliereController::class,'index']);
     Route::get('/get/mt/filiere/{id}',[PostFiliereController::class,'matieres']);
 
+    /** fin les routes pour charafeddine */
 
-            /** fin les routes pour charafeddine */
-
-
-
-                    /* debut les routes de abdessamad* */
-                    //test 
+    /* debut les routes de abdessamad* */
+    //test 
     Route::get('users', [UserController::class,'index'])->name('users-inscrits');
     Route::post('usersStore', [UserController::class,'store'])->name('users');
                //Gestion des utilisateurs
@@ -137,13 +119,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/filiere-update-{id}',[FiliereController::class,'edit']);
     Route::get('/filiere/delete-{id}',[FiliereController::class,'delete']);
 
-
-                /* fin les routes de abdessamad* */
-
-
+    /* fin les routes de abdessamad* */
 });
-
-
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/inscription', [RegisterController::class, 'create']);
