@@ -83,7 +83,7 @@ Route::group(['middleware' => 'auth'], function () {
             /** fin les routes pour charafeddine */
 
 
-    Route::get('administrateurs',[UserController::class,'createadmin'])->name('administrateurs');
+    Route::get('/admin-create',[UserController::class,'createadmin'])->name('administrateurs');
     Route::get('admin', [UserController::class,'showAdmin'])->name('gestion_admin');
                     /* debut les routes de abdessamad* */
                     //test 
