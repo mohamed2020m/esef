@@ -31,20 +31,14 @@ class HomeController extends Controller
 
     public function showCandidats(Request $request){
             if(Auth::user()->role =="admin"){
-    
                 $data=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')
                 ->join('filieres','filieres.id','=','filiere_user.filiere_id')->where('filieres.id',$request->id)->get();
-
                 return response()->json($data);
-              
-
-                      }else{
-
+            }
+            else{
             return  redirect('dashboard');
-                 }
-      }
-
-
+        }
+    }
 
     public function dashboard(){
         if(Auth::user()->role =="normal user"){

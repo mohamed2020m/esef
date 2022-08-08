@@ -11,16 +11,26 @@
         </div>
         <hr>
         <div class="card-body px-3 pt-0 pb-2">
-            <div class="mb-3">
-                <form action="" method="">
-                    @csrf
-                    <select class="form-select form-select-lg select_filiere" style="border-color:#0f233a !important; box-shadow:none !important" aria-label="Default select example"  name="filiere"  required>
-                        <option disabled selected>Sélectionner une filière</option>
-                        @foreach($data_filiere as $row)
-                        <option value="{{$row->id}}">{{$row->name}}</option>
-                        @endforeach
-                    </select>
-                </form>
+            <div class="d-flex mb-3">
+                <div>
+                    <form action="" method="">
+                        @csrf
+                        <select class="form-select form-select-lg select_filiere" style="border-color:#0f233a !important; box-shadow:none !important" aria-label="Default select example"  name="filiere"  required>
+                            <option disabled selected>Sélectionner une filière</option>
+                            @foreach($data_filiere as $row)
+                            <option value="{{$row->id}}">{{$row->name}}</option>
+                            @endforeach
+                        </select>
+                    </form>
+                </div>
+                <!-- <a href="{{ route('users.export') }}" class="" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" onclick="return confirm('est ce que vous etes sur ?')">
+                    <i class="cursor-pointer fa fa-file-excel text-white bg-success rounded p-3" style="font-weight:normal"></i>
+                    Export
+                </a> -->
+                <button class="nav-link text-body font-weight-bold px-0 border-0 bg-transparent" id="btn_logout" type="button" data-bs-toggle="modal" data-bs-target="#export">
+                    <i class="fa fa-sign-out me-sm-1"></i>
+                    <span class="d-sm-inline d-none" id="span_export">Export</span>
+                </button>
             </div>
             <div class="table-responsive p-0">
                 <table class="table table-striped table-hover mb-0">
@@ -62,6 +72,30 @@
         </div>
     </div>
 
+<div class="modal fade" id="export" tabindex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exportModalLabel">Export</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Êtes-vous sûr de vouloir vous exporter les condidatures ?
+            </div>
+            <div class="modal-footer d-flex align-items-center">
+                <button type="button" class="btn btn-secondary mt-3 rounded-pill" data-bs-dismiss="modal">Non</button>
+                <!-- <a href="{{ url('/logout')}}" class="nav-link text-white py-2 px-4 rounded-pill font-weight-bold bg-danger">
+                    <span class="d-sm-inline d-none bg-daner" id="span_logout">OUI</span>
+                </a> -->
+                <a href="{{ route('users.export') }}" class="" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac"> 
+                    <!-- onclick="return confirm('est ce que vous etes sur ?')"> -->
+                    <i class="cursor-pointer fa fa-file-excel text-white bg-success rounded p-3" style="font-weight:normal"></i>
+                    <span class="d-sm-inline d-none bg-success" id="span_export">Export</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -90,9 +124,6 @@
                             <td class="text-center">
                                 <a href="/server.php/user-management-${data[i].user_id}" class="mr-3" data-bs-toggle="tooltip" data-bs-original-title="view condidature">
                                     <i class="fas fa-eye text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
-                                </a>
-                                <a href="{{ route('users.export') }}" class="" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" onclick="return confirm('est ce que vous etes sur ?')">
-                                    <i class="cursor-pointer fa fa-file-excel text-white bg-success rounded-circle p-3" style="font-weight:normal"></i>
                                 </a>
                             </td>
                         </tr>`
