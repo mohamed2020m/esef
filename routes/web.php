@@ -67,12 +67,12 @@ Route::group(['middleware' => 'auth'], function () {
 
     /** fin les routes pour charafeddine */
 
-    Route::get('administrateurs',[UserController::class,'createadmin'])->name('administrateurs');
-    Route::get('admin', [UserController::class,'index'])->name('gestion_admin');
+    Route::get('/admin-create',[UserController::class,'createadmin'])->name('administrateurs');
+    Route::get('admin', [UserController::class,'showAdmin'])->name('gestion_admin');
     
     /* debut les routes de abdessamad* */
-    //test 
     
+    //test 
     Route::get('users', [UserController::class,'index'])->name('users-inscrits');
     Route::post('usersStore', [UserController::class,'store'])->name('users');
     
