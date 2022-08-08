@@ -89,9 +89,9 @@ class HomeController extends Controller
                 $score=(($note_partie_bac * $coefficient_bac_calcul) +($note_S1_S2 * $coefficient_licence_calcul))/($coefficient_licence_calcul+$coefficient_bac_calcul);
                 
                 // adding score to condidate
-                $candidat['score'] = $score;
+                $candidat->score = $score;
+                // $my_array = json_decode($my_json, true);
             }
-            var_dump($data);
             return response()->json($data);
         }
         else{
