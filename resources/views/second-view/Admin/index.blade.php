@@ -13,28 +13,28 @@
             </div>
         </div>
         <div class="card-body px-3 pt-0 pb-2">
-            <form action="/server.php/table/bac_creat" method="POST"  enctype="multipart/form-data">
+            <form action="/server.php/admin-store" method="POST"  enctype="multipart/form-data">
             @csrf
                 <div class="form-outline mb-4 mt-6">
                     <label class="form-label" for="name">Nom</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="nom" required />
+                    <input type="text" name="lname" id="name" class="form-control" placeholder="nom" required />
                 </div>
                 <div class="form-outline mb-4 mt-6">
                     <label class="form-label" for="name">Prénom</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="prénom" required />
+                    <input type="text" name="fname" id="name" class="form-control" placeholder="prénom" required />
                 </div>
                 <div class="form-outline mb-4 mt-6">
                     <label class="form-label" for="name">Email</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="email" required />
+                    <input type="text" name="email" id="name" class="form-control" placeholder="email" required />
                 </div>
                 <div class="form-outline mb-4 mt-6">
                     <label class="form-label" for="name">Mot de Passe</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="mot de passe" required />
+                    <input type="text" name="mdp" id="name" class="form-control" placeholder="mot de passe" required />
                 </div>
                 <div class="form-outline mb-4 mt-6">
                     <label class="form-label" for="name">Role</label>
-                    <select class="form-select" aria-label="Default select example" placeholder="role" >
-                         <option value="professeur">Professeur</option>
+                    <select class="form-select"  name="role" aria-label="Default select example" placeholder="role" >
+                         <option value="professeur">professeur</option>
                          <option value="admin">admin</option>    
                     </select>
                 </div>
