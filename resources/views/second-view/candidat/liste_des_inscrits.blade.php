@@ -53,12 +53,8 @@
                     { data: 'last_name',},
                     { data: 'cin',},
                     { data: 'role',
-                         render: function(datum, type, row) {
-                            if((row.role)=="admin"){
-                                return "admin";
-                            }else{
-                                return "candidat";
-                            }
+                         render: function(data, type, row) {
+                            return type;
             
                     }},
                 ]
