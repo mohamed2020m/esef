@@ -17,26 +17,26 @@
             @csrf
                 <div class="form-outline mb-4 mt-6">
                     <label class="form-label" for="name">Nom</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="ajouter Bac" required />
+                    <input type="text" name="name" id="name" class="form-control" placeholder="nom" required />
                 </div>
                 <div class="form-outline mb-4 mt-6">
                     <label class="form-label" for="name">Prénom</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="ajouter Bac" required />
+                    <input type="text" name="name" id="name" class="form-control" placeholder="prénom" required />
                 </div>
                 <div class="form-outline mb-4 mt-6">
                     <label class="form-label" for="name">Email</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="ajouter Bac" required />
+                    <input type="text" name="name" id="name" class="form-control" placeholder="email" required />
                 </div>
                 <div class="form-outline mb-4 mt-6">
                     <label class="form-label" for="name">Mot de Passe</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="ajouter Bac" required />
+                    <input type="text" name="name" id="name" class="form-control" placeholder="mot de passe" required />
                 </div>
                 <div class="form-outline mb-4 mt-6">
-                    <label class="form-label" for="name">Mot de Passe</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="ajouter Bac" required />
+                    <label class="form-label" for="name">Role</label>
                     <select class="form-select" aria-label="Default select example">
-                         <option selected>admin</option>
+                         <option selected>role</option>
                          <option value="1">Professeur</option>
+                         <option value="1">admin</option>
                          
                     </select>
                 </div>
