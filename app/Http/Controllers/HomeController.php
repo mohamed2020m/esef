@@ -51,8 +51,8 @@ class HomeController extends Controller
 
             foreach ($data as $candidat) {
                 //calcul du partie bac : 
-                $matieres=DB::table('matiere_user')->select('*')->join('matieres','matieres.id','=','matiere_user.matiere_id')->where('matiere_user.user_id',$candidat->id)->get();
-                $bacs=DB::table('bac_user')->select('*')->join('bacs','bacs.id','=','bac_user.bac_id')->where('bac_user.user_id',$candidat->id)->get();
+                $matieres=DB::table('matiere_user')->select('*')->join('matieres','matieres.id','=','matiere_user.matiere_id')->where('matiere_user.user_id',$candidat->user_id)->get();
+                $bacs=DB::table('bac_user')->select('*')->join('bacs','bacs.id','=','bac_user.bac_id')->where('bac_user.user_id',$candidat->user_id)->get();
 
                 //calcul du partie bac : 
                 foreach($matieres as $matiere){
@@ -73,7 +73,7 @@ class HomeController extends Controller
 
                 //calcul du partie licence :
 
-                $licences=DB::table('licence_user')->select('*')->join('licences','licences.id','=','licence_user.user_id')->where('licence_user.user_id',$candidat->id)->get();
+                $licences=DB::table('licence_user')->select('*')->join('licences','licences.id','=','licence_user.user_id')->where('licence_user.user_id',$candidat->user_id)->get();
                 foreach($licences as $licence){
                     $note_S1_S2=( ( $licence->note_s1 + $licence->note_s2 )/2);
                     $bonus_licences=DB::table('filiere_licence')->select('*')->join('licences','licences.id','=','filiere_licence.licence_id')->where('filiere_licence.licence_id',$licence->licence_id)->get();
@@ -90,7 +90,6 @@ class HomeController extends Controller
                 
                 // adding score to condidate
                 $candidat->score = $score;
-                // $my_array = json_decode($my_json, true);
             }
             return response()->json($data);
         }
