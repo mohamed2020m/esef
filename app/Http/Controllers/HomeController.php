@@ -83,10 +83,15 @@ class HomeController extends Controller
                     }
                     $note_S1_S2+=$bonus_licence_calcul;
                 }
+
+                //calcul du partie bac : 
+                $note_partie_bac=($produit_matiere_coeffecient/$nombre_coefficients_matiere)+$bonus_bac_calcul;
+                $score=(($note_partie_bac * $coefficient_bac_calcul) +($note_S1_S2 * $coefficient_licence_calcul))/($coefficient_licence_calcul+$coefficient_bac_calcul);
+                
+                // adding score to condidate
+                $candidat['score'] = $score;
             }
-            //calcul du partie bac : 
-            $note_partie_bac=($produit_matiere_coeffecient/$nombre_coefficients_matiere)+$bonus_bac_calcul;
-            $score=(($note_partie_bac * $coefficient_bac_calcul) +($note_S1_S2 * $coefficient_licence_calcul))/($coefficient_licence_calcul+$coefficient_bac_calcul);
+            var_dump($data);
             return response()->json($data);
         }
         else{
