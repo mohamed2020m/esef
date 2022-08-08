@@ -74,15 +74,29 @@ class UserController extends Controller
           $users = $query->get();
       
           foreach ($users as $user) {
+            if ($user->role == "admin"){
+                $json['data'][] = [
+                    $user->id,
+                    $user->first_name,
+                    $user->last_name,
+                    $user->cin,
+                    "admin",
+                   
+                ];
+
+            }else{
+
+                $json['data'][] = [
+                    $user->id,
+                    $user->first_name,
+                    $user->last_name,
+                    $user->cin,
+                    "candidat",
+                   
+                ];
+            }
       
-              $json['data'][] = [
-                  $user->id,
-                  $user->first_name,
-                  $user->last_name,
-                  $user->cin,
-                  $user->role,
-                 
-              ];
+              
           }
       
           return $json;
