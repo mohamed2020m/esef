@@ -11,7 +11,7 @@
             <div class="card mb-4">
                 <div class="card-body text-center">
                     @foreach($user_data as $key =>$item)
-                    <img src="{{'../public/images/images_profiles/$item->photo'}}" alt="avatar"
+                    <img src="{{'../public/images/images_profiles/' . $item->photo}}" alt="avatar"
                     @endforeach
                     class="rounded-circle img-fluid" style="width: 150px;">
                 </div>
