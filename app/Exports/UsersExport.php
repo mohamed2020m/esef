@@ -16,13 +16,13 @@ class UsersExport implements FromCollection, WithHeadings
     public function collection()
     {
         // return User::select("id", "last_name", "first_name", "cin", "cne")->get();
-        return DB::table('users')->select("users.id", "photo", "last_name", "first_name", "cin", "cne")
+        return DB::table('users')->select("users.id", "last_name", "first_name", "cin", "cne")
         ->join('filiere_user','filiere_user.user_id','=','users.id')->get();
         // ->join('filieres','filieres.id','=','filiere_user.filiere_id')->where('filieres.id',$id)->get();
     }   
 
     public function headings(): array
     {
-        return ["ID", "PHOTO", "Nom", "PRÉNOM", "CIN", "CNE"];
+        return ["ID", "Nom", "PRÉNOM", "CIN", "CNE"];
     }
 }
