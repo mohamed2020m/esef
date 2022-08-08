@@ -519,7 +519,7 @@ var chart_2 = new CanvasJS.Chart("chartUtilisateurs", {
 		title: "Nombre des utilisateurs"
 	},
 	data: [{
-		type: "column",
+		type: "line",
 		// yValueFormatString: "#,##0.0#\"%\"",
 		dataPoints: [
 			{ label: "jan", y: 54 },	
