@@ -11,8 +11,8 @@
         </div>
         <hr>
         <div class="card-body px-3 pt-0 pb-2">
-            <div class="row mb-3">
-                <div class="col-11">
+            <div class="row aling-items-center mb-3">
+                <div class="col-10">
                     <form action="" method="">
                         @csrf
                         <select class="form-select form-select-lg select_filiere" style="border-color:#0f233a !important; box-shadow:none !important" aria-label="Default select example"  name="filiere"  required>
@@ -27,10 +27,10 @@
                     <i class="cursor-pointer fa fa-file-excel text-white bg-success rounded p-3" style="font-weight:normal"></i>
                     Export
                 </a> -->
-                <div class="col-1">
-                    <button class="nav-link text-body font-weight-bold px-0 border-0 bg-transparent" id="btn_logout" type="button" data-bs-toggle="modal" data-bs-target="#export">
+                <div class="col-2">
+                    <button class="nav-link text-body font-weight-bold px-0 border-0 bg-success" id="btn_logout" type="button" data-bs-toggle="modal" data-bs-target="#export">
                         <i class="fa fa-file-excel me-sm-1"></i>
-                        <span class="d-sm-inline d-none bg-success" id="span_export">Export</span>
+                        <span class="d-sm-inline d-none" id="span_export">Export</span>
                     </button>
                 </div>
             </div>
