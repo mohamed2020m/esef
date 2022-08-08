@@ -512,11 +512,11 @@ var chart_2 = new CanvasJS.Chart("chartUtilisateurs", {
 		text: "Nombre d'utilisateurs rejoints chaque mois"
 	},
 	axisY: {
-		title: "les Mois"
+		title: "Nombre des utilisateurs"
 		// suffix: "%"
 	},
 	axisX: {
-		title: "Nombre des utilisateurs"
+		title: "les Mois"
 	},
 	data: [{
 		type: "line",
