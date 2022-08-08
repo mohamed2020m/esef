@@ -14,8 +14,10 @@ class UserController extends Controller
     public function afficher(){
         if(Auth::user()->role =="admin"){
            
-    $inscrits=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')->get();
-            
+    //$inscrits=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')->get();
+    $inscrits=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')
+    ->join('filieres','filieres.id','=','filiere_user.filiere_id')->get();  
+
             return view('second-view/candidat/liste_des_inscrits',compact('inscrits'));
         }
         else{
@@ -72,15 +74,29 @@ class UserController extends Controller
           $users = $query->get();
       
           foreach ($users as $user) {
+            if ($user->role == "admin"){
+                $json['data'][] = [
+                    $user->id,
+                    $user->first_name,
+                    $user->last_name,
+                    $user->cin,
+                    "admin",
+                   
+                ];
+
+            }else{
+
+                $json['data'][] = [
+                    $user->id,
+                    $user->first_name,
+                    $user->last_name,
+                    $user->cin,
+                    "candidat",
+                   
+                ];
+            }
       
-              $json['data'][] = [
-                  $user->id,
-                  $user->first_name,
-                  $user->last_name,
-                  $user->cin,
-                  $user->role,
-                 
-              ];
+              
           }
       
           return $json;
@@ -94,31 +110,38 @@ class UserController extends Controller
 
 
 
+        public function createadmin(){
+            if(Auth::user()->role =="admin"){
 
-    public function index(){
-        if(Auth::user()->role =="admin"){
+                return view('second-view/Admin/index');
+            }
+            else{
+                return  redirect('dashboard');
+            }
 
 
-            return view('second-view/candidat/index');
         }
-        else{
-            return  redirect('dashboard');
+
+
+
+        public function storeadmin(Request $request){
+            if(Auth::user()->role =="admin"){
+
+                $admin = new User();
+                $admin->last_name=$request->lname;
+                $admin->first_name=$request->fname;
+                $admin->email=$request->email;
+                $admin->password=$request->mdp;
+                $admin->role=$request->role;
+                $admin->save();
+                return  redirect('utilisateurs');
+            }
+            else{
+                return  redirect('dashboard');
+            }
+
+
         }
 
-    }
 
-
-
-    	// handle insert a new employee ajax request
-	public function store(Request $request) {
-		$file = $request->file('avatar');
-		$fileName = time() . '.' . $file->getClientOriginalExtension();
-		$file->storeAs('public/images/images_profiles', $fileName);
-
-		$userData = ['first_name' => $request->fname, 'last_name' => $request->lname, 'email' => $request->email, 'phone' => $request->phone, 'cin' => $request->cin, 'photo' => $fileName,'password'=>"00000000"];
-		User::create($userData);
-		return response()->json([
-			'status' => 200,
-		]);
-	}
 }

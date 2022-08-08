@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Models\User;
 
 class InfoUserController extends Controller
 {
@@ -165,5 +167,10 @@ class InfoUserController extends Controller
         else{
             return view('dashboard');
         }
+    }
+
+    public function export() 
+    {
+        return Excel::download(new UsersExport, 'candidatures-' . time() . '.xlsx');
     }
 }

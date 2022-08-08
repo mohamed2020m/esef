@@ -1,0 +1,68 @@
+[31-Jul-2022 13:42:08 UTC] PHP Warning:  require(/home2/toubkali/public_html/esef/public/vendor/autoload.php): failed to open stream: No such file or directory in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 13:42:08 UTC] PHP Fatal error:  require(): Failed opening required '/home2/toubkali/public_html/esef/public/vendor/autoload.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 13:42:31 UTC] PHP Warning:  require(/home2/toubkali/public_html/esef/public/vendor/autoload.php): failed to open stream: No such file or directory in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 13:42:31 UTC] PHP Fatal error:  require(): Failed opening required '/home2/toubkali/public_html/esef/public/vendor/autoload.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 13:44:08 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.30. in /home2/toubkali/public_html/esef/vendor/composer/platform_check.php on line 24
+[31-Jul-2022 13:44:17 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.30. in /home2/toubkali/public_html/esef/vendor/composer/platform_check.php on line 24
+[31-Jul-2022 13:53:43 UTC] PHP Warning:  require(/home2/toubkali/public_html/esef/public/vendor/autoload.php): Failed to open stream: No such file or directory in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 13:53:43 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home2/toubkali/public_html/esef/public/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home2/toubkali/public_html/esef/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 13:58:29 UTC] PHP Warning:  require(/home2/toubkali/public_html/esef/public/vendor/autoload.php): Failed to open stream: No such file or directory in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 13:58:29 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home2/toubkali/public_html/esef/public/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home2/toubkali/public_html/esef/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 13:58:35 UTC] PHP Warning:  require(/home2/toubkali/public_html/esef/public/vendor/autoload.php): Failed to open stream: No such file or directory in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 13:58:35 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home2/toubkali/public_html/esef/public/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home2/toubkali/public_html/esef/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 13:59:32 UTC] PHP Warning:  require(/home2/toubkali/public_html/esef/public/vendor/autoload.php): Failed to open stream: No such file or directory in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 13:59:32 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home2/toubkali/public_html/esef/public/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home2/toubkali/public_html/esef/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 13:59:34 UTC] PHP Warning:  require(/home2/toubkali/public_html/esef/public/vendor/autoload.php): Failed to open stream: No such file or directory in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 13:59:34 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home2/toubkali/public_html/esef/public/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home2/toubkali/public_html/esef/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 14:48:24 UTC] PHP Warning:  require(/home2/toubkali/public_html/esef/public/vendor/autoload.php): Failed to open stream: No such file or directory in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 14:48:24 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home2/toubkali/public_html/esef/public/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home2/toubkali/public_html/esef/public/index.php:34
+Stack trace:
+#0 /home2/toubkali/public_html/esef/server.php(21): require_once()
+#1 {main}
+  thrown in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 14:48:25 UTC] PHP Warning:  require(/home2/toubkali/public_html/esef/public/vendor/autoload.php): Failed to open stream: No such file or directory in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 14:48:25 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home2/toubkali/public_html/esef/public/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home2/toubkali/public_html/esef/public/index.php:34
+Stack trace:
+#0 /home2/toubkali/public_html/esef/server.php(21): require_once()
+#1 {main}
+  thrown in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 14:48:26 UTC] PHP Warning:  require(/home2/toubkali/public_html/esef/public/vendor/autoload.php): Failed to open stream: No such file or directory in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 14:48:26 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home2/toubkali/public_html/esef/public/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home2/toubkali/public_html/esef/public/index.php:34
+Stack trace:
+#0 /home2/toubkali/public_html/esef/server.php(21): require_once()
+#1 {main}
+  thrown in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 14:48:26 UTC] PHP Warning:  require(/home2/toubkali/public_html/esef/public/vendor/autoload.php): Failed to open stream: No such file or directory in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 14:48:26 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home2/toubkali/public_html/esef/public/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home2/toubkali/public_html/esef/public/index.php:34
+Stack trace:
+#0 /home2/toubkali/public_html/esef/server.php(21): require_once()
+#1 {main}
+  thrown in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 14:48:37 UTC] PHP Warning:  require(/home2/toubkali/public_html/esef/public/vendor/autoload.php): Failed to open stream: No such file or directory in /home2/toubkali/public_html/esef/public/index.php on line 34
+[31-Jul-2022 14:48:37 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home2/toubkali/public_html/esef/public/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home2/toubkali/public_html/esef/public/index.php:34
+Stack trace:
+#0 /home2/toubkali/public_html/esef/server.php(21): require_once()
+#1 {main}
+  thrown in /home2/toubkali/public_html/esef/public/index.php on line 34
+[01-Aug-2022 19:31:56 Europe/Paris] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in /home2/toubkali/public_html/esef/vendor/laravel/framework/src/Illuminate/View/Concerns/ManagesLoops.php on line 29
+[01-Aug-2022 19:32:05 Europe/Paris] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 262144 bytes) in /home2/toubkali/public_html/esef/vendor/laravel/framework/src/Illuminate/Collections/Arr.php on line 219
+[01-Aug-2022 19:32:17 Europe/Paris] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 262144 bytes) in /home2/toubkali/public_html/esef/vendor/laravel/framework/src/Illuminate/Collections/Arr.php on line 219
+[02-Aug-2022 16:02:52 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.30. in /home2/toubkali/public_html/esef/vendor/composer/platform_check.php on line 24
+[03-Aug-2022 08:54:54 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.30. in /home2/toubkali/public_html/esef/vendor/composer/platform_check.php on line 24
+[03-Aug-2022 09:11:59 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.30. in /home2/toubkali/public_html/esef/vendor/composer/platform_check.php on line 24
+[03-Aug-2022 20:57:10 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.30. in /home2/toubkali/public_html/esef/vendor/composer/platform_check.php on line 24

@@ -30,21 +30,73 @@ class HomeController extends Controller
 
 
     public function showCandidats(Request $request){
-            if(Auth::user()->role =="admin"){
-    
-                $data=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')
-                ->join('filieres','filieres.id','=','filiere_user.filiere_id')->where('filieres.id',$request->id)->get();
+        if(Auth::user()->role =="admin"){
+            // $data=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')
+            // ->join('filieres','filieres.id','=','filiere_user.filiere_id')->where('filieres.id',$request->id)->get();
+            // return response()->json($data);
+            
+            $data=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')
+            ->join('filieres','filieres.id','=','filiere_user.filiere_id')->where('filieres.id',$request->id)->get();
 
-                return response()->json($data);
-              
+            //calcul du partie bac : 
+            $produit_matiere_coeffecient=0;
+            $nombre_coefficients_matiere=0;
+            $bonus_bac_calcul=0;
+            $coefficient_bac_calcul=0;
 
-                      }else{
+            //calcul du partie licence :
+            $coefficient_licence_calcul=0;
+            $bonus_licence_calcul=0;
+            $note_S1_S2=0;
 
+            foreach ($data as $candidat) {
+                //calcul du partie bac : 
+                $matieres=DB::table('matiere_user')->select('*')->join('matieres','matieres.id','=','matiere_user.matiere_id')->where('matiere_user.user_id',$candidat->user_id)->get();
+                $bacs=DB::table('bac_user')->select('*')->join('bacs','bacs.id','=','bac_user.bac_id')->where('bac_user.user_id',$candidat->user_id)->get();
+
+                //calcul du partie bac : 
+                foreach($matieres as $matiere){
+                    $coefficients_matiere=DB::table('filiere_matiere')->select('*')->join('matieres','matieres.id','=','filiere_matiere.matiere_id')->where('filiere_matiere.matiere_id',$matiere->id)->get();
+                    foreach($coefficients_matiere as $coefficient){
+                        $produit_matiere_coeffecient+=$coefficient->coefficient_matiere*$matiere->note;
+                        $nombre_coefficients_matiere+=$coefficient->coefficient_matiere;
+                    }
+                }
+
+                foreach($bacs as $bac){
+                    $bonus_bac=DB::table('bac_filiere')->select('*')->join('bacs','bacs.id','=','bac_filiere.bac_id')->where('bac_filiere.bac_id',$bac->bac_id)->get();
+                    foreach($bonus_bac as $value){
+                        $bonus_bac_calcul+=$value->bonus_bac;
+                        $coefficient_bac_calcul+=$value->coefficient_bac;
+                    }
+                }
+
+                //calcul du partie licence :
+
+                $licences=DB::table('licence_user')->select('*')->join('licences','licences.id','=','licence_user.user_id')->where('licence_user.user_id',$candidat->user_id)->get();
+                foreach($licences as $licence){
+                    $note_S1_S2=( ( $licence->note_s1 + $licence->note_s2 )/2);
+                    $bonus_licences=DB::table('filiere_licence')->select('*')->join('licences','licences.id','=','filiere_licence.licence_id')->where('filiere_licence.licence_id',$licence->licence_id)->get();
+                    foreach($bonus_licences as $value){
+                        $bonus_licence_calcul+=$value->bonus_licence;
+                        $coefficient_licence_calcul+=$value->coefficient_licence;
+                    }
+                    $note_S1_S2+=$bonus_licence_calcul;
+                }
+
+                //calcul du partie bac : 
+                $note_partie_bac=($produit_matiere_coeffecient/$nombre_coefficients_matiere)+$bonus_bac_calcul;
+                $score=(($note_partie_bac * $coefficient_bac_calcul) +($note_S1_S2 * $coefficient_licence_calcul))/($coefficient_licence_calcul+$coefficient_bac_calcul);
+                
+                // adding score to condidate
+                $candidat->score = $score;
+            }
+            return response()->json($data);
+        }
+        else{
             return  redirect('dashboard');
-                 }
-      }
-
-
+        }
+    }
 
     public function dashboard(){
         if(Auth::user()->role =="normal user"){

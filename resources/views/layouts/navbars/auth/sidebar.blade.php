@@ -74,6 +74,7 @@
         </a>
       </li>
       
+      
       <li class="nav-item nav_btn">
         <a class="nav-link {{ (Request::is('filiere') ? 'active' : '') }}" href="{{ url('filiere') }}">
           <div class="icon-btn icon-shape icon-sm shadow border-radius-md text-center me-2 d-flex align-items-center justify-content-center {{ (Request::is('filiere') ? 'bg-dark' : 'bg-white') }}">

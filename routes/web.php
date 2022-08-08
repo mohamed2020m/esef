@@ -37,18 +37,6 @@ Route::group(['middleware' => 'auth'], function () {
     
     Route::get('/verification/data/user',[HomeController::class,'verification_recu']);
 
-	// Route::get('profile', function () {
-	// 	return view('profile');
-	// })->name('profile');
-
-    // Route::get('static-sign-in', function () {
-	// 	return view('static-sign-in');
-	// })->name('sign-in');
-
-    // Route::get('static-sign-up', function () {
-	// 	return view('static-sign-up');
-	// })->name('sign-up');
-
     Route::get('/logout', [SessionsController::class, 'destroy']);
 	Route::get('/user-profile', [InfoUserController::class, 'create']);
 	Route::post('/user-profile', [InfoUserController::class, 'store']);
@@ -56,13 +44,11 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('dashboard');
 	})->name('sign-up');
 
-
-            /** les routes pour charafeddine */
-
-
+    /** les routes pour charafeddine */
     Route::get('/user-management',[HomeController::class,'userManagement'])->name('user-management');
     // Route::get('/user-management_{filiere_id}',[HomeController::class,'display_candidat'])->name('display_candidats');
     Route::get('/user-management-{id}',[InfoUserController::class,'detailUser'])->name('user-detail');
+    Route::get('users-export', [InfoUserController::class,'export'])->name('users.export');
     Route::get('delete/user/{id}',[InfoUserController::class,'deleteUser']);
     Route::post('/user-profile/update',[InfoUserController::class,'updateProfile']);
 
@@ -74,23 +60,27 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('ps/filiere/pre-insc',[CondidatController::class,'inscription_in_filiere']);
     Route::get('/download/recu/{id}',[CondidatController::class,'downloadPdf']);
 
-        //routes pour tables filieres
+    //routes pour tables filieres
 
     Route::get('/condidature',[PostFiliereController::class,'index']);
     Route::get('/get/mt/filiere/{id}',[PostFiliereController::class,'matieres']);
 
+    /** fin les routes pour charafeddine */
 
-            /** fin les routes pour charafeddine */
-
-
-
-                    /* debut les routes de abdessamad* */
-                    //test 
+    Route::get('/admin-create',[UserController::class,'createadmin'])->name('administrateurs');
+    Route::post('/admin-store',[UserController::class,'storeadmin'])->name('store');
+  
+    
+    /* debut les routes de abdessamad* */
+    
+    //test 
     Route::get('users', [UserController::class,'index'])->name('users-inscrits');
     Route::post('usersStore', [UserController::class,'store'])->name('users');
-               //Gestion des utilisateurs
+    
+    //Gestion des utilisateurs
     Route::get('utilisateurs', [UserController::class,'afficher'])->name('Gestion_des_candidats_inscrits');
-   //   This is used to send AJAX POST request to fetch the datatables data.
+    
+    //This is used to send AJAX POST request to fetch the datatables data.
     Route::get('getUtilisateurs',[UserController::class,'getUtilisateurs'])->name('getUtilisateurs');
 
     Route::get('/candidats',[HomeController::class,'select_filiere'])->name('selectFiliere');
@@ -100,16 +90,16 @@ Route::group(['middleware' => 'auth'], function () {
                 
     Route::get('/Accueil', function () {return view('session/Accueil');})->name('Accueil');
     // Route::get('/inscription',[UserController::class,'index']);
-				 /* debut des routes pour entitie bac  * */
+	/* debut des routes pour entitie bac  * */
     Route::get('bac', [BacController::class,'index'])->name('Gestion_Baccalaureat');
     Route::get('/bac-create',[BacController::class,'create']);
     Route::post('/table/bac_create',[BacController::class,'store']);
     Route::get('/bac/delete-{id}',[BacController::class,'delete']);
     Route::get('/updatebac-{id}',[BacController::class,'edit']);
     Route::post('bac_update/{id}',[BacController::class,'update']);
-	          /* fin des routes pour entitie bac* */
+	/* fin des routes pour entitie bac* */
 
-				 /* debut des routes pour entitie matiere  * */
+	/* debut des routes pour entitie matiere  * */
 	Route::get('matiere', [MatiereController::class,'index'])->name('Gestion_Matieres');
     Route::get('/matiere-create',[MatiereController::class,'create']);
     Route::post('/matiere/create',[MatiereController::class,'store']);
@@ -136,13 +126,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/filiere-update-{id}',[FiliereController::class,'edit']);
     Route::get('/filiere/delete-{id}',[FiliereController::class,'delete']);
 
-
-                /* fin les routes de abdessamad* */
-
-
+    /* fin les routes de abdessamad* */
 });
-
-
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/inscription', [RegisterController::class, 'create']);

@@ -51,29 +51,28 @@
   <div class="d-flex flex-column justify-content-center mt-4">
     <div class="flex-grow-1  mb-4">
       <div class="card z-index-2">
-        <div class="card-header pb-0">
+        <!-- <div class="card-header pb-0">
           <h6 class="font-weight-bold"> Nombre des candidats par rapport au nombre des filières </h6>
-        </div>
+        </div> -->
         <div class="card-body p-3">
-          <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
+          <!-- <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
             <div class="chart">
               <canvas id="chart-bars" class="chart-canvas" height="300"></canvas>
             </div>
-          </div>
+          </div> -->
+          <div id="chartCondidate" style="height: 300px; width: 100%;"></div>
         </div>
       </div>
     </div>
     <div class="flex-grow-1 mb">
       <div class="card z-index-2">
-        <div class="card-header pb-0">
+        <!-- <div class="card-header pb-0">
           <h6>Nombre d'utilisateurs rejoints chaque mois</h6>
           <p class="text-sm">
           </p>
-        </div>
+        </div> -->
         <div class="card-body p-3">
-          <div class="chart">
-            <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
-          </div>
+            <div id="chartUtilisateurs" style="height: 300px; width: 100%;"></div>
         </div>
       </div>
     </div>
@@ -477,13 +476,79 @@
 
 @push('dashboard')
 <script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartCondidate", {
+	animationEnabled: true,
+	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	title: {
+		text: "Nombre des candidats par rapport au nombre des filières"
+	},
+	axisY: {
+		title: "Nombre de candidatures"
+		// suffix: "%"
+	},
+	axisX: {
+		title: "Filières"
+	},
+	data: [{
+		type: "column",
+		// yValueFormatString: "#,##0.0#\"%\"",
+		dataPoints: [
+			{ label: "SEP", y: 54 },	
+			{ label: "SES - Anglaise", y: 19 },	
+			{ label: "SES - sc.Ind", y: 34 },
+			{ label: "SES", y: 23 }
+		]
+	}]
+});
+chart.render();
+}
+
+var chart_2 = new CanvasJS.Chart("chartUtilisateurs", {
+	animationEnabled: true,
+	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	title: {
+		text: "Nombre d'utilisateurs rejoints chaque mois"
+	},
+	axisY: {
+		title: "Nombre des utilisateurs"
+		// suffix: "%"
+	},
+	axisX: {
+		title: "les Mois"
+	},
+	data: [{
+		type: "line",
+		// yValueFormatString: "#,##0.0#\"%\"",
+		dataPoints: [
+			{ label: "jan", y: 54 },	
+			{ label: "Feb", y: 19 },	
+			{ label: "Mar", y: 34 },
+			{ label: "Apr", y: 23 },
+      { label: "May", y: 23 },
+      { label: "Jun", y: 2 },
+      { label: "Jul", y: 43 },
+      { label: "Aug", y: 13 },
+      { label: "Sep", y: 9 },
+      { label: "Oct", y: 18 },
+      { label: "Nov", y: 12 },
+      { label: "Dec", y: 30 }
+		]
+	}]
+});
+chart_2.render();
+
+</script>
+
+<!-- <script>
   window.onload = function() {
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
     new Chart(ctx, {
       type: "bar",
       data: {
-        labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES - Mathématique'],
+        labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES'],
         datasets: [{
           label: "Nombre des candidats",
           tension: 0.4,
@@ -647,6 +712,6 @@
       },
     });
   }
-</script>
+</script> -->
 @endpush
 
