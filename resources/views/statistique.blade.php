@@ -71,9 +71,7 @@
           </p>
         </div>
         <div class="card-body p-3">
-          <div class="chart">
-            <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
-          </div>
+            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
         </div>
       </div>
     </div>
@@ -477,6 +475,37 @@
 
 @push('dashboard')
 <script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	title: {
+		text: "Nombre des candidats par rapport au nombre des filières"
+	},
+	axisY: {
+		title: "Candidats"
+		// suffix: "%"
+	},
+	axisX: {
+		title: "Filières"
+	},
+	data: [{
+		type: "column",
+		// yValueFormatString: "#,##0.0#\"%\"",
+		dataPoints: [
+			{ label: "SEP", y: 54 },	
+			{ label: "SES - Anglaise", y: 19 },	
+			{ label: "SES - sc.Ind", y: 34 },
+			{ label: "SES - Mathématique", y: 23 }
+		]
+	}]
+});
+chart.render();
+}
+</script>
+
+<!-- <script>
   window.onload = function() {
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
@@ -647,6 +676,6 @@
       },
     });
   }
-</script>
+</script> -->
 @endpush
 
