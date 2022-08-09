@@ -138,7 +138,7 @@ class UserController extends Controller
                 $admin->last_name=$request->lname;
                 $admin->first_name=$request->fname;
                 $admin->email=$request->email;
-                $admin->password=$request->mdp;
+                $admin->password= bcrypt($request->mdp);
                 $admin->role=$request->role;
                 $admin->save();
 
