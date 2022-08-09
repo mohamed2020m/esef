@@ -92,9 +92,6 @@ class HomeController extends Controller
             $data=DB::table('users')->select('users.*')->join('filiere_user','filiere_user.user_id','=','users.id')
             ->where('filiere_user.filiere_id',$request->id)->get();
 
-            // $data=DB::table('users')->select('users.*')->join('filiere_user','filiere_user.user_id','=','users.id')
-            // ->join('filieres','filieres.id','=','filiere_user.filiere_id')->where('filieres.id',$request->id)->get();
-
             foreach ($data as $candidat) {
                 $total_note_matiere=0;
                 $total_coefficient_matiere=0;
@@ -103,7 +100,7 @@ class HomeController extends Controller
                 $coefficient_bac=0;
                 $coefficient_licence=0;
                 $cuurent_school_year = date("Y") - 1;
-                $annee_obtention = date("Y") - 1;
+                $annee_obtention = 0;
 
                 $matieres=DB::table('matiere_user')->select('matiere_user.*')
                 ->join('matieres','matieres.id','=','matiere_user.matiere_id')
