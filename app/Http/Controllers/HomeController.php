@@ -159,7 +159,10 @@ class HomeController extends Controller
                     $coefficient_licence=$bonus->coefficient_licence;
                 }
 
-                $score = (($note_partie_bac*$coefficient_bac)+($note_partie_licence*$coefficient_licence))/($coefficient_bac+$coefficient_licence);
+                $coeff_total = $coefficient_bac+$coefficient_licence;
+                if($coeff_total){
+                    $score = (($note_partie_bac*$coefficient_bac)+($note_partie_licence*$coefficient_licence))/$coeff_total;
+                }
                 
                 if($cuurent_school_year !== $annee_obtention){
                     $score -= 1;
@@ -167,7 +170,7 @@ class HomeController extends Controller
 
                 $candidat->score = round($score, 2);
             }
-            
+
             $sortData = $data->sortBy('score')->reverse();
             return response()->json($sortData->values()->all());
         }
