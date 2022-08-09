@@ -71,13 +71,14 @@
             },
             columnDefs: [ {     "data": 'state',
                                 "targets": -1,
-                                "render": function ( data, type, row, meta ) {
+                                "render": function ( data, type, row) {
+                                    
                                    
-                                return '<input type="checkbox"  class="editor-active">';
+                            return '<input type="checkbox" data-id="' + row.id + '" class="state">';
                                                              }
                                 } ],
-            "rowCallback": function( row, data ) {     
-                $('.editor-active', row).prop( 'checked' ).bootstrapToggle({size: 'mini'});
+            "fnDrawCallback": function( row, data ) {     
+                $('.state').bootstrapToggle();
                 },                       
             "language": {
                 "lengthMenu": "Afficher _MENU_ enregistrements par page",
@@ -98,10 +99,7 @@
 
 
         
-    $('#activation').bootstrapToggle({
-      on: 'Enabled',
-      off: 'Disabled'
-    });
+  
   
     })
 </script>
