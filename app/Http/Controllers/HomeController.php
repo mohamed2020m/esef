@@ -153,8 +153,8 @@ class HomeController extends Controller
                 $score=(($note_partie_bac*$coefficient_bac)+($note_partie_licence*$coefficient_licence))/($coefficient_bac+$coefficient_licence);
                 $candidat->score = round($score, 2);
             }
-            // collect($data)->sortBy('score')->reverse()->toArray();
-            return response()->json($data->sortBy('score')->reverse());
+            $data = $data->sortBy('score')->reverse();
+            return response()->json($data);
         }
         else{
             return  redirect('dashboard');
