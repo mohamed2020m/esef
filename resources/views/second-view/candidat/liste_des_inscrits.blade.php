@@ -7,7 +7,7 @@
                         <div>
                             <h5 class="mb-0"><i class="fa fa-lg fa-gear ps-2 pe-2 text-center text-dark" aria-hidden="true"></i>Gestion des utilisateurs</h5>
                         </div>
-                        <a href="/server.php/admin-create" class="btn btn-sm mb-0" type="button" style="background-color: #0f233a !important;color:white">+&nbsp; Ajoutez un Administrateur</a>
+                        <a href="/server.php/admin-create" class="btn btn-sm mb-0" type="button" style="background-color: #0f233a !important;color:white">+&nbsp; Nouveau utilisateur</a>
                     </div>
             </div>
         <hr>
