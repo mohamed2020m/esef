@@ -106,8 +106,10 @@ class HomeController extends Controller
                 $matieres=DB::table('matiere_user')->select('matiere_user.*')->join('matieres','matieres.id','=','matiere_user.matiere_id')->where('matiere_user.user_id',$candidat->id)->get();
                 
                 foreach($matieres as $matiere){
-                    $coefficient_matiere=DB::table('filiere_matiere')->select('filiere_matiere.coefficient_matiere')->where('filiere_matiere.matiere_id', $matiere->matiere_id)
-                    ->where('filiere_matiere.filiere_id', $request->id)->first();
+                    $coefficient_matiere=DB::table('filiere_matiere')->select('filiere_matiere.coefficient_matiere')
+                    ->where('filiere_matiere.filiere_id', $request->id)
+                    ->where('filiere_matiere.matiere_id', $matiere->matiere_id)
+                    ->get();
                     
                     // $produit_matiere_coefficient=($matiere->note)*($coefficient_matiere);
                     // $total_note_matiere+=$produit_matiere_coefficient;
