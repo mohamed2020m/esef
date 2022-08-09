@@ -118,7 +118,7 @@ class HomeController extends Controller
                     foreach($coefficient_matiere as $coefficient){
                         $produit_matiere_coefficient=($matiere->note)*( $coefficient->coefficient_matiere);
                         $total_note_matiere+=$produit_matiere_coefficient;
-                        $total_coefficient_matiere += $coefficient_matiere;
+                        $total_coefficient_matiere += $coefficient->coefficient_matiere;
                     }  
                 }
                 //note du partie bac avant l'ajout du bonus
@@ -130,14 +130,14 @@ class HomeController extends Controller
 
                 foreach($bacs as $bac){
                     $note_partie_bac += $bac->bonus_bac;
-                    $coefficient_bac=$bac -> coefficient_bac;
+                    $coefficient_bac = $bac->coefficient_bac;
                 }
                 
                 //NOTE DU PARTIE BAC APRES l'ajout du bonus 
                 $licences=DB::table('licence_user')->select('licence_user.*')->join('licences','licences.id','=','licence_user.licence_id')->where('licence_user.user_id',$candidat->id)->get();
                 
                 foreach($licences as $licence){
-                    $note_partie_licence=(($licence->note_s1)+($licence->note_s2))/2;
+                    $note_partie_licence = (($licence->note_s1)+($licence->note_s2))/2;
                 }
                 // adding Bonus to licence
                 $bonus_licence=DB::table('filiere_licence')->select('filiere_licence.*')->join('licence_user','licence_user.licence_id',"=",'filiere_licence.licence_id')
