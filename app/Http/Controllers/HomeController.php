@@ -106,7 +106,7 @@ class HomeController extends Controller
                 $matieres=DB::table('matiere_user')->select('matiere_user.*')->join('matieres','matieres.id','=','matiere_user.matiere_id')->where('matiere_user.user_id',$candidat->id)->get();
                 
                 foreach($matieres as $matiere){
-                    $coefficient_matiere=DB::table('filiere_matiere')->select('filiere_matiere.coefficient_matiere')
+                    $coefficient_matiere=DB::table('filiere_matiere')->select('filiere_matiere.*')
                     ->where('filiere_matiere.filiere_id', $request->id)
                     ->where('filiere_matiere.matiere_id', $matiere->matiere_id)
                     ->get();
@@ -125,7 +125,7 @@ class HomeController extends Controller
                 if ($total_coefficient_matiere){
                     $note_partie_bac = $total_note_matiere/$total_coefficient_matiere;
                 }
-                
+
                 // adding Bonus
                 $bacs=DB::table('bac_filiere')->select('bac_filiere.*')->join('bac_user','bac_user.bac_id','=','bac_filiere.bac_id')
                 ->where('bac_user.user_id',$candidat->id)->where('bac_filiere.filiere_id',$request->id)->get();
@@ -153,7 +153,8 @@ class HomeController extends Controller
                 $score=(($note_partie_bac*$coefficient_bac)+($note_partie_licence*$coefficient_licence))/($coefficient_bac+$coefficient_licence);
                 $candidat->score = round($score, 2);
             }
-            return response()->json($data);
+            $sortData = $data->sortBy('score')->reverse();
+            return response()->json($sortData->values()->all());
         }
         else{
             return  redirect('dashboard');
