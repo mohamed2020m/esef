@@ -96,9 +96,10 @@
     </div>
 </div>
 
-<script>
-    console.log("data: ", data);
-</script>    
+<div>
+    data : {{data}} 
+</div>   
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
