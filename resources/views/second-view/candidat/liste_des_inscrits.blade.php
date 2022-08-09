@@ -71,13 +71,14 @@
             },
             columnDefs: [ {     "data": 'state',
                                 "targets": -1,
-                                "render": function ( data, type, row     ) {
+                                "render": function ( data, type, row) {
+                                    
                                    
                             return '<input type="checkbox" data-id="' + row.id + '" class="state">';
                                                              }
                                 } ],
             "fnDrawCallback": function( row, data ) {     
-                $('.state').prop( 'checked', row.state == 1 ).bootstrapToggle();
+                $('.state').bootstrapToggle();
                 },                       
             "language": {
                 "lengthMenu": "Afficher _MENU_ enregistrements par page",
