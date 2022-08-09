@@ -80,7 +80,7 @@ class UserController extends Controller
                     $user->id,
                     $user->first_name,
                     $user->last_name,
-                    $user->cin,
+                    $user->email,
                     "admin",
                     $user->state,
 
@@ -93,7 +93,7 @@ class UserController extends Controller
                     $user->id,
                     $user->first_name,
                     $user->last_name,
-                    $user->cin,
+                    $user->email,
                     "candidat",
                     $user->state,
                    
