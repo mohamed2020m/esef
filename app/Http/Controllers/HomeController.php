@@ -134,7 +134,7 @@ class HomeController extends Controller
                 foreach($bacs as $bac){
                     $note_partie_bac += $bac->bonus_bac;
                     $coefficient_bac = $bac->coefficient_bac;
-                    $annee_obtention = $bac->annee_obtention;
+                    // $annee_obtention = $bac->annee_obtention;
                 }
                 
                 //NOTE DU PARTIE BAC APRES l'ajout du bonus 
@@ -162,9 +162,9 @@ class HomeController extends Controller
                     $score = (($note_partie_bac*$coefficient_bac)+($note_partie_licence*$coefficient_licence))/$coeff_total;
                 }
                 
-                if($cuurent_school_year !== $annee_obtention){
-                    $score -= 1;
-                }
+                // if($cuurent_school_year !== $annee_obtention){
+                //     $score -= 1;
+                // }
 
                 $candidat->score = round($score, 2);
             }
