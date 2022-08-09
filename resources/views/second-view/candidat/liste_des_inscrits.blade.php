@@ -57,7 +57,7 @@
                     { data: 'last_name'},
                     { data: 'email'},
                     {data: 'role'},
-                    {data: null,
+                    {
                      defaultContent: '<button>Click!</button>',
                     },
                 ]
