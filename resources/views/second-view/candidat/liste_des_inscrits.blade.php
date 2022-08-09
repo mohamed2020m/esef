@@ -58,7 +58,14 @@
                     { data: 'email'},
                     {data: 'role'},
                     {data: 'state'},
-                ]
+                ],
+                columnDefs: [
+                     {
+                 targets: -1,
+                 data: null,
+                 defaultContent: '<button>Click!</button>',
+                    },
+        ]
             },
             "language": {
                 "lengthMenu": "Afficher _MENU_ enregistrements par page",
