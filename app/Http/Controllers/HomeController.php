@@ -134,9 +134,12 @@ class HomeController extends Controller
                 if($bac){
                     $note_partie_bac += $bac->bonus_bac;
                     $coefficient_bac = $bac->coefficient_bac;
-                    $year_of_graduation = $bac->annee_obtention;
                 }
-                
+
+                $year_of_graduation = DB::table('bac_user')->select('annee_obtention')
+                ->where('bac_user.user_id', $candidat->id)
+                ->first();
+
                 //NOTE DU PARTIE BAC APRES l'ajout du bonus 
                 $licence=DB::table('licence_user')->select('licence_user.*')
                 ->join('licences','licences.id','=','licence_user.licence_id')
@@ -162,11 +165,11 @@ class HomeController extends Controller
                 $coeff_total = $coefficient_bac+$coefficient_licence;
                 if($coeff_total){
                     $score = (($note_partie_bac*$coefficient_bac)+($note_partie_licence*$coefficient_licence))/$coeff_total;
-                    if($cuurent_school_year !== $year_of_graduation){
+                    if($cuurent_school_year != $year_of_graduation->annee_obtention){
                         $score -= 1;
                     }
                 }
-                $candidat->score = round($year_of_graduation, 2);
+                $candidat->score = round($score, 2);
             }
 
             $sortData = $data->sortBy('score')->reverse();
