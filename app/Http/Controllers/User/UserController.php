@@ -44,6 +44,7 @@ class UserController extends Controller
               2 => 'users.last_name',
               3 => 'users.cin',
               4 => 'users.role',
+              
             
           );
       
@@ -81,6 +82,8 @@ class UserController extends Controller
                     $user->last_name,
                     $user->cin,
                     "admin",
+                    $user->state,
+
                    
                 ];
 
@@ -92,6 +95,7 @@ class UserController extends Controller
                     $user->last_name,
                     $user->cin,
                     "candidat",
+                    $user->state,
                    
                 ];
             }
