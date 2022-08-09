@@ -159,14 +159,14 @@ class HomeController extends Controller
                     $coefficient_licence=$bonus->coefficient_licence;
                 }
 
-                // $coeff_total = $coefficient_bac+$coefficient_licence;
+                $coeff_total = $coefficient_bac+$coefficient_licence;
                 // if($coeff_total){
                 //     $score = (($note_partie_bac*$coefficient_bac)+($note_partie_licence*$coefficient_licence))/$coeff_total;
                 //     if($cuurent_school_year !== $year_of_graduation){
                 //         $score -= 1;
                 //     }
                 // }
-                $candidat->score = round($note_partie_licence, 2);
+                $candidat->score = round($coeff_total, 2);
             }
 
             $sortData = $data->sortBy('score')->reverse();
