@@ -120,22 +120,22 @@ class HomeController extends Controller
                     }
                 }
                 //note du partie bac avant l'ajout du bonus
-                // if ($total_coefficient_matiere){
-                //     $note_partie_bac = $total_note_matiere/$total_coefficient_matiere;
-                // }
+                if ($total_coefficient_matiere){
+                    $note_partie_bac = $total_note_matiere/$total_coefficient_matiere;
+                }
 
                 // adding Bonus
-                // $bac=DB::table('bac_filiere')->select('bac_filiere.*')
-                // ->join('bac_user','bac_user.bac_id','=','bac_filiere.bac_id')
-                // ->where('bac_filiere.filiere_id',$request->id)
-                // ->where('bac_user.user_id',$candidat->id)
-                // ->first();
+                $bac=DB::table('bac_filiere')->select('bac_filiere.*')
+                ->join('bac_user','bac_user.bac_id','=','bac_filiere.bac_id')
+                ->where('bac_filiere.filiere_id',$request->id)
+                ->where('bac_user.user_id',$candidat->id)
+                ->first();
 
-                // if($bac){
-                //     $note_partie_bac += $bac->bonus_bac;
-                //     $coefficient_bac = $bac->coefficient_bac;
-                    // $year_of_graduation = $bac->annee_obtention;
-                // }
+                if($bac){
+                    $note_partie_bac += $bac->bonus_bac;
+                    $coefficient_bac = $bac->coefficient_bac;
+                    $year_of_graduation = $bac->annee_obtention;
+                }
                 
                 //NOTE DU PARTIE BAC APRES l'ajout du bonus 
                 // $licence=DB::table('licence_user')->select('licence_user.*')
@@ -166,7 +166,7 @@ class HomeController extends Controller
                 //         $score -= 1;
                 //     }
                 // }
-                $candidat->score = round($total_note_matiere, 2);
+                $candidat->score = round($note_partie_bac, 2);
             }
 
             $sortData = $data->sortBy('score')->reverse();
