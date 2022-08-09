@@ -15,7 +15,8 @@ class UserController extends Controller
         if(Auth::user()->role =="admin"){
            
     //$inscrits=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')->get();
-    $inscrits=DB::table('users')->select('users.*')->get();  
+    $inscrits=DB::table('users')->get();    
+    
 
             return view('second-view/candidat/liste_des_inscrits',compact('inscrits'));
         }
@@ -47,7 +48,7 @@ class UserController extends Controller
           );
       
           $query = User::join('filiere_user', 'filiere_user.user_id', '=', 'users.id')->select('users.*');
-      
+          //$query=DB::table('users')->get();
           if (!empty($filter)) {
               $query->where('users.first_name', 'like', '%'.$filter.'%')
               ->orwhere('users.last_name', 'like', '%'.$filter.'%')
@@ -127,24 +128,17 @@ class UserController extends Controller
             if(Auth::user()->role =="admin"){
 
 
-                $admin = request([
-                    'last_name',
-                    'first_name',
-                    'email',
-                    'password',
-                    'role',
-                ]);
+              
 
-                $admin['password'] = bcrypt($admin['password'] );
-                //$admin = new User();
-                //$admin->last_name=$request->lname;
-                //$admin->first_name=$request->fname;
-                //$admin->email=$request->email;
-                //$admin->password=$request->mdp;
-                //$admin->role=$request->role;
-                //$admin->save();
+                $admin = new User();
+                $admin->last_name=$request->lname;
+                $admin->first_name=$request->fname;
+                $admin->email=$request->email;
+                $admin->password=$request->mdp;
+                $admin->role=$request->role;
+                $admin->save();
 
-                $user = User::create($admin);
+               
                 return  redirect('utilisateurs');
             }
             else{
