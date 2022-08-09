@@ -131,8 +131,8 @@ class HomeController extends Controller
                 // adding Bonus
                 $bacs=DB::table('bac_filiere')->select('bac_filiere.*')
                 ->join('bac_user','bac_user.bac_id','=','bac_filiere.bac_id')
-                ->where('bac_filiere.filiere_id',$request->id)->get()
-                ->where('bac_user.user_id',$candidat->id);
+                ->where('bac_filiere.filiere_id',$request->id)
+                ->where('bac_user.user_id',$candidat->id)->get();
 
                 foreach($bacs as $bac){
                     $note_partie_bac += $bac->bonus_bac;
@@ -159,13 +159,18 @@ class HomeController extends Controller
                     $coefficient_licence=$bonus->coefficient_licence;
                 }
 
-                $score = (($note_partie_bac*$coefficient_bac)+($note_partie_licence*$coefficient_licence))/($coefficient_bac+$coefficient_licence);
-                
-                if($cuurent_school_year != $annee_obtention){
-                    $score = $score - 1;
+                $coeff_total = $coefficient_bac+$coefficient_licence;
+                if($coeff_total){
+                    $score = (($note_partie_bac*$coefficient_bac)+($note_partie_licence*$coefficient_licence))/$coeff_total;
                 }
+                
+                if($cuurent_school_year !== $annee_obtention){
+                    $score -= 1;
+                }
+
                 $candidat->score = round($score, 2);
             }
+
             $sortData = $data->sortBy('score')->reverse();
             return response()->json($sortData->values()->all());
         }
