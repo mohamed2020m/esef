@@ -14,7 +14,7 @@
         </div>
         <hr>
         <div class="card-body px-3 py-2 overflow-auto">
-            <form id="create_filiere" action="/filiere/create" method="POST"  enctype="multipart/form-data" >
+            <form id="create_filiere" action="/server.php/filiere/create" method="POST"  enctype="multipart/form-data" >
                 @csrf
                 <div class="">
                     <div class="mb-3">

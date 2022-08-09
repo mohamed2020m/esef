@@ -12,7 +12,7 @@
                 </div>
             </div>
         </div>
-        <div class="card-body px-3 pt-0 pb-2">
+        <div class="card-body px-3 pt-0 pb-2"> 
             @foreach($data_licence as $key => $item)
             <form action="{{url('licence_update/'.$item->id)}}" method="POST"  enctype="multipart/form-data">
                 @csrf
