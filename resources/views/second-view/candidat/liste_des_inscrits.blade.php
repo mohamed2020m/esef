@@ -45,7 +45,15 @@
 
 
 <script>
+
+
+
+
+
     $(document).ready(function() {
+
+
+
         let users = $('#empTable').DataTable({
             "serverSide": true,
             "ajax": {
@@ -65,7 +73,7 @@
                                 "targets": -1,
                                 "render": function ( data, type, row, meta ) {
                                     console.log(data);
-                                return '<input type="checkbox" class="custom-control-input" id="customSwitches">';
+                                return '<input type="checkbox"  id="activation">';
                                                              }
                                 } ],
             "language": {
@@ -84,6 +92,14 @@
                 "loadingRecords": "Chargement...",
             }
         });
+
+
+        
+    $('#activation').bootstrapToggle({
+      on: 'Enabled',
+      off: 'Disabled'
+    });
+  
     })
 </script>
     
