@@ -125,17 +125,15 @@ class HomeController extends Controller
                 }
 
                 // adding Bonus
-                $bacs=DB::table('bac_filiere')->select('bac_filiere.*')
+                $bac=DB::table('bac_filiere')->select('bac_filiere.*')
                 ->join('bac_user','bac_user.bac_id','=','bac_filiere.bac_id')
                 ->where('bac_filiere.filiere_id',$request->id)
                 ->where('bac_user.user_id',$candidat->id)
-                ->get();
+                ->first();
 
-                foreach($bacs as $bac){
-                    $note_partie_bac += $bac->bonus_bac;
-                    $coefficient_bac = $bac->coefficient_bac;
-                    $annee_obtention = $bac->annee_obtention;
-                }
+                $note_partie_bac += $bac->bonus_bac;
+                $coefficient_bac = $bac->coefficient_bac;
+                $annee_obtention = $bac->annee_obtention;
                 
                 //NOTE DU PARTIE BAC APRES l'ajout du bonus 
                 $licences=DB::table('licence_user')->select('licence_user.*')
