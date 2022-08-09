@@ -71,7 +71,8 @@
             },
             columnDefs: [ {     "data": 'state',
                                 "targets": -1,
-                                "render": function ( data, type, row) {return '<input type="checkbox"  ng-click="openModal();" id="switchActivar" class ="mySwitch" checked data-toggle="toggle">';},                      
+                                "render": function ( data, type, row) {
+                return '<input type="checkbox"  class ="mySwitch"  data-toggle="toggle">';},                      
                                                           
                                 } ],
 
