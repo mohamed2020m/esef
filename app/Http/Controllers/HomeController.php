@@ -18,9 +18,7 @@ class HomeController extends Controller
 
     public function select_filiere(){
         if(Auth::user()->role =="admin"){
-            //$data =DB::table('users')->where('role','normal user')->get();
             $data_filiere =Filiere::all();
-            
             return view('laravel-examples/user-management',compact('data_filiere'));
         }
         else{
@@ -154,8 +152,7 @@ class HomeController extends Controller
                 $score=(($note_partie_bac*$coefficient_bac)+($note_partie_licence*$coefficient_licence))/($coefficient_bac+$coefficient_licence);
                 $candidat->score = $score;
             }
-            // return response()->json($data);
-            return view('laravel-examples/user-management', compact('data'));
+            return response()->json($data);
         }
         else{
             return  redirect('dashboard');
