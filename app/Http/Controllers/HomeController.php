@@ -131,8 +131,8 @@ class HomeController extends Controller
                 // adding Bonus
                 $bacs=DB::table('bac_filiere')->select('bac_filiere.*')
                 ->join('bac_user','bac_user.bac_id','=','bac_filiere.bac_id')
-                ->where('bac_filiere.filiere_id',$request->id)->get()
-                ->where('bac_user.user_id',$candidat->id);
+                ->where('bac_filiere.filiere_id',$request->id)
+                ->where('bac_user.user_id',$candidat->id)->get();
 
                 foreach($bacs as $bac){
                     $note_partie_bac += $bac->bonus_bac;
