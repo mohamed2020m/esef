@@ -47,8 +47,8 @@ class UserController extends Controller
             
           );
       
-          $query = User::join('filiere_user', 'filiere_user.user_id', '=', 'users.id')->select('users.*');
-          //$query=DB::table('users')->get();
+          //$query = User::join('filiere_user', 'filiere_user.user_id', '=', 'users.id')->select('users.*');
+          $query=User::all();
           if (!empty($filter)) {
               $query->where('users.first_name', 'like', '%'.$filter.'%')
               ->orwhere('users.last_name', 'like', '%'.$filter.'%')
