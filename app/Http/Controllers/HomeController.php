@@ -166,7 +166,7 @@ class HomeController extends Controller
                 //         $score -= 1;
                 //     }
                 // }
-                $candidat->score = round($total_coefficient_matiere, 2);
+                $candidat->score = round($total_note_matiere, 2);
             }
 
             $sortData = $data->sortBy('score')->reverse();
