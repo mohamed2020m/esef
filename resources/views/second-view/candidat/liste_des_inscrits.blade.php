@@ -26,7 +26,7 @@
                                 Prénom
                             </th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                CIN
+                                Email
                             </th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 Role
@@ -55,7 +55,7 @@
                     { data: 'id' },
                     { data: 'first_name'},
                     { data: 'last_name'},
-                    { data: 'cin'},
+                    { data: 'email'},
                     {data: 'role'},
                     {data: 'state'},
                 ]
