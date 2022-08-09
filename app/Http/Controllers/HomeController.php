@@ -153,7 +153,6 @@ class HomeController extends Controller
                 $score=(($note_partie_bac*$coefficient_bac)+($note_partie_licence*$coefficient_licence))/($coefficient_bac+$coefficient_licence);
                 $candidat->score = round($score, 2);
             }
-            $data = $data->sortBy('score')->reverse();
             return response()->json($data);
         }
         else{
