@@ -14,7 +14,7 @@
         </div>
         <div class="card-body px-3 pt-0 pb-2">
             @foreach($data as $key => $item)
-            <form action="{{url('https://esef.toubkalit.com/server.php/bac/update/'.$item->id)}}" method="POST"  enctype="multipart/form-data">
+            <form action="{{url('bac_update/'.$item->id)}}" method="POST"  enctype="multipart/form-data">
                 @csrf
                 <div class="form-outline mb-4 mt-6">
                     <label class="form-label" for="name">Serie de Bac</label>
