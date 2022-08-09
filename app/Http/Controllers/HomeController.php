@@ -90,7 +90,7 @@ class HomeController extends Controller
             //     $candidat->score = $score;
             // }
             $data=DB::table('users')->select('users.*')->join('filiere_user','filiere_user.user_id','=','users.id')
-            ->where('filiere_user.filiere_id',$request->filiere_id)->get();
+            ->where('filiere_user.filiere_id',$request->id)->get();
 
             // $data=DB::table('users')->select('users.*')->join('filiere_user','filiere_user.user_id','=','users.id')
             // ->join('filieres','filieres.id','=','filiere_user.filiere_id')->where('filieres.id',$request->id)->get();
