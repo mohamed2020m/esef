@@ -69,15 +69,15 @@
                 ]
                 
             },
-            columnDefs: [ {     data: 'state',
+            columnDefs: [ {     "data": 'state',
                                 "targets": -1,
                                 "render": function ( data, type, row, meta ) {
-                                    console.log(data);
+                                   
                                 return '<input type="checkbox"  class="editor-active">';
                                                              }
                                 } ],
             "rowCallback": function( row, data ) {     
-                $('body.editor-active', row).prop( 'checked' ).bootstrapToggle({size: 'mini'});
+                $('.editor-active', row).prop( 'checked' ).bootstrapToggle({size: 'mini'});
                 },                       
             "language": {
                 "lengthMenu": "Afficher _MENU_ enregistrements par page",
