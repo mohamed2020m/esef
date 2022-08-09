@@ -154,7 +154,7 @@ class HomeController extends Controller
                 $candidat->score = round($score, 2);
             }
             // collect($data)->sortBy('score')->reverse()->toArray();
-            return response()->json(collect($data)->sortBy('score')->reverse()->toArray());
+            return response()->json($data->sortBy('score')->reverse());
         }
         else{
             return  redirect('dashboard');
