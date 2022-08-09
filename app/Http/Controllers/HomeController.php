@@ -138,21 +138,21 @@ class HomeController extends Controller
                 }
                 
                 //NOTE DU PARTIE BAC APRES l'ajout du bonus 
-                // $licence=DB::table('licence_user')->select('licence_user.*')
-                // ->join('licences','licences.id','=','licence_user.licence_id')
-                // ->where('licence_user.user_id',$candidat->id)
-                // ->first();
+                $licence=DB::table('licence_user')->select('licence_user.*')
+                ->join('licences','licences.id','=','licence_user.licence_id')
+                ->where('licence_user.user_id',$candidat->id)
+                ->first();
                 
-                // if($licence){
-                //     $note_partie_licence = (($licence->note_s1)+($licence->note_s2))/2;
-                // }
+                if($licence){
+                    $note_partie_licence = (($licence->note_s1)+($licence->note_s2))/2;
+                }
 
                 // // adding Bonus to licence
-                // $bonus=DB::table('filiere_licence')->select('filiere_licence.*')
-                // ->join('licence_user','licence_user.licence_id',"=",'filiere_licence.licence_id')
-                // ->where('filiere_licence.filiere_id', $request->id)
-                // ->where('licence_user.user_id',$candidat->id)
-                // ->first();
+                $bonus=DB::table('filiere_licence')->select('filiere_licence.*')
+                ->join('licence_user','licence_user.licence_id',"=",'filiere_licence.licence_id')
+                ->where('filiere_licence.filiere_id', $request->id)
+                ->where('licence_user.user_id',$candidat->id)
+                ->first();
 
                 // if($bonus){
                 //     $note_partie_licence+=$bonus->bonus_licence;
@@ -166,7 +166,7 @@ class HomeController extends Controller
                 //         $score -= 1;
                 //     }
                 // }
-                $candidat->score = round($note_partie_bac, 2);
+                $candidat->score = round($note_partie_licence, 2);
             }
 
             $sortData = $data->sortBy('score')->reverse();
