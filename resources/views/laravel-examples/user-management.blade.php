@@ -107,7 +107,7 @@
             $.ajax({
                 type:'get',
                 url:'{{URL::to("candidatsList")}}',
-                data:{sort:sort, 'id':filiere_id},
+                data:{'id':filiere_id},
                 success: function(data){
                     console.log("data: ", data);
                     for(var i=0;i<data.length;i++){
