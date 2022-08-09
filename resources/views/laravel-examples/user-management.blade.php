@@ -97,6 +97,13 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
+    const sorter = (a, b) => {
+        return a.age - b.age;
+    };
+    const sortByAge = arr => {
+        arr.sort(sorter);
+    };
+
     $(document).ready(function(){
 
         $(document).on('change','.select_filiere',function(){
@@ -108,6 +115,7 @@
                 url:'{{URL::to("candidatsList")}}',
                 data:{'id':filiere_id},
                 success: function(data){
+                    let data = sortByAge(data);
                     console.log("data: ", data);
                     for(var i=0;i<data.length;i++){
                         console.log("score: ", data[i].score);
