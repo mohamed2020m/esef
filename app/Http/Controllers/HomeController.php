@@ -109,15 +109,15 @@ class HomeController extends Controller
                     $coefficient_matiere=DB::table('filiere_matiere')->select('filiere_matiere.coefficient_matiere')->where('filiere_matiere.matiere_id', $matiere->matiere_id)
                     ->where('filiere_matiere.filiere_id', $request->id)->first();
                     
-                    $produit_matiere_coefficient=($matiere->note)*($coefficient_matiere);
-                    $total_note_matiere+=$produit_matiere_coefficient;
-                    $total_coefficient_matiere += $coefficient_matiere;
+                    // $produit_matiere_coefficient=($matiere->note)*($coefficient_matiere);
+                    // $total_note_matiere+=$produit_matiere_coefficient;
+                    // $total_coefficient_matiere += $coefficient_matiere;
 
-                    // foreach($coefficient_matiere as $coefficient){
-                    //     $produit_matiere_coefficient=($matiere->note)*( $coefficient->coefficient_matiere);
-                    //     $total_note_matiere+=$produit_matiere_coefficient;
-                    //     $total_note_matiere+=$produit_matiere_coefficient;
-                    // }  
+                    foreach($coefficient_matiere as $coefficient){
+                        $produit_matiere_coefficient=($matiere->note)*( $coefficient->coefficient_matiere);
+                        $total_note_matiere+=$produit_matiere_coefficient;
+                        $total_coefficient_matiere += $coefficient_matiere;
+                    }  
                 }
                 //note du partie bac avant l'ajout du bonus
                 $note_partie_bac = $total_note_matiere/$total_coefficient_matiere;
