@@ -64,7 +64,8 @@
             columnDefs: [ {
                                 "targets": -1,
                                 "render": function ( data, type, row, meta ) {
-                                return '<a href="#">Download</a>';
+                                    console.log(data);
+                                return '<input type="checkbox" checked data-toggle="toggle">';
                                                              }
                                 } ],
             "language": {
