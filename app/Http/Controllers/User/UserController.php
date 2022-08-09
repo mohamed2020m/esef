@@ -15,7 +15,7 @@ class UserController extends Controller
         if(Auth::user()->role =="admin"){
            
     //$inscrits=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')->get();
-    $inscrits=DB::table('users')->select('*')->get();  
+    $inscrits=DB::table('users')->select('users.*')->get();  
 
             return view('second-view/candidat/liste_des_inscrits',compact('inscrits'));
         }
@@ -126,13 +126,17 @@ class UserController extends Controller
         public function storeadmin(Request $request){
             if(Auth::user()->role =="admin"){
 
+
+            
                 $admin = new User();
                 $admin->last_name=$request->lname;
                 $admin->first_name=$request->fname;
                 $admin->email=$request->email;
                 $admin->password=$request->mdp;
                 $admin->role=$request->role;
-                $admin->save();
+                //$admin->save();
+
+                $user = User::create($admin);
                 return  redirect('utilisateurs');
             }
             else{
