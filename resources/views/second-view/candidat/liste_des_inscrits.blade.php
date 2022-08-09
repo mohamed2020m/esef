@@ -77,7 +77,7 @@
                                                              }
                                 } ],
             "rowCallback": function( row, data ) {     
-                $('input.editor-active', row).prop( 'checked' ).bootstrapToggle({size: 'mini'});
+                $('body.editor-active', row).prop( 'checked' ).bootstrapToggle({size: 'mini'});
                 },                       
             "language": {
                 "lengthMenu": "Afficher _MENU_ enregistrements par page",
