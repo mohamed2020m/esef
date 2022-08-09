@@ -106,7 +106,7 @@ class HomeController extends Controller
                 $matieres=DB::table('matiere_user')->select('matiere_user.*')->join('matieres','matieres.id','=','matiere_user.matiere_id')->where('matiere_user.user_id',$candidat->id)->get();
                 
                 foreach($matieres as $matiere){
-                    $coefficient_matiere=DB::table('filiere_matiere')->select('filiere_matiere.coefficient_matiere')
+                    $coefficient_matiere=DB::table('filiere_matiere')->select('filiere_matiere.*')
                     ->where('filiere_matiere.filiere_id', $request->id)
                     ->where('filiere_matiere.matiere_id', $matiere->matiere_id)
                     ->get();
@@ -153,7 +153,7 @@ class HomeController extends Controller
                 $score=(($note_partie_bac*$coefficient_bac)+($note_partie_licence*$coefficient_licence))/($coefficient_bac+$coefficient_licence);
                 $candidat->score = round($score, 2);
             }
-            $sortData = $data->sortBy('score');
+            $sortData = $data->sortBy('score')->reverse();
             return response()->json($sortData->values()->all());
         }
         else{
