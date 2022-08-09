@@ -133,7 +133,7 @@ class HomeController extends Controller
 
                 $note_partie_bac += $bac->bonus_bac;
                 $coefficient_bac = $bac->coefficient_bac;
-                $annee_obtention = $bac->annee_obtention;
+                // $annee_obtention = $bac->annee_obtention;
                 
                 //NOTE DU PARTIE BAC APRES l'ajout du bonus 
                 $licences=DB::table('licence_user')->select('licence_user.*')
