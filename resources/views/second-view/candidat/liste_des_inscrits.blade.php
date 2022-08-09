@@ -69,13 +69,16 @@
                 ]
                 
             },
-            columnDefs: [ {
+            columnDefs: [ {     data: 'state',
                                 "targets": -1,
                                 "render": function ( data, type, row, meta ) {
                                     console.log(data);
-                                return '<input type="checkbox"  id="activation">';
+                                return '<input type="checkbox"  class="editor-active">';
                                                              }
                                 } ],
+            "rowCallback": function( row, data ) {     
+                $('input.editor-active', row).prop( 'checked' ).bootstrapToggle({size: 'mini'});
+                },                       
             "language": {
                 "lengthMenu": "Afficher _MENU_ enregistrements par page",
                 "zeroRecords": "Rien n'a été trouvé",
