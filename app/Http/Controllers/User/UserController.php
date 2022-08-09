@@ -127,13 +127,19 @@ class UserController extends Controller
             if(Auth::user()->role =="admin"){
 
 
-            
-                $admin = new User();
-                $admin->last_name=$request->lname;
-                $admin->first_name=$request->fname;
-                $admin->email=$request->email;
-                $admin->password=$request->mdp;
-                $admin->role=$request->role;
+                $admin = request([
+                    'last_name',
+                    'first_name',
+                    'email',
+                    'password',
+                    'role',
+                ]);
+                //$admin = new User();
+                //$admin->last_name=$request->lname;
+                //$admin->first_name=$request->fname;
+                //$admin->email=$request->email;
+                //$admin->password=$request->mdp;
+                //$admin->role=$request->role;
                 //$admin->save();
 
                 $user = User::create($admin);
