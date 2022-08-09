@@ -51,12 +51,6 @@
             "ajax": {
                 url: "{{route('getUtilisateurs') }}", 
                 method: "get",
-                "columnDefs": [ {
-                                "targets": -1,
-                                "render": function ( data, type, row, meta ) {
-                                return '<a href="#">Download</a>';
-                                                             }
-                                } ],
                 columns: [
                     { data: 'id' },
                     { data: 'first_name'},
@@ -67,6 +61,12 @@
                 ]
                 
             },
+            columnDefs: [ {
+                                "targets": -1,
+                                "render": function ( data, type, row, meta ) {
+                                return '<a href="#">Download</a>';
+                                                             }
+                                } ],
             "language": {
                 "lengthMenu": "Afficher _MENU_ enregistrements par page",
                 "zeroRecords": "Rien n'a été trouvé",
