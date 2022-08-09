@@ -53,7 +53,6 @@
                 method: "get",
                 "columnDefs": [ {
                                 "targets": -1,
-                                "data": "download_link",
                                 "render": function ( data, type, row, meta ) {
                                 return '<a href="#">Download</a>';
                                                              }
