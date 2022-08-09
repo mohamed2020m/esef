@@ -71,15 +71,19 @@
             },
             columnDefs: [ {     "data": 'state',
                                 "targets": -1,
-                                "render": function ( data, type, row) {
-                                    
-                                   
-                            return '<input type="checkbox" data-id="' + row.id + '" class="state">';
-                                                             }
+                                "render": function ( data, type, row) {return '<input type="checkbox"  ng-click="openModal();" id="switchActivar" class ="mySwitch" checked data-toggle="toggle">';},                      
+                                "fnDrawCallback": function( row, data ) {     
+                $('.mySwitch').bootstrapToggle(
+                    {
+                       on: 'Activo',
+                       off: 'Inactivo',
+                       onstyle: "success",
+                       offstyle:"danger" ,
+                      size:"mini"
+                   });
+                },                                
                                 } ],
-            "fnDrawCallback": function( row, data ) {     
-                $('.state').bootstrapToggle();
-                },                       
+                                
             "language": {
                 "lengthMenu": "Afficher _MENU_ enregistrements par page",
                 "zeroRecords": "Rien n'a été trouvé",
