@@ -22,7 +22,7 @@
                     <div class="d-flex justify-content-center mb-3">
                         <div class=" py-2 px-3 text-white fw-bold rounded-circle" style="background-color: #0f233a;">2</div>
                     </div>
-                    <a href={{url("/condidat-académique")}}>
+                    <a href={{url("/condidat-academique")}}>
                         <img src="../public/img/images dashboard/diploma.png" alt="acadimiques" width="200px" height="200px" >
                     </a>
                     <div class="box-title">
@@ -43,7 +43,7 @@
                     </a>
                     <div class="box-title">
                         <p>
-                            Candidatures    
+                            Candidatures
                         </p>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                     </a>
                     <div class="box-title">
                         <p>
-                            Dossier Personnel    
+                            Dossier Personnel
                         </p>
                     </div>
                 </div>
