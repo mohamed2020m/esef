@@ -15,8 +15,7 @@ class UserController extends Controller
         if(Auth::user()->role =="admin"){
            
     //$inscrits=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')->get();
-    $inscrits=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')
-    ->join('filieres','filieres.id','=','filiere_user.filiere_id')->get();  
+    $inscrits=DB::table('users')->select('*')->get();  
 
             return view('second-view/candidat/liste_des_inscrits',compact('inscrits'));
         }
