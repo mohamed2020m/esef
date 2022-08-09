@@ -102,7 +102,9 @@ class HomeController extends Controller
                 $note_partie_licence=0;
                 $coefficient_bac=0;
                 $coefficient_licence=0;
-                
+                $cuurent_school_year = date("Y") - 1;
+                $annee_obtention = date("Y") - 1;
+
                 $matieres=DB::table('matiere_user')->select('matiere_user.*')->join('matieres','matieres.id','=','matiere_user.matiere_id')->where('matiere_user.user_id',$candidat->id)->get();
                 
                 foreach($matieres as $matiere){
@@ -127,31 +129,43 @@ class HomeController extends Controller
                 }
 
                 // adding Bonus
-                $bacs=DB::table('bac_filiere')->select('bac_filiere.*')->join('bac_user','bac_user.bac_id','=','bac_filiere.bac_id')
-                ->where('bac_user.user_id',$candidat->id)->where('bac_filiere.filiere_id',$request->id)->get();
+                $bacs=DB::table('bac_filiere')->select('bac_filiere.*')
+                ->join('bac_user','bac_user.bac_id','=','bac_filiere.bac_id')
+                ->where('bac_filiere.filiere_id',$request->id)->get()
+                ->where('bac_user.user_id',$candidat->id);
 
                 foreach($bacs as $bac){
                     $note_partie_bac += $bac->bonus_bac;
                     $coefficient_bac = $bac->coefficient_bac;
+                    $annee_obtention = $bac->annee_obtention;
                 }
                 
                 //NOTE DU PARTIE BAC APRES l'ajout du bonus 
-                $licences=DB::table('licence_user')->select('licence_user.*')->join('licences','licences.id','=','licence_user.licence_id')->where('licence_user.user_id',$candidat->id)->get();
+                $licences=DB::table('licence_user')->select('licence_user.*')
+                ->join('licences','licences.id','=','licence_user.licence_id')
+                ->where('licence_user.user_id',$candidat->id)->get();
                 
                 foreach($licences as $licence){
                     $note_partie_licence = (($licence->note_s1)+($licence->note_s2))/2;
                 }
                 // adding Bonus to licence
-                $bonus_licence=DB::table('filiere_licence')->select('filiere_licence.*')->join('licence_user','licence_user.licence_id',"=",'filiere_licence.licence_id')
-                ->where('licence_user.user_id',$candidat->id)->where('filiere_licence.filiere_id',$request->id)->get();
+                $bonus_licence=DB::table('filiere_licence')->select('filiere_licence.*')
+                ->join('licence_user','licence_user.licence_id',"=",'filiere_licence.licence_id')
+                ->where('filiere_licence.filiere_id',$request->id)
+                ->where('licence_user.user_id',$candidat->id)->get();
 
                 foreach($bonus_licence as $bonus){
                     $note_partie_licence+=$bonus->bonus_licence;
                     $coefficient_licence=$bonus->coefficient_licence;
                 }
 
-                $score=(($note_partie_bac*$coefficient_bac)+($note_partie_licence*$coefficient_licence))/($coefficient_bac+$coefficient_licence);
-                $candidat->score = round($score, 2);
+                $score = (($note_partie_bac*$coefficient_bac)+($note_partie_licence*$coefficient_licence))/($coefficient_bac+$coefficient_licence);
+                if($cuurent_school_year == $annee_obtention){
+                    $candidat->score = round($score, 2) - 1;
+                }
+                else{
+                    $candidat->score = round($score, 2);
+                }
             }
             $sortData = $data->sortBy('score')->reverse();
             return response()->json($sortData->values()->all());
