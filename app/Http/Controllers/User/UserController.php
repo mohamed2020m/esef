@@ -14,8 +14,8 @@ class UserController extends Controller
     public function afficher(){
         if(Auth::user()->role =="admin"){
            
-    //$inscrits=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')->get();
-            $inscrits=DB::table('users')->get();  
+    $inscrits=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')->get();
+           
     
 
             return view('second-view/candidat/liste_des_inscrits',compact('inscrits'));
@@ -47,8 +47,8 @@ class UserController extends Controller
             
           );
       
-          $query = User::join('filiere_user', 'filiere_user.user_id', '=', 'users.id')->select('users.*');
-      
+          //$query = User::join('filiere_user', 'filiere_user.user_id', '=', 'users.id')->select('users.*');
+          $query=DB::table('users')->get();
           if (!empty($filter)) {
               $query->where('users.first_name', 'like', '%'.$filter.'%')
               ->orwhere('users.last_name', 'like', '%'.$filter.'%')
