@@ -105,8 +105,8 @@ class HomeController extends Controller
                 
                 $matieres=DB::table('matiere_user')->select('matiere_user.*')->join('matieres','matieres.id','=','matiere_user.matiere_id')->where('matiere_user.user_id',$candidat->id)->get();
                 foreach($matieres as $matiere){
-                    $coefficient_matiere=DB::table('filiere_matiere')->select('*')->where('filiere_matiere.matiere_id',$matiere->matiere_id)
-                    ->where('filiere_matiere.filiere_id',$request->filiere_id)->get();
+                    $coefficient_matiere=DB::table('filiere_matiere')->select('filiere_matiere.*')->where('filiere_matiere.matiere_id',$matiere->matiere_id)
+                    ->where('filiere_matiere.filiere_id', $request->id)->get();
 
                     foreach($coefficient_matiere as $coefficient){
                         $produit_matiere_coefficient=($matiere->note)*( $coefficient->coefficient_matiere);
@@ -114,14 +114,11 @@ class HomeController extends Controller
                         $total_coefficient_matiere+=$coefficient->coefficient_matiere;
                     }  
                 }
-                echo($total_note_matiere);
                 //note du partie bac avant l'ajout du bonus
-                $note_partie_bac=$total_note_matiere/$total_coefficient_matiere;
+                $note_partie_bac = $total_note_matiere/$total_coefficient_matiere;
                 
-
                 $bacs=DB::table('bac_filiere')->select('bac_filiere.*')->join('bac_user','bac_user.bac_id','=','bac_filiere.bac_id')
-                ->where('bac_user.user_id',$candidat->id)->where('bac_filiere.filiere_id',$request->filiere_id)->get();
-                
+                ->where('bac_user.user_id',$candidat->id)->where('bac_filiere.filiere_id',$request->id)->get();
 
                 foreach($bacs as $bac){
                     $note_partie_bac+=$bac->bonus_bac;
@@ -134,9 +131,9 @@ class HomeController extends Controller
                 foreach($licences as $licence){
                     $note_partie_licence=(($licence->note_s1)+($licence->note_s2))/2;
                 }
-            
+                
                 $bonus_licence=DB::table('filiere_licence')->select('filiere_licence.*')->join('licence_user','licence_user.licence_id',"=",'filiere_licence.licence_id')
-                ->where('licence_user.user_id',$candidat->id)->where('filiere_licence.filiere_id',$request->filiere_id)->get();
+                ->where('licence_user.user_id',$candidat->id)->where('filiere_licence.filiere_id',$request->id)->get();
 
                 foreach($bonus_licence as $bonus){
                     $note_partie_licence+=$bonus->bonus_licence;
