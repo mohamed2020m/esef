@@ -72,14 +72,14 @@
             columnDefs: [ {     "data": 'state',
                                 "targets": -1,
                                 "render": function ( data, type, row) {
-                return '<input type="checkbox"  class ="mySwitch"  data-toggle="toggle">';},                      
+                return '<input type="checkbox"  class ="mySwitch" checked  data-toggle="toggle">';},                      
                                                           
                                 } ],
 
             "fnDrawCallback": function( row, data ) {     
                 $('.mySwitch').bootstrapToggle(
                     {
-                       on: 'Activée',
+                       on: 'Activé',
                        off: 'Désactivé',
                        onstyle: "success",
                        offstyle:"danger" ,
