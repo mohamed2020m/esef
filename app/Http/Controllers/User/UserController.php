@@ -128,11 +128,11 @@ class UserController extends Controller
 
 
                 $admin = request([
-                    'last_name',
-                    'first_name',
-                    'email',
-                    'password',
-                    'role',
+                    'last_name'->lname,
+                    'first_name'->fname,
+                    'email'->email,
+                    'password'->mdp,
+                    'role'->role,
                 ]);
 
                 $admin['password'] = bcrypt($admin['password'] );
