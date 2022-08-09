@@ -116,13 +116,15 @@ class HomeController extends Controller
                     // $total_coefficient_matiere += $coefficient_matiere;
 
                     foreach($coefficient_matiere as $coefficient){
-                        $produit_matiere_coefficient=($matiere->note)*( $coefficient->coefficient_matiere);
-                        $total_note_matiere+=$produit_matiere_coefficient;
+                        $produit_matiere_coefficient = ($matiere->note)*($coefficient->coefficient_matiere);
+                        $total_note_matiere += $produit_matiere_coefficient;
                         $total_coefficient_matiere += $coefficient->coefficient_matiere;
                     }  
                 }
                 //note du partie bac avant l'ajout du bonus
-                $note_partie_bac = $total_note_matiere/$total_coefficient_matiere;
+                if ($total_coefficient_matiere){
+                    $note_partie_bac = $total_note_matiere/$total_coefficient_matiere;
+                }
                 
                 // adding Bonus
                 $bacs=DB::table('bac_filiere')->select('bac_filiere.*')->join('bac_user','bac_user.bac_id','=','bac_filiere.bac_id')
@@ -149,7 +151,7 @@ class HomeController extends Controller
                 }
 
                 $score=(($note_partie_bac*$coefficient_bac)+($note_partie_licence*$coefficient_licence))/($coefficient_bac+$coefficient_licence);
-                $candidat->score = $score;
+                $candidat->score = round($score, 2);
             }
             return response()->json($data);
         }
