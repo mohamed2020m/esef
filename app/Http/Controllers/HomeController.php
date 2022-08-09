@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Filiere;
-
+use App\Models\Licence;
 
 class HomeController extends Controller
 {
@@ -100,7 +100,7 @@ class HomeController extends Controller
                 $coefficient_bac=0;
                 $coefficient_licence=0;
                 $cuurent_school_year = date("Y") - 1;
-                $annee_obtention = 0;
+                $year_of_graduation = date("Y") - 1;;
 
                 $matieres=DB::table('matiere_user')->select('matiere_user.*')
                 ->join('matieres','matieres.id','=','matiere_user.matiere_id')
@@ -113,9 +113,11 @@ class HomeController extends Controller
                     ->where('filiere_matiere.matiere_id', $matiere->matiere_id)
                     ->first();
 
-                    $produit_matiere_coefficient = ($matiere->note)*($coefficient->coefficient_matiere);
-                    $total_note_matiere += $produit_matiere_coefficient;
-                    $total_coefficient_matiere += $coefficient->coefficient_matiere;  
+                    if($coefficient){
+                        $produit_matiere_coefficient = ($matiere->note)*($coefficient->coefficient_matiere);
+                        $total_note_matiere += $produit_matiere_coefficient;
+                        $total_coefficient_matiere += $coefficient->coefficient_matiere;  
+                    }
                 }
                 //note du partie bac avant l'ajout du bonus
                 if ($total_coefficient_matiere){
@@ -129,9 +131,11 @@ class HomeController extends Controller
                 ->where('bac_user.user_id',$candidat->id)
                 ->first();
 
-                $note_partie_bac += $bac->bonus_bac;
-                $coefficient_bac = $bac->coefficient_bac;
-                // $annee_obtention = $bac->annee_obtention;
+                if($bac){
+                    $note_partie_bac += $bac->bonus_bac;
+                    $coefficient_bac = $bac->coefficient_bac;
+                    $year_of_graduation = $bac->annee_obtention;
+                }
                 
                 //NOTE DU PARTIE BAC APRES l'ajout du bonus 
                 $licence=DB::table('licence_user')->select('licence_user.*')
@@ -139,7 +143,9 @@ class HomeController extends Controller
                 ->where('licence_user.user_id',$candidat->id)
                 ->first();
                 
-                $note_partie_licence = (($licence->note_s1)+($licence->note_s2))/2;
+                if($licence){
+                    $note_partie_licence = (($licence->note_s1)+($licence->note_s2))/2;
+                }
 
                 // adding Bonus to licence
                 $bonus=DB::table('filiere_licence')->select('filiere_licence.*')
@@ -148,14 +154,15 @@ class HomeController extends Controller
                 ->where('licence_user.user_id',$candidat->id)
                 ->first();
 
-
-                $note_partie_licence+=$bonus->bonus_licence;
-                $coefficient_licence=$bonus->coefficient_licence;
+                if($bonus){
+                    $note_partie_licence+=$bonus->bonus_licence;
+                    $coefficient_licence=$bonus->coefficient_licence;
+                }
 
                 $coeff_total = $coefficient_bac+$coefficient_licence;
                 if($coeff_total){
                     $score = (($note_partie_bac*$coefficient_bac)+($note_partie_licence*$coefficient_licence))/$coeff_total;
-                    if($cuurent_school_year !== $annee_obtention){
+                    if($cuurent_school_year !== $year_of_graduation){
                         $score -= 1;
                     }
                     $candidat->score = round($score, 2);
