@@ -51,7 +51,7 @@
             "ajax": {
                 url: "{{route('getUtilisateurs') }}", 
                 method: "get",
-                "columnDefs": [ {
+                columnDefs: [ {
                                 "targets": -1,
                                 "render": function ( data, type, row, meta ) {
                                 return '<a href="#">Download</a>';
