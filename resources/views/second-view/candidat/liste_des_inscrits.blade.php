@@ -31,6 +31,10 @@
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 Role
                             </th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                État
+                            </th>
+
                             
                         </tr>
                     </thead>
@@ -53,6 +57,7 @@
                     { data: 'last_name'},
                     { data: 'cin'},
                     {data: 'role'},
+                    {data: 'state'},
                 ]
             },
             "language": {
