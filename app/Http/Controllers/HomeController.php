@@ -154,10 +154,10 @@ class HomeController extends Controller
                 ->where('licence_user.user_id',$candidat->id)
                 ->first();
 
-                // if($bonus){
-                //     $note_partie_licence+=$bonus->bonus_licence;
-                //     $coefficient_licence=$bonus->coefficient_licence;
-                // }
+                if($bonus){
+                    $note_partie_licence+=$bonus->bonus_licence;
+                    $coefficient_licence=$bonus->coefficient_licence;
+                }
 
                 // $coeff_total = $coefficient_bac+$coefficient_licence;
                 // if($coeff_total){
