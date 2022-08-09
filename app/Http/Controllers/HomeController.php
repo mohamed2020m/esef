@@ -169,7 +169,7 @@ class HomeController extends Controller
                         $score -= 1;
                     }
                 }
-                $candidat->score = round($$year_of_graduation->annee_obtention, 2);
+                $candidat->score = round($year_of_graduation->annee_obtention, 2);
             }
 
             $sortData = $data->sortBy('score')->reverse();
