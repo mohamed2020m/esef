@@ -87,17 +87,35 @@ class FiliereController extends Controller
 
    
 
-    public function edit($id,Request $request){
-        if(Auth::user()->role=="admin"){
+        public function edit($id,Request $request){
+            if(Auth::user()->role=="admin"){
             $data_filiere = DB::table('filieres')->where('id',$id)->get();
-            
-            $data_bac = DB::table('bacs')->get();
-            $data_matiere = DB::table('matieres')->get();
-            $data_licence = DB::table('licences')->get();
 
-           
-            
-            return view('filiere/update',compact('data_filiere','data_bac','data_matiere','data_licence'));
+            $bacs                 = DB::table('bacs')->get();
+            $bac_in_filiere       =DB::table('bac_filiere')->where('filiere_id',$id)->orderBy('bac_id')->get();
+            $bac_not_in_filiere   = DB::table('bacs')->selectRaw('bacs.id,bacs.name')
+                                  ->whereNotIn('bacs.id',DB::table('bac_filiere')
+                                  ->selectRaw('bac_filiere.bac_id')->where('filiere_id',$id)
+                                  )->get();
+
+            $matieres               = DB::table('matieres')->get();
+            $matiere_in_filiere     = DB::table('filiere_matiere')->where('filiere_id',$id)->orderBy('matiere_id')->get();
+            $matiere_not_in_filiere = DB::table('matieres')->selectRaw('matieres.id,matieres.name')
+                                    ->whereNotIn('matieres.id',DB::table('filiere_matiere')
+                                        ->selectRaw('filiere_matiere.matiere_id')->where('filiere_id',$id)
+                                    )->get();
+
+            $licences               = DB::table('licences')->get();
+            $licence_in_filiere     = DB::table('filiere_licence')->where('filiere_id',$id)->orderBy('licence_id')->get();
+            $licence_not_in_filiere = DB::table('licences')->selectRaw('licences.id,licences.name')
+                                    ->whereNotIn('licences.id',DB::table('filiere_licence')
+                                        ->selectRaw('filiere_licence.licence_id')->where('filiere_id',$id)
+                                    )->get();
+
+
+            return view('filiere/update',compact('data_filiere','bacs','bac_in_filiere','bac_not_in_filiere',
+                                                                'matieres','matiere_in_filiere','matiere_not_in_filiere',
+                                                                'licences','licence_in_filiere','licence_not_in_filiere'));
         }
         else{
             return redirect('dashboard');
@@ -107,12 +125,12 @@ class FiliereController extends Controller
     public function update(Request $request,$id){
         if(Auth::user()->role =="admin"){
             $filieres = Filiere::find($id);
-            $input = $request->all();
-            $filieres->update($input);
+            $name = $request->filiere_name;
+            $filieres->update(['name' =>$name]);
             $filieres->bacs()->detach();
             $filieres->matieres()->detach();
             $filieres->licences()->detach();
-         
+
 
 
             //     pour l'isertion des donnees filiere bac
@@ -144,6 +162,9 @@ class FiliereController extends Controller
                 $coefficient_licence = "coefficient_licence".$checkbox_licence[$k];
                 $filieres->licences()->attach($checkbox_licence[$k],['bonus_licence' =>$request->$bonus_licence,'coefficient_licence' =>$request->$coefficient_licence]);
          }}
+
+
+
             return redirect('filiere');
         }
         else{

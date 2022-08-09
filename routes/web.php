@@ -34,7 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [HomeController::class, 'home']);
 	Route::get('dashboard',[HomeController::class,'dashboard'])->name('dashboard');
     Route::get('verification/user/{id}',[HomeController::class,'verification']);
-    
+
     Route::get('/verification/data/user',[HomeController::class,'verification_recu']);
 
     Route::get('/logout', [SessionsController::class, 'destroy']);
@@ -54,7 +54,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     /** les routes pour condidats */
-    Route::get('condidat-académique',[CondidatController::class,'donneeCondidat']);
+    Route::get('condidat-academique',[CondidatController::class,'donneeCondidat']);
     Route::post('condidat/acadimiques',[CondidatController::class,'storeDonneCondidat']);
     Route::get('dossier-personnelle',[CondidatController::class,'viewDossier']);
     Route::post('ps/filiere/pre-insc',[CondidatController::class,'inscription_in_filiere']);
@@ -69,17 +69,17 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/admin-create',[UserController::class,'createadmin'])->name('administrateurs');
     Route::post('/admin-store',[UserController::class,'storeadmin'])->name('store');
-  
-    
+
+
     /* debut les routes de abdessamad* */
-    
-    //test 
+
+    //test
     Route::get('users', [UserController::class,'index'])->name('users-inscrits');
     Route::post('usersStore', [UserController::class,'store'])->name('users');
-    
+
     //Gestion des utilisateurs
     Route::get('utilisateurs', [UserController::class,'afficher'])->name('Gestion_des_candidats_inscrits');
-    
+
     //This is used to send AJAX POST request to fetch the datatables data.
     Route::get('getUtilisateurs',[UserController::class,'getUtilisateurs'])->name('getUtilisateurs');
 
@@ -87,7 +87,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/candidatsList',[HomeController::class,'showCandidats'])->name('candidats');
     Route::get('/candidats-{id}',[InfoUserController::class,'detailUser'])->name('user-detail');
     Route::get('/candidat-delete-{id}',[InfoUserController::class,'deleteCandidat']);
-                
+
     Route::get('/Accueil', function () {return view('session/Accueil');})->name('Accueil');
     // Route::get('/inscription',[UserController::class,'index']);
 	/* debut des routes pour entitie bac  * */
@@ -138,7 +138,7 @@ Route::group(['middleware' => 'guest'], function () {
 	Route::post('/forgot-password', [ResetController::class, 'sendEmail']);
 	Route::get('/reset-password/{token}', [ResetController::class, 'resetPass'])->name('password.reset');
 	Route::post('/reset-password', [ChangePasswordController::class, 'changePassword'])->name('password.update');
-    
+
 
 });
 
