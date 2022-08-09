@@ -37,7 +37,7 @@
   <!-- jQuery Library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!-- Datatable JS -->
-  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js" defer></script>
   <!-- canvasJS -->
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>
