@@ -134,7 +134,7 @@ class HomeController extends Controller
                 if($bac){
                     $note_partie_bac += $bac->bonus_bac;
                     $coefficient_bac = $bac->coefficient_bac;
-                    $year_of_graduation = $bac->annee_obtention;
+                    // $year_of_graduation = $bac->annee_obtention;
                 }
                 
                 //NOTE DU PARTIE BAC APRES l'ajout du bonus 
