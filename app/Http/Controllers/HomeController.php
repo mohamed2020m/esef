@@ -90,7 +90,7 @@ class HomeController extends Controller
             //     $candidat->score = $score;
             // }
             $data=DB::table('users')->select('users.*')->join('filiere_user','filiere_user.user_id','=','users.id')
-            ->where('filiere_user.filiere_id',$request->id)->get();
+            ->where('filiere_user.filiere_id',$request->filiere_id)->get();
 
             // $data=DB::table('users')->select('users.*')->join('filiere_user','filiere_user.user_id','=','users.id')
             // ->join('filieres','filieres.id','=','filiere_user.filiere_id')->where('filieres.id',$request->id)->get();
@@ -105,17 +105,11 @@ class HomeController extends Controller
                 
                 $matieres=DB::table('matiere_user')->select('matiere_user.*')->join('matieres','matieres.id','=','matiere_user.matiere_id')->where('matiere_user.user_id',$candidat->id)->get();
                 foreach($matieres as $matiere){
-                    echo($matiere->note);
-                    echo('</br>');
                     $coefficient_matiere=DB::table('filiere_matiere')->select('*')->where('filiere_matiere.matiere_id',$matiere->matiere_id)
-                    ->where('filiere_matiere.filiere_id',$request->id)->get();
+                    ->where('filiere_matiere.filiere_id',$request->filiere_id)->get();
 
                     foreach($coefficient_matiere as $coefficient){
-                        echo( $coefficient->coefficient_matiere);
-                        echo('</br>');
                         $produit_matiere_coefficient=($matiere->note)*( $coefficient->coefficient_matiere);
-                        echo($produit_matiere_coefficient);
-                        echo('</br>');
                         $total_note_matiere+=$produit_matiere_coefficient;
                         $total_coefficient_matiere+=$coefficient->coefficient_matiere;
                     }  
@@ -126,7 +120,7 @@ class HomeController extends Controller
                 
 
                 $bacs=DB::table('bac_filiere')->select('bac_filiere.*')->join('bac_user','bac_user.bac_id','=','bac_filiere.bac_id')
-                ->where('bac_user.user_id',$candidat->id)->where('bac_filiere.filiere_id',$request->id)->get();
+                ->where('bac_user.user_id',$candidat->id)->where('bac_filiere.filiere_id',$request->filiere_id)->get();
                 
 
                 foreach($bacs as $bac){
@@ -142,7 +136,7 @@ class HomeController extends Controller
                 }
             
                 $bonus_licence=DB::table('filiere_licence')->select('filiere_licence.*')->join('licence_user','licence_user.licence_id',"=",'filiere_licence.licence_id')
-                ->where('licence_user.user_id',$candidat->id)->where('filiere_licence.filiere_id',$request->id)->get();
+                ->where('licence_user.user_id',$candidat->id)->where('filiere_licence.filiere_id',$request->filiere_id)->get();
 
                 foreach($bonus_licence as $bonus){
                     $note_partie_licence+=$bonus->bonus_licence;
