@@ -161,11 +161,13 @@ class HomeController extends Controller
 
                 $score = (($note_partie_bac*$coefficient_bac)+($note_partie_licence*$coefficient_licence))/($coefficient_bac+$coefficient_licence);
                 
-                if($cuurent_school_year != $annee_obtention){
-                    $score = $score - 1;
+                if($cuurent_school_year !== $annee_obtention){
+                    $score -= 1;
                 }
+
                 $candidat->score = round($score, 2);
             }
+            
             $sortData = $data->sortBy('score')->reverse();
             return response()->json($sortData->values()->all());
         }
