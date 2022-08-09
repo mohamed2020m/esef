@@ -15,8 +15,8 @@ class UserController extends Controller
         if(Auth::user()->role =="admin"){
            
     //$inscrits=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')->get();
-    $inscrits=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')
-    ->join('filieres','filieres.id','=','filiere_user.filiere_id')->get();  
+    $inscrits=DB::table('users')->get();    
+    
 
             return view('second-view/candidat/liste_des_inscrits',compact('inscrits'));
         }
@@ -44,11 +44,12 @@ class UserController extends Controller
               2 => 'users.last_name',
               3 => 'users.cin',
               4 => 'users.role',
+              
             
           );
       
-          $query = User::join('filiere_user', 'filiere_user.user_id', '=', 'users.id')->select('users.*');
-      
+          $query = User::select('users.*');
+        
           if (!empty($filter)) {
               $query->where('users.first_name', 'like', '%'.$filter.'%')
               ->orwhere('users.last_name', 'like', '%'.$filter.'%')
@@ -79,8 +80,10 @@ class UserController extends Controller
                     $user->id,
                     $user->first_name,
                     $user->last_name,
-                    $user->cin,
+                    $user->email,
                     "admin",
+                    $user->state,
+
                    
                 ];
 
@@ -90,8 +93,9 @@ class UserController extends Controller
                     $user->id,
                     $user->first_name,
                     $user->last_name,
-                    $user->cin,
+                    $user->email,
                     "candidat",
+                    $user->state,
                    
                 ];
             }
@@ -127,13 +131,18 @@ class UserController extends Controller
         public function storeadmin(Request $request){
             if(Auth::user()->role =="admin"){
 
+
+              
+
                 $admin = new User();
                 $admin->last_name=$request->lname;
                 $admin->first_name=$request->fname;
                 $admin->email=$request->email;
-                $admin->password=$request->mdp;
+                $admin->password= bcrypt($request->mdp);
                 $admin->role=$request->role;
                 $admin->save();
+
+               
                 return  redirect('utilisateurs');
             }
             else{
