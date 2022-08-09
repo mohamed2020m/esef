@@ -100,8 +100,7 @@
     $(document).ready(function(){
 
         $(document).on('change','.select_filiere',function(){
-          //console.log("hmm");
-            var filiere_id=$(this).val();
+            var filiere_id= $(this).val();
             var table="";
 
             $.ajax({
