@@ -51,15 +51,20 @@
             "ajax": {
                 url: "{{route('getUtilisateurs') }}", 
                 method: "get",
+                "columnDefs": [ {
+                                "targets": -1,
+                                "data": "download_link",
+                                "render": function ( data, type, row, meta ) {
+                                return '<a href="#">Download</a>';
+                                                             }
+                                } ],
                 columns: [
                     { data: 'id' },
                     { data: 'first_name'},
                     { data: 'last_name'},
                     { data: 'email'},
                     {data: 'role'},
-                    {
-                     defaultContent: '<button>Click!</button>',
-                    },
+                    
                 ]
                 
             },
