@@ -65,7 +65,7 @@
                                 "targets": -1,
                                 "render": function ( data, type, row, meta ) {
                                     console.log(data);
-                                return '<input type="checkbox" checked data-toggle="toggle">';
+                                return '<input type="checkbox" class="custom-control-input" id="customSwitches">';
                                                              }
                                 } ],
             "language": {
