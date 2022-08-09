@@ -72,17 +72,19 @@
             columnDefs: [ {     "data": 'state',
                                 "targets": -1,
                                 "render": function ( data, type, row) {return '<input type="checkbox"  ng-click="openModal();" id="switchActivar" class ="mySwitch" checked data-toggle="toggle">';},                      
-                                "fnDrawCallback": function( row, data ) {     
+                                                          
+                                } ],
+
+            "fnDrawCallback": function( row, data ) {     
                 $('.mySwitch').bootstrapToggle(
                     {
-                       on: 'Activo',
-                       off: 'Inactivo',
+                       on: 'Activée',
+                       off: 'Désactivé',
                        onstyle: "success",
                        offstyle:"danger" ,
                       size:"mini"
                    });
-                },                                
-                                } ],
+                },           
                                 
             "language": {
                 "lengthMenu": "Afficher _MENU_ enregistrements par page",
