@@ -134,6 +134,8 @@ class UserController extends Controller
                     'password',
                     'role',
                 ]);
+
+                $admin['password'] = bcrypt($admin['password'] );
                 //$admin = new User();
                 //$admin->last_name=$request->lname;
                 //$admin->first_name=$request->fname;
