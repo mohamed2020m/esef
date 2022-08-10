@@ -550,7 +550,7 @@ chart_2.render();
       data: {
         labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES'],
         datasets: [{
-          label: "Nombre des candidats",
+          // label: "Nombre des candidats",
           // tension: 0.4,
           // borderWidth: 0,
           // borderRadius: 4,
@@ -579,6 +579,15 @@ chart_2.render();
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        animations: {
+          tension: {
+            duration: 1000,
+            easing: 'linear',
+            from: 1,
+            to: 0,
+            loop: false;
+          }
+        },
         plugins: {
           // legend: {
           //   display: true,
@@ -617,6 +626,10 @@ chart_2.render();
               },
               // color: "#fff"
             },
+            title: {
+              display: true,
+              text: 'Nombre des candidats'
+            }
           },
           x: {
             grid: {
@@ -628,6 +641,10 @@ chart_2.render();
             ticks: {
               display: true
             },
+            title: {
+              display: true,
+              text: 'Les filières'
+            }
           },
         },
       },
