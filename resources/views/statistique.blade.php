@@ -696,6 +696,13 @@
           legend: {
             display: false,
           }
+          title: {
+            display: true,
+            text: 'Nombre des candidats inscrits par jour',
+            font: {
+              size: 18
+            }
+          }
         },
         interaction: {
           intersect: false,
