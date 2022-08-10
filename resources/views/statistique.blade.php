@@ -626,10 +626,6 @@ chart_2.render();
               },
               // color: "#fff"
             },
-            title: {
-              display: true,
-              text: 'Nombre des candidats'
-            }
           },
           x: {
             grid: {
@@ -641,10 +637,6 @@ chart_2.render();
             ticks: {
               display: true
             },
-            title: {
-              display: true,
-              text: 'Les filières'
-            }
           },
         },
       },
