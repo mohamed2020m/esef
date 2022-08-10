@@ -555,9 +555,9 @@ chart_2.render();
           // borderWidth: 0,
           // borderRadius: 4,
           // borderSkipped: false,
-          // backgroundColor: "#fff",
+          backgroundColor: "#fff",
           data: [52, 19, 30, 50, 20, 23],
-          maxBarThickness: 6
+          // maxBarThickness: 6
         }, ],
       },
       options: {
