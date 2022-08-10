@@ -80,7 +80,7 @@ class UsersExport implements FromCollection, WithHeadings
                 $coefficient_bac = $bac->coefficient_bac;
             }
 
-            $year_of_graduation = DB::table('bac_user')->select('annee_obtention')
+            $year_of_graduation = DB::table('bac_user')->select('type_bac','annee_obtention')
             ->where('bac_user.user_id', $candidat->id)
             ->first();
 
