@@ -625,7 +625,7 @@ chart_2.render();
                 // lineHeight: 2
               },
               // color: "#fff"
-              title:"Nombre des candidats"
+              // title:"Nombre des candidats"
             },
           },
           x: {
@@ -637,7 +637,7 @@ chart_2.render();
             },
             ticks: {
               display: true,
-              title:'Les filières'
+              // title:'Les filières'
             },
           },
         },
