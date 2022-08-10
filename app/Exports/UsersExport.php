@@ -60,7 +60,7 @@ class UsersExport implements FromCollection, WithHeadings
                     $total_coefficient_matiere += $coefficient->coefficient_matiere;  
                 }
 
-                $candidat->martiere = $matiere->name;
+                // $candidat->martiere = $matiere->name;
                 $candidat->Note_Martiere = $matiere->note;
             }
             //note du partie bac avant l'ajout du bonus
