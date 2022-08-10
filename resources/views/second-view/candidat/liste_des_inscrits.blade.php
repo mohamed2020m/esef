@@ -75,7 +75,7 @@
                                 "render": function ( data, type, row) {
 
                                     if ( data == "0"){
-                                       return "<button>Click!</button>";
+                                        return '<input type="checkbox"  class ="mySwitch"   data-toggle="toggle">';
                                     }else{
                                         return '<input type="checkbox"  class ="mySwitch" checked  data-toggle="toggle">';
                                     }
@@ -118,7 +118,10 @@
         });
 
 
-        $('#empTable tbody').on( 'click', 'button', function () { var data = table.row( $(this).parents('tr') ).data(); alert( data[0] +"'s salary is: "+ data[ 5 ] ); } ); }
+        $('#empTable tbody').change(
+            function(){
+                 if (this.checked) {console.log("dart");}
+                    });
        // $('#empTable tbody').on( 'click', 'button', function () { var data = table.row( $(this).parents('tr') ).data(); alert( data[0] +"'s salary is: "+ data[ 5 ] ); } ); }
 
     })
