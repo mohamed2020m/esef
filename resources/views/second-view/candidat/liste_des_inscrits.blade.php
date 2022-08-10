@@ -65,10 +65,12 @@
                     { data: 'last_name'},
                     { data: 'email'},
                     {data: 'role'},
+                    {data: 'state'},
                     
-                    
-                ],
-                columnDefs: [ { 
+                ]
+                
+            },
+            columnDefs: [ {     
                                 "targets": -1,
                                 "render": function ( data, type, row) {
                                     console.log(data);
@@ -78,9 +80,6 @@
                                 },                      
                                                           
                                 } ],
-                
-            },
-            
 
             "fnDrawCallback": function( row, data ) {     
                 $('.mySwitch').bootstrapToggle(
