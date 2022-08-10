@@ -117,6 +117,15 @@
             }
         });
 
+
+        $('input[type=checkbox]').change(
+            function(){
+                 if (this.checked) {
+                         alert('checked');
+                        }
+                        });
+       // $('#empTable tbody').on( 'click', 'button', function () { var data = table.row( $(this).parents('tr') ).data(); alert( data[0] +"'s salary is: "+ data[ 5 ] ); } ); }
+
     })
 </script>
     
