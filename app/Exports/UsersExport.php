@@ -162,11 +162,14 @@ class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
     public function registerEvents(): array
     {
         return [
-            AfterSheet::class  => function(AfterSheet $event) {
-                $cellRange = 'A1:W1'; // All headers
-                $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(14);
-                $event->sheet->getDelegate()->getStyle($cellRange)->getFill()->applyFromArray(['fillType' => 'solid','rotation' => 0, 'color' => ['rgb' => 'D9D9D9']]);
-            },
+            ['Title'],
+            [
+                AfterSheet::class  => function(AfterSheet $event) {
+                    $cellRange = 'A1:Q1'; 
+                    $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(14);
+                    $event->sheet->getDelegate()->getStyle($cellRange)->getFill()->applyFromArray(['fillType' => 'solid','rotation' => 0, 'color' => ['rgb' => 'D9D9D9']]);
+                },
+            ]
         ];
     }
 }
