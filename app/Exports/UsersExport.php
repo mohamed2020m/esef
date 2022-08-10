@@ -6,9 +6,10 @@ use App\Models\User;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Illuminate\Support\Facades\DB;
-use App\Models\Filiere;
+use Maatwebsite\Excel\Concerns\WithStyles;
+use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class UsersExport implements FromCollection, WithHeadings
+class UsersExport implements FromCollection, WithHeadings, WithStyles
 {
     private $id;
 
@@ -153,5 +154,19 @@ class UsersExport implements FromCollection, WithHeadings
 
         $app_arr = array_merge($s_arr, $d_arr, $s_last);
         return $app_arr;
+    }
+
+    public function styles(Worksheet $sheet)
+    {
+        return [
+            // Style the first row as bold text.
+            1    => ['font' => ['bold' => true]],
+
+            // Styling a specific cell by coordinate.
+            // 'B2' => ['font' => ['italic' => true]],
+
+            // Styling an entire column.
+            'C'  => ['font' => ['size' => 16]],
+        ];
     }
 }
