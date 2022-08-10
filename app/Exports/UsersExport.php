@@ -160,13 +160,18 @@ class UsersExport implements FromCollection, WithHeadings, WithStyles
     {
         return [
             // Style the first row as bold text.
-            1    => ['font' => ['bold' => true]],
+            1    => [
+                'font' => ['bold' => true],
+                'fill' => ['color' => 'black'],
+                'color' => ["argb" => 'white'],
+                'style' => ['alignment' => 'center']
+            ],
 
             // Styling a specific cell by coordinate.
             // 'B2' => ['font' => ['italic' => true]],
 
             // Styling an entire column.
-            'C'  => ['font' => ['size' => 16]],
+            // 'C'  => ['font' => ['size' => 16]],
         ];
     }
 }
