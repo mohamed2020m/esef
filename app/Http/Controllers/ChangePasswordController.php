@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 
+
 class ChangePasswordController extends Controller
 {
     public function changePassword(Request $request)
