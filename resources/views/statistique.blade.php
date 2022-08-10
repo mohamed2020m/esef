@@ -63,6 +63,23 @@
     <div class="flex-grow-1 mb">
       <div class="card z-index-2">
         <div class="card-body p-3">
+          <div>
+            <select>
+              <option disabled selected>Sélectionnez un mois</option>
+              <option value="1">Janvier</option>
+              <option value="2">Février</option>
+              <option value="3">Mars</option>
+              <option value="4">Avril</option>
+              <option value="5">Mai</option>
+              <option value="6">Juin</option>
+              <option value="7">Juillet</option>
+              <option value="8">Août</option>
+              <option value="9">Septembre</option>
+              <option value="10">Octobre</option>
+              <option value="11">Novembre</option>
+              <option value="12">Décembre</option>
+            </select>
+          </div>
           <div class="border-radius-lg py-3 pe-1 mb-3">
             <div class="chart">
               <canvas id="chart-line" class="chart-canvas" height="400"></canvas>
