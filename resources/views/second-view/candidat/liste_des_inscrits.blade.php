@@ -72,13 +72,8 @@
             columnDefs: [ {     "data": 'state',
                                 "targets": -1,
                                 "render": function ( data, type, row) {
-                                    if(row[5]==1){
-                                        return '<input type="checkbox"  class ="mySwitch" checked  data-toggle="toggle">';
-                                    }elseif(row[5]==0){
-                                        return '<input type="checkbox"  class ="mySwitch"   data-toggle="toggle">';
-                                    }
-                                    
-                                     },                      
+                                    console.log(row[2]);
+                return '<input type="checkbox"  class ="mySwitch" checked  data-toggle="toggle">';},                      
                                                           
                                 } ],
 
