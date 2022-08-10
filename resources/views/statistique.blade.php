@@ -607,11 +607,7 @@ chart_2.render();
             ticks: {
               suggestedMin: 0,
               suggestedMax: 500,
-              beginAtZero: true, 
-              title:{
-                display:true,
-                text:'y'
-              }
+              beginAtZero: true,
               padding: 15,
               // display: true
               font: {
