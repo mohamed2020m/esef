@@ -65,7 +65,7 @@
                     { data: 'last_name'},
                     { data: 'email'},
                     {data: 'role'},
-                    {data: 'state'},
+                    
                     
                 ],
                 columnDefs: [ { 
