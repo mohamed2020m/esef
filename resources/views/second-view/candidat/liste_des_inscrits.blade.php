@@ -65,14 +65,25 @@
                     { data: 'last_name'},
                     { data: 'email'},
                     {data: 'role'},
+                    {data: 'state'},
                     
                 ]
                 
             },
-            columnDefs: [ {     "data": 'state',
+            columnDefs: [ {     
                                 "targets": -1,
                                 "render": function ( data, type, row) {
-                return '<input type="checkbox"  class ="mySwitch" checked  data-toggle="toggle">';},                      
+
+                                    if ( data == "0"){
+                                        return '<input type="checkbox"  class ="mySwitch"   data-toggle="toggle">';
+                                    }else{
+                                        return '<input type="checkbox"  class ="mySwitch" checked  data-toggle="toggle">';
+                                    }
+                                    
+
+                                   
+                                                      
+                                },                      
                                                           
                                 } ],
 
@@ -85,6 +96,8 @@
                        offstyle:"danger" ,
                       size:"mini"
                    });
+
+                   
                 },           
                                 
             "language": {
@@ -105,9 +118,12 @@
         });
 
 
-        
-  
-  
+        $('#empTable tbody').change(
+            function(){
+                 if (this.checked) {console.log("dart");}
+                    });
+       // $('#empTable tbody').on( 'click', 'button', function () { var data = table.row( $(this).parents('tr') ).data(); alert( data[0] +"'s salary is: "+ data[ 5 ] ); } ); }
+
     })
 </script>
     
