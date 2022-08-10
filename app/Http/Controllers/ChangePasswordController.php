@@ -10,33 +10,32 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 
+
 class ChangePasswordController extends Controller
 {
     public function changePassword(Request $request)
     {
-        
+
         $request->validate([
-            'token' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|min:8|confirmed',
+            'email' => 'required|email|exists:users',
+            'password' => 'required|string|min:8|confirmed',
+            'password_confirmation' => 'required',
+
         ]);
-    
-        $status = Password::reset(
-            $request->only('email', 'password', 'password_confirmation', 'token'),
-            function ($user, $password) {
-                $user->forceFill([
-                    'password' => Hash::make($password)
-                ])->setRememberToken(Str::random(60));
-    
-                $user->save();
-    
-                event(new PasswordReset($user));
-            }
-        );
-    
-        return $status === Password::PASSWORD_RESET
-                    ? redirect('/login')->with('success', __($status))
-                    : back()->withErrors(['email' => [__($status)]]);
+
+        $updatePassword = DB::table('password_resets')
+                            ->where(['email' => $request->email, 'token' => $request->token])
+                            ->first();
+
+        if(!$updatePassword)
+            return back()->withInput()->with('error', 'Invalid token!');
+
+          $user = User::where('email', $request->email)
+                      ->update(['password' => Hash::make($request->password)]);
+
+          DB::table('password_resets')->where(['email'=> $request->email])->delete();
+
+          return redirect('/Accueil')->with('message', 'Your password has been changed!');
     }
 
 
@@ -49,9 +48,9 @@ class ChangePasswordController extends Controller
             'new_password' => ['required'],
             'new_confirm_password' => ['same:new_password'],
         ]);
-   
+
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
         return redirect('dashboard');
     }
-    
+
 }
