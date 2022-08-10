@@ -83,7 +83,7 @@
             let filiere_id= $(this).val();
             let table="";
             let model="";
-
+            let gone = false;
             $.ajax({
                 type:'get',
                 url:'{{URL::to("candidatsList")}}',
@@ -105,32 +105,35 @@
                                 </a>
                             </td>
                         </tr>`
+                        // model
+                        if(!gone){
+                            gone = true;
+                            model += `<div class="modal fade" id="export" tabindex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exportModalLabel">Exporter candidatures</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p class="text-danger">Vous êtes sur le point d'exporter la filière sélectionnée</p>
+                                        </div>
+                                        <div class="modal-footer d-flex align-items-center">
+                                            <button type="button" class="btn btn-secondary mt-3 rounded-pill" data-bs-dismiss="modal">Annuler</button>
+                                            <a href="{{/server.php/user-management-${data[i].filiere_id}}}" class="bg-success rounded-pill px-3 py-2" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac"> 
+                                                <!-- onclick="return confirm('est ce que vous etes sur ?')"> -->
+                                                <i class="cursor-pointer fa fa-file-excel text-white" style="font-weight:normal"></i>
+                                                <span class="d-sm-inline d-none text-white" id="span_export">Export</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`
+                        }
                     }  
                     $("#UserDataTable" ).html(table);
                     $("#btn_export").addClass("bg-success").removeClass("bg-secondary");
 
-                    // model
-                    model += `<div class="modal fade" id="export" tabindex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exportModalLabel">Exporter candidatures</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <p class="text-danger">Vous êtes sur le point d'exporter la filière sélectionnée</p>
-                                </div>
-                                <div class="modal-footer d-flex align-items-center">
-                                    <button type="button" class="btn btn-secondary mt-3 rounded-pill" data-bs-dismiss="modal">Annuler</button>
-                                    <a href="{{ route('users.export/' . ${filiere_id}) }}" class="bg-success rounded-pill px-3 py-2" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac"> 
-                                        <!-- onclick="return confirm('est ce que vous etes sur ?')"> -->
-                                        <i class="cursor-pointer fa fa-file-excel text-white" style="font-weight:normal"></i>
-                                        <span class="d-sm-inline d-none text-white" id="span_export">Export</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>`
                     $("#model_wrapper").html(model);
                 },
                 error:function(){
