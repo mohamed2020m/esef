@@ -27,7 +27,7 @@ class UsersExport implements FromCollection, WithHeadings
         // ->join('filiere_user','filiere_user.user_id','=','users.id')->get();
         // // ->join('filieres','filieres.id','=','filiere_user.filiere_id')->where('filieres.id',$id)->get();
 
-        $data = DB::table('users')->select('users.id, users.last_name, users.first_name, users.last_name_arabic, users.first_name_arabic, users.cin , users.cne, users.email')
+        $data = DB::table('users')->select('users.id, last_name, first_name, last_name_arabic, first_name_arabic, cin , cne, email')
         ->join('filiere_user','filiere_user.user_id','=','users.id')
         ->join('filieres','filieres.id','=','filiere_user.filiere_id')
         ->where('filiere_user.filiere_id', $this->id)
