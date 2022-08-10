@@ -555,7 +555,7 @@ chart_2.render();
           // borderWidth: 0,
           // borderRadius: 4,
           // borderSkipped: false,
-          // backgroundColor: "#fff",
+          backgroundColor: "blue",
           data: [52, 19, 30, 50, 20, 23],
           backgroundColor: [
             'rgba(255, 99, 132)',
