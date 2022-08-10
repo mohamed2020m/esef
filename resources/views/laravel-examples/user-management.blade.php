@@ -121,7 +121,7 @@
                                     <button type="button" class="btn btn-secondary mt-3 rounded-pill" data-bs-dismiss="modal">Annuler</button>
                                     <a href="/server.php/condidatures-export/${filiere_id}" id="export_btn" class="bg-success rounded-pill px-3 py-2" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac"> 
                                         <!-- onclick="return confirm('est ce que vous etes sur ?')"> -->
-                                        <span class="d-sm-inline d-none text-whit px-3" id="span_export">Export</span>
+                                        <span class="d-sm-inline d-none text-white px-3" id="span_export">Export</span>
                                     </a>
                                 </div>
                             </div>
