@@ -551,14 +551,10 @@ chart_2.render();
         labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES'],
         datasets: [{
           label: "Nombre des candidats",
-          label: "Nombre des candidats",
-          label: "Nombre des candidats",
-          
           // tension: 0.4,
           // borderWidth: 0,
           // borderRadius: 4,
           // borderSkipped: false,
-          // backgroundColor: "#fff",
           data: [52, 19, 30, 50, 20, 23],
           backgroundColor: [
             'rgba(255, 99, 132)',
@@ -579,7 +575,6 @@ chart_2.render();
           // maxBarThickness: 6
         }, ],
       },
-
       options: {
         responsive: true,
         maintainAspectRatio: false,
@@ -590,18 +585,15 @@ chart_2.render();
           }
         },
         plugins: {
+          // legend: {
+          //   display: true,
+          // }
           title: {
               display: true,
               text: 'Nombre des candidats par rapport au nombre des filières',
               font: {
                 size: 18
               }
-          }
-          legend: {
-            display: true,
-            labels: {
-              color: 'rgb(255, 99, 132)'
-            }
           }
         },
         interaction: {
@@ -621,11 +613,14 @@ chart_2.render();
               suggestedMax: 500,
               beginAtZero: true,
               padding: 15,
+              // display: true
               font: {
                 size: 14,
                 family: "Open Sans",
                 style: 'normal',
+                // lineHeight: 2
               },
+              // color: "#fff"
             },
           },
           x: {
