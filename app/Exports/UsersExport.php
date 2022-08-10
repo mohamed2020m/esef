@@ -29,7 +29,7 @@ class UsersExport implements FromCollection, WithHeadings
 
         $data = DB::table('users')->select('users.*')
         ->join('filiere_user','filiere_user.user_id','=','users.id')
-        ->join('filieres','filiere.id','=','filiere_user.filiere_id')
+        ->join('filieres','filieres.id','=','filiere_user.filiere_id')
         ->where('filiere_user.filiere_id', $this->id)
         ->get();
 
