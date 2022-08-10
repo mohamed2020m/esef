@@ -608,6 +608,7 @@ chart_2.render();
               suggestedMax: 500,
               beginAtZero: true,
               padding: 15,
+              display: true
               font: {
                 size: 14,
                 family: "Open Sans",
