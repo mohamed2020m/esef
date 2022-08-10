@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="m-3">
-        <a  id="backto" href="https://esef.toubkalit.com/server.php/filiere"><i class="fa fa-lg fa-arrow-left ps-2 pe-2 text-center text-dark" aria-hidden="true"></i>Retour</a>
+        <a  id="backto" href="https://www.esefj.ma/server.php/filiere"><i class="fa fa-lg fa-arrow-left ps-2 pe-2 text-center text-dark" aria-hidden="true"></i>Retour</a>
     </div>
     <div class="card mb-4 mx-4">
         <div class="card-header pb-0">

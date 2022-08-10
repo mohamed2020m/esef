@@ -509,7 +509,7 @@ var chart_2 = new CanvasJS.Chart("chartUtilisateurs", {
 	animationEnabled: true,
 	theme: "light2", // "light1", "light2", "dark1", "dark2"
 	title: {
-		text: "Nombre d'utilisateurs rejoints chaque mois"
+		text: "Nombre des candidats inscrits par jour"
 	},
 	axisY: {
 		title: "Nombre des utilisateurs"

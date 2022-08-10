@@ -5,7 +5,7 @@
         <div class="card-header pb-0">
             <div class="d-flex flex-row justify-content-center">
                 <div  sytle="text-overflow: ellipsis !important; overflow: hidden !important; width: 40px; white-space: nowrap !important;">
-                    <h5 class="mb-0"><i class="fa fa-lg fa-check ps-2 pe-2 text-center text-dark" aria-hidden="true"></i>Selectioner une filière</h5>
+                    <h5 class="mb-0"><i class="fa fa-lg fa-check ps-2 pe-2 text-center text-dark" aria-hidden="true"></i>Sélectionnez une filière</h5>
                 </div>
             </div>
         </div>
@@ -23,12 +23,12 @@
                         </select>
                     </form>
                 </div>
-                <!-- <a href="{{ route('users.export') }}" class="" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" onclick="return confirm('est ce que vous etes sur ?')">
+                <!-- <a href="" class="" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" onclick="return confirm('est ce que vous etes sur ?')">
                     <i class="cursor-pointer fa fa-file-excel text-white bg-success rounded p-3" style="font-weight:normal"></i>
                     Export
                 </a> -->
                 <div class="col-2 d-flex">
-                    <button class="text-white font-weight-bold px-2 border-0 bg-success flex-grow-1 rounded " id="btn_logout" type="button" data-bs-toggle="modal" data-bs-target="#export">
+                    <button class="text-white font-weight-bold px-2 border-0 bg-secondary flex-grow-1 rounded " id="btn_export" type="button" data-bs-toggle="modal" data-bs-target="#export">
                         <i class="fa fa-file-excel me-sm-1"></i>
                         <span class="d-sm-inline d-none" id="span_export">Export</span>
                     </button>
@@ -73,45 +73,23 @@
             </div>
         </div>
     </div>
-
-<div class="modal fade" id="export" tabindex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exportModalLabel">Exporter candidatures</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Êtes-vous sûr de vouloir vous exporter les condidatures ?
-            </div>
-            <div class="modal-footer d-flex align-items-center">
-                <button type="button" class="btn btn-secondary mt-3 rounded-pill" data-bs-dismiss="modal">Annuler</button>
-                <a href="{{ route('users.export') }}" class="bg-success rounded-pill px-3 py-2" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac"> 
-                    <!-- onclick="return confirm('est ce que vous etes sur ?')"> -->
-                    <i class="cursor-pointer fa fa-file-excel text-white" style="font-weight:normal"></i>
-                    <span class="d-sm-inline d-none text-white" id="span_export">Export</span>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+    <div id="model_wrapper"></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
 
     $(document).ready(function(){
 
         $(document).on('change','.select_filiere',function(){
-            var filiere_id= $(this).val();
-            var table="";
-
+            let filiere_id= $(this).val();
+            let table="";
+            let model="";
+            let gone = false;
             $.ajax({
                 type:'get',
                 url:'{{URL::to("candidatsList")}}',
                 data:{'id':filiere_id},
                 success: function(data){
-                    console.log("data: ", data);
                     for(var i=0;i<data.length;i++){
-                        console.log("score: ", data[i].score);
                         table += 
                         `<tr class="align-middle" style="font-size: 18px;">
                             <td class="text-center"><p class="font-weight-bold mb-0"> ${data[i].id}</p></td>
@@ -129,6 +107,29 @@
                         </tr>`
                     }  
                     $("#UserDataTable" ).html(table);
+                    model += `<div class="modal fade" id="export" tabindex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exportModalLabel">Exporter candidatures</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p class="text-danger">Vous êtes sur le point d'exporter la filière sélectionnée</p>
+                                </div>
+                                <div class="modal-footer d-flex align-items-center">
+                                    <button type="button" class="btn btn-secondary mt-3 rounded-pill" data-bs-dismiss="modal">Annuler</button>
+                                    <a href="/server.php/condidatures-export/${filiere_id}" id="export_btn" class="bg-success rounded-pill px-3 py-2" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac"> 
+                                        <!-- onclick="return confirm('est ce que vous etes sur ?')"> -->
+                                        <span class="d-sm-inline d-none text-white px-3" id="span_export">Export</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`
+                    $("#btn_export").addClass("bg-success").removeClass("bg-secondary");
+                    
+                    $("#model_wrapper").html(model);
                 },
                 error:function(){
                     console.log("error")
