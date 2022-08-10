@@ -169,7 +169,7 @@ class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
                 // title
                 $event->sheet->getDelegate()->getStyle('A1:Q2')->getFont()->setSize(20);
                 $event->sheet->mergeCells('A1:Q1');
-                $event->sheet->getStyle('A1:Q1')->getFill()->applyFromArray(
+                $event->sheet->getDelegate()->getStyle('A1:Q1')->getFill()->applyFromArray(
                     [
                         'font' => array(
                             'name'      =>  'Calibri',
