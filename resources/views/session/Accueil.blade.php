@@ -41,7 +41,7 @@
                 </div>
                 <div class="passwordForgotten">
                   <small class="text-muted" >
-                    <a href="/server.php/login/forgot-password" class="font-weight-bold" style="color:#0f233a">Mot de passe oublié ?</a>
+                    <a href="/server.php/forgot-password" class="font-weight-bold" style="color:#0f233a">Mot de passe oublié ?</a>
                   </small>
                 </div>
               </div>
