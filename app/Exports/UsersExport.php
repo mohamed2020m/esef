@@ -169,16 +169,8 @@ class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
                 // title
                 $event->sheet->getDelegate()->getStyle('A1:Q2')->getFont()->setSize(20);
                 $event->sheet->mergeCells('A1:Q1');
-                $event->sheet->styleCells(
-                    'A1:Q1',
+                $event->sheet->getStyle('A1:Q1')->getFill()->applyFromArray(
                     [
-                        // 'borders' => [
-                        //     'outline' => [
-                        //         'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
-                        //         'color' => ['argb' => 'EB2B02'],
-                        //     ],
-
-                        // ],
                         'font' => array(
                             'name'      =>  'Calibri',
                             'bold'      =>  true,
