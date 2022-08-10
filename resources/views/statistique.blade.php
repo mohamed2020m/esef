@@ -715,7 +715,7 @@
               display: true,
               drawOnChartArea: true,
               drawTicks: false,
-              borderDash: [5, 5]
+              // borderDash: [5, 5]
             },
             ticks: {
               display: true,
@@ -731,11 +731,11 @@
           },
           x: {
             grid: {
-              drawBorder: false,
-              display: false,
-              drawOnChartArea: false,
-              drawTicks: false,
-              borderDash: [5, 5]
+              drawBorder: true,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: true,
+              // borderDash: [5, 5]
             },
             ticks: {
               display: true,
