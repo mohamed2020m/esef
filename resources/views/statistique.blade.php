@@ -583,6 +583,10 @@ chart_2.render();
           legend: {
             display: true,
           }
+          title: {
+              display: true,
+              text: 'Nombre des candidats par rapport au nombre des filières'
+          }
         },
         interaction: {
           intersect: false,
