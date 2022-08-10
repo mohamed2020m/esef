@@ -43,6 +43,7 @@ class UsersExport implements FromCollection, WithHeadings
             $cuurent_school_year = date("Y") - 1;
             $year_of_graduation = date("Y") - 1;
             $n_matiere = 0;
+            $n_matiere_note = 0;
 
             $matieres=DB::table('matiere_user')->select('matiere_user.*', 'matieres.name')
             ->join('matieres','matieres.id','=','matiere_user.matiere_id')
@@ -51,6 +52,7 @@ class UsersExport implements FromCollection, WithHeadings
             
             foreach($matieres as $matiere){
                 $n_matiere++;
+                $n_matiere_note++;
                 $coefficient=DB::table('filiere_matiere')->select('filiere_matiere.*')
                 ->where('filiere_matiere.filiere_id', $this->id)
                 ->where('filiere_matiere.matiere_id', $matiere->matiere_id)
@@ -66,11 +68,11 @@ class UsersExport implements FromCollection, WithHeadings
                 
                 if($matiere){
                     $candidat->$n_matiere = $matiere->name;
-                    $candidat->$n_matiere = $matiere->note;
+                    $candidat->$n_matiere_note = $matiere->note;
                 }
                 else{
                     $candidat->$n_matiere = "empty";
-                    $candidat->$n_matiere = "empty";
+                    $candidat->$n_matiere_note = "empty";
                 }
             }
             //note du partie bac avant l'ajout du bonus
