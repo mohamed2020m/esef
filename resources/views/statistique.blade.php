@@ -154,7 +154,7 @@
           // }
           title: {
               display: true,
-              text: 'Nombre des candidats par rapport au nombre des filières',
+              text: 'Nombre des candidats par filière',
               font: {
                 size: 18
               }
