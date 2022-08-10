@@ -73,8 +73,12 @@
                                 "targets": -1,
                                 "render": function ( data, type, row) {
 
+                                    if(row[5]=="1"){
+                                        console.log("activéé");
+                                    }elseif(row[5]=="0"){
+                                        console.log( "desactivee");
+                                    }
                                     
-                                    console.log( typeof row[5]);
                 return '<input type="checkbox"  class ="mySwitch" checked  data-toggle="toggle">';},                      
                                                           
                                 } ],
