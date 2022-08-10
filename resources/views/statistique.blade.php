@@ -55,7 +55,7 @@
           <h6 class="font-weight-bold"> Nombre des candidats par rapport au nombre des filières </h6>
         </div> -->
         <div class="card-body p-3">
-            <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
+            <div class="border-radius-lg py-3 pe-1 mb-3">
             <div class="chart">
               <canvas id="chart-bars" class="chart-canvas" height="300"></canvas>
             </div>
@@ -555,9 +555,25 @@ chart_2.render();
           // borderWidth: 0,
           // borderRadius: 4,
           // borderSkipped: false,
-          // backgroundColor: "#fff",
+          backgroundColor: "#fff",
           data: [52, 19, 30, 50, 20, 23],
-          maxBarThickness: 6
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(153, 102, 255, 0.2)'
+          ],
+          borderColor: [
+            'rgb(255, 99, 132)',
+            'rgb(255, 159, 64)',
+            'rgb(255, 205, 86)',
+            'rgb(75, 192, 192)',
+            'rgb(54, 162, 235)',
+            'rgb(153, 102, 255)'
+          ],
+          // maxBarThickness: 6
         }, ],
       },
       options: {
@@ -591,7 +607,7 @@ chart_2.render();
                 style: 'normal',
                 // lineHeight: 2
               },
-              // color: "#fff"
+              color: "#fff"
             },
           },
           x: {
