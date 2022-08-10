@@ -72,7 +72,7 @@
             columnDefs: [ {     "data": 'state',
                                 "targets": -1,
                                 "render": function ( data, type, row) {
-                                    console.log(data);
+                                    console.log(row);
                 return '<input type="checkbox"  class ="mySwitch" checked  data-toggle="toggle">';},                      
                                                           
                                 } ],
