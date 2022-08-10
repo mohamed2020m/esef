@@ -118,7 +118,7 @@
         });
 
 
-        $('input[type=checkbox]').change(
+        $('.mySwitch tbody').change(
             function(){
                  if (this.checked) {
                          alert('checked');
