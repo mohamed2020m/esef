@@ -57,7 +57,7 @@
         <div class="card-body p-3">
             <div class="border-radius-lg py-3 pe-1 mb-3">
             <div class="chart-container" style="position: relative; height:40vh; width:80vw">
-              <canvas id="chart-bars" class="chart-canvas" ></canvas>
+              <canvas id="chart-bars" class="chart-canvas"></canvas>
             </div>
           </div> 
           {{-- <div id="chartCondidate" style="height: 300px; width: 100%;"></div> --}}
@@ -555,7 +555,7 @@ chart_2.render();
           // borderWidth: 0,
           // borderRadius: 4,
           // borderSkipped: false,
-          // backgroundColor: "blue",
+          // backgroundColor: "#fff",
           data: [52, 19, 30, 50, 20, 23],
           backgroundColor: [
             'rgba(255, 99, 132)',
@@ -580,12 +580,9 @@ chart_2.render();
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-          legend: {
-            // display: true,
-            // labels: {
-            //   color: 'rgb(255, 99, 132)'
-            // }
-          }
+          // legend: {
+          //   display: true,
+          // }
           title: {
               display: true,
               text: 'Nombre des candidats par rapport au nombre des filières',
