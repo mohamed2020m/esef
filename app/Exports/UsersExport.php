@@ -67,8 +67,9 @@ class UsersExport implements FromCollection, WithHeadings
                     $candidat->${$n_matiere} = $matiere->note;
                 }
                 else{
-                    $candidat->${$n_matiere} = "empty";
-                    $candidat->${$n_matiere} = "empty";
+                    $count = ${$n_matiere};
+                    $candidat->$count = "empty";
+                    $candidat->$count = "empty";
                 }
             }
             //note du partie bac avant l'ajout du bonus
