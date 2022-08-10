@@ -105,10 +105,6 @@
                                 </a>
                             </td>
                         </tr>`
-                        // model
-                        // if(!gone){
-                        //     gone = true;
-                        // }
                     }  
                     $("#UserDataTable" ).html(table);
                     model += `<div class="modal fade" id="export" tabindex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
@@ -123,7 +119,7 @@
                                 </div>
                                 <div class="modal-footer d-flex align-items-center">
                                     <button type="button" class="btn btn-secondary mt-3 rounded-pill" data-bs-dismiss="modal">Annuler</button>
-                                    <a href="/server.php/condidatures-export/${filiere_id}" class="bg-success rounded-pill px-3 py-2" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac"> 
+                                    <a href="/server.php/condidatures-export/${filiere_id}" class="bg-success rounded-pill px-3 py-2" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" data-bs-dismiss="modal"> 
                                         <!-- onclick="return confirm('est ce que vous etes sur ?')"> -->
                                         <i class="cursor-pointer fa fa-file-excel text-white" style="font-weight:normal"></i>
                                         <span class="d-sm-inline d-none text-white" id="span_export">Export</span>
