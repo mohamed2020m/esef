@@ -171,8 +171,8 @@ class InfoUserController extends Controller
 
     public function export($id) 
     {
-        $filier_row = DB::table('filieres')->where('id',$id);
-        $filier_name = $filier_row->name;
+        $filier_name = DB::table('filieres')->where('id',$id)->value('name');
+        // $filier_name = $filier_row->name;
         return Excel::download(new UsersExport($id, $filier_name), 'filières-'. $filier_name . time() . '.xlsx');
     }
 }
