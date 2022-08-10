@@ -168,9 +168,18 @@ class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
     {
         return [
             AfterSheet::class  => function(AfterSheet $event) {
-                $cellRange = 'A1:Q1'; 
-                $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(14);
-                $event->sheet->getDelegate()->getStyle($cellRange)->getFill()->applyFromArray(['fillType' => 'solid','rotation' => 0, 'color' => ['rgb' => 'D9D9D9']]);
+                $event->sheet->getDelegate()->getStyle('A2:Q2')->getFont()->setSize(14);
+                $event->sheet->getDelegate()->getStyle('A2:Q2')->getFill()->applyFromArray(['fillType' => 'solid','rotation' => 0, 'color' => ['rgb' => 'D9D9D9']]);
+                $event->sheet->setSize('A1', 100);
+                $event->sheet->setSize('A1', 70);
+                // $event->sheet->styleCells(
+                //     'C2:C1000',
+                //     [
+                //         'alignment' => [
+                //             'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,
+                //         ],
+                //     ]
+                // );
             },
         ];
     }
