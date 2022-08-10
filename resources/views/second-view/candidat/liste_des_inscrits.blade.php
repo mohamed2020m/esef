@@ -74,7 +74,7 @@
                                 "render": function ( data, type, row) {
 
                                    
-                                        console.log( typeof row[5]);
+                                        console.log( typeof data[5]);
                                   
                                     
                 return '<input type="checkbox"  class ="mySwitch" checked  data-toggle="toggle">';},                      
