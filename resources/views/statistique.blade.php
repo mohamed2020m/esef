@@ -55,7 +55,7 @@
           <h6 class="font-weight-bold"> Nombre des candidats par rapport au nombre des filières </h6>
         </div> -->
         <div class="card-body p-3">
-            <div class="border-radius-lg py-3 pe-1 mb-3">
+          <div class="border-radius-lg py-3 pe-1 mb-3">
             <div class="chart">
               <canvas id="chart-bars" class="chart-canvas" height="400"></canvas>
             </div>
@@ -72,7 +72,12 @@
           </p>
         </div> -->
         <div class="card-body p-3">
-            <div id="chartUtilisateurs" style="height: 300px; width: 100%;"></div>
+          <div class="border-radius-lg py-3 pe-1 mb-3">
+            <div class="chart">
+              <canvas id="chart-line" class="chart-canvas" height="400"></canvas>
+            </div>
+          </div>
+          {{-- <div id="chartUtilisateurs" style="height: 300px; width: 100%;"></div> --}}
         </div>
       </div>
     </div>
@@ -476,7 +481,7 @@
 
 @push('dashboard')
 <script>
-window.onload = function () {
+// window.onload = function () {
 
 // var chart = new CanvasJS.Chart("chartCondidate", {
 // 	animationEnabled: true,
@@ -505,39 +510,39 @@ window.onload = function () {
 // chart.render();
 // }
 
-var chart_2 = new CanvasJS.Chart("chartUtilisateurs", {
-	animationEnabled: true,
-	theme: "light2", // "light1", "light2", "dark1", "dark2"
-	title: {
-		text: "Nombre des candidats inscrits par jour"
-	},
-	axisY: {
-		title: "Nombre des utilisateurs"
-		// suffix: "%"
-	},
-	axisX: {
-		title: "les Mois"
-	},
-	data: [{
-		type: "line",
-		// yValueFormatString: "#,##0.0#\"%\"",
-		dataPoints: [
-			{ label: "jan", y: 54 },	
-			{ label: "Feb", y: 19 },	
-			{ label: "Mar", y: 34 },
-			{ label: "Apr", y: 23 },
-      { label: "May", y: 23 },
-      { label: "Jun", y: 2 },
-      { label: "Jul", y: 43 },
-      { label: "Aug", y: 13 },
-      { label: "Sep", y: 9 },
-      { label: "Oct", y: 18 },
-      { label: "Nov", y: 12 },
-      { label: "Dec", y: 30 }
-		]
-	}]
-});
-chart_2.render();
+// var chart_2 = new CanvasJS.Chart("chartUtilisateurs", {
+// 	animationEnabled: true,
+// 	theme: "light2", // "light1", "light2", "dark1", "dark2"
+// 	title: {
+// 		text: "Nombre des candidats inscrits par jour"
+// 	},
+// 	axisY: {
+// 		title: "Nombre des utilisateurs"
+// 		// suffix: "%"
+// 	},
+// 	axisX: {
+// 		title: "les Mois"
+// 	},
+// 	data: [{
+// 		type: "line",
+// 		// yValueFormatString: "#,##0.0#\"%\"",
+// 		dataPoints: [
+// 			{ label: "jan", y: 54 },	
+// 			{ label: "Feb", y: 19 },	
+// 			{ label: "Mar", y: 34 },
+// 			{ label: "Apr", y: 23 },
+//       { label: "May", y: 23 },
+//       { label: "Jun", y: 2 },
+//       { label: "Jul", y: 43 },
+//       { label: "Aug", y: 13 },
+//       { label: "Sep", y: 9 },
+//       { label: "Oct", y: 18 },
+//       { label: "Nov", y: 12 },
+//       { label: "Dec", y: 30 }
+// 		]
+// 	}]
+// });
+// chart_2.render();
 
 </script>
 
@@ -639,13 +644,13 @@ chart_2.render();
     });
 
 
-    // var ctx2 = document.getElementById("chart-line").getContext("2d");
+    var ctx2 = document.getElementById("chart-line").getContext("2d");
 
-    // var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+    var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
 
-    // gradientStroke1.addColorStop(1, '#9abde5');
-    // gradientStroke1.addColorStop(0.2, '#aecaea');
-    // gradientStroke1.addColorStop(0, '#eaf1fa'); 
+    gradientStroke1.addColorStop(1, '#9abde5');
+    gradientStroke1.addColorStop(0.2, '#aecaea');
+    gradientStroke1.addColorStop(0, '#eaf1fa'); 
 
     // var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
 
@@ -653,93 +658,93 @@ chart_2.render();
     // gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
     // gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
 
-    // new Chart(ctx2, {
-    //   type: "line",
-    //   data: {
-    //     labels: ["jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-    //     datasets: [{
-    //         label: "Nombre d'utilisateurs rejoints",
-    //         tension: 0.4,
-    //         borderWidth: 0,
-    //         pointRadius: 0,
-    //         borderColor: "#0f233a",
-    //         borderWidth: 3,
-    //         backgroundColor: gradientStroke1,
-    //         fill: true,
-    //         data: [50, 220, 500, 40, 300, 220, 500, 250, 400, 230, 40, 500],
-    //         maxBarThickness: 6
+    new Chart(ctx2, {
+      type: "line",
+      data: {
+        labels: ["jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        datasets: [{
+            label: "Nombre d'utilisateurs rejoints",
+            tension: 0.4,
+            borderWidth: 0,
+            pointRadius: 0,
+            borderColor: "#0f233a",
+            borderWidth: 3,
+            backgroundColor: gradientStroke1,
+            fill: true,
+            data: [50, 220, 500, 40, 300, 220, 500, 250, 400, 230, 40, 500],
+            maxBarThickness: 6
 
-    //       },
-    //       // {
-    //       //   label: "Websites",
-    //       //   tension: 0.4,
-    //       //   borderWidth: 0,
-    //       //   pointRadius: 0,
-    //       //   borderColor: "#3A416F",
-    //       //   borderWidth: 3,
-    //       //   backgroundColor: gradientStroke2,
-    //       //   fill: true,
-    //       //   data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
-    //       //   maxBarThickness: 6
-    //       // },
-    //     ],
-    //   },
-    //   options: {
-    //     responsive: true,
-    //     maintainAspectRatio: false,
-    //     plugins: {
-    //       legend: {
-    //         display: false,
-    //       }
-    //     },
-    //     interaction: {
-    //       intersect: false,
-    //       mode: 'index',
-    //     },
-    //     scales: {
-    //       y: {
-    //         grid: {
-    //           drawBorder: false,
-    //           display: true,
-    //           drawOnChartArea: true,
-    //           drawTicks: false,
-    //           borderDash: [5, 5]
-    //         },
-    //         ticks: {
-    //           display: true,
-    //           padding: 10,
-    //           color: '#b2b9bf',
-    //           font: {
-    //             size: 11,
-    //             family: "Open Sans",
-    //             style: 'normal',
-    //             lineHeight: 2
-    //           },
-    //         }
-    //       },
-    //       x: {
-    //         grid: {
-    //           drawBorder: false,
-    //           display: false,
-    //           drawOnChartArea: false,
-    //           drawTicks: false,
-    //           borderDash: [5, 5]
-    //         },
-    //         ticks: {
-    //           display: true,
-    //           color: '#b2b9bf',
-    //           padding: 20,
-    //           font: {
-    //             size: 11,
-    //             family: "Open Sans",
-    //             style: 'normal',
-    //             lineHeight: 2
-    //           },
-    //         }
-    //       },
-    //     },
-    //   },
-    // });
+          },
+          // {
+          //   label: "Websites",
+          //   tension: 0.4,
+          //   borderWidth: 0,
+          //   pointRadius: 0,
+          //   borderColor: "#3A416F",
+          //   borderWidth: 3,
+          //   backgroundColor: gradientStroke2,
+          //   fill: true,
+          //   data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
+          //   maxBarThickness: 6
+          // },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              padding: 10,
+              color: '#b2b9bf',
+              font: {
+                size: 11,
+                family: "Open Sans",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              color: '#b2b9bf',
+              padding: 20,
+              font: {
+                size: 11,
+                family: "Open Sans",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+        },
+      },
+    });
   }
 </script> 
 @endpush
