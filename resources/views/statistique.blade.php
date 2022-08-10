@@ -64,21 +64,32 @@
       <div class="card z-index-2">
         <div class="card-body p-3">
           <div>
-            <select>
-              <option disabled selected>Sélectionnez un mois</option>
-              <option value="1">Janvier</option>
-              <option value="2">Février</option>
-              <option value="3">Mars</option>
-              <option value="4">Avril</option>
-              <option value="5">Mai</option>
-              <option value="6">Juin</option>
-              <option value="7">Juillet</option>
-              <option value="8">Août</option>
-              <option value="9">Septembre</option>
-              <option value="10">Octobre</option>
-              <option value="11">Novembre</option>
-              <option value="12">Décembre</option>
-            </select>
+            <form action="" method="">
+              @csrf
+              <select class="form-select form-select-lg" 
+                  {{-- select_filiere"  --}}
+                  style="border-color:#0f233a !important; box-shadow:none !important" aria-label="Default select example" name="mois" required>
+                  {{-- <option disabled selected>Sélectionner une filière</option>
+                  @foreach($data_filiere as $row)
+                  <option value="{{$row->id}}">{{$row->name}}</option>
+                  @endforeach --}}
+                  <select>
+                    <option disabled selected>Sélectionnez un mois</option>
+                    <option value="1">Janvier</option>
+                    <option value="2">Février</option>
+                    <option value="3">Mars</option>
+                    <option value="4">Avril</option>
+                    <option value="5">Mai</option>
+                    <option value="6">Juin</option>
+                    <option value="7">Juillet</option>
+                    <option value="8">Août</option>
+                    <option value="9">Septembre</option>
+                    <option value="10">Octobre</option>
+                    <option value="11">Novembre</option>
+                    <option value="12">Décembre</option>
+                  </select>
+              </select>
+          </form>
           </div>
           <div class="border-radius-lg py-3 pe-1 mb-3">
             <div class="chart">
