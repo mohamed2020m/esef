@@ -42,6 +42,7 @@ class UsersExport implements FromCollection, WithHeadings
             $coefficient_licence=0;
             $cuurent_school_year = date("Y") - 1;
             $year_of_graduation = date("Y") - 1;
+            $n_matiere = 0;
 
             $matieres=DB::table('matiere_user')->select('matiere_user.*', 'matieres.name')
             ->join('matieres','matieres.id','=','matiere_user.matiere_id')
@@ -49,6 +50,7 @@ class UsersExport implements FromCollection, WithHeadings
             ->get();
             
             foreach($matieres as $matiere){
+                $n_matiere++;
                 $coefficient=DB::table('filiere_matiere')->select('filiere_matiere.*')
                 ->where('filiere_matiere.filiere_id', $this->id)
                 ->where('filiere_matiere.matiere_id', $matiere->matiere_id)
@@ -60,8 +62,14 @@ class UsersExport implements FromCollection, WithHeadings
                     $total_coefficient_matiere += $coefficient->coefficient_matiere;  
                 }
 
-                $candidat->martiere = $matiere->name;
-                $candidat->Note_Martiere = $matiere->note;
+                if($matiere){
+                    $candidat->${"martiere-" . $n_matiere} = $matiere->name;
+                    $candidat->${"Note_Martiere-" . $n_matiere} = $matiere->note;
+                }
+                else{
+                    $candidat->${"martiere-" . $n_matiere} = "empty";
+                    $candidat->${"Note_Martiere-" . $n_matiere} = "empty";
+                }
             }
             //note du partie bac avant l'ajout du bonus
             if ($total_coefficient_matiere){
@@ -136,6 +144,11 @@ class UsersExport implements FromCollection, WithHeadings
 
     public function headings(): array
     {
-        return ["ID", "Nom", "PRÉNOM", "الاسم العائلي", "الاسم الاول" , "Nom de matières", "Note des matières", "Type de Bac" ,"L'année d'obtention", "Note_S1", "Note_S2" , "Type de Licence", "Score"];
+        $s_arr =  ["ID", "Nom", "PRÉNOM", "الاسم العائلي", "الاسم الاول"];
+        $s_last = ["Type de Bac" ,"L'année d'obtention", "Note_S1", "Note_S2" , "Type de Licence", "Score"];
+        $d_arr = ["Matières-1", "Matières-2", "Matières-3"];
+
+        $app_arr = array_merge($s_arr, $d_arr, $s_last);
+        return $app_arr;
     }
 }
