@@ -62,15 +62,15 @@ class UsersExport implements FromCollection, WithHeadings
                     $total_coefficient_matiere += $coefficient->coefficient_matiere;  
                 }
 
-                $count = ${$n_matiere};
+                // $count = ${$n_matiere};
                 
                 if($matiere){
-                    $candidat->$count = $matiere->name;
-                    $candidat->$count = $matiere->note;
+                    $candidat->$n_matiere = $matiere->name;
+                    $candidat->$n_matiere = $matiere->note;
                 }
                 else{
-                    $candidat->$count = "empty";
-                    $candidat->$count = "empty";
+                    $candidat->$n_matiere = "empty";
+                    $candidat->$n_matiere = "empty";
                 }
             }
             //note du partie bac avant l'ajout du bonus
