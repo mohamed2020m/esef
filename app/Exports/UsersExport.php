@@ -150,7 +150,7 @@ class UsersExport implements FromCollection, WithHeadings
     {
         $s_arr =  ["ID", "Nom", "PRÉNOM", "الاسم العائلي", "الاسم الاول"];
         $s_last = ["Type de Bac" ,"L'année d'obtention", "Note_S1", "Note_S2" , "Type de Licence", "Score"];
-        $d_arr = ["Matières-1", "Matières-2", "Matières-3"];
+        $d_arr = ["Matières-1", "Note-1", "Matières-2", "Note-2", "Matières-3", "Note-3"];
 
         $app_arr = array_merge($s_arr, $d_arr, $s_last);
         return $app_arr;
