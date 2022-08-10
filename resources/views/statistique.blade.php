@@ -579,6 +579,7 @@ chart_2.render();
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        animationEnabled:true,
         plugins: {
           // legend: {
           //   display: true,
