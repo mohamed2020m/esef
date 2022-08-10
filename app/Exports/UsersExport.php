@@ -63,12 +63,12 @@ class UsersExport implements FromCollection, WithHeadings
                 }
 
                 if($matiere){
-                    $candidat->${${"martiere-"} . $n_matiere} = $matiere->name;
-                    $candidat->$${"Note_Martiere-" . $n_matiere} = $matiere->note;
+                    $candidat->${$n_matiere} = $matiere->name;
+                    $candidat->${$n_matiere} = $matiere->note;
                 }
                 else{
-                    $candidat->${${"martiere-"} . $n_matiere} = "empty";
-                    $candidat->${${"Note_Martiere-"} . $n_matiere} = "empty";
+                    $candidat->${$n_matiere} = "empty";
+                    $candidat->${$n_matiere} = "empty";
                 }
             }
             //note du partie bac avant l'ajout du bonus
