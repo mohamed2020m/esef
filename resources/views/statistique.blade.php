@@ -580,9 +580,9 @@ chart_2.render();
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-          legend: {
-            display: true,
-          }
+          // legend: {
+          //   display: true,
+          // }
           title: {
               display: true,
               text: 'Nombre des candidats par rapport au nombre des filières'
