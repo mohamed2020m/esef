@@ -95,17 +95,18 @@ class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
                 $coefficient_bac = $bac->coefficient_bac;
             }
 
-            $year_of_graduation = DB::table('bac_user')->select('type_bac','annee_obtention')
+            $year_of_graduation = DB::table('bac_user')->select('bac_user.annee_obtention', 'bacs.name')
+            ->join('bacs','bacs.id','=','bac_user.bac_id')
             ->where('bac_user.user_id', $candidat->id)
             ->first();
 
-            $candidat->type_de_bac = $year_of_graduation->type_bac;
+            $candidat->type_de_bac = $year_of_graduation->name;
             $candidat->annee_obtention = $year_of_graduation->annee_obtention;
 
             //NOTE DU PARTIE BAC APRES l'ajout du bonus 
-            $licence=DB::table('licence_user')->select('licence_user.*')
+            $licence=DB::table('licence_user')->select('licence_user.*', 'licences.name')
             ->join('licences','licences.id','=','licence_user.licence_id')
-            ->where('licence_user.user_id',$candidat->id)
+            ->where('licence_user.user_id', $candidat->id)
             ->first();
             
             if($licence){
@@ -113,7 +114,7 @@ class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
                 
                 $candidat->Note_S1 = $licence->note_s1;
                 $candidat->Note_S2 = $licence->note_s2;
-                $candidat->type_licence = $licence->type_licence;
+                $candidat->type_licence = $licence->name;
             }
             else{
                 $candidat->Note_S1 = "vide";
