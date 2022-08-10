@@ -73,12 +73,7 @@
                                 "targets": -1,
                                 "render": function ( data, type, row) {
 
-                                   
-                                      foreach(row[5]){
-                                        if(row[5]=="0"){
-                                            return '<input type="checkbox"  class ="mySwitch" checked  data-toggle="toggle">';
-                                        }
-                                      }
+                                    return '<input type="checkbox"  class ="mySwitch" checked  data-toggle="toggle">';
                                                       
                                 },                      
                                                           
