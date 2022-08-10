@@ -9,10 +9,8 @@ use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Events\AfterSheet;
-use Maatwebsite\Excel\Concerns\WithColumnWidths;
-// use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents, WithColumnWidths
+class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents
 {
     private $id;
     private $filier_name;
@@ -171,8 +169,9 @@ class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
                 $event->sheet->getDelegate()->getStyle('A2:Q2')->getFont()->setSize(14);
                 $event->sheet->getDelegate()->getStyle('A2:Q2')->getFill()->applyFromArray(['fillType' => 'solid','rotation' => 0, 'color' => ['rgb' => 'D9D9D9']]);
                 $event->sheet->getStyle('A1:A100000')->getAlignment()->setHorizontal('center');
-                $event->sheet->getDelegate()->getRowDimension('1')->setRowHeight(100);
-                $event->sheet->getDelegate()->getRowDimension('2')->setRowHeight(50);  
+                $event->sheet->getStyle('B1:Q2')->getAlignment()->setHorizontal('center');
+                $event->sheet->getDelegate()->getRowDimension('1')->setRowHeight(60);
+                $event->sheet->getDelegate()->getRowDimension('2')->setRowHeight(30);  
                 // $event->sheet->styleCells(
                 //     'C2:C1000',
                 //     [
@@ -182,14 +181,6 @@ class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
                 //     ]
                 // );
             },
-        ];
-    }
-
-    public function columnWidths(): array
-    {
-        return [
-            'A' => 700,
-            'B' => 200,            
         ];
     }
 }
