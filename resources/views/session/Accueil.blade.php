@@ -11,7 +11,7 @@
               <img class="" src="../assets/img/newLogo.png" width="100px" alt="logo" >
             </div>
             <p class="mt-1 logoTitle">
-                Plateforme de Pré-candidature à la Licence d'éducation <br/> Ecole Supérieure d'Education 
+                Plateforme de Pré-candidature à la Licence d'éducation <br/> Ecole Supérieure d'Education
                 et de Formation<br/> de l'Université Chouaîb Doukkali
             </p>
             <hr>
@@ -41,9 +41,9 @@
                 </div>
                 <div class="passwordForgotten">
                   <small class="text-muted" >
-                    <a href="/login/forgot-password" class="font-weight-bold" style="color:#0f233a">Mot de passe oublié ?</a>
+                    <a href="/server.php/forgot-password" class="font-weight-bold" style="color:#0f233a">Mot de passe oublié ?</a>
                   </small>
-                </div>  
+                </div>
               </div>
               <div class="text-center">
                 <button type="submit" class="btn text-light w-100 mt-4 mb-0" style="background-color:#0f233a">S'identifier</button>
