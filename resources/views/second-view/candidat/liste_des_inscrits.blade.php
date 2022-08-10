@@ -65,14 +65,15 @@
                     { data: 'last_name'},
                     { data: 'email'},
                     {data: 'role'},
+                    {data: 'state'},
                     
                 ]
                 
             },
-            columnDefs: [ {     data: 'state',
+            columnDefs: [ {     "data": 'state',
                                 "targets": -1,
                                 "render": function ( data, type, row) {
-                                    console.log(row.state);
+                                    console.log(data);
 
                                     return '<input type="checkbox"  class ="mySwitch"   data-toggle="toggle">';
                                                       
