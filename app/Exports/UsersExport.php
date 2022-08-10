@@ -12,7 +12,7 @@ use Maatwebsite\Excel\Events\AfterSheet;
 // use Maatwebsite\Excel\Concerns\WithStyles;
 // use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents
+class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents, WithColumnWidths
 {
     private $id;
     private $filier_name;
@@ -170,8 +170,7 @@ class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
             AfterSheet::class  => function(AfterSheet $event) {
                 $event->sheet->getDelegate()->getStyle('A2:Q2')->getFont()->setSize(14);
                 $event->sheet->getDelegate()->getStyle('A2:Q2')->getFill()->applyFromArray(['fillType' => 'solid','rotation' => 0, 'color' => ['rgb' => 'D9D9D9']]);
-                $event->sheet->setSize('A1', 100);
-                $event->sheet->setSize('A1', 70);
+
                 // $event->sheet->styleCells(
                 //     'C2:C1000',
                 //     [
@@ -181,6 +180,14 @@ class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
                 //     ]
                 // );
             },
+        ];
+    }
+
+    public function columnWidths(): array
+    {
+        return [
+            'A' => 100,
+            'B' => 75,            
         ];
     }
 }
