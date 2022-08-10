@@ -45,7 +45,15 @@
 
 
 <script>
+
+
+
+
+
     $(document).ready(function() {
+
+
+
         let users = $('#empTable').DataTable({
             "serverSide": true,
             "ajax": {
@@ -57,16 +65,28 @@
                     { data: 'last_name'},
                     { data: 'email'},
                     {data: 'role'},
-                    {data: 'state'},
-                ],
-                columnDefs: [
-                     {
-                 targets: -1,
-                 data: null,
-                 defaultContent: '<button>Click!</button>',
-                    },
-        ]
+                    
+                ]
+                
             },
+            columnDefs: [ {     "data": 'state',
+                                "targets": -1,
+                                "render": function ( data, type, row) {
+                return '<input type="checkbox"  class ="mySwitch" checked  data-toggle="toggle">';},                      
+                                                          
+                                } ],
+
+            "fnDrawCallback": function( row, data ) {     
+                $('.mySwitch').bootstrapToggle(
+                    {
+                       on: 'Activé',
+                       off: 'Désactivé',
+                       onstyle: "success",
+                       offstyle:"danger" ,
+                      size:"mini"
+                   });
+                },           
+                                
             "language": {
                 "lengthMenu": "Afficher _MENU_ enregistrements par page",
                 "zeroRecords": "Rien n'a été trouvé",
@@ -83,6 +103,11 @@
                 "loadingRecords": "Chargement...",
             }
         });
+
+
+        
+  
+  
     })
 </script>
     

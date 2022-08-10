@@ -13,10 +13,10 @@
             </div>
         </div>
         <div class="card-body px-3 pt-0 pb-2">
-            <form action="/server.php/table/bac_creat" method="POST"  enctype="multipart/form-data">
+            <form action="/server.php/table/bac_create" method="POST"  enctype="multipart/form-data">
             @csrf
                 <div class="form-outline mb-4 mt-6">
-                    <label class="form-label" for="name">Serie de Bac</label>
+                    <label class="form-label" for="name">Série de Bac</label>
                     <input type="text" name="name" id="name" class="form-control" placeholder="ajouter Bac" required />
                 </div>
                 <button type="submit" class="btn" style="background-color: #0f233a !important;color:white">Enregistrer</button>
