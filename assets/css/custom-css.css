@@ -569,3 +569,9 @@ to {
     border: none !important;
 }
 /* DataTable :: End */
+
+/* Export btn :: Start */
+#export_btn:hover{
+    opacity: 0.8 !important;
+}
+/* Export btn ::End */

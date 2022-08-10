@@ -6,15 +6,19 @@ use App\Models\User;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Illuminate\Support\Facades\DB;
-use App\Models\Filiere;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithEvents;
+use Maatwebsite\Excel\Events\AfterSheet;
 
-class UsersExport implements FromCollection, WithHeadings
+class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents
 {
     private $id;
+    private $filier_name;
 
-    public function __construct(int $id) 
+    public function __construct(int $id, string $filier_name) 
     {
         $this->id = $id;
+        $this->filier_name = $filier_name;
     }
     
     /**
@@ -27,7 +31,7 @@ class UsersExport implements FromCollection, WithHeadings
         // ->join('filiere_user','filiere_user.user_id','=','users.id')->get();
         // // ->join('filieres','filieres.id','=','filiere_user.filiere_id')->where('filieres.id',$id)->get();
 
-        $data = DB::table('users')->select('users.id, users.last_name, users.first_name, users.last_name_arabic, users.first_name_arabic, users.cin , users.cne, users.email')
+        $data = DB::Table('users')->select('users.id', 'users.last_name', 'users.first_name', 'users.last_name_arabic', 'users.first_name_arabic')
         ->join('filiere_user','filiere_user.user_id','=','users.id')
         ->join('filieres','filieres.id','=','filiere_user.filiere_id')
         ->where('filiere_user.filiere_id', $this->id)
@@ -42,23 +46,37 @@ class UsersExport implements FromCollection, WithHeadings
             $coefficient_licence=0;
             $cuurent_school_year = date("Y") - 1;
             $year_of_graduation = date("Y") - 1;
+            $n_matiere = 0;
+            $n_matiere_note = 0;
 
-            $matieres=DB::table('matiere_user')->select('matiere_user.*')
+            $matieres=DB::table('matiere_user')->select('matiere_user.*', 'matieres.name')
             ->join('matieres','matieres.id','=','matiere_user.matiere_id')
             ->where('matiere_user.user_id',$candidat->id)
             ->get();
             
             foreach($matieres as $matiere){
+                $n_matiere++;
+                $n_matiere_note ++;
                 $coefficient=DB::table('filiere_matiere')->select('filiere_matiere.*')
                 ->where('filiere_matiere.filiere_id', $this->id)
                 ->where('filiere_matiere.matiere_id', $matiere->matiere_id)
                 ->first();
 
+                $count =  "note-" . $n_matiere_note;
+
                 if($coefficient){
                     $produit_matiere_coefficient = ($matiere->note)*($coefficient->coefficient_matiere);
                     $total_note_matiere += $produit_matiere_coefficient;
                     $total_coefficient_matiere += $coefficient->coefficient_matiere;  
+                        
+                    $candidat->$n_matiere = $matiere->name;
+                    $candidat->$count = $matiere->note;
                 }
+                else{
+                    $candidat->$n_matiere = "vide";
+                    $candidat->$count = "vide";
+                }
+
             }
             //note du partie bac avant l'ajout du bonus
             if ($total_coefficient_matiere){
@@ -77,9 +95,12 @@ class UsersExport implements FromCollection, WithHeadings
                 $coefficient_bac = $bac->coefficient_bac;
             }
 
-            $year_of_graduation = DB::table('bac_user')->select('annee_obtention')
+            $year_of_graduation = DB::table('bac_user')->select('type_bac','annee_obtention')
             ->where('bac_user.user_id', $candidat->id)
             ->first();
+
+            $candidat->type_de_bac = $year_of_graduation->type_bac;
+            $candidat->annee_obtention = $year_of_graduation->annee_obtention;
 
             //NOTE DU PARTIE BAC APRES l'ajout du bonus 
             $licence=DB::table('licence_user')->select('licence_user.*')
@@ -89,7 +110,17 @@ class UsersExport implements FromCollection, WithHeadings
             
             if($licence){
                 $note_partie_licence = (($licence->note_s1)+($licence->note_s2))/2;
+                
+                $candidat->Note_S1 = $licence->note_s1;
+                $candidat->Note_S2 = $licence->note_s2;
+                $candidat->type_licence = $licence->type_licence;
             }
+            else{
+                $candidat->Note_S1 = "vide";
+                $candidat->Note_S2 = "vide";
+                $candidat->type_licence = "vide";
+            }
+
 
             // // adding Bonus to licence
             $bonus=DB::table('filiere_licence')->select('filiere_licence.*')
@@ -120,6 +151,43 @@ class UsersExport implements FromCollection, WithHeadings
 
     public function headings(): array
     {
-        return ["ID", "Nom", "PRÉNOM", "الاسم العائلي", "الاسم الاول" ,"CIN", "CNE" , "Email", "Filière", "Score"];
+        $s_arr =  ["ID", "Nom", "PRÉNOM", "الاسم العائلي", "الاسم الاول"];
+        $s_last = ["Type de Bac" ,"L'année d'obtention", "Note_S1", "Note_S2" , "Type de Licence", "Score"];
+        $d_arr = ["Matières-1", "Note-1", "Matières-2", "Note-2", "Matières-3", "Note-3"];
+
+        $app_arr = array_merge($s_arr, $d_arr, $s_last);
+        return [
+            [$this->filier_name],
+            $app_arr
+        ];
+    }
+
+    public function registerEvents(): array
+    {
+        return [
+            AfterSheet::class  => function(AfterSheet $event) {
+                // title
+                $event->sheet->getDelegate()->getStyle('A1:Q2')->getFont()->setSize(20);
+                $event->sheet->mergeCells('A1:Q1');
+                $event->sheet->getDelegate()->getStyle('A1:Q1')->getFill()->applyFromArray(
+                    [
+                        'font' => array(
+                            'name'      =>  'Calibri',
+                            'bold'      =>  true,
+                            'color' => ['argb' => 'EB2B02'],
+                        )
+                    ]
+                );
+                // table
+                $event->sheet->getDelegate()->getStyle('A2:Q2')->getFont()->setSize(14);
+                $event->sheet->getDelegate()->getStyle('A2:Q2')->getFill()->applyFromArray(['fillType' => 'solid','rotation' => 0, 'color' => ['rgb' => 'D9D9D9']]);
+                $event->sheet->getStyle('A1:A100000')->getAlignment()->setHorizontal('center');
+                $event->sheet->getStyle('B1:Q2')->getAlignment()->setHorizontal('center');
+                $event->sheet->getStyle('A1:A100000')->getAlignment()->setVertical('center');
+                $event->sheet->getStyle('B1:Q2')->getAlignment()->setVertical('center');
+                $event->sheet->getDelegate()->getRowDimension('1')->setRowHeight(60);
+                $event->sheet->getDelegate()->getRowDimension('2')->setRowHeight(30);  
+            },
+        ];
     }
 }
