@@ -593,11 +593,11 @@ chart_2.render();
           //   display: true,
           // }
           title: {
-              display: true,
-              text: 'Nombre des candidats par rapport au nombre des filières',
-              font: {
-                size: 18
-              }
+            display: true,
+            text: 'Nombre des candidats par rapport au nombre des filières',
+            font: {
+              size: 18
+            }
           }
         },
         interaction: {
@@ -625,6 +625,7 @@ chart_2.render();
                 // lineHeight: 2
               },
               // color: "#fff"
+              title:"Nombre des candidats"
             },
           },
           x: {
@@ -635,7 +636,8 @@ chart_2.render();
               drawTicks: true
             },
             ticks: {
-              display: true
+              display: true,
+              title:'Les filières'
             },
           },
         },
