@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Events\AfterSheet;
+use PhpOffice\PhpSpreadsheet\Style\Border;
 
-class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents
+class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents, Border
 {
     private $id;
     private $filier_name;
@@ -169,6 +170,23 @@ class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
                 // title
                 $event->sheet->getDelegate()->getStyle('A1:Q2')->getFont()->setSize(20);
                 $event->sheet->mergeCells('A1:Q1');
+                $event->sheet->styleCells(
+                    'A1:Q1',
+                    [
+                        'borders' => [
+                            'outline' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                                'color' => ['argb' => 'EB2B02'],
+                            ],
+
+                        ],
+                        'font' => array(
+                            'name'      =>  'Calibri',
+                            'bold'      =>  true,
+                            'color' => ['argb' => 'EB2B02'],
+                        )
+                    ]
+                );
                 // table
                 $event->sheet->getDelegate()->getStyle('A2:Q2')->getFont()->setSize(14);
                 $event->sheet->getDelegate()->getStyle('A2:Q2')->getFill()->applyFromArray(['fillType' => 'solid','rotation' => 0, 'color' => ['rgb' => 'D9D9D9']]);
