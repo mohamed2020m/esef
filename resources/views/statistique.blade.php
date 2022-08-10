@@ -56,8 +56,8 @@
         </div> -->
         <div class="card-body p-3">
             <div class="border-radius-lg py-3 pe-1 mb-3">
-            <div class="chart">
-              <canvas id="chart-bars" class="chart-canvas" height="300"></canvas>
+            <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+              <canvas id="chart-bars" class="chart-canvas" ></canvas>
             </div>
           </div> 
           {{-- <div id="chartCondidate" style="height: 300px; width: 100%;"></div> --}}
@@ -581,7 +581,7 @@ chart_2.render();
         maintainAspectRatio: false,
         plugins: {
           legend: {
-            display: true,
+            // display: true,
             labels: {
               color: 'rgb(255, 99, 132)'
             }
