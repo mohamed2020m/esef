@@ -648,9 +648,9 @@
 
     var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
 
-    gradientStroke1.addColorStop(1, '#9abde5');
-    gradientStroke1.addColorStop(0.2, '#aecaea');
-    gradientStroke1.addColorStop(0, '#eaf1fa'); 
+    gradientStroke1.addColorStop(1, '#ff6600');
+    gradientStroke1.addColorStop(0.2, '#ff944d');
+    gradientStroke1.addColorStop(0, '#ffe0cc'); 
 
     // var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
 
@@ -667,12 +667,12 @@
             tension: 0.4,
             borderWidth: 0,
             pointRadius: 0,
-            borderColor: "#0f233a",
-            borderWidth: 3,
+            borderColor: "#ff0000",
+            borderWidth: 2,
             backgroundColor: gradientStroke1,
             fill: true,
             data: [50, 220, 500, 40, 300, 220, 500, 250, 400, 230, 40, 500],
-            maxBarThickness: 6
+            maxBarThickness: 3
 
           },
           // {
