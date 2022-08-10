@@ -16,9 +16,10 @@ class Email extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $details;
+    public function __construct($details)
     {
-        //
+        $this->details = $details;
     }
 
     /**
@@ -28,6 +29,6 @@ class Email extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->subject('Ecole Supérieure d\'Education et de Formation')->view('email.form');
     }
 }
