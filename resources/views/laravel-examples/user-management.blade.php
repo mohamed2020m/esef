@@ -88,7 +88,7 @@
                 type:'get',
                 url:'{{URL::to("candidatsList")}}',
                 data:{'id':filiere_id},
-                success: function(data){
+                success: function(data, filiere_id){
                     for(var i=0;i<data.length;i++){
                         table += 
                         `<tr class="align-middle" style="font-size: 18px;">
@@ -122,7 +122,7 @@
                                 </div>
                                 <div class="modal-footer d-flex align-items-center">
                                     <button type="button" class="btn btn-secondary mt-3 rounded-pill" data-bs-dismiss="modal">Annuler</button>
-                                    <a href="{{ route('users.export') }}" class="bg-success rounded-pill px-3 py-2" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac"> 
+                                    <a href="{{ route('users.export/' . $filiere_id) }}" class="bg-success rounded-pill px-3 py-2" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac"> 
                                         <!-- onclick="return confirm('est ce que vous etes sur ?')"> -->
                                         <i class="cursor-pointer fa fa-file-excel text-white" style="font-weight:normal"></i>
                                         <span class="d-sm-inline d-none text-white" id="span_export">Export</span>
