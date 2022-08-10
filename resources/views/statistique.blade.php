@@ -661,15 +661,18 @@
     new Chart(ctx2, {
       type: "line",
       data: {
-        labels: ["jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", 
+                "12", "13", "14", "15", "16", "17", "18", "19", "20", 
+                "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" , "32"
+              ],
         datasets: [{
             label: "Nombre d'utilisateurs rejoints",
             tension: 0.4,
             borderWidth: 0,
             pointRadius: 0,
-            borderColor: "#ff0000",
+            borderColor: "#0f233a",
             borderWidth: 2,
-            backgroundColor: gradientStroke1,
+            // backgroundColor: gradientStroke1,
             fill: true,
             data: [50, 220, 500, 40, 300, 220, 500, 250, 400, 230, 40, 500],
             maxBarThickness: 3
