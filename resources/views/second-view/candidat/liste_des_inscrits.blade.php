@@ -118,10 +118,9 @@
         });
 
 
-        $('#empTable tbody').change(
-            function(){
-                 if (this.checked) {console.log("dart");}
-                    });
+        $('#empTable tbody').on('click', 'button', function () {
+       console.log("hy");
+    });
        // $('#empTable tbody').on( 'click', 'button', function () { var data = table.row( $(this).parents('tr') ).data(); alert( data[0] +"'s salary is: "+ data[ 5 ] ); } ); }
 
     })
