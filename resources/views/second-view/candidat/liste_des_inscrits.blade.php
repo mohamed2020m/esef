@@ -75,7 +75,7 @@
                                 "render": function ( data, type, row) {
 
                                     if ( data == "0"){
-                                       return "<button>Click!</button>";
+                                       return '<button>Click!</button>';
                                     }else{
                                         return '<input type="checkbox"  class ="mySwitch" checked  data-toggle="toggle">';
                                     }
