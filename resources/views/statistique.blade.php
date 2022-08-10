@@ -55,7 +55,7 @@
           <h6 class="font-weight-bold"> Nombre des candidats par rapport au nombre des filières </h6>
         </div> -->
         <div class="card-body p-3">
-            <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
+            <div class="border-radius-lg py-3 pe-1 mb-3">
             <div class="chart">
               <canvas id="chart-bars" class="chart-canvas" height="300"></canvas>
             </div>
