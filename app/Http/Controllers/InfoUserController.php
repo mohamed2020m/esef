@@ -171,6 +171,7 @@ class InfoUserController extends Controller
 
     public function export($id) 
     {
-        return Excel::download(new UsersExport($id), 'candidatures-' . time() . '.xlsx');
+        $filier_name = DB::table('filieres')->where('id',$id);
+        return Excel::download(new UsersExport($id, $filier_name), 'filières-'. $filier_name . time() . '.xlsx');
     }
 }
