@@ -69,11 +69,12 @@
                 ]
                 
             },
-            columnDefs: [ {     "data": 'state',
+            columnDefs: [ {     data: 'state',
                                 "targets": -1,
                                 "render": function ( data, type, row) {
+                                    console.log(data);
 
-                                    return '<input type="checkbox"  class ="mySwitch" checked  data-toggle="toggle">';
+                                    return '<input type="checkbox"  class ="mySwitch"   data-toggle="toggle">';
                                                       
                                 },                      
                                                           
@@ -109,17 +110,6 @@
             }
         });
 
-
-        $('.mySwitch').change(function () {
-        if (!this.checked) 
-        //  ^
-          console.log("activé");
-        else 
-        console.log("desactivé");
-    });
-        
-  
-  
     })
 </script>
     
