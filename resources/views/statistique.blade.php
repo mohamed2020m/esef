@@ -579,6 +579,15 @@ chart_2.render();
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        animations: {
+          tension: {
+            duration: 1000,
+            easing: 'linear',
+            from: 1,
+            to: 0,
+            loop: false;
+          }
+        },
         plugins: {
           // legend: {
           //   display: true,
