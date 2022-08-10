@@ -5,7 +5,7 @@
         <div class="card-header pb-0">
             <div class="d-flex flex-row justify-content-center">
                 <div  sytle="text-overflow: ellipsis !important; overflow: hidden !important; width: 40px; white-space: nowrap !important;">
-                    <h5 class="mb-0"><i class="fa fa-lg fa-check ps-2 pe-2 text-center text-dark" aria-hidden="true"></i>Selectioner une filière</h5>
+                    <h5 class="mb-0"><i class="fa fa-lg fa-check ps-2 pe-2 text-center text-dark" aria-hidden="true"></i>Sélectionnez une filière</h5>
                 </div>
             </div>
         </div>
