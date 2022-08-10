@@ -84,8 +84,8 @@ class UsersExport implements FromCollection, WithHeadings
             ->where('bac_user.user_id', $candidat->id)
             ->first();
 
-            $candidat->type_de_bac = $bac->type_bac;
-            $candidat->annee_obtention = $bac->annee_obtention;
+            $candidat->type_de_bac = $year_of_graduation->type_bac;
+            $candidat->annee_obtention = $year_of_graduation->annee_obtention;
 
             //NOTE DU PARTIE BAC APRES l'ajout du bonus 
             $licence=DB::table('licence_user')->select('licence_user.*')
