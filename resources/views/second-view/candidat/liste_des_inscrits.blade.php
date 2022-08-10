@@ -89,11 +89,7 @@
                       size:"mini"
                    });
 
-                   $('.mySwitch').on('click', 'button', function () {
-                var data = table.row($(this).parents('tr')).data();
-                      alert(data[0] + "'s salary is: " + data[5]);
-                             });
-
+                   
                 },           
                                 
             "language": {
@@ -114,6 +110,13 @@
         });
 
 
+        $('.mySwitch').change(function () {
+        if (!this.checked) 
+        //  ^
+          console.log("activé");
+        else 
+        console.log("desactivé");
+    });
         
   
   
