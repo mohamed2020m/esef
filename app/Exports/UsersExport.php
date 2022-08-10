@@ -166,20 +166,18 @@ class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
     {
         return [
             AfterSheet::class  => function(AfterSheet $event) {
+                // title
+                $event->sheet->getDelegate()->getStyle('A1:Q2')->getFont()->setSize(20);
+                $event->sheet->mergeCells('A1:Q1');
+                // table
                 $event->sheet->getDelegate()->getStyle('A2:Q2')->getFont()->setSize(14);
                 $event->sheet->getDelegate()->getStyle('A2:Q2')->getFill()->applyFromArray(['fillType' => 'solid','rotation' => 0, 'color' => ['rgb' => 'D9D9D9']]);
                 $event->sheet->getStyle('A1:A100000')->getAlignment()->setHorizontal('center');
                 $event->sheet->getStyle('B1:Q2')->getAlignment()->setHorizontal('center');
+                $event->sheet->getStyle('A1:A100000')->getAlignment()->setVertical('center');
+                $event->sheet->getStyle('B1:Q2')->getAlignment()->setVertical('center');
                 $event->sheet->getDelegate()->getRowDimension('1')->setRowHeight(60);
                 $event->sheet->getDelegate()->getRowDimension('2')->setRowHeight(30);  
-                // $event->sheet->styleCells(
-                //     'C2:C1000',
-                //     [
-                //         'alignment' => [
-                //             'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,
-                //         ],
-                //     ]
-                // );
             },
         ];
     }
