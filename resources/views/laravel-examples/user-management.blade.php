@@ -82,7 +82,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Êtes-vous sûr de vouloir vous exporter les condidatures ?
+                <p class="text-danger">Vous êtes sur le point d'exporter la filière sélectionnée</p>
             </div>
             <div class="modal-footer d-flex align-items-center">
                 <button type="button" class="btn btn-secondary mt-3 rounded-pill" data-bs-dismiss="modal">Annuler</button>
