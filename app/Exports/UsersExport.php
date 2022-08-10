@@ -15,10 +15,12 @@ use Maatwebsite\Excel\Events\AfterSheet;
 class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents
 {
     private $id;
+    private $filier_name;
 
-    public function __construct(int $id) 
+    public function __construct(int $id, string $filier_name) 
     {
         $this->id = $id;
+        $this->filier_name = $filier_name;
     }
     
     /**
@@ -156,20 +158,20 @@ class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
         $d_arr = ["Matières-1", "Note-1", "Matières-2", "Note-2", "Matières-3", "Note-3"];
 
         $app_arr = array_merge($s_arr, $d_arr, $s_last);
-        return $app_arr;
+        return [
+            [$this->filier_name],
+            $app_arr
+        ];
     }
 
     public function registerEvents(): array
     {
         return [
-            ['Title'],
-            [
-                AfterSheet::class  => function(AfterSheet $event) {
-                    $cellRange = 'A1:Q1'; 
-                    $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(14);
-                    $event->sheet->getDelegate()->getStyle($cellRange)->getFill()->applyFromArray(['fillType' => 'solid','rotation' => 0, 'color' => ['rgb' => 'D9D9D9']]);
-                },
-            ]
+            AfterSheet::class  => function(AfterSheet $event) {
+                $cellRange = 'A1:Q1'; 
+                $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(14);
+                $event->sheet->getDelegate()->getStyle($cellRange)->getFill()->applyFromArray(['fillType' => 'solid','rotation' => 0, 'color' => ['rgb' => 'D9D9D9']]);
+            },
         ];
     }
 }
