@@ -65,21 +65,20 @@
                     { data: 'last_name'},
                     { data: 'email'},
                     {data: 'role'},
-                    {
-                        data: 'state',
-                        "targets": -1,
-                                "render": function ( data, type, row) {
-                                    console.log(row);
-
-                                    return '<input type="checkbox"  class ="mySwitch"   data-toggle="toggle">';
-                                                      
-                                }, 
-                    },
                     
                 ]
                 
             },
-            
+            columnDefs: [ {     data: 'state',
+                                "targets": -1,
+                                "render": function ( data, type, row) {
+                                    console.log(row.state);
+
+                                    return '<input type="checkbox"  class ="mySwitch"   data-toggle="toggle">';
+                                                      
+                                },                      
+                                                          
+                                } ],
 
             "fnDrawCallback": function( row, data ) {     
                 $('.mySwitch').bootstrapToggle(
