@@ -582,9 +582,9 @@ chart_2.render();
         plugins: {
           legend: {
             // display: true,
-            labels: {
-              color: 'rgb(255, 99, 132)'
-            }
+            // labels: {
+            //   color: 'rgb(255, 99, 132)'
+            // }
           }
           title: {
               display: true,
