@@ -95,11 +95,12 @@ class UsersExport implements FromCollection, WithHeadings
             
             if($licence){
                 $note_partie_licence = (($licence->note_s1)+($licence->note_s2))/2;
+                
+                $candidat->Note_S1 = $licence->note_s1;
+                $candidat->Note_S2 = $licence->note_s2;
+                $candidat->type_licence = $licence->type_licence;
             }
 
-            $candidat->Note_S1 = $licence->note_s1;
-            $candidat->Note_S2 = $licence->note_s2;
-            $candidat->type_licence = $licence->type_licence;
 
             // // adding Bonus to licence
             $bonus=DB::table('filiere_licence')->select('filiere_licence.*')
