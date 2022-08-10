@@ -52,7 +52,7 @@ class UsersExport implements FromCollection, WithHeadings
             
             foreach($matieres as $matiere){
                 $n_matiere++;
-                $n_matiere_note += (int)$n_matiere_note;
+                $n_matiere_note ++;
                 $coefficient=DB::table('filiere_matiere')->select('filiere_matiere.*')
                 ->where('filiere_matiere.filiere_id', $this->id)
                 ->where('filiere_matiere.matiere_id', $matiere->matiere_id)
@@ -64,9 +64,9 @@ class UsersExport implements FromCollection, WithHeadings
                     $total_coefficient_matiere += $coefficient->coefficient_matiere;  
                 }
 
-                $count =  "note-" . (string)$n_matiere_note;
+                $count =  "note-" . $n_matiere_note;
                 
-                if($matiere){
+                if($matiere->name && $matiere->note){
                     $candidat->$n_matiere = $matiere->name;
                     $candidat->$count = $matiere->note;
                 }
