@@ -186,8 +186,8 @@ class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
     public function columnWidths(): array
     {
         return [
-            'A' => 100,
-            'B' => 75,            
+            'A' => 700,
+            'B' => 200,            
         ];
     }
 }
