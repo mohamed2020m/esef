@@ -551,11 +551,11 @@ chart_2.render();
         labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES'],
         datasets: [{
           label: "Nombre des candidats",
-          tension: 0.4,
-          borderWidth: 0,
-          borderRadius: 4,
-          borderSkipped: false,
-          backgroundColor: "#fff",
+          // tension: 0.4,
+          // borderWidth: 0,
+          // borderRadius: 4,
+          // borderSkipped: false,
+          // backgroundColor: "#fff",
           data: [52, 19, 30, 50, 20, 23],
           maxBarThickness: 6
         }, ],
@@ -589,9 +589,9 @@ chart_2.render();
                 size: 14,
                 family: "Open Sans",
                 style: 'normal',
-                lineHeight: 2
+                // lineHeight: 2
               },
-              color: "#fff"
+              // color: "#fff"
             },
           },
           x: {
@@ -610,13 +610,13 @@ chart_2.render();
     });
 
 
-    var ctx2 = document.getElementById("chart-line").getContext("2d");
+    // var ctx2 = document.getElementById("chart-line").getContext("2d");
 
-    var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+    // var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
 
-    gradientStroke1.addColorStop(1, '#9abde5');
-    gradientStroke1.addColorStop(0.2, '#aecaea');
-    gradientStroke1.addColorStop(0, '#eaf1fa'); 
+    // gradientStroke1.addColorStop(1, '#9abde5');
+    // gradientStroke1.addColorStop(0.2, '#aecaea');
+    // gradientStroke1.addColorStop(0, '#eaf1fa'); 
 
     // var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
 
