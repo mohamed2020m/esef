@@ -56,8 +56,8 @@
         </div> -->
         <div class="card-body p-3">
             <div class="border-radius-lg py-3 pe-1 mb-3">
-            <div class="chart-container" style="position: relative; height:40vh; width:80vw">
-              <canvas id="chart-bars" class="chart-canvas"></canvas>
+            <div class="chart">
+              <canvas id="chart-bars" class="chart-canvas" height="400"></canvas>
             </div>
           </div> 
           {{-- <div id="chartCondidate" style="height: 300px; width: 100%;"></div> --}}
