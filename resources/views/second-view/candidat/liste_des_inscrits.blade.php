@@ -70,7 +70,7 @@
                 ]
                 
             },
-            columnDefs: [ {     "data": 'state',
+            columnDefs: [ {     data: 'state',
                                 "targets": -1,
                                 "render": function ( data, type, row) {
                                     console.log(data);
