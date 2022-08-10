@@ -27,7 +27,7 @@ class UsersExport implements FromCollection, WithHeadings
         // ->join('filiere_user','filiere_user.user_id','=','users.id')->get();
         // // ->join('filieres','filieres.id','=','filiere_user.filiere_id')->where('filieres.id',$id)->get();
 
-        $data = DB::Table('users')->select('users.id', 'users.last_name', 'users.first_name', 'users.last_name_arabic', 'users.first_name_arabic', 'users.cin' , 'users.cne', 'users.email', 'filieres.name')
+        $data = DB::Table('users')->select('users.id', 'users.last_name', 'users.first_name', 'users.last_name_arabic', 'users.first_name_arabic')
         ->join('filiere_user','filiere_user.user_id','=','users.id')
         ->join('filieres','filieres.id','=','filiere_user.filiere_id')
         ->where('filiere_user.filiere_id', $this->id)
@@ -59,6 +59,9 @@ class UsersExport implements FromCollection, WithHeadings
                     $total_note_matiere += $produit_matiere_coefficient;
                     $total_coefficient_matiere += $coefficient->coefficient_matiere;  
                 }
+
+                $candidat->martiere = $matiere->name;
+                $candidat->Note_Martiere = $matiere->note;
             }
             //note du partie bac avant l'ajout du bonus
             if ($total_coefficient_matiere){
@@ -81,6 +84,9 @@ class UsersExport implements FromCollection, WithHeadings
             ->where('bac_user.user_id', $candidat->id)
             ->first();
 
+            $candidat->type_de_bac = $bac->type_bac;
+            $candidat->annee_obtention = $bac->annee_obtention;
+
             //NOTE DU PARTIE BAC APRES l'ajout du bonus 
             $licence=DB::table('licence_user')->select('licence_user.*')
             ->join('licences','licences.id','=','licence_user.licence_id')
@@ -90,6 +96,10 @@ class UsersExport implements FromCollection, WithHeadings
             if($licence){
                 $note_partie_licence = (($licence->note_s1)+($licence->note_s2))/2;
             }
+
+            $candidat->Note_S1 = $licence->note_s1;
+            $candidat->Note_S2 = $licence->note_s2;
+            $candidat->type_licence = $licence->type_licence;
 
             // // adding Bonus to licence
             $bonus=DB::table('filiere_licence')->select('filiere_licence.*')
@@ -120,6 +130,6 @@ class UsersExport implements FromCollection, WithHeadings
 
     public function headings(): array
     {
-        return ["ID", "Nom", "PRÉNOM", "الاسم العائلي", "الاسم الاول" ,"CIN", "CNE" , "Email", "Filière", "Score"];
+        return ["ID", "Nom", "PRÉNOM", "الاسم العائلي", "الاسم الاول" , "Nom de matières", "Note des matières", "Type de Bac" ,"L'année d'obtention", "Note_S1", "Note_S2" , "Type de Licence", "Score"];
     }
 }
