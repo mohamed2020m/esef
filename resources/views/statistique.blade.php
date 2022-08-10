@@ -550,7 +550,10 @@ chart_2.render();
       data: {
         labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES'],
         datasets: [{
-          // label: "Nombre des candidats",
+          label: "Nombre des candidats",
+          label: "Nombre des candidats",
+          label: "Nombre des candidats",
+          
           // tension: 0.4,
           // borderWidth: 0,
           // borderRadius: 4,
