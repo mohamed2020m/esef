@@ -719,7 +719,7 @@
             },
             ticks: {
               display: true,
-              padding: 10,
+              padding: 20,
               color: '#b2b9bf',
               font: {
                 size: 11,
