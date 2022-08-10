@@ -121,7 +121,7 @@
         
         $('#empTable').on('click', 'tr', function () {
                 console.log("checkBox");
-                console.log(row[2]);
+                console.log( users.row( this ).data() );
                     });
 
     })
