@@ -6,10 +6,13 @@ use App\Models\User;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Illuminate\Support\Facades\DB;
-use Maatwebsite\Excel\Concerns\WithStyles;
-use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithEvents;
+use Maatwebsite\Excel\Events\AfterSheet;
+// use Maatwebsite\Excel\Concerns\WithStyles;
+// use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class UsersExport implements FromCollection, WithHeadings, WithStyles
+class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents
 {
     private $id;
 
@@ -156,22 +159,13 @@ class UsersExport implements FromCollection, WithHeadings, WithStyles
         return $app_arr;
     }
 
-    public function styles(Worksheet $sheet)
+    public function registerEvents(): array
     {
         return [
-            // Style the first row as bold text.
-            1    => [
-                'font' => ['bold' => true],
-                'fill' => ['color' => 'black'],
-                'color' => ["argb" => 'white'],
-                'style' => ['alignment' => 'center']
-            ],
-
-            // Styling a specific cell by coordinate.
-            // 'B2' => ['font' => ['italic' => true]],
-
-            // Styling an entire column.
-            // 'C'  => ['font' => ['size' => 16]],
+            AfterSheet::class    => function(AfterSheet $event) {
+                $cellRange = 'A1:W1'; // All headers
+                $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(14);
+            },
         ];
     }
 }
