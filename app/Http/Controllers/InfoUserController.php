@@ -169,8 +169,8 @@ class InfoUserController extends Controller
         }
     }
 
-    public function export() 
+    public function export($id) 
     {
-        return Excel::download(new UsersExport, 'candidatures-' . time() . '.xlsx');
+        return Excel::download(new UsersExport($id), 'candidatures-' . time() . '.xlsx');
     }
 }
