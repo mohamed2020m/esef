@@ -58,22 +58,21 @@ class UsersExport implements FromCollection, WithHeadings
                 ->where('filiere_matiere.matiere_id', $matiere->matiere_id)
                 ->first();
 
+                $count =  "note-" . $n_matiere_note;
+
                 if($coefficient){
                     $produit_matiere_coefficient = ($matiere->note)*($coefficient->coefficient_matiere);
                     $total_note_matiere += $produit_matiere_coefficient;
                     $total_coefficient_matiere += $coefficient->coefficient_matiere;  
-                }
-
-                $count =  "note-" . $n_matiere_note;
-                
-                if($matiere->name && $matiere->note){
+                        
                     $candidat->$n_matiere = $matiere->name;
                     $candidat->$count = $matiere->note;
                 }
                 else{
-                    $candidat->$n_matiere = "empty";
-                    $candidat->$count = "empty";
+                    $candidat->$n_matiere = "vide";
+                    $candidat->$count = "vide";
                 }
+
             }
             //note du partie bac avant l'ajout du bonus
             if ($total_coefficient_matiere){
@@ -113,9 +112,9 @@ class UsersExport implements FromCollection, WithHeadings
                 $candidat->type_licence = $licence->type_licence;
             }
             else{
-                $candidat->Note_S1 = "empty";
-                $candidat->Note_S2 = "empty";
-                $candidat->type_licence = "empty";
+                $candidat->Note_S1 = "vide";
+                $candidat->Note_S2 = "vide";
+                $candidat->type_licence = "vide";
             }
 
 
