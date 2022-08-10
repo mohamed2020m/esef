@@ -66,7 +66,7 @@ class UsersExport implements FromCollection, WithHeadings
 
                 $count =  "note-" . $n_matiere_note;
                 
-                if($matiere){
+                if($matiere->name && $matiere->note){
                     $candidat->$n_matiere = $matiere->name;
                     $candidat->$count = $matiere->note;
                 }
