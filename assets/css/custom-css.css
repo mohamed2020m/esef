@@ -571,7 +571,7 @@ to {
 /* DataTable :: End */
 
 /* Export btn :: Start */
-#span_export:hover{
+#export_btn:hover{
     opacity: 0.8 !important;
 }
 /* Export btn ::End */
