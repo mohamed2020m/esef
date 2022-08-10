@@ -170,7 +170,9 @@ class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
             AfterSheet::class  => function(AfterSheet $event) {
                 $event->sheet->getDelegate()->getStyle('A2:Q2')->getFont()->setSize(14);
                 $event->sheet->getDelegate()->getStyle('A2:Q2')->getFill()->applyFromArray(['fillType' => 'solid','rotation' => 0, 'color' => ['rgb' => 'D9D9D9']]);
-
+                $event->sheet->getStyle('A1:A100000')->getAlignment()->setHorizontal('center');
+                $event->sheet->getDelegate()->getRowDimension('1')->setRowHeight(100);
+                $event->sheet->getDelegate()->getRowDimension('2')->setRowHeight(50);  
                 // $event->sheet->styleCells(
                 //     'C2:C1000',
                 //     [
