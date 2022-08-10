@@ -600,14 +600,15 @@ chart_2.render();
             grid: {
               drawBorder: true,
               display: true,
-              drawOnChartArea: false,
-              drawTicks: false,
+              drawOnChartArea: true,
+              drawTicks: true,
             },
             ticks: {
               suggestedMin: 0,
               suggestedMax: 500,
               beginAtZero: true,
               padding: 15,
+              display: true
               font: {
                 size: 14,
                 family: "Open Sans",
