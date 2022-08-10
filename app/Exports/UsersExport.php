@@ -62,12 +62,13 @@ class UsersExport implements FromCollection, WithHeadings
                     $total_coefficient_matiere += $coefficient->coefficient_matiere;  
                 }
 
+                $count = ${$n_matiere};
+                
                 if($matiere){
-                    $candidat->${$n_matiere} = $matiere->name;
-                    $candidat->${$n_matiere} = $matiere->note;
+                    $candidat->$count = $matiere->name;
+                    $candidat->$count = $matiere->note;
                 }
                 else{
-                    $count = ${$n_matiere};
                     $candidat->$count = "empty";
                     $candidat->$count = "empty";
                 }
