@@ -9,9 +9,8 @@ use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Events\AfterSheet;
-use PhpOffice\PhpSpreadsheet\Style\Border;
 
-class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents, Border
+class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents
 {
     private $id;
     private $filier_name;
