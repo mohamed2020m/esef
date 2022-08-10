@@ -555,15 +555,15 @@ chart_2.render();
           // borderWidth: 0,
           // borderRadius: 4,
           // borderSkipped: false,
-          backgroundColor: "#fff",
+          // backgroundColor: "#fff",
           data: [52, 19, 30, 50, 20, 23],
           backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 205, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(153, 102, 255, 0.2)'
+            'rgba(255, 99, 132)',
+            'rgba(255, 159, 64)',
+            'rgba(255, 205, 86)',
+            'rgba(75, 192, 192)',
+            'rgba(54, 162, 235)',
+            'rgba(153, 102, 255)'
           ],
           borderColor: [
             'rgb(255, 99, 132)',
@@ -581,7 +581,7 @@ chart_2.render();
         maintainAspectRatio: false,
         plugins: {
           legend: {
-            display: false,
+            display: true,
           }
         },
         interaction: {
@@ -591,7 +591,7 @@ chart_2.render();
         scales: {
           y: {
             grid: {
-              drawBorder: false,
+              drawBorder: true,
               display: true,
               drawOnChartArea: false,
               drawTicks: false,
@@ -607,13 +607,13 @@ chart_2.render();
                 style: 'normal',
                 // lineHeight: 2
               },
-              color: "#fff"
+              // color: "#fff"
             },
           },
           x: {
             grid: {
-              drawBorder: false,
-              display: false,
+              drawBorder: true,
+              display: true,
               drawOnChartArea: false,
               drawTicks: false
             },
