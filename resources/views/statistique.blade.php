@@ -555,7 +555,7 @@ chart_2.render();
           // borderWidth: 0,
           // borderRadius: 4,
           // borderSkipped: false,
-          backgroundColor: "blue",
+          // backgroundColor: "blue",
           data: [52, 19, 30, 50, 20, 23],
           backgroundColor: [
             'rgba(255, 99, 132)',
@@ -580,9 +580,12 @@ chart_2.render();
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-          // legend: {
-          //   display: true,
-          // }
+          legend: {
+            display: true,
+            labels: {
+              color: 'rgb(255, 99, 132)'
+            }
+          }
           title: {
               display: true,
               text: 'Nombre des candidats par rapport au nombre des filières',
