@@ -118,7 +118,7 @@
         });
 
 
-        $('.mySwitch tbody').change(
+        $('.mySwitch').change(
             function(){
                  if (this.checked) {console.log("dart");}
                     });
