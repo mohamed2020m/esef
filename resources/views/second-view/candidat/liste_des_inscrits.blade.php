@@ -67,10 +67,8 @@
                     {data: 'role'},
                     {data: 'state'},
                     
-                ]
-                
-            },
-            columnDefs: [ {     data: 'state',
+                ],
+                columnDefs: [ { 
                                 "targets": -1,
                                 "render": function ( data, type, row) {
                                     console.log(data);
@@ -80,6 +78,9 @@
                                 },                      
                                                           
                                 } ],
+                
+            },
+            
 
             "fnDrawCallback": function( row, data ) {     
                 $('.mySwitch').bootstrapToggle(
