@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\View;
 
+use Illuminate\Support\Str;
+
 class ResetController extends Controller
 {
     public function create()
     {
         return view('session/reset-password/sendEmail');
-        
+
     }
 
     public function sendEmail(Request $request)
@@ -40,7 +42,7 @@ class ResetController extends Controller
             return back()->with('message', 'Nous avons envoyé votre lien de réinitialisation de mot de passe par e-mail !');
         }
         }
-    }
+
 
     public function resetPass($token)
     {
