@@ -693,9 +693,9 @@
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-          legend: {
-            display: false,
-          }
+          // legend: {
+          //   display: false,
+          // }
           title: {
             display: true,
             text: 'Nombre des candidats inscrits par jour',
