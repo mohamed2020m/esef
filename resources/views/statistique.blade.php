@@ -550,7 +550,7 @@ chart_2.render();
       data: {
         labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES'],
         datasets: [{
-          label: "Nombre des candidats",
+          // label: "Nombre des candidats",
           // tension: 0.4,
           // borderWidth: 0,
           // borderRadius: 4,
@@ -579,7 +579,12 @@ chart_2.render();
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        animationEnabled:true,
+        animations: {
+          tension: {
+            duration: 1200,
+            easing: 'linear',
+          }
+        },
         plugins: {
           // legend: {
           //   display: true,
