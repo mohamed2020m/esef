@@ -77,9 +77,9 @@
                                 "render": function ( data, type, row) {
 
                                     if ( data == "0"){
-                                        return '<button>Activer</button>';
+                                        return '<button type="button" class="btn btn-success">Activer</button>';
                                     }else{
-                                        return '<button>Desactiver</button>';
+                                        return '<button type="button" class="btn btn-danger">Désactiver</button>';
                                     }
                                     
 
