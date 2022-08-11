@@ -48,7 +48,7 @@
 <script>
 
 $(document).ready(function () {
-            var users;
+            var users; 
             
  
             $.ajax({
@@ -56,62 +56,63 @@ $(document).ready(function () {
                 type: "Get",
                 datatype: "json",
                 success: function (data) {
+                    console.log(data);
  
-                    users = $("#empTable").DataTable({
-                        select: true,
-                        data: data,
-                        columnDefs: [
-                            {
-                                "click": false, "targets": [5],
-                                "width": "24%"
-                            }
-                        ],
-                        columns: [
-                            { data: 'id' },
-                            { data: 'first_name'},
-                            { data: 'last_name'},
-                            { data: 'email'},
-                             {data: 'role'},
+                    // users = $("#empTable").DataTable({
+                    //     select: true,
+                    //     data: data,
+                    //     columnDefs: [
+                    //         {
+                    //             "click": false, "targets": [5],
+                    //             "width": "24%"
+                    //         }
+                    //     ],
+                    //     columns: [
+                    //         { data: 'id' },
+                    //         { data: 'first_name'},
+                    //         { data: 'last_name'},
+                    //         { data: 'email'},
+                    //          {data: 'role'},
                             
-                             {
-                                 "data": "state", "render": function (data) {
+                    //          {
+                    //              "data": "state", "render": function (data) {
  
-                                     return '<a class="btn btn-primary" style="margin-left:30px"  onclick="editdetails(' + data + ')">Edit</a>' ;
+                    //                  return '<a class="btn btn-primary" style="margin-left:30px"  onclick="editdetails(' + data + ')">Edit</a>' ;
  
-                                 }
-                             }
-                        ],
+                    //              }
+                    //          }
+                    //     ],
  
-                    })
+                    // })
  
-                        $('#empTable tbody tr').on('click', function (e) {
+                    //     $('#empTable tbody tr').on('click', function (e) {
  
-                            e.stopPropagation();
-                            var datalist;
+                    //         e.stopPropagation();
+                    //         var datalist;
  
-                            var id = users.row(this).data().Id;
+                    //         var id = users.row(this).data().Id;
  
-                            $.ajax({
-                                type: 'Post',
-                                url: "state" + id + " ",
+                    //         $.ajax({
+                    //             type: 'Post',
+                    //             url: "state" + id + " ",
                                 
-                                success: function (data) {
-                                    console.log("hey");
-                                    state.text=data[0];
+                    //             success: function (data) {
+                    //                 console.log("hey");
+                    //                 state.text=data[0];
 
 
  
-                                    //FirstName.textContent = data[0].Firstname,
-                                    //LastName.textContent = data[0].LastName,
-                                    //Address.textContent = data[0].Address,
-                                    //DOB.textContent = data[0].DOBString,
-                                    //Email.textContent = data[0].Email,
-                                    //Phone.textContent = data[0].PhoneNo,
-                                    //SSN.textContent = data[0].SSN
-                                }
-                            })
-                        });
-                    }
+                    //                 //FirstName.textContent = data[0].Firstname,
+                    //                 //LastName.textContent = data[0].LastName,
+                    //                 //Address.textContent = data[0].Address,
+                    //                 //DOB.textContent = data[0].DOBString,
+                    //                 //Email.textContent = data[0].Email,
+                    //                 //Phone.textContent = data[0].PhoneNo,
+                    //                 //SSN.textContent = data[0].SSN
+                    //             }
+                    //         })
+                    //     });
+                    // }
                  
             });
         })
