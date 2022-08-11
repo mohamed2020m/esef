@@ -142,7 +142,7 @@
             data: {id:id},
             success: function(data){
                 
-                window.location.href='https://esefj.ma/server.php/utilisateurs';
+                //window.location.href='https://esefj.ma/server.php/utilisateurs';
                 console.log(data.success);
                 console.log(data.state);
                
