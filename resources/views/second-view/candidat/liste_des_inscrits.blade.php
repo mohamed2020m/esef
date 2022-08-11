@@ -119,22 +119,31 @@
 
 
         
-        $('.myswitch').on('click', function () {
+        $(function() {
+    $('.mySwitch').change(function() {
+        let name= users.row( this ).data();
+        let state_value=name[0];
+        console.log( state_value );
+                });
+
+
+
+        //$('#empTable').on('click', 'tr ', function () {
                 
-                let name= users.row( this ).data();
-                let state_value=name[0];
-                console.log( state_value );
+               // let name= users.row( this ).data();
+               // let state_value=name[0];
+               // console.log( state_value );
 
-                $.ajax({
-                type:'get',
-                url:'{{URL::to("state")}}',
-                data:{'id':state_value},
-                success:function(){  console.log("done"); }
-                    });
+               // $.ajax({
+                //type:'get',
+                //url:'{{URL::to("state")}}',
+                //data:{'id':state_value},
+                //success:function(){  console.log("done"); }
+                 //   });
                 
 
 
-                    });
+                 //   });
 
     })
 </script> 
