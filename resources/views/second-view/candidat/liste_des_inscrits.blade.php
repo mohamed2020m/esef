@@ -93,10 +93,12 @@ $(document).ready(function () {
  
                             $.ajax({
                                 type: 'Post',
-                                url: "/Details/ViewDetails/" + id + " ",
+                                url: "state" + id + " ",
                                 
                                 success: function (data) {
                                     console.log("hey");
+                                    state.text=data[0];
+
 
  
                                     //FirstName.textContent = data[0].Firstname,
@@ -114,27 +116,7 @@ $(document).ready(function () {
             });
         })
 
-        function editdetails(id) {
-          $('#Person').parsley().reset();
-          $.ajax({
-              url: "/Details/Edit/",
-              type: "POST",
-              data: JSON.stringify({ id: id }),
-              contentType: "application/json; charset=utf-8",
-              dataType: "json",
-              success: function (data) {
-                  var id = data[0].Id;
-                  $('#id').val(data[0].Id),
-                  $('#firstname').val(data[0].Firstname),
-                  $("#lastname").val(data[0].LastName),
-                  $('#address').val(data[0].Address),
-                   $('#dob').val(data[0].DOBString),
-                  $('#email').val(data[0].Email),
-                    $('#phone').val(data[0].PhoneNo),
-                  $('#ssn').val(data[0].SSN)
-              }
-          });
-      }
+        
 </script>
     
 @endsection
