@@ -53,10 +53,11 @@ $(document).ready(function () {
  
             $.ajax({
                 url: "{{route('getUtilisateurs') }}",
-                type: "Get",
+                method: "get",
                 datatype: "json",
                 success: function (data) {
                     console.log(data);
+                    
  
                     // users = $("#empTable").DataTable({
                     //     select: true,
@@ -112,7 +113,7 @@ $(document).ready(function () {
                     //             }
                     //         })
                     //     });
-                    // }
+                    }
                  
             });
         })
