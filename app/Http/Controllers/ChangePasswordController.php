@@ -36,7 +36,7 @@ class ChangePasswordController extends Controller
 
           DB::table('password_resets')->where(['email'=> $request->email])->delete();
 
-          Mail::send('components.valide_change_password', function($message) use ($request) {
+          Mail::send('components.valide_change_password',[], function($message) use ($request) {
             $message->from("contact@esefj.ma");
             $message->to($request->email);
             $message->subject('Votre mot de passe a été réinitialisé');
