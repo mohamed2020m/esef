@@ -143,9 +143,9 @@
             success: function(data){
                 console.log(data.success);
                 let name=data.state;
-                console.log(name[0]);
+                console.log(name[0].first_name);
 
-                console.log(typeof name[0]);
+                console.log(typeof name[0].first_name);
                 console.log(data.state);
 
             },
