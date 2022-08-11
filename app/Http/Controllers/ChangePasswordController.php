@@ -35,22 +35,14 @@ class ChangePasswordController extends Controller
 
           DB::table('password_resets')->where(['email'=> $request->email])->delete();
 
+          Mail::send('components.valide_change_password', function($message) use ($request) {
+            $message->from("contact@esefj.ma");
+            $message->to($request->email);
+            $message->subject('Demande de réinitialisation du mot de passe');
+         });
+
           return redirect('/Accueil')->with('message', 'Your password has been changed!');
     }
 
-
-    public function changePass(){
-        return view('session/reset-password/updatePassword');
-    }
-    public function updatePasswordDB(Request $request){
-        $request->validate([
-            'current_password' => ['required', new MatchOldPassword],
-            'new_password' => ['required'],
-            'new_confirm_password' => ['same:new_password'],
-        ]);
-
-        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
-        return redirect('dashboard');
-    }
 
 }
