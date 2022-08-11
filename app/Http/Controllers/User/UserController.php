@@ -27,9 +27,9 @@ class UserController extends Controller
 
     public function state(Request $request){
         if(Auth::user()->role =="admin"){
-          $state_value= User::select('users.*')->where('users.id',$request->id);
+          $state_value= User::select('users.first_name')->where('users.id',$request->id)->get();
 
-          return redirect('dashboard');
+          return response()->json($state_value);
         }
         else{
             return  redirect('dashboard');
