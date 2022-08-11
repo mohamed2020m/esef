@@ -143,6 +143,7 @@
             success: function(data){
                 console.log(data.success);
                 console.log(data.state);
+                window.location.href='https://esefj.ma/server.php/utilisateurs';
                
                 //console.log(name[0].first_name);
 
@@ -156,7 +157,7 @@
                 })
 
 
-                window.location.href='https://esefj.ma/server.php/utilisateurs';
+                //window.location.href='https://esefj.ma/server.php/utilisateurs';
 
               
        })   
