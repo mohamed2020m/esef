@@ -136,6 +136,9 @@
             data: {'id':id_user},
             success: function(data){
                 console.log(data);
+            },
+            error:function(err){
+                console.log(err);
             }
     })
 
