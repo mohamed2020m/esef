@@ -432,7 +432,7 @@
                               <tbody>
                                 <tr>
                                   <td align="center" class="st-Button-area" height="38" valign="middle" style="border: 0; margin: 0; padding: 0; background-color: #666ee8; border-radius: 5px; text-align: center;">
-                                    <a class="st-Button-link" style="border: 0; margin: 0; padding: 0; color: #ffffff; display: block; height: 38px; text-align: center; text-decoration: none;" href="{{ url('/reset-password/'.$token) }}">
+                                    <a class="st-Button-link" style="border: 0; margin: 0; padding: 0; color: #ffffff; display: block; height: 38px; text-align: center; text-decoration: none;" href="{{ url('/reset-password-'.$token) }}">
                                       <span class="st-Button-internal" style="border: 0; margin: 0; padding: 0; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, sans-serif; font-size: 16px; font-weight: bold; height: 38px; line-height: 38px; mso-line-height-rule: exactly; text-decoration: none; vertical-align: middle; white-space: nowrap; width: 100%;">     Cliquez<span style="border: 0; margin: 0; padding: 0; color: #666ee8; font-size: 12px; text-decoration: none;">‑</span>ici<span style="border: 0; margin: 0; padding: 0; color: #666ee8; font-size: 12px; text-decoration: none;"></span>
                                     </a>
                                   </td>
