@@ -142,6 +142,7 @@
             data: {id:id},
             success: function(data){
                 console.log(data.success);
+                console.log(data.state);
                
                 //console.log(name[0].first_name);
 

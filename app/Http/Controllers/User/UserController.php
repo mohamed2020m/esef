@@ -28,8 +28,9 @@ class UserController extends Controller
     public function state( Request $request){
         if(Auth::user()->role =="admin"){
 
-
-            User::find($request->id);
+            $user=User::find($request->id);
+            
+        
             if( $user->state=="0"){
                 $user->state="1";
             }else{
@@ -37,8 +38,10 @@ class UserController extends Controller
             }
             
             $user->save();
+            $state_value=$user->state;
 
-          return response()->json(['success'=>'User Updated Successfully!']);
+
+          return response()->json(['success'=>'User Updated Successfully!','state'=>$state_value]);
         }
         else{
             return  redirect('dashboard');
