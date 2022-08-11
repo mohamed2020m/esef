@@ -130,7 +130,7 @@
 
                 $.ajax({ 
           
-            url: "{{route('state') }}",
+            url: "server.php/state/"+id+,
             method: "PUT",
             dataType : "json",
             data: {'id':id_user},
