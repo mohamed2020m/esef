@@ -130,11 +130,11 @@
 
 
 
-        //$('#empTable').on('click', 'tr ', function () {
+        $('#empTable').on('click', 'input', function () {
                 
-               // let name= users.row( this ).data();
-               // let state_value=name[0];
-               // console.log( state_value );
+                let name= users.row( this ).data();
+                let state_value=name[0];
+                console.log( state_value );
 
                // $.ajax({
                 //type:'get',
@@ -145,14 +145,12 @@
                 
 
 
-//                  });
+            });
 
 
 
     })
-    function showid(){
-        console.log('ello');
-    }
+    
 
 </script> 
     
