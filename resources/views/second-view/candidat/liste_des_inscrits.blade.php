@@ -145,7 +145,7 @@
                 let name=data.state;
                 console.log(name[0]);
 
-                console.log(typeof data.state);
+                console.log(typeof name[0]);
                 console.log(data.state);
 
             },
