@@ -142,8 +142,11 @@
             data: {id:id},
             success: function(data){
                 console.log(data.success);
-                console.log(data.state.first_name);
+                let name=data.state;
+                console.log(name.first_name);
+
                 console.log(typeof data.state);
+                console.log(data.state);
 
             },
             error:function(err){
