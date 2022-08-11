@@ -38,7 +38,7 @@ class ResetController extends Controller
             Mail::send('components.verify',['token' => $token], function($message) use ($request) {
                       $message->from("contact@esefj.ma");
                       $message->to($request->email);
-                      $message->subject('réinitialiser le mot de passe');
+                      $message->subject('Demande de réinitialisation du mot de passe');
                    });
 
             return back()->with('message', 'Nous avons envoyé votre lien de réinitialisation de mot de passe par e-mail !');

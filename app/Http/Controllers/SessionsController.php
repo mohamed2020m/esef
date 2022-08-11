@@ -13,14 +13,19 @@ class SessionsController extends Controller
         return view('session.Accueil');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        $attributes = request()->validate([
-            'email'=>'required|email',
-            'password'=>'required' 
-        ]);
+        // $attributes = request()->validate([
+        //     'email'=>'required|email',
+        //     'password'=>'required' ,
+        //     'state'=>"1"
+            
+        // ]);
 
-        if(Auth::attempt($attributes))
+        $email=$request->email;
+        $password=$request->password;
+
+        if (Auth::attempt(['email' => $email, 'password' => $password, 'state' => 1]))
         {
             session()->regenerate();
             return redirect('dashboard')->with(['success'=>'You are logged in.']);

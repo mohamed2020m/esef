@@ -46,12 +46,14 @@
 
 <script>
 
-
-
-
-
     $(document).ready(function() {
 
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
 
         let users = $('#empTable').DataTable({
@@ -75,9 +77,9 @@
                                 "render": function ( data, type, row) {
 
                                     if ( data == "0"){
-                                        return '<input type="checkbox"  class ="mySwitch"   data-toggle="toggle">';
+                                        return ' <button type="button" class="btn btn-success">Activer</button>';
                                     }else{
-                                        return '<input type="checkbox"  class ="mySwitch" checked  data-toggle="toggle">';
+                                        return '<button type="button" class="btn btn-danger">Désactiver</button>';
                                     }
                                     
 
@@ -87,18 +89,18 @@
                                                           
                                 } ],
 
-            "fnDrawCallback": function( row, data ) {     
-                $('.mySwitch').bootstrapToggle(
-                    {
-                       on: 'Activé',
-                       off: 'Désactivé',
-                       onstyle: "success",
-                       offstyle:"danger" ,
-                      size:"mini"
-                   });
+           // "fnDrawCallback": function( row, data ) {     
+              //  $('.mySwitch').bootstrapToggle(
+                //    {
+                  //     on: 'Activé',
+                    //   off: 'Désactivé',
+                      // onstyle: "success",
+                      // offstyle:"danger" ,
+                      //size:"mini"
+                   //});
 
                    
-                },           
+               // },           
                                 
             "language": {
                 "lengthMenu": "Afficher _MENU_ enregistrements par page",
@@ -119,24 +121,53 @@
 
 
         
-        $('#empTable').on('click', 'tr', function () {
-                console.log("checkBox");
-                let name= users.row( this ).data();
-                let state_value=name[0];
-                console.log( state_value );
+    
 
-                $.ajax({
-                type:'get',
-                url:'{{URL::to("state")}}',
-                data:{'id':state_value},
-                success:function(){  console.log("done"); }
-                    });
+       
+
+
+
+       $('#empTable tbody').on('click', 'button', function () {
+                
+                let name= users.row($(this).parents('tr')).data();
+                let id=name[0];
+                console.log("click");
                 
 
+                $.ajax({ 
+          
+            url: "/server.php/state/"+id,
+            type: 'PUT',
+            dataType : "json",
+            data: {id:id},
+            success: function(data){
+                
+                //window.location.href='https://esefj.ma/server.php/utilisateurs';
+                console.log(data.success);
+                console.log(data.state);
+               
+               
 
-                    });
+            },
+            error:function(err){
+                console.log(err);
+            }
+                })
+
+
+                
+
+              
+       })   
+
+
+            
+
+
 
     })
+    
+
 </script> 
     
 @endsection

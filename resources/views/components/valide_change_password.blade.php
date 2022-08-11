@@ -352,7 +352,7 @@
                         <tr>
                           <td align="center" height="0" style="border: 0; margin: 0; padding: 0; color: #ffffff; display: none !important; font-size: 1px; line-height: 1px; max-height: 0; max-width: 0; mso-hide: all !important; opacity: 0; overflow: hidden; visibility: hidden;">
                             <span class="st-Delink st-Delink--preheader" style="color: #ffffff; text-decoration: none;">
-                            Nous avons reçu une demande de réinitialisation de mot de passe pour votre compte.
+                            Votre compte a été mis à jour.
                             </span>
                           </td>
                         </tr>
@@ -365,7 +365,7 @@
                             <div class="st-Spacer st-Spacer--filler"> </div>
                           </td>
                           <td class="st-Font st-Font--body" style="border: 0; margin: 0; padding: 0; color: #525F7f !important; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, sans-serif; font-size: 16px; line-height: 24px;">
-                          Bonjour,
+                          Attention,
                           </td>
                           <td class="st-Spacer st-Spacer--gutter" style="border: 0; margin: 0; padding: 0; font-size: 1px; line-height: 1px; mso-line-height-rule: exactly;" width="64">
                             <div class="st-Spacer st-Spacer--filler"> </div>
@@ -385,7 +385,7 @@
                             <div class="st-Spacer st-Spacer--filler"> </div>
                           </td>
                           <td class="st-Font st-Font--body" style="border: 0; margin: 0; padding: 0; color: #525F7f !important; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, sans-serif; font-size: 16px; line-height: 24px;">
-                          Nous avons reçu une demande de réinitialisation de mot de passe pour votre compte.
+                            Votre compte a été mis à jour.
                           </td>
                           <td class="st-Spacer st-Spacer--gutter" style="border: 0; margin: 0; padding: 0; font-size: 1px; line-height: 1px; mso-line-height-rule: exactly;" width="64">
                             <div class="st-Spacer st-Spacer--filler"> </div>
@@ -406,7 +406,7 @@
                           </td>
                           <td class="st-Font st-Font--body" style="border: 0; margin: 0; padding: 0; color: #525F7f !important; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, sans-serif; font-size: 16px; line-height: 24px;">
 
-                            Suivez le lien ci-dessous pour réinitialiser votre mot de passe en toute sécurité :
+                          Si vous n'êtes pas l'auteur des changements apportés à votre compte,contactez l'administrateur du compte.:
                           </td>
                           <td class="st-Spacer st-Spacer--gutter" style="border: 0; margin: 0; padding: 0; font-size: 1px; line-height: 1px; mso-line-height-rule: exactly;" width="64">
                             <div class="st-Spacer st-Spacer--filler"> </div>
@@ -432,9 +432,7 @@
                               <tbody>
                                 <tr>
                                   <td align="center" class="st-Button-area" height="38" valign="middle" style="border: 0; margin: 0; padding: 0; background-color: #666ee8; border-radius: 5px; text-align: center;">
-                                    <a class="st-Button-link" style="border: 0; margin: 0; padding: 0; color: #ffffff; display: block; height: 38px; text-align: center; text-decoration: none;" href="{{ url('/reset-password-'.$token) }}">
-                                      <span class="st-Button-internal" style="border: 0; margin: 0; padding: 0; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, sans-serif; font-size: 16px; font-weight: bold; height: 38px; line-height: 38px; mso-line-height-rule: exactly; text-decoration: none; vertical-align: middle; white-space: nowrap; width: 100%;">     Cliquez<span style="border: 0; margin: 0; padding: 0; color: #666ee8; font-size: 12px; text-decoration: none;">‑</span>ici<span style="border: 0; margin: 0; padding: 0; color: #666ee8; font-size: 12px; text-decoration: none;"></span>
-                                    </a>
+
                                   </td>
                                 </tr>
                               </tbody>
