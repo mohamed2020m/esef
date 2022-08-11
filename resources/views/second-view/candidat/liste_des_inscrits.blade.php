@@ -143,8 +143,8 @@
             success: function(data){
                 console.log(data.success);
                 let name=data.state;
-                console.log(name);
-                console.log(typeof name);
+                console.log(name[0].state);
+                console.log(typeof (name[0].state));
                 //console.log(name[0].first_name);
 
                 //console.log(typeof name[0].first_name);
