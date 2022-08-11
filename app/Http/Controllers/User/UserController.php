@@ -40,8 +40,8 @@ class UserController extends Controller
             $user->save();
             $state_value=$user->state;
 
-
-          return response()->json(['success'=>'User Updated Successfully!','state'=>$state_value]);
+               return  redirect()->route('Gestion_des_candidats_inscrits',['success'=>'User Updated Successfully!','state'=>$state_value]);
+          //return response()->json(['success'=>'User Updated Successfully!','state'=>$state_value]);
         }
         else{
             return  redirect('dashboard');
