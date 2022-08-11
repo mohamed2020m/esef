@@ -49,7 +49,7 @@ class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
             $n_matiere = 0;
             $n_matiere_note = 0;
 
-            $matieres=DB::table('matiere_user')->select('matiere_user.*', 'matieres.name')
+            $matieres=DB::table('matiere_user')->select('matiere_user.*', 'matieres.*')
             ->join('matieres','matieres.id','=','matiere_user.matiere_id')
             ->join('filiere_matiere','filiere_matiere.matiere_id','=','matiere_user.matiere_id')
             ->where('filiere_matiere.filiere_id', $this->id)
