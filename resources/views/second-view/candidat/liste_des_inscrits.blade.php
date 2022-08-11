@@ -143,7 +143,7 @@
             success: function(data){
                 console.log(data.success);
                 let name=data.state;
-                console.log(name[first_name]);
+                console.log(name);
 
                 console.log(typeof data.state);
                 console.log(data.state);
