@@ -49,6 +49,12 @@
     $(document).ready(function() {
 
 
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
 
         let users = $('#empTable').DataTable({
             "serverSide": true,
@@ -124,18 +130,18 @@
        $('#empTable tbody').on('click', 'button', function () {
                 
                 let name= users.row($(this).parents('tr')).data();
-                let id_user=name[0];
+                let id=name[0];
                 console.log("click");
                 
 
                 $.ajax({ 
           
-            url: "{{route('state') }}",
-            method: "PUT",
+            url: "/server.php/state/"+id,
+            type: 'PUT',
             dataType : "json",
-            data: {'id':id_user},
+            data: {id:id},
             success: function(data){
-                console.log(data);
+                console.log(data.success);
             },
             error:function(err){
                 console.log(err);
