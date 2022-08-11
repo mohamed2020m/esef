@@ -17,11 +17,10 @@ class SessionsController extends Controller
     {
         $attributes = request()->validate([
             'email'=>'required|email',
-            'password'=>'required',
-            'state'=>'1' 
+            'password'=>'required' 
         ]);
 
-        if(Auth::attempt($attributes))
+        if(Auth::attempt([$attributes,'state'=>"1"]))
         {
             session()->regenerate();
             return redirect('dashboard')->with(['success'=>'You are logged in.']);
