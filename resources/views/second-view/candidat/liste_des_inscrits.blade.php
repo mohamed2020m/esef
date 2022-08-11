@@ -46,10 +46,6 @@
 
 <script>
 
-
-
-
-
     $(document).ready(function() {
 
 
@@ -135,7 +131,7 @@
                 
 
 
-            });
+            
 
 
 
