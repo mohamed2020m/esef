@@ -25,7 +25,7 @@ class UserController extends Controller
         }
     }
 
-    public function state($id){
+    public function state( Request $request){
         if(Auth::user()->role =="admin"){
             //User::find($id)->update
           $state_value=DB::table('users')->select('users.*')->where('users.id',$request->id)->get();
