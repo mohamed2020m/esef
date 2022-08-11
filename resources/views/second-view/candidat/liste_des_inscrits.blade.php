@@ -96,6 +96,7 @@ $(document).ready(function () {
                                 url: "/Details/ViewDetails/" + id + " ",
                                 
                                 success: function (data) {
+                                    console.log("hey");
 
  
                                     //FirstName.textContent = data[0].Firstname,
