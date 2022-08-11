@@ -119,14 +119,14 @@
 
 
         
-        $('#empTable').on('click', 'tr td:eq(-1)', function () {
+        $('#empTable').on('click', 'tr td:eq(5)', function () {
                 console.log("checkBox");
                 let name= users.row( this ).data();
                 console.log( name[2] );
                     });
 
     })
-</script>
+</script> 
     
 @endsection
 
