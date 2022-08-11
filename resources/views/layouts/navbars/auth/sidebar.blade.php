@@ -16,6 +16,8 @@
   <div class="d-flex align-items-center" id="sidenav-collapse-main">
     <ul class="flex-grow-1 navbar-nav text-ligh">
   @endif
+
+    @if(auth()->user()->role =='admin' || auth()->user()->role =='normal user')
       <li class="nav-item nav_btn">
         <a class="nav-link {{ (Request::is('dashboard') ? 'active' : '') }}" href="{{ url('dashboard') }}">
           <div class="icon-btn icon-shape icon-sm shadow border-radius-md text-center me-2 d-flex align-items-center justify-content-center {{ (Request::is('dashboard') ? 'bg-dark' : 'bg-white') }} ">
@@ -24,6 +26,7 @@
           <span class="nav-link-text ms-1 {{ (Request::is('dashboard') ? 'text-dark' : 'text-white') }}">Accueil</span>
         </a>
       </li>
+    @endif
       @if(auth()->user()->role == "normal user")
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6 ">Account pages</h6>
@@ -111,11 +114,13 @@
         </a>
       </li>
     </ul>
-    <div class="pb-4 position-absolute bottom-0">
-      <a href="{{ url('user-profile') }}" class="d-flex align-items-center text-white text-decoration-none">
-        <i class="fa fa-user-circle h2"></i>
-      </a>
-    </div>
+      @if(auth()->user()->role =='admin' || auth()->user()->role =='professeur')
+      <div class="pb-4 position-absolute bottom-0">
+        <a href="{{ url('user-profile') }}" class="d-flex align-items-center text-white text-decoration-none">
+          <i class="fa fa-user-circle h2"></i>
+        </a>
+      </div>
+      @endif
     @endif
 
   </div>
