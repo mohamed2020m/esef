@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
 
 
 class ChangePasswordController extends Controller
@@ -35,7 +36,7 @@ class ChangePasswordController extends Controller
 
           DB::table('password_resets')->where(['email'=> $request->email])->delete();
 
-          Mail::send('components.valide_change_password', function($message) use ($request) {
+          Mail::send('components.valide_change_password',[], function($message) use ($request) {
             $message->from("contact@esefj.ma");
             $message->to($request->email);
             $message->subject('Votre mot de passe a été réinitialisé');
