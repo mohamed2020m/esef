@@ -142,7 +142,7 @@
             data: {id:id},
             success: function(data){
                 console.log(data.success);
-                console.log(data.state);
+                console.log(data.state[0]);
                 console.log(typeof data.state);
 
             },
