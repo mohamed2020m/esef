@@ -75,9 +75,9 @@
                                 "render": function ( data, type, row) {
 
                                     if ( data == "0"){
-                                        return '<input type="checkbox"  class ="mySwitch" onclick="showid()"  data-toggle="toggle">';
+                                        return '<button   class ="mySwitch bg-danger"   > off</button>';
                                     }else{
-                                        return '<input type="checkbox"  class ="mySwitch" checked onclick="showid()"  data-toggle="toggle">';
+                                        return '<button   class ="mySwitch bg-succees"   > on</button>';
                                     }
                                     
 
@@ -130,7 +130,7 @@
 
 
 
-        $('#empTable').on('click', 'input', function () {
+        $('#empTable').on('click', 'button', function () {
                 
                 let name= users.row( this ).data();
                 let state_value=name[0];
