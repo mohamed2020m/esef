@@ -60,7 +60,7 @@ class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
 
             $no_double_matieres = [];
             foreach($matieres as $matiere){
-                if(!in_array($no_double_matieres, $matiere->matiere_id) && in_array($matiere->matiere_id, $currrent_matieres_In_current_filiere))
+                if(!in_array($matiere->matiere_id, $no_double_matieres) && in_array($matiere->matiere_id, $currrent_matieres_In_current_filiere))
                 {
                     array_push($no_double_matieres, $matiere->matiere_id);
                     $n_matiere++;
