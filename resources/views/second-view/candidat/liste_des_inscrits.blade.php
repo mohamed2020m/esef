@@ -1,29 +1,7 @@
 @extends('layouts.user_type.auth')
 
 @section('content')
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-      <!-- fin-->
-  
+
 
 
     <div class="card mb-4 ml-auto">
@@ -104,7 +82,7 @@
                                 "render": function ( data, type, row) {
 
                                     if ( data == "0"){
-                                        return ' <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#myModal">Activer</button>';
+                                        return ' <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Activer</button>';
                                     }else{
                                         return '<button type="button" class="btn btn-danger">Désactiver</button>';
                                     }
@@ -169,9 +147,9 @@
             data: {id:id},
             success: function(data){
                 
-                //window.location.href='https://esefj.ma/server.php/utilisateurs';
-                console.log(data.success);
-                console.log(data.state);
+                window.location.href='https://esefj.ma/server.php/utilisateurs';
+                //console.log(data.success);
+                //console.log(data.state);
                
                
 
