@@ -54,29 +54,41 @@ class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
             ->where('matiere_user.user_id',$candidat->id)
             ->get();
             
+            // $currrent_matieres_In_current_filiere = DB::table('filiere_matiere')->select('matiere_id')
+            // ->where('filiere_matiere.filiere_id', $this->id)
+            // ->get()->toArray();
+
+            // $currrent_matieres_In_current_filiere = array_map(function ($value) {
+            //     return (array)$value;
+            // }, $currrent_matieres_In_current_filiere);
+
+            // $no_double_matieres = [];
             foreach($matieres as $matiere){
-                $n_matiere++;
-                $n_matiere_note ++;
-                $coefficient=DB::table('filiere_matiere')->select('filiere_matiere.*')
-                ->where('filiere_matiere.filiere_id', $this->id)
-                ->where('filiere_matiere.matiere_id', $matiere->matiere_id)
-                ->first();
-
-                $count =  "note-" . $n_matiere_note;
-
-                if($coefficient){
-                    $produit_matiere_coefficient = ($matiere->note)*($coefficient->coefficient_matiere);
-                    $total_note_matiere += $produit_matiere_coefficient;
-                    $total_coefficient_matiere += $coefficient->coefficient_matiere;  
-                        
-                    $candidat->$n_matiere = $matiere->name;
-                    $candidat->$count = $matiere->note;
-                }
-                else{
-                    $candidat->$n_matiere = "vide";
-                    $candidat->$count = "vide";
-                }
-
+                // if(!(in_array($matiere->matiere_id, $no_double_matieres)) && in_array($matiere->matiere_id, $currrent_matieres_In_current_filiere))
+                // {
+                //     array_push($no_double_matieres, $matiere->matiere_id);
+                    $n_matiere++;
+                    $n_matiere_note ++;
+                    $coefficient=DB::table('filiere_matiere')->select('filiere_matiere.*')
+                    ->where('filiere_matiere.filiere_id', $this->id)
+                    ->where('filiere_matiere.matiere_id', $matiere->matiere_id)
+                    ->first();
+    
+                    $count =  "note-" . $n_matiere_note;
+    
+                    if($coefficient){
+                        $produit_matiere_coefficient = ($matiere->note)*($coefficient->coefficient_matiere);
+                        $total_note_matiere += $produit_matiere_coefficient;
+                        $total_coefficient_matiere += $coefficient->coefficient_matiere;  
+                            
+                        $candidat->$n_matiere = $matiere->name;
+                        $candidat->$count = $matiere->note;
+                    }
+                    else{
+                        $candidat->$n_matiere = "vide";
+                        $candidat->$count = "vide";
+                    }
+                // }
             }
             //note du partie bac avant l'ajout du bonus
             if ($total_coefficient_matiere){
