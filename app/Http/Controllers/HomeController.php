@@ -50,7 +50,7 @@ class HomeController extends Controller
                 ->select(DB::raw('distinct(matiere_user.matiere_id), matiere_user.matiere_id, matiere_user.user_id , matiere_user.note, matieres.name, filiere_matiere.filiere_id'))
                 ->join('matieres','matieres.id','=','matiere_user.matiere_id')
                 ->join('filiere_matiere','filiere_matiere.matiere_id','=','matiere_user.matiere_id')
-                ->where('filiere_matiere.filiere_id', $this->id)
+                ->where('filiere_matiere.filiere_id', $request->id)
                 ->where('matiere_user.user_id',$candidat->id)
                 ->get();
                 
