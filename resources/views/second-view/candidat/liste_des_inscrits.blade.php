@@ -44,82 +44,105 @@
     </div>
 
 
-
 <script>
 
-$(document).ready(function () {
-            var users; 
-            
- 
-            $.ajax({
-                url: "{{route('getUtilisateurs') }}",
+
+
+
+
+    $(document).ready(function() {
+
+
+
+        let users = $('#empTable').DataTable({
+            "serverSide": true,
+            "ajax": {
+                url: "{{route('getUtilisateurs') }}", 
                 method: "get",
-                datatype: "json",
-                success: function (data) {
-                    console.log(data);
+                columns: [
+                    { data: 'id' },
+                    { data: 'first_name'},
+                    { data: 'last_name'},
+                    { data: 'email'},
+                    {data: 'role'},
+                    {data: 'state'},
                     
- 
-                    // users = $("#empTable").DataTable({
-                    //     select: true,
-                    //     data: data,
-                    //     columnDefs: [
-                    //         {
-                    //             "click": false, "targets": [5],
-                    //             "width": "24%"
-                    //         }
-                    //     ],
-                    //     columns: [
-                    //         { data: 'id' },
-                    //         { data: 'first_name'},
-                    //         { data: 'last_name'},
-                    //         { data: 'email'},
-                    //          {data: 'role'},
-                            
-                    //          {
-                    //              "data": "state", "render": function (data) {
- 
-                    //                  return '<a class="btn btn-primary" style="margin-left:30px"  onclick="editdetails(' + data + ')">Edit</a>' ;
- 
-                    //              }
-                    //          }
-                    //     ],
- 
-                    // })
- 
-                    //     $('#empTable tbody tr').on('click', function (e) {
- 
-                    //         e.stopPropagation();
-                    //         var datalist;
- 
-                    //         var id = users.row(this).data().Id;
- 
-                    //         $.ajax({
-                    //             type: 'Post',
-                    //             url: "state" + id + " ",
+                ]
+                
+            },
+            columnDefs: [ {     
+                                "targets": -1,
+                                "render": function ( data, type, row) {
+
+                                    if ( data == "0"){
+                                        return '<button>Click!</button>';
+                                    }else{
+                                        return '<button>Click!</button>';
+                                    }
+                                    
+
+                                   
+                                                      
+                                },                      
+                                                          
+                                } ],
+
+           // "fnDrawCallback": function( row, data ) {     
+              //  $('.mySwitch').bootstrapToggle(
+                //    {
+                  //     on: 'Activé',
+                    //   off: 'Désactivé',
+                      // onstyle: "success",
+                      // offstyle:"danger" ,
+                      //size:"mini"
+                   //});
+
+                   
+               // },           
                                 
-                    //             success: function (data) {
-                    //                 console.log("hey");
-                    //                 state.text=data[0];
+            "language": {
+                "lengthMenu": "Afficher _MENU_ enregistrements par page",
+                "zeroRecords": "Rien n'a été trouvé",
+                "info": "Affichage de la page _PAGE_ sur _PAGES_",
+                "infoEmpty": "Aucun enregistrement disponible",
+                "infoFiltered": "(filtré à partir de _MAX_ enregistrements au total)",
+                "paginate": {
+                    "first":      "Première",
+                    "last":       "Dernier",
+                    "next":       "Suivant",
+                    "previous":   "Précédent"
+                },
+                "search":         "Chercher:",
+                "loadingRecords": "Chargement...",
+            }
+        });
 
-
- 
-                    //                 //FirstName.textContent = data[0].Firstname,
-                    //                 //LastName.textContent = data[0].LastName,
-                    //                 //Address.textContent = data[0].Address,
-                    //                 //DOB.textContent = data[0].DOBString,
-                    //                 //Email.textContent = data[0].Email,
-                    //                 //Phone.textContent = data[0].PhoneNo,
-                    //                 //SSN.textContent = data[0].SSN
-                    //             }
-                    //         })
-                    //     });
-                    }
-                 
-            });
-        })
 
         
-</script>
+    
+
+       
+
+
+
+       // $('#empTable tbody').on('click', 'button', function () {
+                
+         //       let name= users.row($(this).parents('tr')).data();
+           //     let state_value=name[0];
+             //   console.log( state_value );
+
+              
+                
+
+
+            });
+
+
+
+    })
+    
+
+</script> 
     
 @endsection
 
