@@ -142,6 +142,9 @@
             data: {id:id},
             success: function(data){
                 console.log(data.success);
+                console.log(data.state);
+                console.log(typeof data.state);
+
             },
             error:function(err){
                 console.log(err);
