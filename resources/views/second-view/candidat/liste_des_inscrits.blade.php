@@ -119,13 +119,25 @@
 
 
         
-        $('#empTable').on('click', 'input[type="checkbox"]', function () {
+        $('#empTable').on('click', 'tr', function () {
                 console.log("checkBox");
-                console.log(table.row($(this).parent()).data())
+                let name= users.row( this ).data();
+                let state_value=name[0];
+                console.log( state_value );
+
+                $.ajax({
+                type:'get',
+                url:'{{URL::to("state")}}',
+                data:{'id':state_value},
+                success:function(){  console.log("done"); }
+                    });
+                
+
+
                     });
 
     })
-</script>
+</script> 
     
 @endsection
 
