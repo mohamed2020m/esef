@@ -28,7 +28,14 @@ class UserController extends Controller
     public function state( Request $request){
         if(Auth::user()->role =="admin"){
             //User::find($id)->update
+          
           $state_value=DB::table('users')->select('users.state')->where('users.id',$request->id)->get();
+          if($state_value[0]->state == "0" ){
+            ($state_value[0]->state)->update(['state'=>"1"]);
+          }else{
+            ($state_value[0]->state)->update(['state'=>"0"]);
+          }
+
           return response()->json(['success'=>'User Updated Successfully!','state'=>$state_value]);
         }
         else{
