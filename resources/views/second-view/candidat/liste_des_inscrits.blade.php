@@ -119,7 +119,7 @@
 
 
         
-        $('#empTable').on('click', 'tr', function () {
+        $('#empTable').on('click', 'tr td:eq(0)', function () {
                 console.log("checkBox");
                 let name= users.row( this ).data();
                 console.log( name[2] );
