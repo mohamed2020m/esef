@@ -119,7 +119,7 @@
 
 
         
-        $('#empTable').on('click', '.mySwitch', function () {
+        $('.myswitch').on('click', function () {
                 
                 let name= users.row( this ).data();
                 let state_value=name[0];
