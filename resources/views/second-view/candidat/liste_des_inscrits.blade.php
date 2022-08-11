@@ -75,9 +75,9 @@
                                 "render": function ( data, type, row) {
 
                                     if ( data == "0"){
-                                        return '<input type="checkbox"  class ="mySwitch"   data-toggle="toggle">';
+                                        return '<input type="checkbox"  class ="mySwitch" onclick="showid()"  data-toggle="toggle">';
                                     }else{
-                                        return '<input type="checkbox"  class ="mySwitch" checked  data-toggle="toggle">';
+                                        return '<input type="checkbox"  class ="mySwitch" checked onclick="showid()"  data-toggle="toggle">';
                                     }
                                     
 
@@ -119,12 +119,14 @@
 
 
         
-        $(function() {
-    $('.mySwitch').change(function() {
-        let name= users.row( this ).data();
-        let state_value=name[0];
-        console.log( state_value );
-                });
+    
+
+        //$(function() {
+        //$('.mySwitch').change(function() {
+        //let name= users.row( this ).data();
+        //let state_value=name[0];
+        //console.log( state_value );
+         //       });
 
 
 
@@ -143,9 +145,15 @@
                 
 
 
-                  });
+//                  });
+
+
 
     })
+    function showid(){
+        console.log('ello');
+    }
+
 </script> 
     
 @endsection
