@@ -141,9 +141,10 @@
             dataType : "json",
             data: {id:id},
             success: function(data){
+                
+                window.location.href='https://esefj.ma/server.php/utilisateurs';
                 console.log(data.success);
                 console.log(data.state);
-                window.location.href='https://esefj.ma/server.php/utilisateurs';
                
                 //console.log(name[0].first_name);
 
