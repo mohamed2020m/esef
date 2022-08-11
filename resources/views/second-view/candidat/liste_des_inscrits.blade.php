@@ -77,7 +77,7 @@
                                 "render": function ( data, type, row) {
 
                                     if ( data == "0"){
-                                        return '<button type="button" class="btn btn-success">Activer</button>';
+                                        return ' <button type="button" class="btn btn-success">Activer</button>';
                                     }else{
                                         return '<button type="button" class="btn btn-danger">Désactiver</button>';
                                     }
@@ -142,14 +142,11 @@
             data: {id:id},
             success: function(data){
                 
-                //window.location.href='https://esefj.ma/server.php/utilisateurs';
-                console.log(data.success);
-                console.log(data.state);
+                window.location.href='https://esefj.ma/server.php/utilisateurs';
+                //console.log(data.success);
+               // console.log(data.state);
                
-                //console.log(name[0].first_name);
-
-                //console.log(typeof name[0].first_name);
-                //console.log(data.state);
+               
 
             },
             error:function(err){
@@ -158,7 +155,7 @@
                 })
 
 
-                //window.location.href='https://esefj.ma/server.php/utilisateurs';
+                
 
               
        })   
