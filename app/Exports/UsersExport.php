@@ -51,7 +51,10 @@ class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
 
             $matieres=DB::table('matiere_user')->select('matiere_user.*', 'matieres.name')
             ->join('matieres','matieres.id','=','matiere_user.matiere_id')
+            ->join('filiere_matiere','filiere_matiere.matiere_id','=','matiere_user.matiere_id')
+            ->where('filiere_matiere.filiere_id', $this->id)
             ->where('matiere_user.user_id',$candidat->id)
+            ->groupBy('matiere_user.matiere_id')
             ->get();
             
             // $currrent_matieres_In_current_filiere = DB::table('filiere_matiere')->select('matiere_id')
