@@ -20,7 +20,7 @@ class SessionsController extends Controller
             'password'=>'required' 
         ]);
 
-        if(Auth::attempt([$attributes,'state'=>"1"]))
+        if(Auth::attempt([$attributes,'state'=>1]))
         {
             session()->regenerate();
             return redirect('dashboard')->with(['success'=>'You are logged in.']);
