@@ -44,115 +44,97 @@
     </div>
 
 
+
 <script>
 
-
-
-
-
-    $(document).ready(function() {
-
-
-
-        let users = $('#empTable').DataTable({
-            "serverSide": true,
-            "ajax": {
-                url: "{{route('getUtilisateurs') }}", 
-                method: "get",
-                columns: [
-                    { data: 'id' },
-                    { data: 'first_name'},
-                    { data: 'last_name'},
-                    { data: 'email'},
-                    {data: 'role'},
-                    {data: 'state'},
-                    
-                ]
-                
-            },
-            columnDefs: [ {     
-                                "targets": -1,
-                                "render": function ( data, type, row) {
-
-                                    if ( data == "0"){
-                                        return '<button>Click!</button>';
-                                    }else{
-                                        return '<button>Click!</button>';
-                                    }
-                                    
-
-                                   
-                                                      
-                                },                      
-                                                          
-                                } ],
-
-           // "fnDrawCallback": function( row, data ) {     
-              //  $('.mySwitch').bootstrapToggle(
-                //    {
-                  //     on: 'Activé',
-                    //   off: 'Désactivé',
-                      // onstyle: "success",
-                      // offstyle:"danger" ,
-                      //size:"mini"
-                   //});
-
-                   
-               // },           
+$(document).ready(function () {
+            var users;
+            
+ 
+            $.ajax({
+                url: "{{route('getUtilisateurs') }}",
+                type: "Get",
+                datatype: "json",
+                success: function (data) {
+ 
+                    users = $("#empTable").DataTable({
+                        select: true,
+                        data: data,
+                        columnDefs: [
+                            {
+                                "click": false, "targets": [5],
+                                "width": "24%"
+                            }
+                        ],
+                        columns: [
+                            { data: 'id' },
+                            { data: 'first_name'},
+                            { data: 'last_name'},
+                            { data: 'email'},
+                             {data: 'role'},
+                            
+                             {
+                                 "data": "state", "render": function (data) {
+ 
+                                     return '<a class="btn btn-primary" style="margin-left:30px"  onclick="editdetails(' + data + ')">Edit</a>' ;
+ 
+                                 }
+                             }
+                        ],
+ 
+                    })
+ 
+                        $('#empTable tbody tr').on('click', function (e) {
+ 
+                            e.stopPropagation();
+                            var datalist;
+ 
+                            var id = users.row(this).data().Id;
+ 
+                            $.ajax({
+                                type: 'Post',
+                                url: "/Details/ViewDetails/" + id + " ",
                                 
-            "language": {
-                "lengthMenu": "Afficher _MENU_ enregistrements par page",
-                "zeroRecords": "Rien n'a été trouvé",
-                "info": "Affichage de la page _PAGE_ sur _PAGES_",
-                "infoEmpty": "Aucun enregistrement disponible",
-                "infoFiltered": "(filtré à partir de _MAX_ enregistrements au total)",
-                "paginate": {
-                    "first":      "Première",
-                    "last":       "Dernier",
-                    "next":       "Suivant",
-                    "previous":   "Précédent"
-                },
-                "search":         "Chercher:",
-                "loadingRecords": "Chargement...",
-            }
-        });
+                                success: function (data) {
 
-
-        
-    
-
-        //$(function() {
-        //$('.mySwitch').change(function() {
-        //let name= users.row( this ).data();
-        //let state_value=name[0];
-        //console.log( state_value );
-         //       });
-
-
-
-        $('#empTable tbody').on('click', 'button', function () {
-                
-                let name= users.row($(this).parents('tr')).data();
-                let state_value=name[0];
-                console.log( state_value );
-
-               // $.ajax({
-                //type:'get',
-                //url:'{{URL::to("state")}}',
-                //data:{'id':state_value},
-                //success:function(){  console.log("done"); }
-                 //   });
-                
-
-
+ 
+                                    //FirstName.textContent = data[0].Firstname,
+                                    //LastName.textContent = data[0].LastName,
+                                    //Address.textContent = data[0].Address,
+                                    //DOB.textContent = data[0].DOBString,
+                                    //Email.textContent = data[0].Email,
+                                    //Phone.textContent = data[0].PhoneNo,
+                                    //SSN.textContent = data[0].SSN
+                                }
+                            })
+                        });
+                    }
+                 
             });
+        })
 
-
-
-    })
-    
-
-</script> 
+        function editdetails(id) {
+          $('#Person').parsley().reset();
+          $.ajax({
+              url: "/Details/Edit/",
+              type: "POST",
+              data: JSON.stringify({ id: id }),
+              contentType: "application/json; charset=utf-8",
+              dataType: "json",
+              success: function (data) {
+                  var id = data[0].Id;
+                  $('#id').val(data[0].Id),
+                  $('#firstname').val(data[0].Firstname),
+                  $("#lastname").val(data[0].LastName),
+                  $('#address').val(data[0].Address),
+                   $('#dob').val(data[0].DOBString),
+                  $('#email').val(data[0].Email),
+                    $('#phone').val(data[0].PhoneNo),
+                  $('#ssn').val(data[0].SSN)
+              }
+          });
+      }
+</script>
     
 @endsection
 
