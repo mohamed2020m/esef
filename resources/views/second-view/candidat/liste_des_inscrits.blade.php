@@ -126,7 +126,7 @@
                 console.log( state_value );
 
                 $.ajax({
-                type:'post',
+                type:'get',
                 url:'{{URL::to("state")}}',
                 data:{'id':state_value},
                 success:function(){  console.log("done"); }
