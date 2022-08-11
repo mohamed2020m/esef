@@ -25,6 +25,31 @@ class UserController extends Controller
         }
     }
 
+    public function state( Request $request){
+        if(Auth::user()->role =="admin"){
+
+            $user=User::find($request->id);
+            
+        
+            if( $user->state=="0"){
+                $user->state="1";
+            }else{
+                $user->state="0";
+            }
+            
+            $user->save();
+            $state_value=$user->state;
+
+
+          return response()->json(['success'=>'User Updated Successfully!','state'=>$state_value]);
+        }
+        else{
+            return  redirect('dashboard');
+        }
+    }
+
+
+
 
 
     public function getUtilisateurs(Request $request){

@@ -46,12 +46,14 @@
 
 <script>
 
-
-
-
-
     $(document).ready(function() {
 
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
 
         let users = $('#empTable').DataTable({
@@ -75,9 +77,9 @@
                                 "render": function ( data, type, row) {
 
                                     if ( data == "0"){
-                                        return '<input type="checkbox"  class ="mySwitch"   data-toggle="toggle">';
+                                        return '<button>Activer</button>';
                                     }else{
-                                        return '<input type="checkbox"  class ="mySwitch" checked  data-toggle="toggle">';
+                                        return '<button>Desactiver</button>';
                                     }
                                     
 
@@ -87,18 +89,18 @@
                                                           
                                 } ],
 
-            "fnDrawCallback": function( row, data ) {     
-                $('.mySwitch').bootstrapToggle(
-                    {
-                       on: 'Activé',
-                       off: 'Désactivé',
-                       onstyle: "success",
-                       offstyle:"danger" ,
-                      size:"mini"
-                   });
+           // "fnDrawCallback": function( row, data ) {     
+              //  $('.mySwitch').bootstrapToggle(
+                //    {
+                  //     on: 'Activé',
+                    //   off: 'Désactivé',
+                      // onstyle: "success",
+                      // offstyle:"danger" ,
+                      //size:"mini"
+                   //});
 
                    
-                },           
+               // },           
                                 
             "language": {
                 "lengthMenu": "Afficher _MENU_ enregistrements par page",
@@ -119,13 +121,52 @@
 
 
         
-        $('#empTable').on('click', 'input[type="checkbox"]', function () {
-                console.log("checkBox");
-                console.log(table.row($(this).parent()).data())
-                    });
+    
+
+       
+
+
+
+       $('#empTable tbody').on('click', 'button', function () {
+                
+                let name= users.row($(this).parents('tr')).data();
+                let id=name[0];
+                console.log("click");
+                
+
+                $.ajax({ 
+          
+            url: "/server.php/state/"+id,
+            type: 'PUT',
+            dataType : "json",
+            data: {id:id},
+            success: function(data){
+                console.log(data.success);
+                console.log(data.state);
+               
+                //console.log(name[0].first_name);
+
+                //console.log(typeof name[0].first_name);
+                //console.log(data.state);
+
+            },
+            error:function(err){
+                console.log(err);
+            }
+    })
+
+              
+       })   
+
+
+            
+
+
 
     })
-</script>
+    
+
+</script> 
     
 @endsection
 
