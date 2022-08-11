@@ -121,11 +121,8 @@
         
         $('#empTable').on('click', 'tr:last-child', function () {
                 console.log("checkBox");
-                let users_data= users.row( this ).data();
-                let curent_user_state=users_data[5];
-                console.log( curent_user_state );
-
-
+                let name= users.row( this ).data();
+                console.log( name[2] );
                     });
 
     })
