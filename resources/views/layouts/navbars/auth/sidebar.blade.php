@@ -24,7 +24,7 @@
           <span class="nav-link-text ms-1 {{ (Request::is('dashboard') ? 'text-dark' : 'text-white') }}">Accueil</span>
         </a>
       </li>
-      @if(auth()->user()->role != "admin")
+      @if(auth()->user()->role == "normal user")
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6 ">Account pages</h6>
         </li>
@@ -49,7 +49,7 @@
 
       
 
-      @if(auth()->user()->role =='admin')
+      @if(auth()->user()->role =='admin' || auth()->user()->role =='professeur')
       <li class="nav-item pb-2 nav_btn mt-2">
         <a class="nav-link {{ (Request::is('candidats') ? 'active' : '') }}" href="{{ url('candidats') }}">
             <div class="icon-btn icon-shape icon-sm shadow border-radius-md text-center me-2 d-flex align-items-center justify-content-center  {{ (Request::is('candidats') ? 'bg-dark' : 'bg-white') }}">

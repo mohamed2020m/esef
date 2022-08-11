@@ -112,8 +112,18 @@ class UserController extends Controller
                    
                 ];
 
-            }else{
+            }elseif($user->role == "professeur"){
 
+                $json['data'][] = [
+                    $user->id,
+                    $user->first_name,
+                    $user->last_name,
+                    $user->email,
+                    "professeur",
+                    $user->state,
+                   
+                ];
+            }else{
                 $json['data'][] = [
                     $user->id,
                     $user->first_name,
@@ -123,6 +133,7 @@ class UserController extends Controller
                     $user->state,
                    
                 ];
+
             }
       
               

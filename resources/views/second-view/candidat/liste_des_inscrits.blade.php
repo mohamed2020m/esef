@@ -1,6 +1,9 @@
 @extends('layouts.user_type.auth')
 
 @section('content')
+
+
+
     <div class="card mb-4 ml-auto">
             <div class="card-header pb-0">
                     <div class="d-flex flex-row justify-content-between">
@@ -43,6 +46,8 @@
         </div>
     </div>
 
+    
+
 
 <script>
 
@@ -77,9 +82,9 @@
                                 "render": function ( data, type, row) {
 
                                     if ( data == "0"){
-                                        return '<button>Activer</button>';
+                                        return ' <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Activer</button>';
                                     }else{
-                                        return '<button>Desactiver</button>';
+                                        return '<button type="button" class="btn btn-danger">Désactiver</button>';
                                     }
                                     
 
@@ -141,19 +146,21 @@
             dataType : "json",
             data: {id:id},
             success: function(data){
-                console.log(data.success);
-                console.log(data.state);
-               
-                //console.log(name[0].first_name);
-
-                //console.log(typeof name[0].first_name);
+                
+                window.location.href='https://esefj.ma/server.php/utilisateurs';
+                //console.log(data.success);
                 //console.log(data.state);
+               
+               
 
             },
             error:function(err){
                 console.log(err);
             }
-    })
+                })
+
+
+                
 
               
        })   
