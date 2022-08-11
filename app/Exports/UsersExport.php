@@ -58,7 +58,10 @@ class UsersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
             ->where('filiere_matiere.filiere_id', $this->id)
             ->get()->toArray();
 
-            $currrent_matieres_In_current_filiere = array_values($currrent_matieres_In_current_filiere);
+            $currrent_matieres_In_current_filiere = array_map(function ($value) {
+                return (array)$value;
+            }, $currrent_matieres_In_current_filiere);
+            
             $no_double_matieres = [];
             foreach($matieres as $matiere){
                 if(!(in_array($matiere->matiere_id, $no_double_matieres)) && in_array($matiere->matiere_id, $currrent_matieres_In_current_filiere))
