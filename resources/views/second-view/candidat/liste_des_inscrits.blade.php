@@ -121,14 +121,25 @@
 
 
 
-       // $('#empTable tbody').on('click', 'button', function () {
+       $('#empTable tbody').on('click', 'button', function () {
                 
-         //       let name= users.row($(this).parents('tr')).data();
-           //     let state_value=name[0];
-             //   console.log( state_value );
+                let name= users.row($(this).parents('tr')).data();
+                let id_user=name[0];
+                console.log("click");
+                
+
+                $.ajax({ 
+            url: "{{route('state') }}",
+            method: "put",
+            dataType : "json",
+            data: {'id':id_user},
+            success: function(data){
+                console.log(data);
+            }
+    })
 
               
-                
+       })   
 
 
             
