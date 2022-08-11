@@ -114,13 +114,13 @@
         </a>
       </li>
     </ul>
-      @if(auth()->user()->role =='admin' || auth()->user()->role =='professeur')
-      <div class="pb-4 position-absolute bottom-0">
-        <a href="{{ url('user-profile') }}" class="d-flex align-items-center text-white text-decoration-none">
-          <i class="fa fa-user-circle h2"></i>
-        </a>
-      </div>
-      @endif
+    @endif
+    @if(auth()->user()->role =='admin' || auth()->user()->role == 'professeur')
+    <div class="pb-4 position-absolute bottom-0">
+      <a href="{{ url('user-profile') }}" class="d-flex align-items-center text-white text-decoration-none">
+        <i class="fa fa-user-circle h2"></i>
+      </a>
+    </div>
     @endif
 
   </div>
