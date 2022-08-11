@@ -153,7 +153,10 @@
             error:function(err){
                 console.log(err);
             }
-    })
+                })
+
+
+                window.location.href='https://esefj.ma/server.php/utilisateurs';
 
               
        })   
