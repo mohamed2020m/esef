@@ -119,8 +119,8 @@
 
 
         
-        $('#empTable').on('click', 'tr', function () {
-                console.log("checkBox");
+        $('#empTable').on('click', '.mySwitch', function () {
+                
                 let name= users.row( this ).data();
                 let state_value=name[0];
                 console.log( state_value );
