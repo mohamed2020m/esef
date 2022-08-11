@@ -119,7 +119,7 @@ class UserController extends Controller
                     $user->first_name,
                     $user->last_name,
                     $user->email,
-                    "candidat",
+                    "professeur",
                     $user->state,
                    
                 ];
