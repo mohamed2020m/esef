@@ -1,6 +1,31 @@
 @extends('layouts.user_type.auth')
 
 @section('content')
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+      <!-- fin-->
+  
+
+
     <div class="card mb-4 ml-auto">
             <div class="card-header pb-0">
                     <div class="d-flex flex-row justify-content-between">
@@ -43,26 +68,7 @@
         </div>
     </div>
 
-    <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+    
 
 
 <script>
@@ -98,7 +104,7 @@
                                 "render": function ( data, type, row) {
 
                                     if ( data == "0"){
-                                        return ' <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Activer</button>';
+                                        return ' <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#myModal">Activer</button>';
                                     }else{
                                         return '<button type="button" class="btn btn-danger">Désactiver</button>';
                                     }
