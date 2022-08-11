@@ -75,9 +75,9 @@
                                 "render": function ( data, type, row) {
 
                                     if ( data == "0"){
-                                        return '<button   class ="mySwitch bg-danger"   > off</button>';
+                                        return '<button>Click!</button>';
                                     }else{
-                                        return '<button   class ="mySwitch bg-succees"   > on</button>';
+                                        return '<button>Click!</button>';
                                     }
                                     
 
@@ -87,18 +87,18 @@
                                                           
                                 } ],
 
-            "fnDrawCallback": function( row, data ) {     
-                $('.mySwitch').bootstrapToggle(
-                    {
-                       on: 'Activé',
-                       off: 'Désactivé',
-                       onstyle: "success",
-                       offstyle:"danger" ,
-                      size:"mini"
-                   });
+           // "fnDrawCallback": function( row, data ) {     
+              //  $('.mySwitch').bootstrapToggle(
+                //    {
+                  //     on: 'Activé',
+                    //   off: 'Désactivé',
+                      // onstyle: "success",
+                      // offstyle:"danger" ,
+                      //size:"mini"
+                   //});
 
                    
-                },           
+               // },           
                                 
             "language": {
                 "lengthMenu": "Afficher _MENU_ enregistrements par page",
@@ -130,9 +130,9 @@
 
 
 
-        $('#empTable').on('click', 'button', function () {
+        $('#empTable tbody').on('click', 'button', function () {
                 
-                let name= users.row( this ).data();
+                let name= users.row($(this).parents('tr')).data();
                 let state_value=name[0];
                 console.log( state_value );
 
