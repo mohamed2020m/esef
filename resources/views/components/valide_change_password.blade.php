@@ -431,9 +431,6 @@
                             <table class="st-Button st-Button--fullWidth" border="0" cellpadding="0" cellspacing="0" width="100%">
                               <tbody>
                                 <tr>
-                                  <td align="center" class="st-Button-area" height="38" valign="middle" style="border: 0; margin: 0; padding: 0; background-color: #666ee8; border-radius: 5px; text-align: center;">
-
-                                  </td>
                                 </tr>
                               </tbody>
                             </table> <!-- /Button & Modifier: fullWidth -->
