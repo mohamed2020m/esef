@@ -25,6 +25,18 @@ class UserController extends Controller
         }
     }
 
+    public function state(Request $request){
+        if(Auth::user()->role =="admin"){
+          $state_value= User::select('users.*')->where('users.state',$request);
+          return redirect('utilisateurs');
+        }
+        else{
+            return  redirect('dashboard');
+        }
+    }
+
+
+
 
 
     public function getUtilisateurs(Request $request){
