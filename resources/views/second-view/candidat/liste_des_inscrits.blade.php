@@ -129,8 +129,9 @@
                 
 
                 $.ajax({ 
+            type:'put',
             url: "{{route('state') }}",
-            method: "put",
+           // method: "PUT",
             dataType : "json",
             data: {'id':id_user},
             success: function(data){
