@@ -138,8 +138,11 @@ class HomeController extends Controller
             //echo($nombre_candidats_inscrits);
             //echo($nombre_filieres);
             return view('statistique',compact('nombre_filieres','nombre_candidats_inscrits'));
-        }else{
+        }elseif(Auth::user()->role =="professeur"){
             return redirect('candidats');
+        }else{
+            return redirect('utilisateurs');
+
         }
         
     }
