@@ -110,7 +110,7 @@
                     $("#flt").addClass("col-1");
                     $("#flt").html(`<button class="btn btn-filter btn-secondary m-0"><i class="fa fa-filter"></i></button>`);
                     $("#flt").click(function(){
-                        $("#cin").html(`<input type="text" placeholder="CIN" disabled>`)
+                        $("#cin").html(`<input type="text" placeholder="CIN">`)
                     })
                     model += `<div class="modal fade" id="export" tabindex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
