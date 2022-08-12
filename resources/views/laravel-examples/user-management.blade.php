@@ -10,10 +10,11 @@
             </div>
         </div>
         <hr>
-        <div class="card-body px-3 pt-0 pb-2">
+        <div class="card-body px-3 pt-0 pb-2" id="Table_container">
             <div class="row aling-items-center mb-3">
-                <div class="col-10">
-                    <form action="" method="">
+                <div id="flt"></div>
+                <div class="col-10" id="select_tag">
+                    <form>
                         @csrf
                         <select class="form-select form-select-lg select_filiere" style="border-color:#0f233a !important; box-shadow:none !important" aria-label="Default select example"  name="filiere"  required>
                             <option disabled selected>Sélectionner une filière</option>
@@ -23,10 +24,6 @@
                         </select>
                     </form>
                 </div>
-                <!-- <a href="" class="" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" onclick="return confirm('est ce que vous etes sur ?')">
-                    <i class="cursor-pointer fa fa-file-excel text-white bg-success rounded p-3" style="font-weight:normal"></i>
-                    Export
-                </a> -->
                 <div class="col-2 d-flex">
                     <button class="text-white font-weight-bold px-2 border-0 bg-secondary flex-grow-1 rounded " id="btn_export" type="button" data-bs-toggle="modal" data-bs-target="#export">
                         <i class="fa fa-file-excel me-sm-1"></i>
@@ -37,7 +34,7 @@
             <div class="table-responsive p-0">
                 <table class="table table-striped table-hover mb-0">
                     <thead>
-                        <tr>
+                        <tr class="filters">
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 ID
                             </th>
@@ -50,7 +47,7 @@
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 Prénom
                             </th>
-                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" id="cin">
                                 CIN
                             </th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -107,6 +104,14 @@
                         </tr>`
                     }  
                     $("#UserDataTable" ).html(table);
+                    // adding filter button
+                    $("#Table_container").addClass("filterable");
+                    $("#select_tag").removeClass("col-10").addClass("col-9");
+                    $("#flt").addClass("col-1");
+                    $("#flt").html(`<button class="btn btn-filter btn-secondary m-0"><i class="fa fa-filter"></i></button>`);
+                    $("#flt").click(function(){
+                        $("#cin").html(`<input type="text" placeholder="CIN">`)
+                    })
                     model += `<div class="modal fade" id="export" tabindex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
@@ -135,6 +140,41 @@
                     console.log("error")
                 }
             });
+
+            $(".filterable .btn-filter").click(function() {
+                let t = $(this).parents(".filterable"),
+                    e = t.find(".filters input"),
+                    l = t.find(".table tbody");
+                1 == e.prop("disabled") ? (e.prop("disabled", !1), e.first().focus()) : (e.val("").prop("disabled", !0), l.find(".no-result").remove(), l.find("tr").show()), $("#rowcount").html($(".filterable tr").length - 1)
+            }), 
+            $(".filterable .filters input").keyup(function(t) {
+                if ("9" != (t.keyCode || t.which)) {
+                    var e = $(this),
+                        l = e.val().toLowerCase(),
+                        n = e.parents(".filterable"),
+                        i = n.find(".filters th").index(e.parents("th")),
+                        r = n.find(".table"),
+                        o = r.find("tbody tr"),
+                        d = o.filter(function() {
+                            return -1 === $(this).find("td").eq(i).text().toLowerCase().indexOf(l)
+                        });
+                    r.find("tbody .no-result").remove(), o.show(), d.hide(), d.length === o.length && r.find("tbody").prepend($('<tr class="no-result text-center"><td colspan="' + r.find(".filters th").length + '">Aucun résultat trouvé</td></tr>'))
+                }
+                // $("#rowcount").html($("tr:visible").length - 1), checkval()
+            })
+            $("#flt").click(function(){
+                let classList = $(this).children().attr("class");          
+                let classArr = classList.split(/\s+/);
+                console.log("classList: ", classList);
+
+                if($.inArray("btn-warning", classArr) == -1) {
+                    $(this).children().removeClass("btn-secondary").addClass("btn-warning");
+                }
+                else{
+                    $(this).children().removeClass("btn-warning").addClass("btn-secondary");
+                    $("#cin").html(`CIN`)
+                }
+            })
         });
     });
 
