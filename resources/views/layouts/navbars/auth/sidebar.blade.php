@@ -27,8 +27,28 @@
         </a>
       </li>
     @endif
+    @if(auth()->user()->role == "professeur" )
+    <li class="nav-item nav_btn">
+          <a class="nav-link {{ (Request::is('user-profile') ? 'active' : '') }}" href="{{ url('user-profile') }}">
+            <div class="icon-btn icon-shape icon-sm shadow border-radius-md  text-center me-2 d-flex align-items-center justify-content-center {{ (Request::is('user-profile') ? 'bg-dark' : 'bg-white') }}">
+                <i style="font-size: 1rem;" class="fa fa-lg fa-user ps-2 pe-2 text-center {{ (Request::is('user-profile') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+            </div>
+            <span class="nav-link-text ms-1 {{ (Request::is('user-profile') ? 'text-dark' : 'text-white') }}">Profile</span>
+          </a>
+        </li>
 
-      @if(auth()->user()->role == "normal user" || auth()->user()->role =='professeur')
+
+        <li class="nav-item pb-2 nav_btn mt-2">
+        <a class="nav-link {{ (Request::is('candidats') ? 'active' : '') }}" href="{{ url('candidats') }}">
+            <div class="icon-btn icon-shape icon-sm shadow border-radius-md text-center me-2 d-flex align-items-center justify-content-center  {{ (Request::is('candidats') ? 'bg-dark' : 'bg-white') }}">
+                <i style="font-size: 1rem;" class="fas fa-lg fa-users ps-2 pe-2 text-center  {{ (Request::is('candidats') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+            </div>
+            <span class="nav-link-text ms-1 {{ (Request::is('candidats') ? 'text-dark' : 'text-white') }}">Candidatures</span>
+        </a>
+      </li>
+    @endif
+
+      @if(auth()->user()->role == "normal user" )
 
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6 ">Account pages</h6>
@@ -54,7 +74,7 @@
 
       
 
-      @if(auth()->user()->role =='admin' || auth()->user()->role =='professeur')
+      @if(auth()->user()->role =='admin')
       <li class="nav-item pb-2 nav_btn mt-2">
         <a class="nav-link {{ (Request::is('candidats') ? 'active' : '') }}" href="{{ url('candidats') }}">
             <div class="icon-btn icon-shape icon-sm shadow border-radius-md text-center me-2 d-flex align-items-center justify-content-center  {{ (Request::is('candidats') ? 'bg-dark' : 'bg-white') }}">
