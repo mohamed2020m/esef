@@ -17,7 +17,7 @@ class HomeController extends Controller
     }
 
     public function select_filiere(){
-        if(Auth::user()->role =="admin"){
+        if(Auth::user()->role =="admin" || Auth::user()->role =="professeur"){
             $data_filiere =Filiere::all();
             return view('laravel-examples/user-management',compact('data_filiere'));
         }
