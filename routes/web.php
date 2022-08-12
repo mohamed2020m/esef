@@ -140,7 +140,7 @@ Route::group(['middleware' => 'guest'], function () {
 	Route::get('/reset-password-{token}', [ResetController::class, 'resetPass'])->name('password.reset');
 	Route::post('/reset-password', [ChangePasswordController::class, 'changePassword'])->name('password.update');
 
-
+    Route::get('/auth-verify-email-{verification_code}',[RegisterController::class,'verify_email'])->name('verify_email');
 });
 
 
