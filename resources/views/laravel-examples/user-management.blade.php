@@ -86,6 +86,12 @@
                 url:'{{URL::to("candidatsList")}}',
                 data:{'id':filiere_id},
                 success: function(data){
+                    // remove filters: 
+                    $("#flt").children().removeClass("btn-warning").addClass("btn-secondary");
+                    $("#cin_filter").remove();
+                    $("#cin").html('CIN');
+                    $("#n_lines" ).remove();
+                    // getting new records
                     for(var i=0;i<data.length;i++){
                         table += 
                         `<tr class="align-middle" style="font-size: 18px;">
