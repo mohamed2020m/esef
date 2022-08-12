@@ -166,12 +166,13 @@
                         $("#rowcount").html(d.length);
                         // , checkval()
                     });
-                    $("#UserDataTable" ).append(`<p class="mt-3 text-sm text-info">Nombre de lines : <span id="rowcount"></span></p>`);
+                    $("#UserDataTable" ).append(`<p id="n_lines" class="mt-3 text-sm text-info">Nombre de lines : <span id="rowcount"></span></p>`);
                 }
                 else{
                     $(this).children().removeClass("btn-warning").addClass("btn-secondary");
                     $("#cin_filter").remove();
-                    $("#cin").html('CIN')
+                    $("#cin").html('CIN');
+                    $("#n_lines" ).remove();
                 }
             })
         });
