@@ -139,7 +139,10 @@
                         let t = $(this).parents(".filterable"),
                             e = t.find(".filters input"),
                             l = t.find(".table tbody");
-                        1 == e.prop("disabled") ? (e.prop("disabled", !1), e.first().focus()) : (e.val("").prop("disabled", !0), l.find(".no-result").remove(), l.find("tr").show()), $("#rowcount").html($(".filterable tr").length - 1)
+                        // 1 == e.prop("disabled") ? 
+                        // (e.prop("disabled", !1), 
+                        e.first().focus() 
+                        // : (e.val("").prop("disabled", !0), l.find(".no-result").remove(), l.find("tr").show()), $("#rowcount").html($(".filterable tr").length - 1)
                     }), 
                     $(".filterable .filters input").keyup(function(t) {
                         if ("9" != (t.keyCode || t.which)) {
@@ -157,8 +160,8 @@
                         // $("#rowcount").html($("tr:visible").length - 1), checkval()
                     })
                 },
-                error:function(){
-                    console.log("error")
+                error:function(err){
+                    console.log(err);
                 }
             });
 
