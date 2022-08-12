@@ -42,7 +42,7 @@ class RegisterController extends Controller
     }
 
     public function verify_email($verification_code){
-        $user = User::where('email_verification_code',$verification_code)->first();
+        $user = User::where('code',$verification_code)->first();
         if(!$user){
             return redirect('/Accueil')->with('error','URL n\'est pas valide');
         }
@@ -51,7 +51,7 @@ class RegisterController extends Controller
                 return redirect('Accueil')->with('email deja valider');
             }
             else{
-                $user->update(['state' => "1",'email_verification_code' =>null]);
+                $user->update(['state' => "1",'code' =>null]);
                 return redirect('Accueil')->with('success','E-mail vérifié avec succès');
             }
 
