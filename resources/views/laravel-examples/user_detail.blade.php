@@ -171,7 +171,7 @@
                         <p class="mb-0">Spécialité :</p>
                     </div>
                     <div class="col-sm-8">
-                        <p class="text-muted mb-0">{{$user_licence_name[0]->name}}</p>
+                       <!-- <p class="text-muted mb-0"></p>-->
                     </div>
                 </div>
                 <hr>
