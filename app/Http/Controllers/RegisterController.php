@@ -8,6 +8,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -29,15 +30,31 @@ class RegisterController extends Controller
 
 
         session()->flash('success', 'Your account has been created.');
-        $user = User::create($attributes);
+        $user = User::create([
+            'email' => request()->email,
+            'password' => bcrypt(request()->password),
+            'code' => Str::random(60),
+        ]);
+        Mail::to(request()->email)->send(new Email($user));
 
-        $details =[
-            'title' =>'Bienvenue cher utilisateur',
-            'body' => 'Nous vous informons que votre compte a été créé avec succès'
-        ];
-        Mail::to(request()->email)->send(new Email($details));
-
-        Auth::login($user);
+        //Auth::login($user);
         return redirect('/dashboard');
+    }
+
+    public function verify_email($verification_code){
+        $user = User::where('code',$verification_code)->first();
+        if(!$user){
+            return redirect('/Accueil')->with('error','URL n\'est pas valide');
+        }
+        else{
+            if($user->state =="1"){
+                return redirect('Accueil')->with('email deja valider');
+            }
+            else{
+                $user->update(['state' => "1",'code' =>null]);
+                return redirect('Accueil')->with('success','E-mail vérifié avec succès');
+            }
+
+        }
     }
 }
