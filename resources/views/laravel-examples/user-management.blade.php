@@ -113,7 +113,7 @@
                     // adding filter button
                     $("#Table_container").addClass("filterable");
                     $("#select_tag").removeClass("col-10").addClass("col-9");
-                    $("#flt").addClass("col-1");
+                    $("#flt").addClass("col-1 d-flex");
                     $("#flt").html(`<button class="btn btn-filter btn-secondary m-0"><i class="fa fa-filter"></i></button>`);
                     
                     // export button
@@ -149,8 +149,8 @@
             $("#flt").click(function(){
                 let classList = $(this).children().attr("class");          
                 let classArr = classList.split(/\s+/);
-                if($.inArray("btn-warning", classArr) == -1) {
-                    $(this).children().removeClass("btn-secondary").addClass("btn-warning");
+                if($.inArray("btn-info", classArr) == -1) {
+                    $(this).children().removeClass("btn-secondary").addClass("btn-info");
                     $("#cin").html(`<input type="text" placeholder="Filtrer par CIN" id="cin_filter">`);
                     $("#cin_filter").first().focus();
 
@@ -175,7 +175,7 @@
                     $("#UserDataTable" ).append(`<p id="n_lines" class="mt-3 text-sm text-info">Nombre de lines : <span id="rowcount"></span></p>`);
                 }
                 else{
-                    $(this).children().removeClass("btn-warning").addClass("btn-secondary");
+                    $(this).children().removeClass("btn-info").addClass("btn-secondary");
                     $("#cin_filter").remove();
                     $("#cin").html('CIN');
                     $("#n_lines" ).remove();
