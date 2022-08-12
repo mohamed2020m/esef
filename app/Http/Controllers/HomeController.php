@@ -17,7 +17,7 @@ class HomeController extends Controller
     }
 
     public function select_filiere(){
-        if(Auth::user()->role =="admin"){
+        if(Auth::user()->role =="admin" || Auth::user()->role =="professeur"){
             $data_filiere =Filiere::all();
             return view('laravel-examples/user-management',compact('data_filiere'));
         }
@@ -28,7 +28,7 @@ class HomeController extends Controller
 
 
     public function showCandidats(Request $request){
-        if(Auth::user()->role =="admin"){
+        if(Auth::user()->role =="admin" ||Auth::user()->role =="professeur" ){
             $data=DB::table('users')->select('users.*')->join('filiere_user','filiere_user.user_id','=','users.id')
             ->where('filiere_user.filiere_id',$request->id)->get();
 
@@ -42,8 +42,15 @@ class HomeController extends Controller
                 $cuurent_school_year = date("Y") - 1;
                 $year_of_graduation = date("Y") - 1;;
 
-                $matieres=DB::table('matiere_user')->select('matiere_user.*')
+                // $matieres=DB::table('matiere_user')->select('matiere_user.*')
+                // ->join('matieres','matieres.id','=','matiere_user.matiere_id')
+                // ->where('matiere_user.user_id',$candidat->id)
+
+                $matieres=DB::table('matiere_user')
+                ->select(DB::raw('distinct(matiere_user.matiere_id), matiere_user.matiere_id, matiere_user.user_id , matiere_user.note, matieres.name, filiere_matiere.filiere_id'))
                 ->join('matieres','matieres.id','=','matiere_user.matiere_id')
+                ->join('filiere_matiere','filiere_matiere.matiere_id','=','matiere_user.matiere_id')
+                ->where('filiere_matiere.filiere_id', $request->id)
                 ->where('matiere_user.user_id',$candidat->id)
                 ->get();
                 
@@ -132,6 +139,7 @@ class HomeController extends Controller
             //echo($nombre_filieres);
             return view('statistique',compact('nombre_filieres','nombre_candidats_inscrits'));
         }
+        
     }
 
     public function verification($id){

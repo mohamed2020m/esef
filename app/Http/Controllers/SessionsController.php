@@ -28,7 +28,12 @@ class SessionsController extends Controller
         if (Auth::attempt(['email' => $email, 'password' => $password, 'state' => 1]))
         {
             session()->regenerate();
-            return redirect('dashboard')->with(['success'=>'You are logged in.']);
+            if(Auth::user()->role =="professeur"){
+                return redirect('candidats')->with(['success'=>'You are logged in.']);
+            }else{
+                return redirect('dashboard')->with(['success'=>'You are logged in.']);   
+            }
+            
         }
         else{
 

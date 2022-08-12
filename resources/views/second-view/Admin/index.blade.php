@@ -35,7 +35,8 @@
                     <label class="form-label" for="name">Role</label>
                     <select class="form-select"  name="role" aria-label="Default select example" placeholder="role" >
                          <option value="professeur">professeur</option>
-                         <option value="admin">admin</option>    
+                         <option value="admin">admin</option>   
+                         <option value="super admin">super admin</option> 
                     </select>
                 </div>
                 <button type="submit" class="btn" style="background-color: #0f233a !important;color:white">Enregistrer</button>
