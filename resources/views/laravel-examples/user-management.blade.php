@@ -108,7 +108,7 @@
                     $("#Table_container").addClass("filterable");
                     $("#select_tag").removeClass("col-10").addClass("col-9");
                     $("#flt").addClass("col-1");
-                    $("#flt").html(`<button class="btn btn-filter m-0"><i class="fa fa-filter"></i></button>`);
+                    $("#flt").html(`<button class="btn btn-filter btn-secondary m-0"><i class="fa fa-filter"></i></button>`);
                     $("#flt").click(function(){
                         $("#cin").html(`<input type="text" placeholder="CIN" disabled>`)
                     })
@@ -161,13 +161,13 @@
                 // $("#rowcount").html($("tr:visible").length - 1), checkval()
             })
             $("#flt").click(function(){
-                let classList = this.attr("class");          
+                let classList = $(this).attr("class");          
                 let classArr = classList.split(/\s+/);
                 if($.inArray("btn-warning", classArr) != -1) {
-                    this.removeClass("btn-secondary").addClass("btn-warning");
+                    $(this).removeClass("btn-secondary").addClass("btn-warning");
                 }
                 else{
-                    this.removeClass("btn-warning").addClass("btn-secondary");
+                    $(this).removeClass("btn-warning").addClass("btn-secondary");
                 }
             })
         });
