@@ -29,7 +29,7 @@ class RegisterController extends Controller
 
 
 
-        session()->flash('success', 'Your account has been created.');
+        // session()->flash('success', 'Votre compte a été créé avec succès.');
         $user = User::create([
             'email' => request()->email,
             'password' => bcrypt(request()->password),
@@ -38,7 +38,7 @@ class RegisterController extends Controller
         Mail::to(request()->email)->send(new Email($user));
 
         //Auth::login($user);
-        return redirect('/dashboard');
+        return redirect('/Accueil')->with('success','Votre compte a été créé avec succès, nous avons vous envoyé un email pour valider votre compte,veuillez le confirmer');
     }
 
     public function verify_email($verification_code){
