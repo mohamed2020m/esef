@@ -37,16 +37,8 @@ class SessionsController extends Controller
             }
             
         }
-        else{
-
-            if(Auth::user()->state=="0"){
-                return back()->withErrors(['email'=>'Votre compte est désactivé ']);
-            }else{
+        else{            
                 return back()->withErrors(['email'=>'Email or password invalid.']);
-
-            }
-
-            
         }
     }
     
