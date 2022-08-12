@@ -140,14 +140,11 @@
             });
 
             $(".filterable .btn-filter").click(function() {
-                let t = $(this).parents(".filterable");
-                let e = t.find(".filters input");
-                let l = t.find(".table tbody");
-                // 1 == e.prop("disabled") ? (e.prop("disabled", !1), e.first().focus()) : 
-                (e.val("").prop("disabled", !0), l.find(".no-result").remove(), l.find("tr").show());
-                // , $("#rowcount").html($(".filterable tr").length - 1)
-            });
-            console.log("t: ", t);
+                let t = $(this).parents(".filterable"),
+                    e = t.find(".filters input"),
+                    l = t.find(".table tbody");
+                1 == e.prop("disabled") ? (e.prop("disabled", !1), e.first().focus()) : (e.val("").prop("disabled", !0), l.find(".no-result").remove(), l.find("tr").show()), $("#rowcount").html($(".filterable tr").length - 1)
+            }), 
             $(".filterable .filters input").keyup(function(t) {
                 if ("9" != (t.keyCode || t.which)) {
                     var e = $(this),
@@ -162,11 +159,10 @@
                     r.find("tbody .no-result").remove(), o.show(), d.hide(), d.length === o.length && r.find("tbody").prepend($('<tr class="no-result text-center"><td colspan="' + r.find(".filters th").length + '">Aucun résultat trouvé</td></tr>'))
                 }
                 // $("#rowcount").html($("tr:visible").length - 1), checkval()
-            });
+            })
             $("#flt").click(function(){
                 let classList = $(this).children().attr("class");          
                 let classArr = classList.split(/\s+/);
-
                 if($.inArray("btn-warning", classArr) == -1) {
                     $(this).children().removeClass("btn-secondary").addClass("btn-warning");
                     $("#cin").html(`<input type="text" placeholder="Filtrer par CIN" id="cin_filter">`)
