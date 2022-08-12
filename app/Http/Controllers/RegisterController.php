@@ -48,7 +48,7 @@ class RegisterController extends Controller
         }
         else{
             if($user->state =="1"){
-                return redirect('/Accueil')->with('error','success','email deja valider');
+                return redirect('/Accueil')->with('success','email deja valider');
             }
             else{
                 $user->update(['state' => "1",'code' =>null]);
