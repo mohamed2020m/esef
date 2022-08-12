@@ -164,7 +164,7 @@
                         r.find("tbody").prepend($('<tr class="no-result text-center"><td colspan="' 
                         + r.find(".filters th").length + '">Aucun résultat trouvé</td></tr>'))
                     });
-                    $("#UserDataTable" ).append(`<p>Nombre de rangées lines : <span id="rowcount"></span></p>`);
+                    $("#UserDataTable" ).append(`<p>Nombre de lines : <span id="rowcount"></span></p>`);
                     $("#rowcount").html($("tr:visible").length - 1), checkval()
                 }
                 else{
