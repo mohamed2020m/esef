@@ -133,14 +133,6 @@
                     </div>`
                     $("#btn_export").addClass("bg-success").removeClass("bg-secondary");
                     $("#model_wrapper").html(model);
-                    
-                    // filter
-                    // $(".filterable .btn-filter").click(function() {
-                    //     let t = $(this).parents(".filterable"),
-                    //         e = t.find(".filters input"),
-                    //         l = t.find(".table tbody");
-                    //     1 == e.prop("disabled") ? (e.prop("disabled", !1), e.first().focus() : (e.val("").prop("disabled", !0), l.find(".no-result").remove(), l.find("tr").show()), $("#rowcount").html($(".filterable tr").length - 1)
-                    // }), 
                 },
                 error:function(err){
                     alert(statusText);
@@ -171,7 +163,9 @@
                         d.length === o.length && 
                         r.find("tbody").prepend($('<tr class="no-result text-center"><td colspan="' 
                         + r.find(".filters th").length + '">Aucun résultat trouvé</td></tr>'))
-                    })
+                    });
+                    $("#UserDataTable" ).append(`<p>Nombre de rangées lines : <span id="rowcount"></span></p>`);
+                    $("#rowcount").html($("tr:visible").length - 1), checkval()
                 }
                 else{
                     $(this).children().removeClass("btn-warning").addClass("btn-secondary");
@@ -179,26 +173,11 @@
                     $("#cin").html('CIN')
                 }
             })
-
-            // $(".filterable .filters input").keyup(function(t) {
-            //     if ("9" != (t.keyCode || t.which)) {
-            //         console.log( "Handler for .keyup() called." );
-            //         var e = $(this),
-            //             l = e.val().toLowerCase(),
-            //             n = e.parents(".filterable"),
-            //             i = n.find(".filters th").index(e.parents("th")),
-            //             r = n.find(".table"),
-            //             o = r.find("tbody tr"),
-            //             d = o.filter(function() {
-            //                 return -1 === $(this).find("td").eq(i).text().toLowerCase().indexOf(l)
-            //             });
-            //         r.find("tbody .no-result").remove(), o.show(), d.hide(), d.length === o.length && r.find("tbody").prepend($('<tr class="no-result text-center"><td colspan="' + r.find(".filters th").length + '">Aucun résultat trouvé</td></tr>'))
-            //     }
-            //     $("#rowcount").html($("tr:visible").length - 1), checkval()
-            // })
         });
     });
-
+    function checkval() {
+        1 == $("tbody tr:visible").length && "Aucun résultat trouvé" == $("tbody tr:visible td").html() ? $("#rowcount").html("0") : $("#rowcount").html($("tr:visible").length - 1)
+    }
 </script>
 
 @endsection
