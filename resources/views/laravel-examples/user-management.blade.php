@@ -166,7 +166,7 @@
 
             $(".filterable .filters input").keyup(function(t) {
                 if ("9" != (t.keyCode || t.which)) {
-                    alert( "Handler for .keyup() called." );
+                    console.log( "Handler for .keyup() called." );
                     var e = $(this),
                         l = e.val().toLowerCase(),
                         n = e.parents(".filterable"),
