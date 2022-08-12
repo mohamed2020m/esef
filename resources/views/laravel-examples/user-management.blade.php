@@ -109,6 +109,8 @@
                     $("#select_tag").removeClass("col-10").addClass("col-9");
                     $("#flt").addClass("col-1");
                     $("#flt").html(`<button class="btn btn-filter btn-secondary m-0"><i class="fa fa-filter"></i></button>`);
+                    
+                    // export button
                     model += `<div class="modal fade" id="export" tabindex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
@@ -130,7 +132,6 @@
                         </div>
                     </div>`
                     $("#btn_export").addClass("bg-success").removeClass("bg-secondary");
-                    
                     $("#model_wrapper").html(model);
                 },
                 error:function(){
@@ -139,11 +140,14 @@
             });
 
             $(".filterable .btn-filter").click(function() {
-                let t = $(this).parents(".filterable"),
-                    e = t.find(".filters input"),
-                    l = t.find(".table tbody");
-                1 == e.prop("disabled") ? (e.prop("disabled", !1), e.first().focus()) : (e.val("").prop("disabled", !0), l.find(".no-result").remove(), l.find("tr").show()), $("#rowcount").html($(".filterable tr").length - 1)
-            }), 
+                let t = $(this).parents(".filterable");
+                let e = t.find(".filters input");
+                let l = t.find(".table tbody");
+                // 1 == e.prop("disabled") ? (e.prop("disabled", !1), e.first().focus()) : 
+                (e.val("").prop("disabled", !0), l.find(".no-result").remove(), l.find("tr").show());
+                // , $("#rowcount").html($(".filterable tr").length - 1)
+            });
+            console.log("t: ", t);
             $(".filterable .filters input").keyup(function(t) {
                 if ("9" != (t.keyCode || t.which)) {
                     var e = $(this),
@@ -158,15 +162,14 @@
                     r.find("tbody .no-result").remove(), o.show(), d.hide(), d.length === o.length && r.find("tbody").prepend($('<tr class="no-result text-center"><td colspan="' + r.find(".filters th").length + '">Aucun résultat trouvé</td></tr>'))
                 }
                 // $("#rowcount").html($("tr:visible").length - 1), checkval()
-            })
+            });
             $("#flt").click(function(){
                 let classList = $(this).children().attr("class");          
                 let classArr = classList.split(/\s+/);
-                console.log("classList: ", classList);
 
                 if($.inArray("btn-warning", classArr) == -1) {
                     $(this).children().removeClass("btn-secondary").addClass("btn-warning");
-                    $("#cin").html(`<input type="text" placeholder="CIN" id="cin_filter">`)
+                    $("#cin").html(`<input type="text" placeholder="Filtrer par CIN" id="cin_filter">`)
                 }
                 else{
                     $(this).children().removeClass("btn-warning").addClass("btn-secondary");
