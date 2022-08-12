@@ -123,17 +123,6 @@ class UserController extends Controller
                     $user->state,
                    
                 ];
-            }elseif($user->role == "super admin"){
-                $json['data'][] = [
-                    $user->id,
-                    $user->first_name,
-                    $user->last_name,
-                    $user->email,
-                    "super admin",
-                    $user->state,
-                   
-                ];
-
             }else{
                 $json['data'][] = [
                     $user->id,
