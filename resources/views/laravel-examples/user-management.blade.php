@@ -109,6 +109,8 @@
                     $("#select_tag").removeClass("col-10").addClass("col-9");
                     $("#flt").addClass("col-1");
                     $("#flt").html(`<button class="btn btn-filter btn-secondary m-0"><i class="fa fa-filter"></i></button>`);
+                    
+                    // export button
                     model += `<div class="modal fade" id="export" tabindex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
@@ -130,7 +132,6 @@
                         </div>
                     </div>`
                     $("#btn_export").addClass("bg-success").removeClass("bg-secondary");
-                    
                     $("#model_wrapper").html(model);
                 },
                 error:function(){
@@ -162,11 +163,9 @@
             $("#flt").click(function(){
                 let classList = $(this).children().attr("class");          
                 let classArr = classList.split(/\s+/);
-                console.log("classList: ", classList);
-
                 if($.inArray("btn-warning", classArr) == -1) {
                     $(this).children().removeClass("btn-secondary").addClass("btn-warning");
-                    $("#cin").html(`<input type="text" placeholder="CIN" id="cin_filter">`)
+                    $("#cin").html(`<input type="text" placeholder="Filtrer par CIN" id="cin_filter">`)
                 }
                 else{
                     $(this).children().removeClass("btn-warning").addClass("btn-secondary");
