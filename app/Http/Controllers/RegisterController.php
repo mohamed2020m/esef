@@ -40,4 +40,21 @@ class RegisterController extends Controller
         //Auth::login($user);
         return redirect('/dashboard');
     }
+
+    public function verify_email($verification_code){
+        $user = User::where('code',$verification_code)->first();
+        if(!$user){
+            return redirect('/Accueil')->with('error','URL n\'est pas valide');
+        }
+        else{
+            if($user->state =="1"){
+                return redirect('Accueil')->with('email deja valider');
+            }
+            else{
+                $user->update(['state' => "1",'code' =>null]);
+                return redirect('Accueil')->with('success','E-mail vérifié avec succès');
+            }
+
+        }
+    }
 }
