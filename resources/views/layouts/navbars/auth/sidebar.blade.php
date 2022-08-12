@@ -27,7 +27,9 @@
         </a>
       </li>
     @endif
-      @if(auth()->user()->role == "normal user"||auth()->user()->role == "normal user")
+
+      @if(auth()->user()->role == "normal user" || auth()->user()->role =='professeur')
+
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6 ">Account pages</h6>
         </li>
@@ -114,13 +116,11 @@
         </a>
       </li>
     </ul>
-      @if(auth()->user()->role =='admin' || auth()->user()->role =='professeur')
-      <div class="pb-4 position-absolute bottom-0">
-        <a href="{{ url('user-profile') }}" class="d-flex align-items-center text-white text-decoration-none">
-          <i class="fa fa-user-circle h2"></i>
-        </a>
-      </div>
-      @endif
+    <div class="pb-4 position-absolute bottom-0">
+      <a href="{{ url('user-profile') }}" class="d-flex align-items-center text-white text-decoration-none">
+        <i class="fa fa-user-circle h2"></i>
+      </a>
+    </div>
     @endif
 
   </div>
