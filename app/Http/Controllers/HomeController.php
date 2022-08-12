@@ -132,17 +132,14 @@ class HomeController extends Controller
                     $user_id = Auth::user()->id;
         return view('dashboard',compact('user_id'));
         }
-        elseif(Auth::user()->role =="admin"){
+        else{
             $nombre_filieres = DB::table('filieres')->count();
             $nombre_candidats_inscrits=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->count();
             //echo($nombre_candidats_inscrits);
             //echo($nombre_filieres);
             return view('statistique',compact('nombre_filieres','nombre_candidats_inscrits'));
-        }else{
-            $data_filiere =Filiere::all();
-            return view('laravel-examples/user-management',compact('data_filiere'));
-
         }
+        
     }
 
     public function verification($id){
