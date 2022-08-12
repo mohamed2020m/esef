@@ -29,15 +29,14 @@ class RegisterController extends Controller
 
 
         session()->flash('success', 'Your account has been created.');
-        $user = User::create($attributes);
+        $user = User::create([
+            'email' => request()->email,
+            'password' => bcrypt(request()->password),
+            'code' => Str::random(60),
+        ]);
+        Mail::to(request()->email)->send(new Email($user));
 
-        $details =[
-            'title' =>'Bienvenue cher utilisateur',
-            'body' => 'Nous vous informons que votre compte a été créé avec succès'
-        ];
-        Mail::to(request()->email)->send(new Email($details));
-
-        Auth::login($user);
+        //Auth::login($user);
         return redirect('/dashboard');
     }
 }
