@@ -108,9 +108,9 @@
                     $("#Table_container").addClass("filterable");
                     $("#select_tag").removeClass("col-10").addClass("col-9");
                     $("#flt").addClass("col-1");
-                    $("#flt").html(`<button class="btn"><i class="fa fa-filter"></i></button>`);
+                    $("#flt").html(`<button class="btn btn-filter"><i class="fa fa-filter"></i></button>`);
                     $("#flt").click(function(){
-                        $("#cin").html(`<input type="text" placeholder="CIN">`)
+                        $("#cin").html(`<input type="text" placeholder="CIN" disabled>`)
                     })
                     model += `<div class="modal fade" id="export" tabindex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
