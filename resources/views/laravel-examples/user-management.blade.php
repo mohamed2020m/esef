@@ -161,13 +161,15 @@
                 // $("#rowcount").html($("tr:visible").length - 1), checkval()
             })
             $("#flt").click(function(){
-                let classList = $(this).attr("class");          
+                let classList = $(this).children().attr("class");          
                 let classArr = classList.split(/\s+/);
-                if($.inArray("btn-warning", classArr) != -1) {
-                    $(this).removeClass("btn-secondary").addClass("btn-warning");
+                console.log("classList: ", classList);
+
+                if($.inArray("btn-warning", classArr) == -1) {
+                    $(this).children().removeClass("btn-secondary").addClass("btn-warning");
                 }
                 else{
-                    $(this).removeClass("btn-warning").addClass("btn-secondary");
+                    $(this).children().removeClass("btn-warning").addClass("btn-secondary");
                 }
             })
         });
