@@ -10,15 +10,9 @@
             </div>
         </div>
         <hr>
-        <div class="card-body px-3 pt-0 pb-2 panel panel-primary filterable">
+        <div class="card-body px-3 pt-0 pb-2" id="Table_container">
             <div class="row aling-items-center mb-3">
-                <div class="col-2 panel-heading">
-                    <h3 class="panel-title">
-                        <button class="btn btn-default btn-xs btn-filter">
-                            <i class="fa fa-filter"></i>
-                        </button>
-                    </h3>
-                </div>
+                <div class="col-2" id="flt"></div>
                 <div class="col-8">
                     <form>
                         @csrf
@@ -58,8 +52,8 @@
                                 <input type="text" placeholder="CIN" disabled>
                             </th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                {{-- CNE --}}
-                                <input type="text" placeholder="CNE" disabled>
+                                CNE
+                                {{-- <input type="text" placeholder="CNE" disabled> --}}
                             </th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 Score
@@ -112,6 +106,10 @@
                         </tr>`
                     }  
                     $("#UserDataTable" ).html(table);
+                    // adding filter button
+                    $("#Table_container").addClass("filterable");
+                    $("#flt").html(`<button class="btn"><i class="fa fa-filter"></i></button>`);
+
                     model += `<div class="modal fade" id="export" tabindex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
