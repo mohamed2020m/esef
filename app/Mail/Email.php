@@ -29,6 +29,5 @@ class Email extends Mailable
      */
     public function build()
     {
-        return $this->subject('Ecole Supérieure d\'Education et de Formation')->view('email.form');
-    }
+        return $this->from('contact@esefj.ma', 'ESEF')->subject('Veuillez confirmer votre adresse e-mail')->view('email.form');    }
 }
