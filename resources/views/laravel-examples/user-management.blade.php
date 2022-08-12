@@ -52,8 +52,8 @@
                                 <input type="text" placeholder="CIN" disabled>
                             </th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                {{-- CNE --}}
-                                <input type="text" placeholder="CNE" disabled>
+                                CNE
+                                {{-- <input type="text" placeholder="CNE" disabled> --}}
                             </th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 Score
