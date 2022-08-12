@@ -12,8 +12,8 @@
         <hr>
         <div class="card-body px-3 pt-0 pb-2" id="Table_container">
             <div class="row aling-items-center mb-3">
-                <div class="col-2" id="flt"></div>
-                <div class="col-8">
+                <div id="flt"></div>
+                <div class="col-10" id="select_tag">
                     <form>
                         @csrf
                         <select class="form-select form-select-lg select_filiere" style="border-color:#0f233a !important; box-shadow:none !important" aria-label="Default select example"  name="filiere"  required>
@@ -108,6 +108,8 @@
                     $("#UserDataTable" ).html(table);
                     // adding filter button
                     $("#Table_container").addClass("filterable");
+                    $("#select_tag").removeClass("col-10").addClass("col-9");
+                    $("#flt").addClass("col-1");
                     $("#flt").html(`<button class="btn"><i class="fa fa-filter"></i></button>`);
 
                     model += `<div class="modal fade" id="export" tabindex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
