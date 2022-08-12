@@ -16,11 +16,12 @@ class InfoUserController extends Controller
 
     public function create()
     {
-        if(Auth::user()->role =="admin"){
-            return view('laravel-examples/admin-profile');
+        if(Auth::user()->role =="normal user"){
+           
+            return view('laravel-examples/user-profile');
         }
         else{
-            return view('laravel-examples/user-profile');
+            return view('laravel-examples/admin-profile');
         }
     }
 
