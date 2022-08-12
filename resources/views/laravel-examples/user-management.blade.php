@@ -108,7 +108,7 @@
                     $("#Table_container").addClass("filterable");
                     $("#select_tag").removeClass("col-10").addClass("col-9");
                     $("#flt").addClass("col-1");
-                    $("#flt").html(`<button class="btn btn-filter"><i class="fa fa-filter"></i></button>`);
+                    $("#flt").html(`<button class="btn btn-filter m-0"><i class="fa fa-filter"></i></button>`);
                     $("#flt").click(function(){
                         $("#cin").html(`<input type="text" placeholder="CIN" disabled>`)
                     })
@@ -159,6 +159,9 @@
                     r.find("tbody .no-result").remove(), o.show(), d.hide(), d.length === o.length && r.find("tbody").prepend($('<tr class="no-result text-center"><td colspan="' + r.find(".filters th").length + '">Aucun résultat trouvé</td></tr>'))
                 }
                 // $("#rowcount").html($("tr:visible").length - 1), checkval()
+            })
+            $("#flt").click(function(){
+                console.log(this);
             })
         });
     });
