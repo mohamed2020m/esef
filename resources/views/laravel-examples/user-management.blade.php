@@ -161,7 +161,14 @@
                 // $("#rowcount").html($("tr:visible").length - 1), checkval()
             })
             $("#flt").click(function(){
-                console.log(this);
+                let classList = this.attr("class");          
+                let classArr = classList.split(/\s+/);
+                if($.inArray("btn-warning", classArr) != -1) {
+                    this.removeClass("btn-secondary").addClass("btn-warning");
+                }
+                else{
+                    this.removeClass("btn-warning").addClass("btn-secondary");
+                }
             })
         });
     });
