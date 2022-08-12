@@ -38,7 +38,7 @@ class RegisterController extends Controller
         Mail::to(request()->email)->send(new Email($user));
 
         //Auth::login($user);
-        return redirect('/Accueil')->with('success','Votre compte a été créé avec succès, nous avons vous envoyé un email pour valider votre compte,veuillez le confirmer');
+        return redirect('/Accueil')->with('success','Votre compte a été créé avec succès.<br/>Nous vous avons envoyé un e-mail pour activer votre compte.');
     }
 
     public function verify_email($verification_code){
@@ -48,11 +48,11 @@ class RegisterController extends Controller
         }
         else{
             if($user->state =="1"){
-                return redirect('/Accueil')->with('success','email deja valider');
+                return redirect('/Accueil')->with('success','e-mail déja validé');
             }
             else{
                 $user->update(['state' => "1",'code' =>null]);
-                return redirect('/Accueil')->with('success','E-mail vérifié avec succès');
+                return redirect('/Accueil')->with('success','Compte activé avec succès');
             }
 
         }
