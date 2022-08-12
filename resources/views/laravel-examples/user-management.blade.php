@@ -163,9 +163,10 @@
                         d.length === o.length && 
                         r.find("tbody").prepend($('<tr class="no-result text-center"><td colspan="' 
                         + r.find(".filters th").length + '">Aucun résultat trouvé</td></tr>'))
+                        $("#rowcount").html(d.length);
+                        // , checkval()
                     });
-                    $("#UserDataTable" ).append(`<p>Nombre de lines : <span id="rowcount"></span></p>`);
-                    $("#rowcount").html($("tr:visible").length - 1), checkval()
+                    $("#UserDataTable" ).append(`<p class="mt-3 text-sm text-info">Nombre de lines : <span id="rowcount"></span></p>`);
                 }
                 else{
                     $(this).children().removeClass("btn-warning").addClass("btn-secondary");
@@ -175,9 +176,9 @@
             })
         });
     });
-    function checkval() {
-        1 == $("tbody tr:visible").length && "Aucun résultat trouvé" == $("tbody tr:visible td").html() ? $("#rowcount").html("0") : $("#rowcount").html($("tr:visible").length - 1)
-    }
+    // function checkval() {
+    //     1 == $("tbody tr:visible").length && "Aucun résultat trouvé" == $("tbody tr:visible td").html() ? $("#rowcount").html("0") : $("#rowcount").html($("tr:visible").length - 1)
+    // }
 </script>
 
 @endsection
