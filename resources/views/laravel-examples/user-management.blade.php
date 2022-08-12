@@ -135,33 +135,16 @@
                     $("#model_wrapper").html(model);
                     
                     // filter
-                    $(".filterable .btn-filter").click(function() {
-                        let t = $(this).parents(".filterable"),
-                            e = t.find(".filters input"),
-                            l = t.find(".table tbody");
-                        // 1 == e.prop("disabled") ? 
-                        // (e.prop("disabled", !1), 
-                        e.first().focus() 
-                        // : (e.val("").prop("disabled", !0), l.find(".no-result").remove(), l.find("tr").show()), $("#rowcount").html($(".filterable tr").length - 1)
-                    }), 
-                    $(".filterable .filters input").keyup(function(t) {
-                        if ("9" != (t.keyCode || t.which)) {
-                            var e = $(this),
-                                l = e.val().toLowerCase(),
-                                n = e.parents(".filterable"),
-                                i = n.find(".filters th").index(e.parents("th")),
-                                r = n.find(".table"),
-                                o = r.find("tbody tr"),
-                                d = o.filter(function() {
-                                    return -1 === $(this).find("td").eq(i).text().toLowerCase().indexOf(l)
-                                });
-                            r.find("tbody .no-result").remove(), o.show(), d.hide(), d.length === o.length && r.find("tbody").prepend($('<tr class="no-result text-center"><td colspan="' + r.find(".filters th").length + '">Aucun résultat trouvé</td></tr>'))
-                        }
-                        // $("#rowcount").html($("tr:visible").length - 1), checkval()
-                    })
+                    // $(".filterable .btn-filter").click(function() {
+                    //     let t = $(this).parents(".filterable"),
+                    //         e = t.find(".filters input"),
+                    //         l = t.find(".table tbody");
+                    //     1 == e.prop("disabled") ? (e.prop("disabled", !1), e.first().focus() : (e.val("").prop("disabled", !0), l.find(".no-result").remove(), l.find("tr").show()), $("#rowcount").html($(".filterable tr").length - 1)
+                    // }), 
+                    
                 },
                 error:function(err){
-                    console.log(err);
+                    alert(statusText);
                 }
             });
 
@@ -171,13 +154,31 @@
                 let classArr = classList.split(/\s+/);
                 if($.inArray("btn-warning", classArr) == -1) {
                     $(this).children().removeClass("btn-secondary").addClass("btn-warning");
-                    $("#cin").html(`<input type="text" placeholder="Filtrer par CIN" id="cin_filter">`)
+                    $("#cin").html(`<input type="text" placeholder="Filtrer par CIN" id="cin_filter">`);
+                    $("#cin_filter").first().focus();
                 }
                 else{
                     $(this).children().removeClass("btn-warning").addClass("btn-secondary");
                     $("#cin_filter").remove();
                     $("#cin").html('CIN')
                 }
+            })
+
+            $(".filterable .filters input").keyup(function(t) {
+                // if ("9" != (t.keyCode || t.which)) {
+                    console.log( "Handler for .keyup() called." );
+                    var e = $(this),
+                        l = e.val().toLowerCase(),
+                        n = e.parents(".filterable"),
+                        i = n.find(".filters th").index(e.parents("th")),
+                        r = n.find(".table"),
+                        o = r.find("tbody tr"),
+                        d = o.filter(function() {
+                            return -1 === $(this).find("td").eq(i).text().toLowerCase().indexOf(l)
+                        });
+                    r.find("tbody .no-result").remove(), o.show(), d.hide(), d.length === o.length && r.find("tbody").prepend($('<tr class="no-result text-center"><td colspan="' + r.find(".filters th").length + '">Aucun résultat trouvé</td></tr>'))
+                // }
+                // $("#rowcount").html($("tr:visible").length - 1), checkval()
             })
         });
     });
