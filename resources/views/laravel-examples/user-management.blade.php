@@ -165,7 +165,7 @@
             })
 
             $(".filterable .filters input").keyup(function(t) {
-                if ("9" != (t.keyCode || t.which)) {
+                // if ("9" != (t.keyCode || t.which)) {
                     console.log( "Handler for .keyup() called." );
                     var e = $(this),
                         l = e.val().toLowerCase(),
@@ -177,7 +177,7 @@
                             return -1 === $(this).find("td").eq(i).text().toLowerCase().indexOf(l)
                         });
                     r.find("tbody .no-result").remove(), o.show(), d.hide(), d.length === o.length && r.find("tbody").prepend($('<tr class="no-result text-center"><td colspan="' + r.find(".filters th").length + '">Aucun résultat trouvé</td></tr>'))
-                }
+                // }
                 // $("#rowcount").html($("tr:visible").length - 1), checkval()
             })
         });
