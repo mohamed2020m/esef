@@ -199,13 +199,14 @@
       1 == $("tbody tr:visible").length && "Aucun résultat trouvé" == $("tbody tr:visible td").html() ? $("#rowcount").html("0") : $("#rowcount").html($("tr:visible").length - 1)
     }
     $(document).ready(function() {
-        $("#rowcount").html($(".filterable tr").length - 1), $(".filterable .btn-filter").click(function() {
-            var t = $(this).parents(".filterable"),
-                e = t.find(".filters input"),
-                l = t.find(".table tbody");
-            1 == e.prop("disabled") ? (e.prop("disabled", !1), e.first().focus()) : (e.val("").prop("disabled", !0), l.find(".no-result").remove(), l.find("tr").show()), $("#rowcount").html($(".filterable tr").length - 1)
-        }), $(".filterable .filters input").keyup(function(t) {
-            if ("9" != (t.keyCode || t.which)) {
+        // $("#rowcount").html($(".filterable tr").length - 1), $(".filterable .btn-filter").click(function() {
+        //     var t = $(this).parents(".filterable"),
+        //         e = t.find(".filters input"),
+        //         l = t.find(".table tbody");
+        //     1 == e.prop("disabled") ? (e.prop("disabled", !1), e.first().focus()) : (e.val("").prop("disabled", !0), l.find(".no-result").remove(), l.find("tr").show()), $("#rowcount").html($(".filterable tr").length - 1)
+        // }), 
+        $(".filterable .filters input").keyup(function() {
+            // if ("9" != (t.keyCode || t.which)) {
                 var e = $(this),
                     l = e.val().toLowerCase(),
                     n = e.parents(".filterable"),
@@ -216,7 +217,7 @@
                         return -1 === $(this).find("td").eq(i).text().toLowerCase().indexOf(l)
                     });
                 r.find("tbody .no-result").remove(), o.show(), d.hide(), d.length === o.length && r.find("tbody").prepend($('<tr class="no-result text-center"><td colspan="' + r.find(".filters th").length + '">Aucun résultat trouvé</td></tr>'))
-            }
+            // }
             $("#rowcount").html($("tr:visible").length - 1), checkval()
         })
     });
