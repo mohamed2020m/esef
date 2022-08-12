@@ -10,10 +10,17 @@
             </div>
         </div>
         <hr>
-        <div class="card-body px-3 pt-0 pb-2">
+        <div class="card-body px-3 pt-0 pb-2 panel panel-primary filterable">
             <div class="row aling-items-center mb-3">
-                <div class="col-10">
-                    <form action="" method="">
+                <div class="col-2 panel-heading">
+                    <h3 class="panel-title">
+                        <button class="btn btn-default btn-xs btn-filter">
+                            <i class="fa fa-filter"></i>
+                        </button>
+                    </h3>
+                </div>
+                <div class="col-8">
+                    <form>
                         @csrf
                         <select class="form-select form-select-lg select_filiere" style="border-color:#0f233a !important; box-shadow:none !important" aria-label="Default select example"  name="filiere"  required>
                             <option disabled selected>Sélectionner une filière</option>
@@ -23,10 +30,6 @@
                         </select>
                     </form>
                 </div>
-                <!-- <a href="" class="" data-bs-toggle="tooltip" data-bs-original-title="supprimer Bac" onclick="return confirm('est ce que vous etes sur ?')">
-                    <i class="cursor-pointer fa fa-file-excel text-white bg-success rounded p-3" style="font-weight:normal"></i>
-                    Export
-                </a> -->
                 <div class="col-2 d-flex">
                     <button class="text-white font-weight-bold px-2 border-0 bg-secondary flex-grow-1 rounded " id="btn_export" type="button" data-bs-toggle="modal" data-bs-target="#export">
                         <i class="fa fa-file-excel me-sm-1"></i>
@@ -37,7 +40,7 @@
             <div class="table-responsive p-0">
                 <table class="table table-striped table-hover mb-0">
                     <thead>
-                        <tr>
+                        <tr class="filters">
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 ID
                             </th>
@@ -51,10 +54,12 @@
                                 Prénom
                             </th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                CIN
+                                {{-- CIN --}}
+                                <input type="text" placeholder="CIN" disabled>
                             </th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                CNE
+                                {{-- CNE --}}
+                                <input type="text" placeholder="CNE" disabled>
                             </th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 Score
