@@ -116,7 +116,7 @@ class InfoUserController extends Controller
     }
 
     public function detailUser($id){
-        if(Auth::user()->role =="admin"){
+        if(Auth::user()->role =="admin"||Auth::user()->role =="professeur"){
             $user_data = DB::table('users')->where('id',$id)->get();
             $user_bac_name  = DB::table('bacs')->selectRaw('bacs.id,bacs.name')->join('bac_user','bac_user.bac_id','=','bacs.id')->join('users','users.id','=','bac_user.user_id')->where('users.id',Auth::user()->id)->get();
             $user_bac_data = DB::table('bac_user')->where('user_id',$id)->get();
