@@ -42,7 +42,7 @@ class ChangePasswordController extends Controller
             $message->subject('Votre mot de passe a été réinitialisé');
          });
 
-          return redirect('/Accueil')->with('message', 'Your password has been changed!');
+          return redirect('/Accueil')->with('success', 'Votre mot de passe a été changé avec succès !');
     }
 
 
