@@ -122,7 +122,7 @@ class InfoUserController extends Controller
             $user_bac_name  = DB::table('bacs')->selectRaw('bacs.id,bacs.name')->join('bac_user','bac_user.bac_id','=','bacs.id')->join('users','users.id','=','bac_user.user_id')->where('users.id',$id)->get();
             $user_bac_data = DB::table('bac_user')->where('user_id',$id)->get();
             
-            $user_licence_name = DB::table('licences')->selectRaw('licences.id,licences.name')->join('licence_user','licence_user.licence_id','=','licences.id')->join('users','users.id','=','licence_user.user_id')->where('users.id',$id)->get();
+            $user_licence_name = DB::table('licences')->selectRaw('licences.id,licences.name')->join('licence_user','licence_user.licence_id','=','licences.id')->join('users','users.id','=','licence_user.user_id')->where('users.id',Auth::user()->id)->get();
             $user_licence_data = DB::table('licence_user')->where('user_id',$id)->get();
             
             // $data = DB::table('users')->where('id',$id)->get();
