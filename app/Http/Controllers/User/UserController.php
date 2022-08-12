@@ -12,7 +12,7 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function afficher(){
-        if(Auth::user()->role =="admin"){
+        if(Auth::user()->role =="admin" || Auth::user()->role =="super admin" ){
            
     //$inscrits=DB::table('users')->select('*')->join('filiere_user','filiere_user.user_id','=','users.id')->get();
     $inscrits=DB::table('users')->get();    
@@ -53,7 +53,7 @@ class UserController extends Controller
 
 
     public function getUtilisateurs(Request $request){
-        if(Auth::user()->role =="admin"){
+        if(Auth::user()->role =="admin" || Auth::user()->role =="super admin"){
          
           $search = $request->query('search', array('value' => '', 'regex' => false));
           $draw = $request->query('draw', 0);
