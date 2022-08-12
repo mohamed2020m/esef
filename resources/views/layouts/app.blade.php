@@ -193,7 +193,7 @@
         $('.preloader').delay(500).fadeOut(500);
     });
   </script>
-{{-- 
+
   <script>
     function checkval() {
       1 == $("tbody tr:visible").length && "Aucun résultat trouvé" == $("tbody tr:visible td").html() ? $("#rowcount").html("0") : $("#rowcount").html($("tr:visible").length - 1)
@@ -220,7 +220,7 @@
             $("#rowcount").html($("tr:visible").length - 1), checkval()
         })
     });
-  </script> --}}
+  </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   
