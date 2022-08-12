@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('photo')->default('default_image.jpg');
             $table->string('cin_image_face1')->nullable();
             $table->string('cin_image_face2')->nullable();
+            $table->string('code');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
