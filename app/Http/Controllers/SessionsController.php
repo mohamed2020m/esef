@@ -37,11 +37,8 @@ class SessionsController extends Controller
             }
             
         }
-        elseif(Auth::attempt(['email' => $email, 'password' => $password])){
-                return back()->withErrors(['email'=>'Votre compte est désactivé']);
-        }else{
-            return back()->withErrors(['email'=>'Email or password invalid.']);
-
+        else{            
+                return back()->withErrors(['email'=>'Email or password invalid.']);
         }
     }
     
