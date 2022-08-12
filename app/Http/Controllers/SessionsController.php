@@ -30,14 +30,23 @@ class SessionsController extends Controller
             session()->regenerate();
             if(Auth::user()->role =="professeur"){
                 return redirect('candidats')->with(['success'=>'You are logged in.']);
+            }elseif(Auth::user()->role =="super admin"){
+                   return redirect('utilisateurs');
             }else{
-                return redirect('dashboard')->with(['success'=>'You are logged in.']);   
+                return redirect('dashboard')->with(['success'=>'You are logged in.']);
             }
             
         }
         else{
 
-            return back()->withErrors(['email'=>'Email or password invalid.']);
+            if(Auth::user()->state="0"){
+                return back()->withErrors(['email'=>'Votre compte est désactivé ']);
+            }else{
+                return back()->withErrors(['email'=>'Email or password invalid.']);
+
+            }
+
+            
         }
     }
     
