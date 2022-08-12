@@ -8,7 +8,7 @@
             <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
                 <div class="card card-plain mt-8">
                     <div class="card-header pb-0 text-left bg-transparent">
-                        <h4 class="mb-0">Changer Le mot de passe</h4>
+                        <h4 class="mb-0">Changer le mot de passe</h4>
                     </div>
                     <div class="card-body">
                         <form role="form" action="/server.php/reset-password" method="POST">
@@ -24,18 +24,18 @@
                                 </div>
                             </div>
                             <div>
-                                <label for="password">New Password</label>
+                                <label for="password">nouveau mot de passe</label>
                                 <div class="">
-                                    <input id="password" name="password" type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                                    <input id="password" name="password" type="password" class="form-control" placeholder="nouveau mot de passe" aria-label="Password" aria-describedby="password-addon">
                                     @error('password')
                                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                     @enderror
                                 </div>
                             </div>
                             <div>
-                                <label for="password_confirmation">Confirme le mot de passe </label>
+                                <label for="password_confirmation">Confirmez le mot de passe </label>
                                 <div class="">
-                                    <input id="password-confirmation" name="password_confirmation" type="password" class="form-control" placeholder="Password-confirmation" aria-label="Password-confirmation" aria-describedby="Password-addon">
+                                    <input id="password-confirmation" name="password_confirmation" type="password" class="form-control" placeholder="Confirmez le mot de passe" aria-label="Password-confirmation" aria-describedby="Password-addon">
                                     @error('password')
                                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                     @enderror
