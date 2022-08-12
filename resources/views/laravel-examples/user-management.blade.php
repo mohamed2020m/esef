@@ -163,7 +163,7 @@
                                 d.length === o.length && 
                                 r.find("tbody").prepend($('<tr class="no-result text-center"><td colspan="' 
                                 + r.find(".filters th").length + '">Aucun résultat trouvé</td></tr>'))
-                                $("#rowcount").html(d.length ? d.length : 0);
+                                $("#rowcount").html(o.length - d.length);
                                 // , checkval()
                             });
                             $("#UserDataTable" ).append(`<p id="n_lines" class="mt-3 text-sm text-info">Nombre de lines : <span id="rowcount"></span></p>`);
@@ -177,7 +177,21 @@
                     })
                 },
                 error:function(err){
-                    alert(statusText);
+                    $(document).append(`
+                        <div aria-live="polite" aria-atomic="true" class="position-relative">
+                            <div class="toast-container position-absolute top-0 end-0 p-3">
+                                <div class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+                                    <div class="toast-header">
+                                        <strong class="me-auto">Error</strong>
+                                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                    </div>
+                                    <div class="toast-body">
+                                        ${err}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `)
                 }
             });
         });
