@@ -139,48 +139,47 @@
                     </div>`
                     $("#btn_export").addClass("bg-success").removeClass("bg-secondary");
                     $("#model_wrapper").html(model);
+
+                    $("#flt").click(function(){
+                        let classList = $(this).children().attr("class");          
+                        let classArr = classList.split(/\s+/);
+                        if($.inArray("btn-info", classArr) == -1) {
+                            $(this).children().removeClass("btn-secondary").addClass("btn-info");
+                            $("#cin").html(`<input type="text" placeholder="Filtrer par CIN" id="cin_filter">`);
+                            $("#cin_filter").first().focus();
+
+                            $(".filterable .filters input").keyup(function() {
+                                let e = $(this);
+                                let l = e.val().toLowerCase();
+                                let n = e.parents(".filterable");
+                                let i = n.find(".filters th").index(e.parents("th"));
+                                let r = n.find(".table");
+                                let o = r.find("tbody tr");
+                                let d = o.filter(function() {
+                                    return -1 === $(this).find("td").eq(i).text().toLowerCase().indexOf(l)
+                                });
+                                
+                                r.find("tbody .no-result").remove(), o.show(), d.hide(),
+                                d.length === o.length && 
+                                r.find("tbody").prepend($('<tr class="no-result text-center"><td colspan="' 
+                                + r.find(".filters th").length + '">Aucun résultat trouvé</td></tr>'))
+                                $("#rowcount").html(d.length);
+                                // , checkval()
+                            });
+                            $("#UserDataTable" ).append(`<p id="n_lines" class="mt-3 text-sm text-info">Nombre de lines : <span id="rowcount"></span></p>`);
+                        }
+                        else{
+                            $(this).children().removeClass("btn-info").addClass("btn-secondary");
+                            $("#cin_filter").remove();
+                            $("#cin").html('CIN');
+                            $("#n_lines" ).remove();
+                        }
+                    })
                 },
                 error:function(err){
                     alert(statusText);
                 }
             });
-
-            
-            $("#flt").click(function(){
-                let classList = $(this).children().attr("class");          
-                let classArr = classList.split(/\s+/);
-                if($.inArray("btn-info", classArr) == -1) {
-                    $(this).children().removeClass("btn-secondary").addClass("btn-info");
-                    $("#cin").html(`<input type="text" placeholder="Filtrer par CIN" id="cin_filter">`);
-                    $("#cin_filter").first().focus();
-
-                    $(".filterable .filters input").keyup(function() {
-                        let e = $(this);
-                        let l = e.val().toLowerCase();
-                        let n = e.parents(".filterable");
-                        let i = n.find(".filters th").index(e.parents("th"));
-                        let r = n.find(".table");
-                        let o = r.find("tbody tr");
-                        let d = o.filter(function() {
-                            return -1 === $(this).find("td").eq(i).text().toLowerCase().indexOf(l)
-                        });
-                        
-                        r.find("tbody .no-result").remove(), o.show(), d.hide(),
-                        d.length === o.length && 
-                        r.find("tbody").prepend($('<tr class="no-result text-center"><td colspan="' 
-                        + r.find(".filters th").length + '">Aucun résultat trouvé</td></tr>'))
-                        $("#rowcount").html(d.length);
-                        // , checkval()
-                    });
-                    $("#UserDataTable" ).append(`<p id="n_lines" class="mt-3 text-sm text-info">Nombre de lines : <span id="rowcount"></span></p>`);
-                }
-                else{
-                    $(this).children().removeClass("btn-info").addClass("btn-secondary");
-                    $("#cin_filter").remove();
-                    $("#cin").html('CIN');
-                    $("#n_lines" ).remove();
-                }
-            })
         });
     });
     // function checkval() {
