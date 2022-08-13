@@ -178,7 +178,7 @@
                 },
                 error:function(err){
                     console.log(err);
-                    $(document).append(`
+                    $('#auth-wrap-nav-content').append(`
                         <div aria-live="polite" aria-atomic="true" class="position-relative">
                             <div class="toast-container position-absolute top-0 end-0 p-3">
                                 <div class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
@@ -187,7 +187,7 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                                     </div>
                                     <div class="toast-body">
-                                        ${err}
+                                        ${err.statusText}
                                     </div>
                                 </div>
                             </div>
