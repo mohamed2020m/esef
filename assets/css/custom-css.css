@@ -576,5 +576,12 @@ to {
 }
 /* Export btn ::End */
 
+/* Pagination :: Start */
+#foot_condidate a.disabled {
+    pointer-events: none;
+    cursor: default;
+    background-color: rgb(112, 112, 112);
+    color:white
+}
+/* Pagination :: End */
 
-/* Filter :: End */

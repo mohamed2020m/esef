@@ -106,20 +106,26 @@
 
 @push('dashboard')
 <script>
+  
+  var sep = {!! json_encode($nombre_inscrits_dans_SEP, JSON_HEX_TAG) !!};
+  var sesAnglais = {!! json_encode($nombre_inscrits_dans_SES_anglaise, JSON_HEX_TAG) !!};
+  var sesIndus = {!! json_encode($nombre_inscrits_dans_SES_Sc_ind, JSON_HEX_TAG) !!};
+  var sesMath = {!! json_encode($nombre_inscrits_dans_SES_math, JSON_HEX_TAG) !!};
+
   window.onload = function() {
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
     new Chart(ctx, {
       type: "bar",
       data: {
-        labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES'],
+        labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES-Mathématique'],
         datasets: [{
           label: "Nombre des candidats",
           // tension: 0.4,
           // borderWidth: 0,
           // borderRadius: 4,
           // borderSkipped: false,
-          data: [52, 19, 30, 50, 20, 23],
+          data: [sep, sesAnglais, sesIndus, sesMath, 20, 23],
           backgroundColor: [
             'rgba(255, 99, 132)',
             'rgba(255, 159, 64)',
