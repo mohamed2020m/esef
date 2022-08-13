@@ -145,6 +145,7 @@
                         let classArr = classList.split(/\s+/);
                         console.log("classArr: ", classArr);
                         if($.inArray("btn-info", classArr) == -1) {
+                            console.log("if");
                             $(this).children().removeClass("btn-secondary").addClass("btn-info");
                             $("#cin").html(`<input type="text" placeholder="Filtrer par CIN" id="cin_filter">`);
                             $("#cin_filter").first().focus();
@@ -165,7 +166,6 @@
                                 r.find("tbody").prepend($('<tr class="no-result text-center"><td colspan="' 
                                 + r.find(".filters th").length + '">Aucun résultat trouvé</td></tr>'))
                                 $("#rowcount").html(o.length - d.length);
-                                // , checkval()
                             });
                             $("#UserDataTable" ).append(`<p id="n_lines" class="mt-3 text-sm text-info">Nombre de lines : <span id="rowcount"></span></p>`);
                         }
@@ -196,9 +196,6 @@
             });
         });
     });
-    // function checkval() {
-    //     1 == $("tbody tr:visible").length && "Aucun résultat trouvé" == $("tbody tr:visible td").html() ? $("#rowcount").html("0") : $("#rowcount").html($("tr:visible").length - 1)
-    // }
 </script>
 
 @endsection
