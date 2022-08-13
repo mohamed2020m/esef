@@ -138,7 +138,7 @@ class HomeController extends Controller
             $nombre_candidat_par_filiere=[];
             $names=[];
             foreach( $names_filiere as $name){
-                $test=split(' ',$name->name);
+                $test=split("\ ",$name->name);
                 foreach($test as $word){
                     
                     array_push($names,$word[0]);
