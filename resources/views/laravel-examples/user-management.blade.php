@@ -153,8 +153,8 @@
                     $("#first").click(function(){
                         $("#UserDataTable" ).html(pagination(sections[0]));
                         $("#show_id").html(`<span class="text-sm">Afficher : ${1}/${sections.length}</span>`);
-                        $(this).addClass('disabled');
-                        $("#last").removeClass('disabled');
+                        $(this).children().addClass('disabled');
+                        $("#last").children().removeClass('disabled');
                     })
 
                     $("#prev").click(function(){
@@ -163,8 +163,8 @@
                             $("#UserDataTable" ).html(pagination(sections[index]));
                             $("#show_id").html(`<span class="text-sm">Afficher : ${index + 1}/${sections.length}</span>`)
                         }
-                        $("#first").removeClass('disabled');
-                        $("#last").removeClass('disabled');
+                        $("#first").children().removeClass('disabled');
+                        $("#last").children().removeClass('disabled');
                     })
 
                     $("#next").click(function(){
@@ -173,15 +173,15 @@
                             $("#UserDataTable" ).html(pagination(sections[index]));
                             $("#show_id").html(`<span class="text-sm">Afficher : ${index + 1}/${sections.length}</span>`);
                         }
-                        $("#first").removeClass('disabled');
-                        $("#last").removeClass('disabled');
+                        $("#first").children().removeClass('disabled');
+                        $("#last").children().removeClass('disabled');
                     })
 
                     $("#last").click(function(){
                         $("#UserDataTable" ).html(pagination(sections[sections.length - 1]));
                         $("#show_id").html(`<span class="text-sm">Afficher : ${sections.length}/${sections.length}</span>`);
-                        $("#first").removeClass('disabled');
-                        $(this).addClass('disabled');
+                        $("#first").children().removeClass('disabled');
+                        $(this).children().addClass('disabled');
                     })
 
                     // adding filter button
