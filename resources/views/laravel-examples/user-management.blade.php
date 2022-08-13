@@ -205,29 +205,6 @@
                     </div>`
                     $("#btn_export").addClass("bg-success").removeClass("bg-secondary");
                     $("#model_wrapper").html(model);
-
-                    $("#flt").click(function(){
-                        let table = "";
-                        for(var i=0;i<data.length;i++){
-                            table += 
-                            `<tr class="align-middle" style="font-size: 18px;">
-                                <td class="text-center"><p class="font-weight-bold mb-0"> ${data[i].id}</p></td>
-                                <td class="text-center"><img src="../public/images/images_profiles/${data[i].photo}" alt="avatar" class="avatar avatar-sm me-3"></td>
-                                <td class="text-center"><p class="font-weight-bold mb-0">${data[i].last_name}</p></td>
-                                <td class="text-center"><p class="font-weight-bold mb-0">${data[i].first_name}</p></td>
-                                <td class="text-center"><p class="font-weight-bold mb-0">${data[i].cin}</p></td>
-                                <td class="text-center"><p class="font-weight-bold mb-0">${data[i].cne}</p></td>
-                                <td class="text-center"><p class="font-weight-bold mb-0">${data[i].score}</p></td>
-                                <td class="text-center">
-                                    <a href="/server.php/user-management-${data[i].id}" class="mr-3" data-bs-toggle="tooltip" data-bs-original-title="view condidature">
-                                        <i class="fas fa-eye text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
-                                    </a>
-                                </td>
-                            </tr>`
-                        } 
-                        $("#foot_condidate").remove();
-                        $("#UserDataTable" ).html(table);
-                    },
                 },
                 error:function(err){
                     $('body').append(`
