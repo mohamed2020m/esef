@@ -70,8 +70,20 @@
                 </table>
             </div>
         </div>
-        <span class="text-danger">*Note this is just a demo, I'm showing now 2 records for every section. It will be 20 records by default.</span>
     </div>
+    <div id="div-hide">
+        <span class="text-smtext-danger text-center">
+            *Note this is just a demo, I'm showing now 2 records for every section. It will be 20 records by default.
+            this message will be removed automatically at 14:00 PM
+        </span>
+    </div>
+    <script>
+        let s  = new Date(2022, 7, 13, 14);
+        setTimeout(() => {
+            const elem = document.getElementById("div-hide");
+            elem.parentNode.removeChild(elem);
+        }, Date.parse(s));
+    </script>
     <div id="model_wrapper"></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
