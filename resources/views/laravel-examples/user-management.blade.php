@@ -87,12 +87,12 @@
                 data:{'id':filiere_id},
                 success: function(data){
                     // remove filters: 
-                    $('.select_filiere').change(function(){
-                        $("#flt").children().removeClass("btn-warning").addClass("btn-secondary");
-                        $("#cin_filter").remove();
-                        $("#cin").html('CIN');
-                        $("#n_lines" ).remove();
-                    })
+                    // $('.select_filiere').change(function(){
+                    //     $("#flt").children().removeClass("btn-warning").addClass("btn-secondary");
+                    //     $("#cin_filter").remove();
+                    //     $("#cin").html('CIN');
+                    //     $("#n_lines" ).remove();
+                    // })
                     // getting new records
                     for(var i=0;i<data.length;i++){
                         table += 
