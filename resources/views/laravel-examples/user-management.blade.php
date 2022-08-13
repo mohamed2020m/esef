@@ -124,10 +124,18 @@
                             <tr>
                                 <td colspan="8">
                                     <ul class="d-flex justify-content-center pagination mt-3">
-                                        <li id="first" class="page-item" style="width:70px !important;border-radius:20%  !important"><a class="page-link" href="#">Première</a></li>
-                                        <li id="prev" class="page-item"><a class="page-link" href="#">Prev</a></li>
-                                        <li id="next" class="page-item"><a class="page-link" href="#">Suiv</a></li>
-                                        <li id="last" class="page-item" style="width:70px !important;border-radius:20%  !important"><a class="page-link" href="#">Dernier</a></li>
+                                        <li id="first" class="page-item">
+                                            <a class="page-link" href="#" style="box-shadow:none !important">Première</a>
+                                        </li>
+                                        <li id="prev" class="page-item">
+                                            <a class="page-link" href="#" style="width:70px !important;border-radius:20% !important; box-shadow:none !important">Prev</a>
+                                        </li>
+                                        <li id="next" class="page-item">
+                                            <a class="page-link" href="#" style="box-shadow:none !important">Suiv</a>
+                                        </li>
+                                        <li id="last" class="page-item">
+                                            <a class="page-link" href="#" style="width:70px !important;border-radius:20% !important; box-shadow:none !important">Dernier</a>
+                                        </li>
                                     </ul>
                                 </td>
                             </th>
@@ -140,11 +148,13 @@
                     })
 
                     $("#prev").click(function(){
-                        
+                        index--;
+                        $("#UserDataTable" ).html(pagination(sections[index]));
                     })
 
                     $("#next").click(function(){
-                        
+                        index++
+                        $("#UserDataTable" ).html(pagination(sections[index]));
                     })
 
                     $("#last").click(function(){
