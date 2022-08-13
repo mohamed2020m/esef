@@ -138,7 +138,12 @@
                                         </li>
                                     </ul>
                                 </td>
-                            </th>
+                            </tr>
+                            <tr>
+                                <td colspan="8">
+                                    <span>Afficher : ${index}/${sections.length}</span>
+                                </td>
+                            </tr>
                         </nav>
                         `
                     )
