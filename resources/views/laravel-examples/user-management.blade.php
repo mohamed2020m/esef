@@ -125,10 +125,10 @@
                                 <td colspan="8">
                                     <ul class="d-flex justify-content-center pagination">
                                         <li id="first" class="page-item mx-2">
-                                            <a class="page-link" style="cursor: pointer;width:70px !important;border-radius:20% !important; box-shadow:none !important">Première</a>
+                                            <a class="page-link disabled" style="cursor: pointer;width:70px !important;border-radius:20% !important; box-shadow:none !important">Première</a>
                                         </li>
                                         <li id="prev" class="page-item mx-2">
-                                            <a class="page-link" style="cursor: pointer;box-shadow:none !important">Prev</a>
+                                            <a class="page-link disabled" style="cursor: pointer;box-shadow:none !important">Prev</a>
                                         </li>
                                         <li id="next" class="page-item mx-2">
                                             <a class="page-link" style="cursor: pointer;box-shadow:none !important">Suiv</a>
@@ -168,6 +168,7 @@
                         }
                         else{
                             $('#prev').children().removeClass('disabled');
+                            $('#next').children().removeClass('disabled');
                         }
                         $("#first").children().removeClass('disabled');
                         $("#last").children().removeClass('disabled');
@@ -184,6 +185,7 @@
                         }
                         else{
                             $('#next').children().removeClass('disabled');
+                            $('#prev').children().removeClass('disabled');
                         }
                         $("#first").children().removeClass('disabled');
                         $("#last").children().removeClass('disabled');
