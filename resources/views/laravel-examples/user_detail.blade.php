@@ -173,11 +173,12 @@
                         <p class="mb-0">Spécialité :</p>
                     </div>
                     <div class="col-sm-8">
-                        @if(is_null($user_licence_name[0]->name))
-                        @else
-                        <p class="text-muted mb-0">non disponible</p>
-                        @endif
-                        <p class="text-muted mb-0">{{$user_licence_name[0]->name}}</p>
+                    @isset($user_licence_name[0]->name)
+                    <p class="text-muted mb-0">{{$user_licence_name[0]->name}}</p>
+                    
+                    @endisset
+                        
+                        
                     </div>
                 </div>
                 <hr>
