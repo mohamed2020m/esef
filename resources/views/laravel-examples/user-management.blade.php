@@ -141,9 +141,9 @@
                     $("#model_wrapper").html(model);
 
                     $("#flt").click(function(){
-                        console.log(this)
                         let classList = $(this).children().attr("class");          
                         let classArr = classList.split(/\s+/);
+                        console.log("classArr: ", classArr);
                         if($.inArray("btn-info", classArr) == -1) {
                             $(this).children().removeClass("btn-secondary").addClass("btn-info");
                             $("#cin").html(`<input type="text" placeholder="Filtrer par CIN" id="cin_filter">`);
