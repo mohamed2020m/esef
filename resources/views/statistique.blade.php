@@ -118,7 +118,8 @@
     new Chart(ctx, {
       type: "bar",
       data: {
-        labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES-Mathématique'],
+        labels: $names,
+        //labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES-Mathématique'],
         datasets: [{
           label: "Nombre des candidats",
           // tension: 0.4,
