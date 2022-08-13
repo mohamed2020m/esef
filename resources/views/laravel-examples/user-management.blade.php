@@ -141,6 +141,7 @@
                     $("#model_wrapper").html(model);
 
                     $("#flt").click(function(){
+                        console.log("clicked!")
                         let classList = $(this).children().attr("class");          
                         let classArr = classList.split(/\s+/);
                         if($.inArray("btn-info", classArr) == -1) {
