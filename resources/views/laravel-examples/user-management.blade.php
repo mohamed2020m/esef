@@ -163,6 +163,12 @@
                             $("#UserDataTable" ).html(pagination(sections[index]));
                             $("#show_id").html(`<span class="text-sm">Afficher : ${index + 1}/${sections.length}</span>`)
                         }
+                        if(index == 0){
+                            $('#prev').children().addClass('disabled');
+                        }
+                        else{
+                            $('#prev').children().removeClass('disabled');
+                        }
                         $("#first").children().removeClass('disabled');
                         $("#last").children().removeClass('disabled');
                     })
@@ -172,6 +178,12 @@
                             index++
                             $("#UserDataTable" ).html(pagination(sections[index]));
                             $("#show_id").html(`<span class="text-sm">Afficher : ${index + 1}/${sections.length}</span>`);
+                        }
+                        if(index == sections.length -1){
+                            $('#next').children().addClass('disabled');
+                        }
+                        else{
+                            $('#next').children().removeClass('disabled');
                         }
                         $("#first").children().removeClass('disabled');
                         $("#last").children().removeClass('disabled');
