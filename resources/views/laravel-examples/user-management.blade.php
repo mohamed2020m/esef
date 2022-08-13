@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="table-responsive p-0">
-                <table class="table table-striped table-hover mb-0">
+                <table class="table table-striped table-hover mb-0" id="tab_candidate">
                     <thead>
                         <tr class="filters">
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -110,6 +110,20 @@
                             </td>
                         </tr>`
                     }  
+
+                    $('#tab_candidate').append(`
+                        <tfoot class="d-flex justify-content-center">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                </ul>
+                            </nav>
+                        </tfoot>`
+                    )
                     $("#UserDataTable" ).html(table);
                     // adding filter button
                     $("#Table_container").addClass("filterable");
