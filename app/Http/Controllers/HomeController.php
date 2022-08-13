@@ -135,9 +135,19 @@ class HomeController extends Controller
         elseif(Auth::user()->role =="admin"){
             $nombre_filieres = DB::table('filieres')->count();
             $names_filiere=DB::table('filieres')->select('filieres.name')->get();
+            $nombre_candidat_par_filiere=[];
             $names=[];
             foreach( $names_filiere as $name){
-                array_push($names,$name->name);
+                $test=split(' ',$name->name);
+                foreach($test as $word){
+                    
+                    array_push($names,$word[0]);
+                }
+                
+                
+                
+
+
             }
             $nombre_candidats_inscrits=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->count();
             $nombre_inscrits_dans_SEP=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',1)->count();
