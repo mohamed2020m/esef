@@ -37,9 +37,6 @@ class SessionsController extends Controller
             }
 
         }
-        else if(Auth::attempt(['email' => $email, 'password' => $password, 'state' => 0])){
-            return redirect('/Accueil')->with('error','D\'abord,vous devez valider votre compte ');
-        }
         else{
                 return back()->withErrors(['email'=>'Email or password invalid.']);
         }
