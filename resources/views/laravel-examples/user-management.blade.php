@@ -141,7 +141,7 @@
                             </tr>
                             <tr>
                                 <td colspan="8">
-                                    <div class="d-flex justify-content-center">
+                                    <div class="d-flex justify-content-center" id="show_id">
                                         <span>Afficher : ${index}/${sections.length}</span>
                                     </div>
                                 </td>
@@ -152,20 +152,24 @@
                     
                     $("#first").click(function(){
                         $("#UserDataTable" ).html(pagination(sections[0]));
+                        $("#show_id").html(`<span>Afficher : ${index}/${sections.length}</span>`);
                     })
 
                     $("#prev").click(function(){
                         index--;
                         $("#UserDataTable" ).html(pagination(sections[index]));
+                        $("#show_id").html(`<span>Afficher : ${index}/${sections.length}</span>`)
                     })
 
                     $("#next").click(function(){
                         index++
                         $("#UserDataTable" ).html(pagination(sections[index]));
+                        $("#show_id").html(`<span>Afficher : ${index}/${sections.length}</span>`);
                     })
 
                     $("#last").click(function(){
                         $("#UserDataTable" ).html(pagination(sections[sections.length - 1]));
+                        $("#show_id").html(`<span>Afficher : ${index}/${sections.length}</span>`);
                     })
 
                     // adding filter button
