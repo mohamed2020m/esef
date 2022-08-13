@@ -70,6 +70,7 @@
                 </table>
             </div>
         </div>
+        <span class="text-danger">*Note this is just a demo, I'm showing now 2 records for every section. It will be 20 records by default.</span>
     </div>
     <div id="model_wrapper"></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
