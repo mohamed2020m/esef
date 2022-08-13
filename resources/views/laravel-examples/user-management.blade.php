@@ -115,7 +115,7 @@
                     //     </tr>`
                     // }  
                     
-                
+                    setData(data);
                     const sections = calculePagination(data);
                     const table = pagination(sections[index]);
                     
@@ -228,6 +228,7 @@
         });
         $("#flt").click(function(){
             let table = "";
+            const data = getData();
             for(var i=0;i<data.length;i++){
                 table += 
                 `<tr class="align-middle" style="font-size: 18px;">
@@ -251,7 +252,6 @@
             let classList = $(this).children().attr("class");          
             let classArr = classList.split(/\s+/);
             if($.inArray("btn-info", classArr) == -1) {
-                console.log("if");
                 $(this).children().removeClass("btn-secondary").addClass("btn-info");
                 $("#cin").html(`<input type="text" placeholder="Filtrer par CIN" id="cin_filter">`);
                 $("#cin_filter").first().focus();
@@ -284,6 +284,14 @@
         })
     });
 
+    function setData(data){
+        const t = data.slice();
+        return t
+    }
+
+    function getData(){
+        return setData(data);
+    }
     function calculePagination(data){
         let sections = [];
         let n_sections = Math.ceil(data.length / 2);
