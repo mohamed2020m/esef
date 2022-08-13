@@ -124,16 +124,16 @@
                             <tr>
                                 <td colspan="8">
                                     <ul class="d-flex justify-content-center pagination mt-3">
-                                        <li id="first" class="page-item">
+                                        <li id="first" class="page-item mx-2">
                                             <a class="page-link" style="width:70px !important;border-radius:20% !important; box-shadow:none !important">Première</a>
                                         </li>
-                                        <li id="prev" class="page-item">
+                                        <li id="prev" class="page-item mx-2 p-2">
                                             <a class="page-link" style="box-shadow:none !important">Prev</a>
                                         </li>
-                                        <li id="next" class="page-item">
+                                        <li id="next" class="page-item mx-2">
                                             <a class="page-link" style="box-shadow:none !important">Suiv</a>
                                         </li>
-                                        <li id="last" class="page-item">
+                                        <li id="last" class="page-item mx-2">
                                             <a class="page-link" style="width:70px !important;border-radius:20% !important; box-shadow:none !important">Dernier</a>
                                         </li>
                                     </ul>
@@ -141,8 +141,8 @@
                             </tr>
                             <tr>
                                 <td colspan="8">
-                                    <div class="d-flex justify-content-center">
-                                        <span>Afficher : ${index}/${sections.length}</span>
+                                    <div class="d-flex justify-content-center" id="show_id">
+                                        <span class="text-sm">Afficher : ${index + 1}/${sections.length}</span>
                                     </div>
                                 </td>
                             </tr>
@@ -152,20 +152,24 @@
                     
                     $("#first").click(function(){
                         $("#UserDataTable" ).html(pagination(sections[0]));
+                        $("#show_id").html(`<span class="text-sm">Afficher : ${index}/${sections.length}</span>`);
                     })
 
                     $("#prev").click(function(){
                         index--;
                         $("#UserDataTable" ).html(pagination(sections[index]));
+                        $("#show_id").html(`<span class="text-sm">Afficher : ${index}/${sections.length}</span>`)
                     })
 
                     $("#next").click(function(){
                         index++
                         $("#UserDataTable" ).html(pagination(sections[index]));
+                        $("#show_id").html(`<span class="text-sm">Afficher : ${index}/${sections.length}</span>`);
                     })
 
                     $("#last").click(function(){
                         $("#UserDataTable" ).html(pagination(sections[sections.length - 1]));
+                        $("#show_id").html(`<span class="text-sm">Afficher : ${index}/${sections.length}</span>`);
                     })
 
                     // adding filter button
