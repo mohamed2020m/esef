@@ -106,7 +106,7 @@
                         </div>
                         <div class="@error('user.name')border border-danger rounded-3 @enderror">
                             <input class="form-control" value="{{auth()->user()->cin}}" type="text" placeholder="votre cin" id="user-cin" name="cin" required>
-                            @error('name')
+                            @error('cin')
                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
@@ -131,7 +131,7 @@
                         </div>
                         <div class="@error('user.name')border border-danger rounded-3 @enderror">
                             <input class="form-control" value="{{auth()->user()->phone}}" type="tel" placeholder="Votre numéro de téléphone" id="user-phone" name="phone" required>
-                            @error('name')
+                            @error('phone')
                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
