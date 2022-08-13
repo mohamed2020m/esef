@@ -580,7 +580,8 @@ to {
 #foot_condidate a.disabled {
     pointer-events: none;
     cursor: default;
-    background-color: rgb(199, 198, 198);
+    background-color: rgb(112, 112, 112);
+    color:white
 }
 /* Pagination :: End */
 
