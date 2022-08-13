@@ -122,7 +122,7 @@
       type: "bar",
       data: {
         
-        labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES-Mathématique'],
+        labels:names,
         datasets: [{
           label: "Nombre des candidats",
           // tension: 0.4,
