@@ -91,72 +91,71 @@
     $(document).ready(function(){
         $(".select_filiere").on('change',function(){
             let filiere_id= $(this).val();
-            // let table="";
+            let table="";
             let model="";
             // const sections = [];
-            let index = 0;
-            let gone = false;
+            // let index = 0;
+            // let gone = false;
             $.ajax({
                 type:'get',
                 url:'{{URL::to("candidatsList")}}',
                 data:{'id':filiere_id},
                 success: function(data){
                     // remove filters: 
-                    $('.select_filiere').change(function(){
-                        $("#flt").children().removeClass("btn-warning").addClass("btn-secondary");
-                        $("#cin_filter").remove();
-                        $("#cin").html('CIN');
-                        $("#n_lines" ).remove();
-                    })
+                    $("#flt").children().removeClass("btn-warning").addClass("btn-secondary");
+                    $("#cin_filter").remove();
+                    $("#cin").html('CIN');
+                    $("#n_lines" ).remove();
+
                     // getting new records
-                    // for(var i=0;i<data.length;i++){
-                    //     table += 
-                    //     `<tr class="align-middle" style="font-size: 18px;">
-                    //         <td class="text-center"><p class="font-weight-bold mb-0"> ${data[i].id}</p></td>
-                    //         <td class="text-center"><img src="../public/images/images_profiles/${data[i].photo}" alt="avatar" class="avatar avatar-sm me-3"></td>
-                    //         <td class="text-center"><p class="font-weight-bold mb-0">${data[i].last_name}</p></td>
-                    //         <td class="text-center"><p class="font-weight-bold mb-0">${data[i].first_name}</p></td>
-                    //         <td class="text-center"><p class="font-weight-bold mb-0">${data[i].cin}</p></td>
-                    //         <td class="text-center"><p class="font-weight-bold mb-0">${data[i].cne}</p></td>
-                    //         <td class="text-center"><p class="font-weight-bold mb-0">${data[i].score}</p></td>
-                    //         <td class="text-center">
-                    //             <a href="/server.php/user-management-${data[i].id}" class="mr-3" data-bs-toggle="tooltip" data-bs-original-title="view condidature">
-                    //                 <i class="fas fa-eye text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
-                    //             </a>
-                    //         </td>
-                    //     </tr>`
-                    // }  
+                    for(var i=0;i<data.length;i++){
+                        table += 
+                        `<tr class="align-middle" style="font-size: 18px;">
+                            <td class="text-center"><p class="font-weight-bold mb-0"> ${data[i].id}</p></td>
+                            <td class="text-center"><img src="../public/images/images_profiles/${data[i].photo}" alt="avatar" class="avatar avatar-sm me-3"></td>
+                            <td class="text-center"><p class="font-weight-bold mb-0">${data[i].last_name}</p></td>
+                            <td class="text-center"><p class="font-weight-bold mb-0">${data[i].first_name}</p></td>
+                            <td class="text-center"><p class="font-weight-bold mb-0">${data[i].cin}</p></td>
+                            <td class="text-center"><p class="font-weight-bold mb-0">${data[i].cne}</p></td>
+                            <td class="text-center"><p class="font-weight-bold mb-0">${data[i].score}</p></td>
+                            <td class="text-center">
+                                <a href="/server.php/user-management-${data[i].id}" class="mr-3" data-bs-toggle="tooltip" data-bs-original-title="view condidature">
+                                    <i class="fas fa-eye text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
+                                </a>
+                            </td>
+                        </tr>`
+                    }  
                     
-                    const sections = calculePagination(data);
-                    const table = pagination(sections[index]);
+                    // const sections = calculePagination(data);
+                    // const table = pagination(sections[index]);
 
                     $("#UserDataTable" ).html(table);
                     
-                    $('#foot_condidate').html(`
-                        <nav aria-label="Page navigation example">
-                            <tr>
-                                <td colspan="8">
-                                    <ul class="d-flex justify-content-center pagination">
-                                        <li id="prev" class="page-item mx-2">
-                                            <a class="page-link disabled" style="cursor: pointer;box-shadow:none !important; width:70px !important;border-radius:20% !important">Précédent</a>
-                                        </li>
-                                        <li id="next" class="page-item mx-2">
-                                            <a class="page-link" style="cursor: pointer;box-shadow:none !important; width:70px !important;border-radius:20% !important">Suivant</a>
-                                        </li>
+                    // $('#foot_condidate').html(`
+                    //     <nav aria-label="Page navigation example">
+                    //         <tr>
+                    //             <td colspan="8">
+                    //                 <ul class="d-flex justify-content-center pagination">
+                    //                     <li id="prev" class="page-item mx-2">
+                    //                         <a class="page-link px-3 disabled" style="cursor: pointer;box-shadow:none !important; width:70px !important;border-radius:20% !important">Précédent</a>
+                    //                     </li>
+                    //                     <li id="next" class="page-item mx-2">
+                    //                         <a class="page-link px-3" style="cursor: pointer;box-shadow:none !important; width:70px !important;border-radius:20% !important">Suivant</a>
+                    //                     </li>
                                         
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr style="border-bottom:1px solid white !important">
-                                <td colspan="8">
-                                    <div class="d-flex justify-content-center" id="show_id">
-                                        <span class="text-sm">Afficher : ${index + 1}/${sections.length}</span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </nav>
-                        `
-                    )
+                    //                 </ul>
+                    //             </td>
+                    //         </tr>
+                    //         <tr style="border-bottom:1px solid white !important">
+                    //             <td colspan="8">
+                    //                 <div class="d-flex justify-content-center" id="show_id">
+                    //                     <span class="text-sm">Afficher : ${index + 1}/${sections.length}</span>
+                    //                 </div>
+                    //             </td>
+                    //         </tr>
+                    //     </nav>
+                    //     `
+                    // )
                     
                     // <li id="first" class="page-item mx-2">
                     //     <a class="page-link disabled" style="cursor: pointer;width:70px !important;border-radius:20% !important; box-shadow:none !important">Première</a>
@@ -164,55 +163,55 @@
                     // <li id="last" class="page-item mx-2">
                     //     <a class="page-link" style="cursor: pointer;width:70px !important;border-radius:20% !important; box-shadow:none !important">Dernier</a>
                     // </li>
-                    $("#first").click(function(){
-                        $("#UserDataTable" ).html(pagination(sections[0]));
-                        $("#show_id").html(`<span class="text-sm">Afficher : ${1}/${sections.length}</span>`);
-                        $(this).children().addClass('disabled');
-                        $("#last").children().removeClass('disabled');
-                    })
+                    // $("#first").click(function(){
+                    //     $("#UserDataTable" ).html(pagination(sections[0]));
+                    //     $("#show_id").html(`<span class="text-sm">Afficher : ${1}/${sections.length}</span>`);
+                    //     $(this).children().addClass('disabled');
+                    //     $("#last").children().removeClass('disabled');
+                    // })
 
-                    $("#prev").click(function(){
-                        if(index > 0){
-                            index--;
-                            $("#UserDataTable" ).html(pagination(sections[index]));
-                            $("#show_id").html(`<span class="text-sm">Afficher : ${index + 1}/${sections.length}</span>`)
-                        }
-                        if(index == 0){
-                            $('#prev').children().addClass('disabled');
-                            $("#first").children().addClass('disabled');
-                        }
-                        else{
-                            $('#prev').children().removeClass('disabled');
-                            $('#next').children().removeClass('disabled');
-                        }
-                        $("#first").children().removeClass('disabled');
-                        $("#last").children().removeClass('disabled');
-                    })
+                    // $("#prev").click(function(){
+                    //     if(index > 0){
+                    //         index--;
+                    //         $("#UserDataTable" ).html(pagination(sections[index]));
+                    //         $("#show_id").html(`<span class="text-sm">Afficher : ${index + 1}/${sections.length}</span>`)
+                    //     }
+                    //     if(index == 0){
+                    //         $('#prev').children().addClass('disabled');
+                    //         $("#first").children().addClass('disabled');
+                    //     }
+                    //     else{
+                    //         $('#prev').children().removeClass('disabled');
+                    //         $('#next').children().removeClass('disabled');
+                    //     }
+                    //     $("#first").children().removeClass('disabled');
+                    //     $("#last").children().removeClass('disabled');
+                    // })
 
-                    $("#next").click(function(){
-                        if(index < sections.length - 1){
-                            index++
-                            $("#UserDataTable" ).html(pagination(sections[index]));
-                            $("#show_id").html(`<span class="text-sm">Afficher : ${index + 1}/${sections.length}</span>`);
-                        }
-                        if(index == sections.length - 1){
-                            $('#next').children().addClass('disabled');
-                            $("#last").children().addClass('disabled');
-                        }
-                        else{
-                            $('#next').children().removeClass('disabled');
-                            $('#prev').children().removeClass('disabled');
-                        }
-                        $("#first").children().removeClass('disabled');
-                        $("#last").children().removeClass('disabled');
-                    })
+                    // $("#next").click(function(){
+                    //     if(index < sections.length - 1){
+                    //         index++
+                    //         $("#UserDataTable" ).html(pagination(sections[index]));
+                    //         $("#show_id").html(`<span class="text-sm">Afficher : ${index + 1}/${sections.length}</span>`);
+                    //     }
+                    //     if(index == sections.length - 1){
+                    //         $('#next').children().addClass('disabled');
+                    //         $("#last").children().addClass('disabled');
+                    //     }
+                    //     else{
+                    //         $('#next').children().removeClass('disabled');
+                    //         $('#prev').children().removeClass('disabled');
+                    //     }
+                    //     $("#first").children().removeClass('disabled');
+                    //     $("#last").children().removeClass('disabled');
+                    // })
 
-                    $("#last").click(function(){
-                        $("#UserDataTable" ).html(pagination(sections[sections.length - 1]));
-                        $("#show_id").html(`<span class="text-sm">Afficher : ${sections.length}/${sections.length}</span>`);
-                        $("#first").children().removeClass('disabled');
-                        $(this).children().addClass('disabled');
-                    })
+                    // $("#last").click(function(){
+                    //     $("#UserDataTable" ).html(pagination(sections[sections.length - 1]));
+                    //     $("#show_id").html(`<span class="text-sm">Afficher : ${sections.length}/${sections.length}</span>`);
+                    //     $("#first").children().removeClass('disabled');
+                    //     $(this).children().addClass('disabled');
+                    // })
 
                     // adding filter button
                     $("#Table_container").addClass("filterable");
@@ -297,37 +296,38 @@
         })
     });
 
-    function calculePagination(data){
-        let sections = [];
-        let n_sections = Math.ceil(data.length / 20);
-        let j = 0;
-        for(let i = 0; i < n_sections; i++){
-            sections.push(data.slice(j,j+2))
-            j += 2;
-        }
-        return sections;
-    }
-    function pagination(arr){
-        let table = ""; 
-        for(var i=0;i<arr.length;i++){
-            table += 
-            `<tr class="align-middle" style="font-size: 18px;">
-                <td class="text-center"><p class="font-weight-bold mb-0"> ${arr[i].id}</p></td>
-                <td class="text-center"><img src="../public/images/images_profiles/${arr[i].photo}" alt="avatar" class="avatar avatar-sm me-3"></td>
-                <td class="text-center"><p class="font-weight-bold mb-0">${arr[i].last_name}</p></td>
-                <td class="text-center"><p class="font-weight-bold mb-0">${arr[i].first_name}</p></td>
-                <td class="text-center"><p class="font-weight-bold mb-0">${arr[i].cin}</p></td>
-                <td class="text-center"><p class="font-weight-bold mb-0">${arr[i].cne}</p></td>
-                <td class="text-center"><p class="font-weight-bold mb-0">${arr[i].score}</p></td>
-                <td class="text-center">
-                    <a href="/server.php/user-management-${arr[i].id}" class="mr-3" data-bs-toggle="tooltip" data-bs-original-title="view condidature">
-                        <i class="fas fa-eye text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
-                    </a>
-                </td>
-            </tr>`
-        }
-        return table;  
-    }
+    // function calculePagination(data){
+    //     let sections = [];
+    //     let n_sections = Math.ceil(data.length / 2);
+    //     let j = 0;
+    //     for(let i = 0; i < n_sections; i++){
+    //         sections.push(data.slice(j,j+2))
+    //         j += 2;
+    //     }
+    //     return sections;
+    // }
+    // function pagination(arr){
+    //     let table = ""; 
+    //     for(var i=0;i<arr.length;i++){
+    //         table += 
+    //         `<tr class="align-middle" style="font-size: 18px;">
+    //             <td class="text-center"><p class="font-weight-bold mb-0"> ${arr[i].id}</p></td>
+    //             <td class="text-center"><img src="../public/images/images_profiles/${arr[i].photo}" alt="avatar" class="avatar avatar-sm me-3"></td>
+    //             <td class="text-center"><p class="font-weight-bold mb-0">${arr[i].last_name}</p></td>
+    //             <td class="text-center"><p class="font-weight-bold mb-0">${arr[i].first_name}</p></td>
+    //             <td class="text-center"><p class="font-weight-bold mb-0">${arr[i].cin}</p></td>
+    //             <td class="text-center"><p class="font-weight-bold mb-0">${arr[i].cne}</p></td>
+    //             <td class="text-center"><p class="font-weight-bold mb-0">${arr[i].score}</p></td>
+    //             <td class="text-center">
+    //                 <a href="/server.php/user-management-${arr[i].id}" class="mr-3" data-bs-toggle="tooltip" data-bs-original-title="view condidature">
+    //                     <i class="fas fa-eye text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
+    //                 </a>
+    //             </td>
+    //         </tr>`
+    //     }
+    //     return table;  
+    // }
+    
 </script>
 
 @endsection
