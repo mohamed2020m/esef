@@ -141,7 +141,7 @@
                     $("#model_wrapper").html(model);
 
                     $("#flt").click(function(){
-                        console.log("clicked!")
+                        console.log(this)
                         let classList = $(this).children().attr("class");          
                         let classArr = classList.split(/\s+/);
                         if($.inArray("btn-info", classArr) == -1) {
@@ -174,6 +174,7 @@
                             $("#cin_filter").remove();
                             $("#cin").html('CIN');
                             $("#n_lines" ).remove();
+                            console.log("else");
                         }
                     })
                 },
