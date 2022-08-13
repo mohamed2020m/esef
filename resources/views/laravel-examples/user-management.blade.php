@@ -142,7 +142,7 @@
                             <tr>
                                 <td colspan="8">
                                     <div class="d-flex justify-content-center" id="show_id">
-                                        <span>Afficher : ${index}/${sections.length}</span>
+                                        <span>Afficher : ${index + 1}/${sections.length}</span>
                                     </div>
                                 </td>
                             </tr>
