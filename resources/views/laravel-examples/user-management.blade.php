@@ -152,7 +152,7 @@
                     
                     $("#first").click(function(){
                         $("#UserDataTable" ).html(pagination(sections[0]));
-                        $("#show_id").html(`<span class="text-sm">Afficher : ${index + 1}/${sections.length}</span>`);
+                        $("#show_id").html(`<span class="text-sm">Afficher : ${1}/${sections.length}</span>`);
                     })
 
                     $("#prev").click(function(){
