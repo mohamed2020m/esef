@@ -106,7 +106,8 @@
 
 @push('dashboard')
 <script>
-  var sep= @json_encode($nombre_inscrits_dans_SEP);
+  
+  var sep = {!! json_encode($nombre_inscrits_dans_SEP, JSON_HEX_TAG) !!};
   window.onload = function() {
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
