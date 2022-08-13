@@ -108,18 +108,20 @@
 <script>
   
   var names = {!! json_encode($names, JSON_HEX_TAG) !!};
+  console.log(names);
   var sesAnglais = {!! json_encode($nombre_inscrits_dans_SES_anglaise, JSON_HEX_TAG) !!};
   var sesIndus = {!! json_encode($nombre_inscrits_dans_SES_Sc_ind, JSON_HEX_TAG) !!};
   var sesMath = {!! json_encode($nombre_inscrits_dans_SES_math, JSON_HEX_TAG) !!};
 
   window.onload = function() {
     var ctx = document.getElementById("chart-bars").getContext("2d");
+    console.log();
 
     new Chart(ctx, {
       type: "bar",
       data: {
-        labels: names,
-        //labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES-Mathématique'],
+        
+        labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES-Mathématique'],
         datasets: [{
           label: "Nombre des candidats",
           // tension: 0.4,
