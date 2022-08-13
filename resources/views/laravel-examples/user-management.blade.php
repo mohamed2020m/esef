@@ -141,7 +141,9 @@
                             </tr>
                             <tr>
                                 <td colspan="8">
-                                    <span>Afficher : ${index}/${sections.length}</span>
+                                    <div class="d-flex justify-content-center">
+                                        <span>Afficher : ${index}/${sections.length}</span>
+                                    </div>
                                 </td>
                             </tr>
                         </nav>
