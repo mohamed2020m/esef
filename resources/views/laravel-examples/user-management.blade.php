@@ -66,6 +66,7 @@
                             <td colspan="8" class="text-center">Sélectionner une filière &#128515;</td>
                         </tr>
                     </tbody>
+                    <tfoot class="d-flex justify-content-center" id="foot_condidate"></tfoot>
                 </table>
             </div>
         </div>
@@ -113,20 +114,19 @@
 
                     $("#UserDataTable" ).html(table);
                     
-                    $('#tab_candidate').append(`
-                        <tfoot class="d-flex justify-content-center">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                </ul>
-                            </nav>
-                        </tfoot>`
+                    $('#foot_condidate').html(`
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                        `
                     )
-                    
+
                     // adding filter button
                     $("#Table_container").addClass("filterable");
                     $("#select_tag").removeClass("col-10").addClass("col-9");
