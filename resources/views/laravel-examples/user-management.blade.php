@@ -163,7 +163,7 @@
                             $("#UserDataTable" ).html(pagination(sections[index]));
                             $("#show_id").html(`<span class="text-sm">Afficher : ${index + 1}/${sections.length}</span>`)
                         }
-                        if(index == 0){
+                        if(index == 1){
                             $('#prev').children().addClass('disabled');
                         }
                         else{
@@ -180,7 +180,7 @@
                             $("#UserDataTable" ).html(pagination(sections[index]));
                             $("#show_id").html(`<span class="text-sm">Afficher : ${index + 1}/${sections.length}</span>`);
                         }
-                        if(index == sections.length -1){
+                        if(index == sections.length - 2){
                             $('#next').children().addClass('disabled');
                         }
                         else{
