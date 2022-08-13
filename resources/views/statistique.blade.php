@@ -106,6 +106,7 @@
 
 @push('dashboard')
 <script>
+  var sep= @json_encode($nombre_inscrits_dans_SEP);
   window.onload = function() {
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
@@ -119,7 +120,7 @@
           // borderWidth: 0,
           // borderRadius: 4,
           // borderSkipped: false,
-          data: [33, 19, 30, 50, 20, 23],
+          data: [sep, 19, 30, 50, 20, 23],
           backgroundColor: [
             'rgba(255, 99, 132)',
             'rgba(255, 159, 64)',
