@@ -135,9 +135,8 @@ class HomeController extends Controller
         elseif(Auth::user()->role =="admin"){
             $nombre_filieres = DB::table('filieres')->count();
             $nombre_candidats_inscrits=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->count();
-            //echo($nombre_candidats_inscrits);
-            //echo($nombre_filieres);
-            return view('statistique',compact('nombre_filieres','nombre_candidats_inscrits'));
+            $nombre_inscrits_dans_SEP=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',1)->count();
+            return view('statistique',compact('nombre_filieres','nombre_candidats_inscrits','nombre_inscrits_dans_SEP'));
         }elseif(Auth::user()->role =="professeur"){
             return redirect('candidats');
         }else{
