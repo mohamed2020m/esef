@@ -141,8 +141,14 @@ class HomeController extends Controller
             foreach( $names_filiere as $name){
                 $test=explode(" ",$name->name);
                 
-                foreach($test as $word){
-                  array_push($abbr,$word[0])  ;
+                for($i=0;$i<count($test);$i++){
+
+                    if($i>=3){
+                        array_push($abbr,$test[i]) ;
+                    }else{
+                        array_push($abbr,$test[i][0]) ;
+                    }
+                 
                     
                 }
                 
