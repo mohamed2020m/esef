@@ -127,7 +127,7 @@
                                         <li id="first" class="page-item mx-2">
                                             <a class="page-link" style="width:70px !important;border-radius:20% !important; box-shadow:none !important">Première</a>
                                         </li>
-                                        <li id="prev" class="page-item mx-2 p-2">
+                                        <li id="prev" class="page-item mx-2">
                                             <a class="page-link" style="box-shadow:none !important">Prev</a>
                                         </li>
                                         <li id="next" class="page-item mx-2">
