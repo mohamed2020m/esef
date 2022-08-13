@@ -121,7 +121,7 @@
                     
                     $('#foot_condidate').html(`
                         <nav aria-label="Page navigation example">
-                            <tr>
+                            <tr style="border-bottom:1px solid white !important">
                                 <td colspan="8">
                                     <ul class="d-flex justify-content-center pagination">
                                         <li id="first" class="page-item mx-2">
