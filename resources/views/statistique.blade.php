@@ -119,7 +119,7 @@
           // borderWidth: 0,
           // borderRadius: 4,
           // borderSkipped: false,
-          data: [$nombre_inscrits_dans_SEP, 19, 30, 50, 20, 23],
+          data: [33, 19, 30, 50, 20, 23],
           backgroundColor: [
             'rgba(255, 99, 132)',
             'rgba(255, 159, 64)',
