@@ -74,7 +74,7 @@
     <div id="model_wrapper"></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
-
+    var data = [];
     $(document).ready(function(){
         $(".select_filiere").on('change',function(){
             let filiere_id= $(this).val();
@@ -95,6 +95,7 @@
                         $("#cin").html('CIN');
                         $("#n_lines" ).remove();
                     })
+
                     // getting new records
                     // for(var i=0;i<data.length;i++){
                     //     table += 
@@ -114,9 +115,13 @@
                     //     </tr>`
                     // }  
                     
+                    if()
+                    {
+
+                    }
                     const sections = calculePagination(data);
                     const table = pagination(sections[index]);
-
+                    
                     $("#UserDataTable" ).html(table);
                     
                     $('#foot_condidate').html(`
@@ -225,6 +230,27 @@
             });
         });
         $("#flt").click(function(){
+            let table = "";
+            for(var i=0;i<data.length;i++){
+                table += 
+                `<tr class="align-middle" style="font-size: 18px;">
+                    <td class="text-center"><p class="font-weight-bold mb-0"> ${data[i].id}</p></td>
+                    <td class="text-center"><img src="../public/images/images_profiles/${data[i].photo}" alt="avatar" class="avatar avatar-sm me-3"></td>
+                    <td class="text-center"><p class="font-weight-bold mb-0">${data[i].last_name}</p></td>
+                    <td class="text-center"><p class="font-weight-bold mb-0">${data[i].first_name}</p></td>
+                    <td class="text-center"><p class="font-weight-bold mb-0">${data[i].cin}</p></td>
+                    <td class="text-center"><p class="font-weight-bold mb-0">${data[i].cne}</p></td>
+                    <td class="text-center"><p class="font-weight-bold mb-0">${data[i].score}</p></td>
+                    <td class="text-center">
+                        <a href="/server.php/user-management-${data[i].id}" class="mr-3" data-bs-toggle="tooltip" data-bs-original-title="view condidature">
+                            <i class="fas fa-eye text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
+                        </a>
+                    </td>
+                </tr>`
+            } 
+            $("#foot_condidate").remove();
+            $("#UserDataTable" ).html(table);
+
             let classList = $(this).children().attr("class");          
             let classArr = classList.split(/\s+/);
             if($.inArray("btn-info", classArr) == -1) {
