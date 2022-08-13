@@ -17,7 +17,7 @@ class InfoUserController extends Controller
     public function create()
     {
         if(Auth::user()->role =="normal user"){
-           
+
             return view('laravel-examples/user-profile');
         }
         else{
@@ -32,8 +32,6 @@ class InfoUserController extends Controller
             'name' => ['required', 'max:50'],
             'email' => ['required', 'email', 'max:50', Rule::unique('users')->ignore(Auth::user()->id)],
             'phone'     => ['max:50'],
-            'location' => ['max:70'],
-            'about_me'    => ['max:150'],
         ]);
         if($request->get('email') != Auth::user()->email)
         {
@@ -70,6 +68,9 @@ class InfoUserController extends Controller
         return redirect('/user-profile')->with('success','Profile updated successfully');
     }
     public function updateProfile(Request $request){
+        request()->validate([
+            'cin' => [Rule::unique('users')->ignore(Auth::user()->id)],
+        ]);
         if($request->image_profile !=""){
             $image  = time().'.'.$request->image_profile->extension();
             $request->image_profile->move(public_path('images/images_profiles'), $image);
@@ -121,10 +122,10 @@ class InfoUserController extends Controller
             $user_data = DB::table('users')->where('id',$id)->get();
             $user_bac_name  = DB::table('bacs')->selectRaw('bacs.id,bacs.name')->join('bac_user','bac_user.bac_id','=','bacs.id')->join('users','users.id','=','bac_user.user_id')->where('users.id',$id)->get();
             $user_bac_data = DB::table('bac_user')->where('user_id',$id)->get();
-            
+
             $user_licence_name = DB::table('licences')->selectRaw('licences.id,licences.name')->join('licence_user','licence_user.licence_id','=','licences.id')->join('users','users.id','=','licence_user.user_id')->where('users.id',$id)->get();
             $user_licence_data = DB::table('licence_user')->where('user_id',$id)->get();
-            
+
             // $data = DB::table('users')->where('id',$id)->get();
             // return view('laravel-examples/user_detail',compact('data'));
             return view('laravel-examples/user_detail', compact('user_data','user_bac_name','user_licence_name','user_bac_data','user_licence_data'));
@@ -170,7 +171,7 @@ class InfoUserController extends Controller
         }
     }
 
-    public function export($id) 
+    public function export($id)
     {
         $filier_name = DB::table('filieres')->where('id',$id)->value('name');
         return Excel::download(new UsersExport($id, $filier_name), 'Filière-'. $filier_name . '-'. time() . '.xlsx');
