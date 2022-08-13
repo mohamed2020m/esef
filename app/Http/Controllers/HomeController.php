@@ -144,9 +144,9 @@ class HomeController extends Controller
                 for($i=0;$i<count($test);$i++){
 
                     if($i>=3){
-                        array_push($abbr,$test[i]) ;
+                        array_push($abbr,$test[$i]) ;
                     }else{
-                        array_push($abbr,$test[i][0]) ;
+                        array_push($abbr,$test[$i][0]) ;
                     }
                  
                     
