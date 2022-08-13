@@ -19,7 +19,7 @@ class SessionsController extends Controller
         //     'email'=>'required|email',
         //     'password'=>'required' ,
         //     'state'=>"1"
-            
+
         // ]);
 
         $email=$request->email;
@@ -35,13 +35,16 @@ class SessionsController extends Controller
             }else{
                 return redirect('dashboard')->with(['success'=>'You are logged in.']);
             }
-            
+
         }
-        else{            
+        else if(Auth::attempt(['email' => $email, 'password' => $password, 'state' => 0])){
+            return redirect('/Accueil')->with('error','D\'abord,vous devez valider votre compte ');
+        }
+        else{
                 return back()->withErrors(['email'=>'Email or password invalid.']);
         }
     }
-    
+
     public function destroy()
     {
 
