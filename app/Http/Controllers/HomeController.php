@@ -139,6 +139,8 @@ class HomeController extends Controller
             $names=[];
             $abbr=[];
             foreach( $names_filiere as $name){
+                $abbr=[];
+
                 $test=explode(" ",$name->name);
                 
                 for($i=0;$i<count($test);$i++){
@@ -156,7 +158,8 @@ class HomeController extends Controller
                 
                 
 
-
+                $abbr=[];
+                $test=[];
             }
             $nombre_candidats_inscrits=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->count();
             $nombre_inscrits_dans_SEP=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',1)->count();
