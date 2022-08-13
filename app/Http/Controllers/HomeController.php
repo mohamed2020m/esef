@@ -137,13 +137,16 @@ class HomeController extends Controller
             $names_filiere=DB::table('filieres')->select('filieres.name')->get();
             $nombre_candidat_par_filiere=[];
             $names=[];
+            $abbr=[];
             foreach( $names_filiere as $name){
                 $test=explode(" ",$name->name);
+                
                 foreach($test as $word){
+                  array_push($abbr,$word[0])  ;
                     
-                    array_push($names,$word[0]);
                 }
                 
+                array_push($names,join("",$abbr));
                 
                 
 
