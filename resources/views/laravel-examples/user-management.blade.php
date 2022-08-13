@@ -152,14 +152,14 @@
                     
                     $("#first").click(function(){
                         $("#UserDataTable" ).html(pagination(sections[0]));
-                        $("#show_id").html(`<span class="text-sm">Afficher : ${index}/${sections.length}</span>`);
+                        $("#show_id").html(`<span class="text-sm">Afficher : ${index + 1}/${sections.length}</span>`);
                     })
 
                     $("#prev").click(function(){
                         if(index > 0){
                             index--;
                             $("#UserDataTable" ).html(pagination(sections[index]));
-                            $("#show_id").html(`<span class="text-sm">Afficher : ${index}/${sections.length}</span>`)
+                            $("#show_id").html(`<span class="text-sm">Afficher : ${index + 1}/${sections.length}</span>`)
                         }
                     })
 
@@ -167,13 +167,13 @@
                         if(index < sections.length){
                             index++
                             $("#UserDataTable" ).html(pagination(sections[index]));
-                            $("#show_id").html(`<span class="text-sm">Afficher : ${index}/${sections.length}</span>`);
+                            $("#show_id").html(`<span class="text-sm">Afficher : ${index + 1}/${sections.length}</span>`);
                         }
                     })
 
                     $("#last").click(function(){
                         $("#UserDataTable" ).html(pagination(sections[sections.length - 1]));
-                        $("#show_id").html(`<span class="text-sm">Afficher : ${index}/${sections.length}</span>`);
+                        $("#show_id").html(`<span class="text-sm">Afficher : ${sections.length}/${sections.length}</span>`);
                     })
 
                     // adding filter button
