@@ -78,8 +78,10 @@
     $(document).ready(function(){
         $(".select_filiere").on('change',function(){
             let filiere_id= $(this).val();
-            let table="";
+            // let table="";
             let model="";
+            // const sections = [];
+            let index = 0;
             let gone = false;
             $.ajax({
                 type:'get',
@@ -94,23 +96,26 @@
                         $("#n_lines" ).remove();
                     })
                     // getting new records
-                    for(var i=0;i<data.length;i++){
-                        table += 
-                        `<tr class="align-middle" style="font-size: 18px;">
-                            <td class="text-center"><p class="font-weight-bold mb-0"> ${data[i].id}</p></td>
-                            <td class="text-center"><img src="../public/images/images_profiles/${data[i].photo}" alt="avatar" class="avatar avatar-sm me-3"></td>
-                            <td class="text-center"><p class="font-weight-bold mb-0">${data[i].last_name}</p></td>
-                            <td class="text-center"><p class="font-weight-bold mb-0">${data[i].first_name}</p></td>
-                            <td class="text-center"><p class="font-weight-bold mb-0">${data[i].cin}</p></td>
-                            <td class="text-center"><p class="font-weight-bold mb-0">${data[i].cne}</p></td>
-                            <td class="text-center"><p class="font-weight-bold mb-0">${data[i].score}</p></td>
-                            <td class="text-center">
-                                <a href="/server.php/user-management-${data[i].id}" class="mr-3" data-bs-toggle="tooltip" data-bs-original-title="view condidature">
-                                    <i class="fas fa-eye text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
-                                </a>
-                            </td>
-                        </tr>`
-                    }  
+                    // for(var i=0;i<data.length;i++){
+                    //     table += 
+                    //     `<tr class="align-middle" style="font-size: 18px;">
+                    //         <td class="text-center"><p class="font-weight-bold mb-0"> ${data[i].id}</p></td>
+                    //         <td class="text-center"><img src="../public/images/images_profiles/${data[i].photo}" alt="avatar" class="avatar avatar-sm me-3"></td>
+                    //         <td class="text-center"><p class="font-weight-bold mb-0">${data[i].last_name}</p></td>
+                    //         <td class="text-center"><p class="font-weight-bold mb-0">${data[i].first_name}</p></td>
+                    //         <td class="text-center"><p class="font-weight-bold mb-0">${data[i].cin}</p></td>
+                    //         <td class="text-center"><p class="font-weight-bold mb-0">${data[i].cne}</p></td>
+                    //         <td class="text-center"><p class="font-weight-bold mb-0">${data[i].score}</p></td>
+                    //         <td class="text-center">
+                    //             <a href="/server.php/user-management-${data[i].id}" class="mr-3" data-bs-toggle="tooltip" data-bs-original-title="view condidature">
+                    //                 <i class="fas fa-eye text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
+                    //             </a>
+                    //         </td>
+                    //     </tr>`
+                    // }  
+                    
+                    const sections = calculePagination(data);
+                    const table = pagination(sections[index]);
 
                     $("#UserDataTable" ).html(table);
                     
@@ -119,16 +124,32 @@
                             <tr>
                                 <td colspan="8">
                                     <ul class="d-flex justify-content-center pagination mt-3">
-                                        <li class="page-item" style="width:70px !important;border-radius:20%  !important"><a class="page-link" href="#">Première</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">Suiv</a></li>
-                                        <li class="page-item" style="width:70px !important;border-radius:20%  !important"><a class="page-link" href="#">Dernier</a></li>
+                                        <li id="first" class="page-item" style="width:70px !important;border-radius:20%  !important"><a class="page-link" href="#">Première</a></li>
+                                        <li id="prev" class="page-item"><a class="page-link" href="#">Prev</a></li>
+                                        <li id="next" class="page-item"><a class="page-link" href="#">Suiv</a></li>
+                                        <li id="last" class="page-item" style="width:70px !important;border-radius:20%  !important"><a class="page-link" href="#">Dernier</a></li>
                                     </ul>
                                 </td>
                             </th>
                         </nav>
                         `
                     )
+                    
+                    $("#first").click(function(){
+                        $("#UserDataTable" ).html(pagination(sections[0]));
+                    })
+
+                    $("#prev").click(function(){
+                        
+                    })
+
+                    $("#next").click(function(){
+                        
+                    })
+
+                    $("#last").click(function(){
+                        $("#UserDataTable" ).html(pagination(sections[sections.length - 1]));
+                    })
 
                     // adding filter button
                     $("#Table_container").addClass("filterable");
@@ -181,7 +202,6 @@
         $("#flt").click(function(){
             let classList = $(this).children().attr("class");          
             let classArr = classList.split(/\s+/);
-            console.log("classArr: ", classArr);
             if($.inArray("btn-info", classArr) == -1) {
                 console.log("if");
                 $(this).children().removeClass("btn-secondary").addClass("btn-info");
@@ -212,10 +232,41 @@
                 $("#cin_filter").remove();
                 $("#cin").html('CIN');
                 $("#n_lines" ).remove();
-                console.log("else");
             }
         })
     });
+
+    function calculePagination(data){
+        let sections = [];
+        let n_sections = Math.ceil(data.length / 2);
+        let j = 0;
+        for(let i = 0; i < n_sections; i++){
+            sections.push(data.slice(j,j+2))
+            j += 2;
+        }
+        return sections;
+    }
+    function pagination(arr){
+        let table = ""; 
+        for(var i=0;i<arr.length;i++){
+            table += 
+            `<tr class="align-middle" style="font-size: 18px;">
+                <td class="text-center"><p class="font-weight-bold mb-0"> ${arr[i].id}</p></td>
+                <td class="text-center"><img src="../public/images/images_profiles/${arr[i].photo}" alt="avatar" class="avatar avatar-sm me-3"></td>
+                <td class="text-center"><p class="font-weight-bold mb-0">${arr[i].last_name}</p></td>
+                <td class="text-center"><p class="font-weight-bold mb-0">${arr[i].first_name}</p></td>
+                <td class="text-center"><p class="font-weight-bold mb-0">${arr[i].cin}</p></td>
+                <td class="text-center"><p class="font-weight-bold mb-0">${arr[i].cne}</p></td>
+                <td class="text-center"><p class="font-weight-bold mb-0">${arr[i].score}</p></td>
+                <td class="text-center">
+                    <a href="/server.php/user-management-${arr[i].id}" class="mr-3" data-bs-toggle="tooltip" data-bs-original-title="view condidature">
+                        <i class="fas fa-eye text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
+                    </a>
+                </td>
+            </tr>`
+        }
+        return table;  
+    }
 </script>
 
 @endsection
