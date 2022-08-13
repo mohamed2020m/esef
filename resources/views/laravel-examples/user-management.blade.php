@@ -115,10 +115,10 @@
                     $("#UserDataTable" ).html(table);
                     
                     $('#foot_condidate').html(`
-                        <nav class="d-flex justify-content-center" aria-label="Page navigation example">
+                        <nav aria-label="Page navigation example">
                             <tr>
                                 <td colspan="8">
-                                    <ul class="pagination">
+                                    <ul class="d-flex justify-content-center pagination">
                                         <li class="page-item"><a class="page-link" href="#">Prev</a></li>
                                         <li class="page-item"><a class="page-link" href="#">1</a></li>
                                         <li class="page-item"><a class="page-link" href="#">2</a></li>
