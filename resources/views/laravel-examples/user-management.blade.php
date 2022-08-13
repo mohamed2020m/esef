@@ -66,7 +66,7 @@
                             <td colspan="8" class="text-center">Sélectionner une filière &#128515;</td>
                         </tr>
                     </tbody>
-                    <tfoot class="d-flex justify-content-center" id="foot_condidate"></tfoot>
+                    <tfoot class="" id="foot_condidate"></tfoot>
                 </table>
             </div>
         </div>
@@ -115,7 +115,7 @@
                     $("#UserDataTable" ).html(table);
                     
                     $('#foot_condidate').html(`
-                        <nav aria-label="Page navigation example">
+                        <nav class="d-flex justify-content-center" aria-label="Page navigation example">
                             <tr>
                                 <td colspan="8">
                                     <ul class="pagination">
