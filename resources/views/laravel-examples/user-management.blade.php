@@ -156,15 +156,19 @@
                     })
 
                     $("#prev").click(function(){
-                        index--;
-                        $("#UserDataTable" ).html(pagination(sections[index]));
-                        $("#show_id").html(`<span class="text-sm">Afficher : ${index}/${sections.length}</span>`)
+                        if(index > 0){
+                            index--;
+                            $("#UserDataTable" ).html(pagination(sections[index]));
+                            $("#show_id").html(`<span class="text-sm">Afficher : ${index}/${sections.length}</span>`)
+                        }
                     })
 
                     $("#next").click(function(){
-                        index++
-                        $("#UserDataTable" ).html(pagination(sections[index]));
-                        $("#show_id").html(`<span class="text-sm">Afficher : ${index}/${sections.length}</span>`);
+                        if(index < sections.length){
+                            index++
+                            $("#UserDataTable" ).html(pagination(sections[index]));
+                            $("#show_id").html(`<span class="text-sm">Afficher : ${index}/${sections.length}</span>`);
+                        }
                     })
 
                     $("#last").click(function(){
