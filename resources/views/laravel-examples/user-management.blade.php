@@ -121,7 +121,7 @@
                     
                     $('#foot_condidate').html(`
                         <nav aria-label="Page navigation example">
-                            <tr style="border-bottom:1px solid white !important">
+                            <tr>
                                 <td colspan="8">
                                     <ul class="d-flex justify-content-center pagination">
                                         <li id="first" class="page-item mx-2">
@@ -139,7 +139,7 @@
                                     </ul>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr style="border-bottom:1px solid white !important">
                                 <td colspan="8">
                                     <div class="d-flex justify-content-center" id="show_id">
                                         <span class="text-sm">Afficher : ${index + 1}/${sections.length}</span>
