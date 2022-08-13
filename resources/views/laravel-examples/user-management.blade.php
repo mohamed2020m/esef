@@ -285,8 +285,8 @@
                     r.find("tbody").prepend($('<tr class="no-result text-center"><td colspan="' 
                     + r.find(".filters th").length + '">Aucun résultat trouvé</td></tr>'))
                     $("#rowcount").html(o.length - d.length);
-                    $("#UserDataTable" ).append(`<p id="n_lines" class="mt-3 text-sm text-info">Nombre de lines : <span id="rowcount"></span></p>`);
                 });
+                $("#UserDataTable" ).append(`<p id="n_lines" class="mt-3 text-sm text-info">Nombre de lines : <span id="rowcount"></span></p>`);
             }
             else{
                 $(this).children().removeClass("btn-info").addClass("btn-secondary");
