@@ -38,7 +38,7 @@ class RegisterController extends Controller
         Mail::to(request()->email)->send(new Email($user));
 
         //Auth::login($user);
-        return redirect('/Accueil')->with('success','Votre compte a été créé avec succès. Nous vous avons envoyé un e-mail pour activer votre compte.');
+        return redirect('/Accueil')->with('success','Votre compte a été créé avec succès. Nous vous avons envoyé un e-mail pour activer votre compte. (Vérifier Spam)');
     }
 
     public function verify_email($verification_code){

@@ -41,7 +41,7 @@ class ResetController extends Controller
                       $message->subject('Demande de réinitialisation du mot de passe');
                    });
 
-            return redirect('/Accueil')->with('success', 'Nous avons envoyé un lien de réinitialisation de mot de passe par e-mail !');
+            return redirect('/Accueil')->with('success', 'Nous avons envoyé un lien de réinitialisation de mot de passe par e-mail ! (Vérifier Spam)');
         }
         }
 
