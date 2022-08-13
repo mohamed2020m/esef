@@ -164,7 +164,7 @@
                     })
 
                     $("#next").click(function(){
-                        if(index < sections.length){
+                        if(index < sections.length - 1){
                             index++
                             $("#UserDataTable" ).html(pagination(sections[index]));
                             $("#show_id").html(`<span class="text-sm">Afficher : ${index + 1}/${sections.length}</span>`);
