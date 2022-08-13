@@ -178,16 +178,13 @@
                 },
                 error:function(err){
                     console.log(err);
-                    $('#auth-wrap-nav-content').append(`
+                    $('body').append(`
                         <div aria-live="polite" aria-atomic="true" class="position-relative">
                             <div class="toast-container position-absolute top-0 end-0 p-3">
-                                <div class="toast show bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
-                                    <div class="toast-header">
-                                        <strong class="me-auto">Error</strong>
+                                <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                                    <div class="toast-header text-white bg-danger">
+                                        <strong class="me-auto">${err.statusText}</strong>
                                         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                                    </div>
-                                    <div class="toast-body">
-                                        ${err.statusText}
                                     </div>
                                 </div>
                             </div>
