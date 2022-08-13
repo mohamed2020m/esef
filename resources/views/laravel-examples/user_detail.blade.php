@@ -99,10 +99,10 @@
                     <p class="mb-0">Spécialité :</p>
                 </div>
                 <div class="col-sm-8">
-                    @isset($user_licence_name[0]->name)
+                    @isset($user_bac_name[0]->name)
                     <p class="text-muted mb-0">{{$user_bac_name[0]->name}}</p>
                     @else
-                    <p class="text-muted mb-0">adam</p>
+                    <p class="text-muted mb-0">non disponible</p>
                     @endisset
                 
                     
@@ -180,7 +180,9 @@
                     <div class="col-sm-8">
                     @isset($user_licence_name[0]->name)
                     <p class="text-muted mb-0">{{$user_licence_name[0]->name}}</p>
-                    
+                    @else
+                    <p class="text-muted mb-0">non disponible</p>
+
                     @endisset
                         
                         
