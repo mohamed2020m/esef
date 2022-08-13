@@ -109,6 +109,7 @@
   
   var names = {!! json_encode($names, JSON_HEX_TAG) !!};
   console.log(names);
+  var sep ={!! json_encode($nombre_inscrits_dans_SEP, JSON_HEX_TAG) !!};
   var sesAnglais = {!! json_encode($nombre_inscrits_dans_SES_anglaise, JSON_HEX_TAG) !!};
   var sesIndus = {!! json_encode($nombre_inscrits_dans_SES_Sc_ind, JSON_HEX_TAG) !!};
   var sesMath = {!! json_encode($nombre_inscrits_dans_SES_math, JSON_HEX_TAG) !!};
