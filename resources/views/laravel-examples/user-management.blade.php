@@ -115,10 +115,7 @@
                     //     </tr>`
                     // }  
                     
-                    if()
-                    {
-
-                    }
+                
                     const sections = calculePagination(data);
                     const table = pagination(sections[index]);
                     
