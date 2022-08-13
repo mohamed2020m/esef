@@ -118,12 +118,11 @@
                         <nav aria-label="Page navigation example">
                             <tr>
                                 <td colspan="8">
-                                    <ul class="d-flex justify-content-center pagination">
+                                    <ul class="d-flex justify-content-center pagination mt-3">
+                                        <li class="page-item" style="width:70px !important;border-radius:20%  !important"><a class="page-link" href="#">Première</a></li>
                                         <li class="page-item"><a class="page-link" href="#">Prev</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
                                         <li class="page-item"><a class="page-link" href="#">Suiv</a></li>
+                                        <li class="page-item" style="width:70px !important;border-radius:20%  !important"><a class="page-link" href="#">Dernier</a></li>
                                     </ul>
                                 </td>
                             </th>
