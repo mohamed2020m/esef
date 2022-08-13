@@ -106,20 +106,29 @@
 
 @push('dashboard')
 <script>
+  
+  var names = {!! json_encode($names, JSON_HEX_TAG) !!};
+  var nombre = {!! json_encode($nombre_candidat_par_filiere, JSON_HEX_TAG) !!};
+  console.log(names);
+ 
+
+
   window.onload = function() {
     var ctx = document.getElementById("chart-bars").getContext("2d");
+    console.log();
 
     new Chart(ctx, {
       type: "bar",
       data: {
-        labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES'],
+        
+        labels:names,
         datasets: [{
           label: "Nombre des candidats",
           // tension: 0.4,
           // borderWidth: 0,
           // borderRadius: 4,
           // borderSkipped: false,
-          data: [52, 19, 30, 50, 20, 23],
+          data:nombre,
           backgroundColor: [
             'rgba(255, 99, 132)',
             'rgba(255, 159, 64)',

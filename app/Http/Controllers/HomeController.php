@@ -134,10 +134,48 @@ class HomeController extends Controller
         }
         elseif(Auth::user()->role =="admin"){
             $nombre_filieres = DB::table('filieres')->count();
+            $names_filiere=DB::table('filieres')->select('*')->get();
+
+            $nombre_candidat_par_filiere=[];
+            $names=[];
+            $abbr=[];
+
+            foreach( $names_filiere as $name){
+
+                $nombre_inscrits_dans_SEP=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',$name->id)->count();
+                array_push($nombre_candidat_par_filiere,$nombre_inscrits_dans_SEP);
+
+
+                $abbr=[];
+
+                $test=explode(" ",$name->name);
+                
+                for($i=0;$i<count($test);$i++){
+
+                    if($i>=3){
+                        array_push($abbr,$test[$i]) ;
+                    }else{
+                        array_push($abbr,$test[$i][0]) ;
+                    }
+                 
+                    
+                }
+                
+                array_push($names,join("",$abbr));
+                
+                
+
+                $abbr=[];
+                $test=[];
+                $nombre_inscrits_dans_SEP=[];
+            }
             $nombre_candidats_inscrits=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->count();
-            //echo($nombre_candidats_inscrits);
-            //echo($nombre_filieres);
-            return view('statistique',compact('nombre_filieres','nombre_candidats_inscrits'));
+            $nombre_inscrits_dans_SEP=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',1)->count();
+            $nombre_inscrits_dans_SES_anglaise=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',2)->count();
+            $nombre_inscrits_dans_SES_Sc_ind=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',3)->count();
+            $nombre_inscrits_dans_SES_math=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',4)->count();
+
+            return view('statistique',compact('nombre_filieres','nombre_candidats_inscrits','nombre_candidat_par_filiere','names'));
         }elseif(Auth::user()->role =="professeur"){
             return redirect('candidats');
         }else{
