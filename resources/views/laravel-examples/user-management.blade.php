@@ -125,16 +125,16 @@
                                 <td colspan="8">
                                     <ul class="d-flex justify-content-center pagination mt-3">
                                         <li id="first" class="page-item">
-                                            <a class="page-link" href="#" style="width:70px !important;border-radius:20% !important; box-shadow:none !important">Première</a>
+                                            <a class="page-link" style="width:70px !important;border-radius:20% !important; box-shadow:none !important">Première</a>
                                         </li>
                                         <li id="prev" class="page-item">
-                                            <a class="page-link" href="#" style="box-shadow:none !important">Prev</a>
+                                            <a class="page-link" style="box-shadow:none !important">Prev</a>
                                         </li>
                                         <li id="next" class="page-item">
-                                            <a class="page-link" href="#" style="box-shadow:none !important">Suiv</a>
+                                            <a class="page-link" style="box-shadow:none !important">Suiv</a>
                                         </li>
                                         <li id="last" class="page-item">
-                                            <a class="page-link" href="#" style="width:70px !important;border-radius:20% !important; box-shadow:none !important">Dernier</a>
+                                            <a class="page-link" style="width:70px !important;border-radius:20% !important; box-shadow:none !important">Dernier</a>
                                         </li>
                                     </ul>
                                 </td>
