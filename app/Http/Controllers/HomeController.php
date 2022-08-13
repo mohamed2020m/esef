@@ -134,11 +134,18 @@ class HomeController extends Controller
         }
         elseif(Auth::user()->role =="admin"){
             $nombre_filieres = DB::table('filieres')->count();
-            $names_filiere=DB::table('filieres')->select('filieres.name')->get();
+            $names_filiere=DB::table('filieres')->select('*')->get();
+
             $nombre_candidat_par_filiere=[];
             $names=[];
             $abbr=[];
+
             foreach( $names_filiere as $name){
+
+                $nombre_inscrits_dans_SEP=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',$name->id)->count();
+                array_push($nombre_candidat_par_filiere,$nombre_inscrits_dans_SEP);
+
+
                 $abbr=[];
 
                 $test=explode(" ",$name->name);
@@ -160,6 +167,7 @@ class HomeController extends Controller
 
                 $abbr=[];
                 $test=[];
+                $nombre_inscrits_dans_SEP=[];
             }
             $nombre_candidats_inscrits=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->count();
             $nombre_inscrits_dans_SEP=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',1)->count();
@@ -167,7 +175,7 @@ class HomeController extends Controller
             $nombre_inscrits_dans_SES_Sc_ind=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',3)->count();
             $nombre_inscrits_dans_SES_math=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',4)->count();
 
-            return view('statistique',compact('nombre_filieres','nombre_candidats_inscrits','nombre_inscrits_dans_SEP','nombre_inscrits_dans_SES_anglaise','nombre_inscrits_dans_SES_Sc_ind','nombre_inscrits_dans_SES_math','names'));
+            return view('statistique',compact('nombre_filieres','nombre_candidats_inscrits','nombre_candidat_par_filiere','names'));
         }elseif(Auth::user()->role =="professeur"){
             return redirect('candidats');
         }else{

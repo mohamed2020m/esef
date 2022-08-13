@@ -108,11 +108,10 @@
 <script>
   
   var names = {!! json_encode($names, JSON_HEX_TAG) !!};
+  var nombre = {!! json_encode($nombre_candidat_par_filiere, JSON_HEX_TAG) !!};
   console.log(names);
-  var sep ={!! json_encode($nombre_inscrits_dans_SEP, JSON_HEX_TAG) !!};
-  var sesAnglais = {!! json_encode($nombre_inscrits_dans_SES_anglaise, JSON_HEX_TAG) !!};
-  var sesIndus = {!! json_encode($nombre_inscrits_dans_SES_Sc_ind, JSON_HEX_TAG) !!};
-  var sesMath = {!! json_encode($nombre_inscrits_dans_SES_math, JSON_HEX_TAG) !!};
+ 
+
 
   window.onload = function() {
     var ctx = document.getElementById("chart-bars").getContext("2d");
@@ -129,7 +128,7 @@
           // borderWidth: 0,
           // borderRadius: 4,
           // borderSkipped: false,
-          data: [sep, sesAnglais, sesIndus, sesMath, 20, 23],
+          data:nombre,
           backgroundColor: [
             'rgba(255, 99, 132)',
             'rgba(255, 159, 64)',
