@@ -111,6 +111,8 @@
                         </tr>`
                     }  
 
+                    $("#UserDataTable" ).html(table);
+                    
                     $('#tab_candidate').append(`
                         <tfoot class="d-flex justify-content-center">
                             <nav aria-label="Page navigation example">
@@ -124,7 +126,7 @@
                             </nav>
                         </tfoot>`
                     )
-                    $("#UserDataTable" ).html(table);
+                    
                     // adding filter button
                     $("#Table_container").addClass("filterable");
                     $("#select_tag").removeClass("col-10").addClass("col-9");
@@ -158,7 +160,6 @@
                     
                 },
                 error:function(err){
-                    console.log(err);
                     $('body').append(`
                         <div aria-live="polite" aria-atomic="true" class="position-fixed bottom-0 end-0 p-3">
                             <div class="toast-container">
