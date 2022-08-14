@@ -180,7 +180,7 @@
               beginAtZero: true,
               padding: 15,
               // display: true
-              title:'Filières'
+              text:'Filières'
               font: {
                 size: 14,
                 family: "Open Sans",
@@ -199,7 +199,7 @@
             },
             ticks: {
               // display: true
-              title:'Nombre des candidats'
+              text:'Nombre des candidats'
             },
           },
         },
