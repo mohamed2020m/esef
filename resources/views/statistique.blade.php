@@ -85,7 +85,7 @@
           </form>
           </div>
           <div class="border-radius-lg py-3 pe-1 mb-3">
-            <div class="chart">
+            <div class="chart" id="chart_line">
               <canvas id="chart-line" class="chart-canvas" height="400"></canvas>
             </div>
           </div>
@@ -203,6 +203,8 @@
     });
 
     $("#month").on('change',function(){ 
+        $('#chart-line').remove();
+        $('#chart_line').append('<canvas id="chart-line" class="chart-canvas" height="400"></canvas>');
         var myChart;
         let month_id= $(this).val();
         $.ajax({
@@ -210,16 +212,9 @@
             url:'{{URL::to("NumberOfCandidatePerMonth")}}',
             data:{'id':month_id},
             success: function(data){
-
-              console.log("day: ", data[0]);
-              console.log("Nombre Users: ", data[1]);
-
               var ctx2 = document.getElementById("chart-line").getContext("2d");
               var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
-              if(myChart instanceof Chart){
-                myChart.destroy()
-              }
-              myChart = new Chart(ctx2, {
+              new Chart(ctx2, {
                 type: "line",
                 data: {
                   labels: data[0],
@@ -316,7 +311,7 @@
     // $("#month").on('load',function(){ 
     //     $.ajax({
     //         type:'get',
-    //         url:'{{URL::to("NumberOfCandidatePerMonth")}}',
+    //         url:'{{URL::to("NumberOfCandidateCurrentMonth")}}',
     //         success: function(data){
 
     //           console.log("day: ", data[0]);
