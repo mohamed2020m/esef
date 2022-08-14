@@ -308,7 +308,7 @@
     });
 
     // on reload the page get the current month
-    $("#month").on('load',function(){ 
+    $(window).on('load',function(){ 
         $.ajax({
             type:'get',
             url:'{{URL::to("NumberOfCandidateCurrentMonth")}}',
