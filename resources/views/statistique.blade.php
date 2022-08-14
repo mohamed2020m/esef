@@ -179,12 +179,14 @@
               suggestedMax: 500,
               beginAtZero: true,
               padding: 15,
-              display: true
+              // display: true
               font: {
                 size: 14,
                 family: "Open Sans",
                 style: 'normal',
+                // lineHeight: 2
               },
+              // color: "#fff"
             },
           },
           x: {
@@ -195,9 +197,8 @@
               drawTicks: true
             },
             ticks: {
-              display: true
+              // display: true
             },
-          
           },
         },
       },
