@@ -211,7 +211,7 @@ class HomeController extends Controller
             ['id' => 11, 'name' => 'Novembre'],
             ['id' => 12, 'name' => 'Décembre']
         ];
-        return view('statistique', ['months' => $months]);
+        return view('statistique', compact('months'));
     }
     public function numberOfCandidateCurrentMonth(Request $request){
         if(Auth::user()->role =="admin"){
