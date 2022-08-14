@@ -179,7 +179,7 @@
               suggestedMax: 500,
               beginAtZero: true,
               padding: 15,
-              // display: true
+              display: false
               font: {
                 size: 14,
                 family: "Open Sans",
@@ -197,7 +197,7 @@
               drawTicks: true
             },
             ticks: {
-              display: true
+              display: false
             },
           },
         },
