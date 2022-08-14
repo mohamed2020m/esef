@@ -175,7 +175,7 @@ class HomeController extends Controller
         }
     }
 
-    public function showCandidats(Request $request){
+    public function numberOfCandidate(Request $request){
         if(Auth::user()->role =="admin"){
 
 
