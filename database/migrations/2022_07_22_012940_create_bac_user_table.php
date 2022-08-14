@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('ville_obtention');
             $table->string('scan_bac');
             $table->string('scan_releve_note');
+
+
             $table->timestamps();
         });
     }
