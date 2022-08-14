@@ -177,7 +177,7 @@ class HomeController extends Controller
 
     public function numberOfCandidate(Request $request){
         if(Auth::user()->role =="admin"){
-            $usersData = User::select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as total'))
+            $usersData = DB::table->select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as total'))
             ->groupBy('date')
             ->get();
             return response()->json($usersData);
