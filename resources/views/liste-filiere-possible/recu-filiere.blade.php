@@ -26,15 +26,23 @@
 </head>
 
 <body>
-    <div style="display:grid;grid-template-columns: 300px auto;">
+    {{-- <div style="display:grid;grid-template-columns: 300px auto;">
         <div>
-            <img src="../assets/img/newLogo.png" style="width:100px" height="100px" alt="ESEF Logo">
+            <img src="../assets/img/newLogo.png" style="width:100%" height="100px" alt="ESEF Logo">
+        </div>
+        <div>
             <img src="../assets/img/esef.png"  style="max-width:100%" alt="Logo de Université Chouaib Doukkali">
         </div>
-        <div>
+    </div>
+     --}}
+    <div style="display:grid;grid-template-columns: 150px auto;">
+        <div style="display:grid;justify-content: center;">
+            <img src="../assets/img/newLogo.png" style="width:80px; height: 80px" alt="ESEF Logo">
+        </div>
+        <div style="display:grid;justify-content: end;">
+            <img src="../assets/img/esef.png"  style="width:100%;" alt="Logo de Université Chouaib Doukkali">
         </div>
     </div>
-    
     <div class="container">
         <div id="titre" style="display: flex; justify-content:center;margin-top: 40px;">
             <p style="text-decoration: underline; text-align:center">Fiche de pré-candidature </p>
