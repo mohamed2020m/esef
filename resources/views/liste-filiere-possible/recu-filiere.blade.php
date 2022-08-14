@@ -41,7 +41,9 @@
     </div>
     <div class="container">
         <div style="display: flex; justify-content:center;margin-top: 40px; border:1px solid red;">
-            <img id="logo_1_img" src="../assets/img/newLogo.png" alt="ESEF Logo">
+            <div>
+                <img id="logo_1_img" src="../assets/img/newLogo.png" alt="ESEF Logo">
+            </div>
         </div>
         <div id="titre" style="display: flex; justify-content:center;margin-top: 40px;">
             <p style="text-decoration: underline; text-align:center">Fiche de pré-candidature </p>
