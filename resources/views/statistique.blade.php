@@ -64,33 +64,25 @@
       <div class="card z-index-2">
         <div class="card-body p-3">
           <div>
-            <form action="" method="">
-              @csrf
-              <select class="form-select form-select-lg" 
-                  {{-- select_filiere"  --}}
-                  style="border-color:#0f233a !important; box-shadow:none !important" aria-label="Default select example" name="mois" required>
-                  {{-- <option disabled selected>Sélectionner une filière</option>
-                  @foreach($data_filiere as $row)
-                  <option value="{{$row->id}}">{{$row->name}}</option>
-                  @endforeach --}}
-                  <option disabled selected>Sélectionnez un mois</option>
-                  <option value="1">Janvier</option>
-                  <option value="2">Février</option>
-                  <option value="3">Mars</option>
-                  <option value="4">Avril</option>
-                  <option value="5">Mai</option>
-                  <option value="6">Juin</option>
-                  <option value="7">Juillet</option>
-                  <option value="8">Août</option>
-                  <option value="9">Septembre</option>
-                  <option value="10">Octobre</option>
-                  <option value="11">Novembre</option>
-                  <option value="12">Décembre</option>
-              </select>
-          </form>
+            <select class="form-select form-select-lg" id="month"
+                style="border-color:#0f233a !important; box-shadow:none !important" aria-label="Default select example" name="mois" required>
+                <option disabled selected>Le mois En Cours</option>
+                <option value="1">Janvier</option>
+                <option value="2">Février</option>
+                <option value="3">Mars</option>
+                <option value="4">Avril</option>
+                <option value="5">Mai</option>
+                <option value="6">Juin</option>
+                <option value="7">Juillet</option>
+                <option value="8">Août</option>
+                <option value="9">Septembre</option>
+                <option value="10">Octobre</option>
+                <option value="11">Novembre</option>
+                <option value="12">Décembre</option>
+            </select>
           </div>
           <div class="border-radius-lg py-3 pe-1 mb-3">
-            <div class="chart">
+            <div class="chart" id="chart_line">
               <canvas id="chart-line" class="chart-canvas" height="400"></canvas>
             </div>
           </div>
@@ -107,41 +99,36 @@
 @push('dashboard')
 <script>
   
-  var sep = {!! json_encode($nombre_inscrits_dans_SEP, JSON_HEX_TAG) !!};
-  var sesAnglais = {!! json_encode($nombre_inscrits_dans_SES_anglaise, JSON_HEX_TAG) !!};
-  var sesIndus = {!! json_encode($nombre_inscrits_dans_SES_Sc_ind, JSON_HEX_TAG) !!};
-  var sesMath = {!! json_encode($nombre_inscrits_dans_SES_math, JSON_HEX_TAG) !!};
+  let noms_filieres = {!! json_encode($names, JSON_HEX_TAG) !!};
+  let nombre_filieres = {!! json_encode($nombre_candidat_par_filiere, JSON_HEX_TAG) !!};
+  let backgroundColorArr = [
+    'rgba(255, 99, 132)',
+    'rgba(255, 159, 64)',
+    'rgba(255, 205, 86)',
+    'rgba(75, 192, 192)',
+    'rgba(54, 162, 235)',
+    'rgba(153, 102, 255)'
+  ];
+  // generating colors:
+  for(let i = 0; i< noms_filieres.length - 6 ;i++){
+    let R = Math.round(Math.random() * 255);
+    let G = Math.round(Math.random() * 255);
+    let B = Math.round(Math.random() * 255); 
+    backgroundColorArr.push(`rgba(${R}, ${G}, ${B})`)
+  }
 
   window.onload = function() {
     var ctx = document.getElementById("chart-bars").getContext("2d");
-
     new Chart(ctx, {
       type: "bar",
       data: {
-        labels: ['SEP', 'SES - Anglaise', 'SES - sc.Ind', 'SES-Mathématique'],
+        
+        labels: noms_filieres,
         datasets: [{
-          label: "Nombre des candidats",
-          // tension: 0.4,
-          // borderWidth: 0,
-          // borderRadius: 4,
-          // borderSkipped: false,
-          data: [sep, sesAnglais, sesIndus, sesMath, 20, 23],
-          backgroundColor: [
-            'rgba(255, 99, 132)',
-            'rgba(255, 159, 64)',
-            'rgba(255, 205, 86)',
-            'rgba(75, 192, 192)',
-            'rgba(54, 162, 235)',
-            'rgba(153, 102, 255)'
-          ],
-          borderColor: [
-            'rgb(255, 99, 132)',
-            'rgb(255, 159, 64)',
-            'rgb(255, 205, 86)',
-            'rgb(75, 192, 192)',
-            'rgb(54, 162, 235)',
-            'rgb(153, 102, 255)'
-          ],
+          // label: "Nombre des candidats",
+          data: nombre_filieres,
+          backgroundColor: backgroundColorArr,
+          borderColor: backgroundColorArr,
           // maxBarThickness: 6
         }, ],
       },
@@ -155,9 +142,9 @@
           }
         },
         plugins: {
-          // legend: {
-          //   display: true,
-          // }
+          legend: {
+            display: false
+          },
           title: {
               display: true,
               text: 'Nombre des candidats par filière',
@@ -183,15 +170,16 @@
               suggestedMax: 500,
               beginAtZero: true,
               padding: 15,
-              // display: true
               font: {
                 size: 14,
                 family: "Open Sans",
                 style: 'normal',
-                // lineHeight: 2
               },
-              // color: "#fff"
             },
+            title:{
+              display:true,
+              text:'Nombre des candidats'
+            }
           },
           x: {
             grid: {
@@ -201,99 +189,221 @@
               drawTicks: true
             },
             ticks: {
-              display: true
             },
-          },
-        },
-      },
-    });
-
-
-    var ctx2 = document.getElementById("chart-line").getContext("2d");
-
-    var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-    new Chart(ctx2, {
-      type: "line",
-      data: {
-        labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", 
-                "12", "13", "14", "15", "16", "17", "18", "19", "20", 
-                "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" , "31"
-              ],
-        datasets: [{
-            label: "Nombre d'utilisateurs rejoints",
-            tension: 0.4,
-            borderWidth: 0,
-            pointRadius: 0,
-            borderColor: "#0f233a",
-            borderWidth: 2,
-            fill: true,
-            data: [50, 220, 500, 40, 300, 220, 500, 250, 400, 230, 40, 500, 50, 
-                  220, 500, 40, 300, 220, 500, 250, 400, 230, 40, 500, 34, 34,
-                  50, 220, 500, 40, 300],
-            maxBarThickness: 3
-
-          }
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          title: {
-            display: true,
-            text: 'Nombre des candidats inscrits par jour',
-            font: {
-              size: 18
-            }
-          }
-        },
-        interaction: {
-          intersect: false,
-          mode: 'index',
-        },
-        scales: {
-          y: {
-            grid: {
-              drawBorder: false,
-              display: true,
-              drawOnChartArea: true,
-              drawTicks: false,
-            },
-            ticks: {
-              display: true,
-              padding: 20,
-              color: '#b2b9bf',
-              font: {
-                size: 11,
-                family: "Open Sans",
-                style: 'normal',
-                lineHeight: 2
-              },
-            }
-          },
-          x: {
-            grid: {
-              drawBorder: true,
-              display: true,
-              drawOnChartArea: true,
-              drawTicks: true,
-            },
-            ticks: {
-              display: true,
-              color: '#b2b9bf',
-              padding: 20,
-              font: {
-                size: 11,
-                family: "Open Sans",
-                style: 'normal',
-                lineHeight: 2
-              },
+            title:{
+              display:true,
+              text:'Les Filières'
             }
           },
         },
       },
     });
+
+    $("#month").on('change',function(){ 
+        $('#chart-line').remove();
+        $('#chart_line').append('<canvas id="chart-line" class="chart-canvas" height="400"></canvas>');
+        var myChart;
+        let month_id= $(this).val();
+        $.ajax({
+            type:'get',
+            url:'{{URL::to("NumberOfCandidatePerMonth")}}',
+            data:{'id':month_id},
+            success: function(data){
+              var ctx2 = document.getElementById("chart-line").getContext("2d");
+              var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+              new Chart(ctx2, {
+                type: "line",
+                data: {
+                  labels: data[0],
+                  datasets: [{
+                      label: "Nombre d'utilisateurs rejoints",
+                      tension: 0.4,
+                      borderWidth: 0,
+                      pointRadius: 0,
+                      borderColor: "#0f233a",
+                      borderWidth: 2,
+                      fill: true,
+                      data: data[1],
+                      maxBarThickness: 3
+                    }
+                  ],
+                },
+                options: {
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  plugins: {
+                    legend: {
+                      display: false
+                    },
+                    title: {
+                      display: true,
+                      text: 'Nombre des candidats inscrits par jour',
+                      font: {
+                        size: 18
+                      }
+                    }
+                  },
+                  interaction: {
+                    intersect: false,
+                    mode: 'index',
+                  },
+                  scales: {
+                    y: {
+                      grid: {
+                        drawBorder: false,
+                        display: true,
+                        drawOnChartArea: true,
+                        drawTicks: false,
+                      },
+                      ticks: {
+                        display: true,
+                        padding: 20,
+                        color: '#b2b9bf',
+                        font: {
+                          size: 11,
+                          family: "Open Sans",
+                          style: 'normal',
+                          lineHeight: 2
+                        },
+                      },
+                      title:{
+                        display:true,
+                        text:'Nombre des candidats'
+                      }
+                    },
+                    x: {
+                      grid: {
+                        drawBorder: true,
+                        display: true,
+                        drawOnChartArea: true,
+                        drawTicks: true,
+                      },
+                      ticks: {
+                        display: true,
+                        color: '#b2b9bf',
+                        padding: 20,
+                        font: {
+                          size: 11,
+                          family: "Open Sans",
+                          style: 'normal',
+                          lineHeight: 2
+                        },
+                      },
+                      title:{
+                        display:true,
+                        text:'Les jours du mois'
+                      }
+                    },
+                  },
+                },
+              });
+            },
+            error:function(err){
+                console.log(err.statusText)
+            }
+        });
+    });
+
+    // on reload the page get the current month
+    $(window).on('load',function(){ 
+        $.ajax({
+            type:'get',
+            url:'{{URL::to("NumberOfCandidateCurrentMonth")}}',
+            success: function(data){
+              var ctx2 = document.getElementById("chart-line").getContext("2d");
+              var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+              new Chart(ctx2, {
+                type: "line",
+                data: {
+                  labels: data[0],
+                  datasets: [{
+                      label: "Nombre d'utilisateurs rejoints",
+                      tension: 0.4,
+                      borderWidth: 0,
+                      pointRadius: 0,
+                      borderColor: "#0f233a",
+                      borderWidth: 2,
+                      fill: true,
+                      data: data[1],
+                      maxBarThickness: 3
+                    }
+                  ],
+                },
+                options: {
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  plugins: {
+                    legend: {
+                      display: false
+                    },
+                    title: {
+                      display: true,
+                      text: 'Nombre des candidats inscrits par jour',
+                      font: {
+                        size: 18
+                      }
+                    }
+                  },
+                  interaction: {
+                    intersect: false,
+                    mode: 'index',
+                  },
+                  scales: {
+                    y: {
+                      grid: {
+                        drawBorder: false,
+                        display: true,
+                        drawOnChartArea: true,
+                        drawTicks: false,
+                      },
+                      ticks: {
+                        display: true,
+                        padding: 20,
+                        color: '#b2b9bf',
+                        font: {
+                          size: 11,
+                          family: "Open Sans",
+                          style: 'normal',
+                          lineHeight: 2
+                        },
+                      },
+                      title:{
+                        display:true,
+                        text:'Nombre des candidats'
+                      }
+                    },
+                    x: {
+                      grid: {
+                        drawBorder: true,
+                        display: true,
+                        drawOnChartArea: true,
+                        drawTicks: true,
+                      },
+                      ticks: {
+                        display: true,
+                        color: '#b2b9bf',
+                        padding: 20,
+                        font: {
+                          size: 11,
+                          family: "Open Sans",
+                          style: 'normal',
+                          lineHeight: 2
+                        },
+                      },
+                      title:{
+                        display:true,
+                        text:'Les jours du mois'
+                      }
+                    },
+                  },
+                },
+              });
+            },
+            error:function(err){
+                console.log(err.statusText)
+            }
+        });
+    }); 
   }
 </script> 
 @endpush
