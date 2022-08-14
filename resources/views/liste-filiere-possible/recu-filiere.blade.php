@@ -45,16 +45,16 @@
             margin-top: 50px;
         }
 
-        #attestation {
+        /* #attestation {
             position: relative;
             margin-left: 60px;
             margin-top:50px;
-        }
+        } */
 
-        #signature {
+        /* #signature {
             position: relative;
             margin-left: 350px;
-        }
+        } */
         /* footer {
             text-align: center;
             font-style: oblique;
@@ -71,22 +71,22 @@
     
     <div class="container">
         <div id="titre">
-            <p>Fiche de pré-candidature </p>
+            <p style="text-decoration: underline">Fiche de pré-candidature </p>
         </div>
         <div id="attestation">
             <div>
                 <div style="display:flex; flex-direction:column;justify-content-center;border:1px solid rgb(157, 157, 157); padding:10px">
                     @foreach ($user_data as $item)
-                    <p id="paratest">Nom : <strong style="text-transform: uppercase;margin-top:30px">{{$item->last_name}} </strong> </p>
-                    <p id="paratest">Prénom : <strong style="text-transform: uppercase;">{{$item->first_name}}</strong> </p>
-                    <p id="paratest">CIN :<strong> {{$item->cin}}</strong></p>
-                    <p id="paratest">Email :<strong> {{$item->email}}</strong></p>
-                    <p id="paratest">Téléphone :<strong> {{$item->phone}}</strong></p>
+                    <p id="paratest"><span style="width:40px">Nom </span>:<strong style="text-transform: uppercase;margin-top:30px">{{$item->last_name}} </strong> </p>
+                    <p id="paratest"><span style="width:40px">Prénom</span>:<strong style="text-transform: uppercase;">{{$item->first_name}}</strong> </p>
+                    <p id="paratest"><span style="width:40px">CIN </span>:<strong> {{$item->cin}}</strong></p>
+                    <p id="paratest"><span style="width:40px">Email </span>:<strong> {{$item->email}}</strong></p>
+                    <p id="paratest"><span style="width:40px">Téléphone </span>:<strong> {{$item->phone}}</strong></p>
                     @endforeach
                 </div>
                 
                 <div>
-                    <p id="post_condidat">-------CANDIDATURE à la FILIERE-------</p>
+                    <p id="post_condidat" style="text-decoration: underline">CANDIDATURE à la FILIERE</p>
                     <p id="paratest">Etablissement :<strong> Ecole Supérieure d'Education et de Formation (ESEF) - EL JADIDA</strong></p>
                     <p id="paratest">Spécialité :<strong>{{$filiere_data[0]->name}}</strong></p>
                     <p id="signature">Reçu LE : {{$register_in_filiere_at[0]->date}}</p>
@@ -95,8 +95,9 @@
         </div>
     </div>
     <hr>
-    <footer style="display:fixed;bottom:0;">
-        <div style="font-size: 10; display:flex;flex-wrap: wrap;">Route Nationale N°1 (Route AZEMMOUR), Km6, HAOUZIA BP:5096 ElJadida Plateau 24002 Téléphone: 0523 39 56 79-0523 34 48 22 /fax : 0523 39 49 15</div>
+    <footer style="position:fixed;bottom:0; margin-top:10px">
+        <div style="font-size: 10; display:flex;flex-wrap: wrap;">Route Nationale N°1 (Route AZEMMOUR), Km6, HAOUZIA BP:5096 ElJadida Plateau 24002</div>
+        <div style="font-size: 10; display:flex;flex-wrap: wrap;font-weight:bold"> Téléphone: 0523 39 56 79-0523 34 48 22 /fax : 0523 39 49 15</div>
     </footer>
 </body>
 </html>
