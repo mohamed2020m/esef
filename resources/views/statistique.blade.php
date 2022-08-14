@@ -268,10 +268,10 @@
                 style: 'normal',
                 lineHeight: 2
               },
-              title:{
-                display:true,
-                text:'text'
-              }
+            },
+            title:{
+              display:true,
+              text:'text'
             }
           },
           x: {
@@ -291,6 +291,10 @@
                 style: 'normal',
                 lineHeight: 2
               },
+            },
+            title:{
+              display:true,
+              text:'text'
             }
           },
         },
