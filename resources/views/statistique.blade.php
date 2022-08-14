@@ -188,6 +188,10 @@
                 style: 'normal',
               },
             },
+            title:{
+              display:true,
+              text:'Nombre des candidats'
+            }
           },
           x: {
             grid: {
@@ -198,6 +202,10 @@
             },
             ticks: {
             },
+            title:{
+              display:true,
+              text:'Les Filières'
+            }
           },
         },
       },
@@ -271,7 +279,7 @@
             },
             title:{
               display:true,
-              text:'text'
+              text:'Nombre des candidats'
             }
           },
           x: {
@@ -294,7 +302,7 @@
             },
             title:{
               display:true,
-              text:'text'
+              text:'Les jours'
             }
           },
         },
