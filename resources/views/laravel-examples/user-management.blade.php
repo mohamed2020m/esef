@@ -299,7 +299,7 @@
 
     function calculePagination(data){
         let sections = [];
-        let n_sections = Math.ceil(data.length / 20);
+        let n_sections = Math.ceil(data.length / 2);
         let j = 0;
         for(let i = 0; i < n_sections; i++){
             sections.push(data.slice(j,j+2))
