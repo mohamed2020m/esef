@@ -67,9 +67,18 @@
             <select class="form-select form-select-lg" id="month"
                 style="border-color:#0f233a !important; box-shadow:none !important" aria-label="Default select example" name="mois" required>
                 <option disabled selected>Le mois En Cours</option>
-                @foreach($months as $month)
-                <option value="{{$month['id']}}">{{$month['name']}}</option>
-                @endforeach
+                <option value="1">Janvier</option>
+                <option value="2">Février</option>
+                <option value="3">Mars</option>
+                <option value="4">Avril</option>
+                <option value="5">Mai</option>
+                <option value="6">Juin</option>
+                <option value="7">Juillet</option>
+                <option value="8">Août</option>
+                <option value="9">Septembre</option>
+                <option value="10">Octobre</option>
+                <option value="11">Novembre</option>
+                <option value="12">Décembre</option>
             </select>
           </div>
           <div class="border-radius-lg py-3 pe-1 mb-3">
