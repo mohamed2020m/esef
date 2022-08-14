@@ -67,8 +67,8 @@
             <select class="form-select form-select-lg" id="month"
                 style="border-color:#0f233a !important; box-shadow:none !important" aria-label="Default select example" name="mois" required>
                 <option disabled selected>Le mois En Cours</option>
-                @foreach($months as month)
-                <option value="{{month['id']}}">{{month['name']}}</option>
+                @foreach($months as $month)
+                <option value="{{$month['id']}}">{{$month['name']}}</option>
                 @endforeach
             </select>
           </div>
