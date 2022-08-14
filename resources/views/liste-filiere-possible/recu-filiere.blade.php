@@ -70,8 +70,8 @@ footer {
 
 <body>
     <header>
-        <img src="{{public_path('img/image_recu/esf.jpg')}}" alt="Logo de Université Chouaib Doukkali" >
-        <img id="fin" src="{{public_path('img/image_recu/universite.jpg')}}" >
+        <img src="assets/img/esef.jpeg" alt="Logo de Université Chouaib Doukkali" >
+        {{-- <img id="fin" src="{{public_path('img/image_recu/universite.jpg')}}" > --}}
     </header>
     <hr>
     <div class="container">
