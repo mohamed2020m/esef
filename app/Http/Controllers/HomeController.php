@@ -203,7 +203,7 @@ class HomeController extends Controller
             $number_of_users = [];
             $usersData = DB::table('users')->select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as total'))
             ->groupBy('date')
-            ->having(DB::raw('YEAR(date) = YEAR(CURRENT_DATE()) AND EXTRACT(MONTH FROM date) = EXTRACT(MONTH FROM CURRENT_DATE())'))
+            ->havingRaw(DB::raw('YEAR(date) = YEAR(CURRENT_DATE()) AND EXTRACT(MONTH FROM date) = EXTRACT(MONTH FROM CURRENT_DATE())'))
             ->get();
             foreach($usersData as $ud){
                 array_push($day, $ud->date);
