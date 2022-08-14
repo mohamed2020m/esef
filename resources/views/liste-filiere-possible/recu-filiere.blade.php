@@ -27,10 +27,10 @@
 
 <body>
     <div style="display:flex;">
-        <div>
-            <img src="../assets/img/newLogo.png" style="max-width:100%" alt="ESEF Logo">
+        <div style="width:30%">
+            <img src="../assets/img/newLogo.png" style="width:100px" height="100px" alt="ESEF Logo">
         </div>
-        <div>
+        <div style="width:70%">
             <img src="../assets/img/esef.png"  style="max-width:100%" alt="Logo de Université Chouaib Doukkali">
         </div>
     </div>
