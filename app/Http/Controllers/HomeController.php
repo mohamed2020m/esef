@@ -183,7 +183,7 @@ class HomeController extends Controller
             $usersData = DB::table('users')->select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as total'))
             ->groupBy('date')
             ->get();
-            foreach($userData as $ud){
+            foreach($usersData as $ud){
                 array_push($day, $ud->date);
                 array_push($number_of_users, $ud->total);
             }
