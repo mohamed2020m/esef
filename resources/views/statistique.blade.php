@@ -184,9 +184,7 @@
                 size: 14,
                 family: "Open Sans",
                 style: 'normal',
-                // lineHeight: 2
               },
-              // color: "#fff"
             },
           },
           x: {
@@ -199,7 +197,7 @@
             ticks: {
               display: true
             },
-            display: false
+          
           },
         },
       },
