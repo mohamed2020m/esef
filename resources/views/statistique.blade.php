@@ -181,6 +181,7 @@
               padding: 15,
               // display: true
               title:{
+                display:true,
                 text:'Filières'
               }
               font: {
@@ -202,6 +203,7 @@
             ticks: {
               // display: true
               title:{
+                display:true,
                 text:'Nombre des candidats'
               }
             },
