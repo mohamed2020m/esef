@@ -15,65 +15,60 @@
             font-family: Arial, Helvetica, sans-serif;
         }
         header p {
-    position: relative;
-    margin-top: -90px;
-    margin-left: -40px;
-    text-align: center;
-}
+            position: relative;
+            margin-top: -90px;
+            margin-left: -40px;
+            text-align: center;
+        }
+        #fin {
+            position: relative;
+            margin-left: 400px;
+            margin-top: -90px;
+            width: 320px;
+            height: 90px;
+        }
 
+        #titre {
+            position: relative;
+            margin-left: 140px;
+            margin-top: 40px;
+            width: 500px;
+            height: 40px;
+            text-align: center;
+        }
+        #titre p{
+            font-size: 26px;
+        }
+        #post_condidat{
+            font-size: 25px;
+            text-align: center;
+            margin-top: 50px;
+        }
 
-#fin {
-    position: relative;
-    margin-left: 400px;
-    margin-top: -90px;
-    width: 320px;
-    height: 90px;
-}
+        #attestation {
+            position: relative;
+            margin-left: 60px;
+            margin-top:50px;
+        }
 
-#titre {
-    position: relative;
-    margin-left: 140px;
-    margin-top: 40px;
-    width: 500px;
-    height: 40px;
-    text-align: center;
-}
-#titre p{
-    font-size: 26px;
-}
-#post_condidat{
-    font-size: 25px;
-    text-align: center;
-    margin-top: 50px;
-}
-
-#attestation {
-    position: relative;
-    margin-left: 60px;
-    margin-top:50px;
-}
-
-
-
-#signature {
-    position: relative;
-    margin-left: 350px;
-}
-
-footer {
-    text-align: center;
-    font-style: oblique;
-    font-size: large;
-}
+        #signature {
+            position: relative;
+            margin-left: 350px;
+        }
+        footer {
+            text-align: center;
+            font-style: oblique;
+            font-size: large;
+        }
     </style>
 </head>
 
 <body>
-    <header>
-        <img src="../assets/img/esef.jpeg" alt="Logo de Université Chouaib Doukkali" >
+    <div>
+        <img src="../assets/img/esef.jpeg"  style="max-width:100%" alt="Logo de Université Chouaib Doukkali">
         {{-- <img id="fin" src="{{public_path('img/image_recu/universite.jpg')}}" > --}}
-    </header>
-    <hr>
+    </div>
+    
     <div class="container">
         <div id="titre">
             <p>Fiche de pré-candidature </p>
@@ -99,8 +94,7 @@ footer {
     </div>
     <hr>
     <footer>
-        <strong><p>Route Nationale N°1 (Route AZEMMOUR), Km6, HAOUZIA <br> BP:5096 ElJadida Plateau 24002 <br> Téléphone: 0523 39 56 79-0523 34 48 22 /fax : 0523 39 49 15</p></strong>
-
+        <div style="font-size: 10; display:flex;flex-wrap: wrap;">Route Nationale N°1 (Route AZEMMOUR), Km6, HAOUZIA BP:5096 ElJadida Plateau 24002 Téléphone: 0523 39 56 79-0523 34 48 22 /fax : 0523 39 49 15</div>
     </footer>
 </body>
 </html>
