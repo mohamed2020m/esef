@@ -30,7 +30,7 @@
 
         #titre {
             position: relative;
-            margin-left: 140px;
+            /* margin-left: 140px; */
             margin-top: 40px;
             width: 500px;
             height: 40px;
@@ -77,11 +77,11 @@
             <div>
                 <div style="display:flex; flex-direction:column;justify-content-center;border:1px solid rgb(157, 157, 157); padding:10px">
                     @foreach ($user_data as $item)
-                    <p id="paratest"><span style="width:40px">Nom </span>:<strong style="text-transform: uppercase;margin-top:30px">{{$item->last_name}} </strong> </p>
-                    <p id="paratest"><span style="width:40px">Prénom</span>:<strong style="text-transform: uppercase;">{{$item->first_name}}</strong> </p>
-                    <p id="paratest"><span style="width:40px">CIN </span>:<strong> {{$item->cin}}</strong></p>
-                    <p id="paratest"><span style="width:40px">Email </span>:<strong> {{$item->email}}</strong></p>
-                    <p id="paratest"><span style="width:40px">Téléphone </span>:<strong> {{$item->phone}}</strong></p>
+                    <p id="paratest"><span style="width:100px">Nom </span>:<strong style="text-transform: uppercase;margin-top:30px">{{$item->last_name}} </strong> </p>
+                    <p id="paratest"><span style="width:100px">Prénom</span>:<strong style="text-transform: uppercase;">{{$item->first_name}}</strong> </p>
+                    <p id="paratest"><span style="width:100px">CIN </span>:<strong> {{$item->cin}}</strong></p>
+                    <p id="paratest"><span style="width:100px">Email </span>:<strong> {{$item->email}}</strong></p>
+                    <p id="paratest"><span style="width:100px">Téléphone </span>:<strong> {{$item->phone}}</strong></p>
                     @endforeach
                 </div>
                 
@@ -94,8 +94,8 @@
             </div>
         </div>
     </div>
-    <hr>
     <footer style="position:fixed;bottom:0; margin-top:10px">
+        <hr>
         <div style="font-size: 10; display:flex;flex-wrap: wrap;">Route Nationale N°1 (Route AZEMMOUR), Km6, HAOUZIA BP:5096 ElJadida Plateau 24002</div>
         <div style="font-size: 10; display:flex;flex-wrap: wrap;font-weight:bold"> Téléphone: 0523 39 56 79-0523 34 48 22 /fax : 0523 39 49 15</div>
     </footer>
