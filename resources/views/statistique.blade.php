@@ -108,7 +108,7 @@
 <script>
   
   let noms_filieres = {!! json_encode($names, JSON_HEX_TAG) !!};
-  let nombre = {!! json_encode($nombre_candidat_par_filiere, JSON_HEX_TAG) !!};
+  let nombre_filieres = {!! json_encode($nombre_candidat_par_filiere, JSON_HEX_TAG) !!};
   let backgroundColorArr = [
     'rgba(255, 99, 132)',
     'rgba(255, 159, 64)',
