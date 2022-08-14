@@ -235,6 +235,9 @@
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
+          legend: {
+            display: false
+          },
           title: {
             display: true,
             text: 'Nombre des candidats inscrits par jour',
@@ -265,6 +268,10 @@
                 style: 'normal',
                 lineHeight: 2
               },
+              title:{
+                display:true,
+                text:'text'
+              }
             }
           },
           x: {
