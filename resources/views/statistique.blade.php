@@ -145,6 +145,9 @@
         }, ],
       },
       options: {
+        legend: {
+          display: false
+        }
         responsive: true,
         maintainAspectRatio: false,
         animations: {
