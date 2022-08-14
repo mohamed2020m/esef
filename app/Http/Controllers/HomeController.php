@@ -177,9 +177,10 @@ class HomeController extends Controller
 
     public function numberOfCandidate(Request $request){
         if(Auth::user()->role =="admin"){
-
-
-            return response()->json($request->id);
+            $usersData = User::select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as total'))
+            ->groupBy('date')
+            ->get();
+            return response()->json($usersData);
         }elseif(Auth::user()->role =="professeur"){
             return redirect('candidats');
         }else{
