@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('ville_obtention');
             $table->string('scan_bac');
             $table->string('scan_releve_note');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('bac_id')->references('id')->on('bacs')->onDelete('cascade');
 
 
             $table->timestamps();

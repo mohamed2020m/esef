@@ -18,7 +18,10 @@ return new class extends Migration
             $table->timestamps();
             $table->integer('filiere_id')->unsigned();
             $table->integer('matiere_id')->unsigned();
-            $table->string('coefficient_matiere')->default('1');;
+            $table->string('coefficient_matiere')->default('1');
+            $table->foreign('filiere_id')->references('id')->on('filieres')->onDelete('cascade');
+            $table->foreign('matiere_id')->references('id')->on('matieres')->onDelete('cascade');
+            
         });
     }
 
