@@ -109,9 +109,8 @@
   
   var names = {!! json_encode($names, JSON_HEX_TAG) !!};
   var nombre = {!! json_encode($nombre_candidat_par_filiere, JSON_HEX_TAG) !!};
-  console.log(names);
- 
 
+  Chart.defaults.global.legend.display = false;
 
   window.onload = function() {
     var ctx = document.getElementById("chart-bars").getContext("2d");
@@ -124,10 +123,6 @@
         labels:names,
         datasets: [{
           label: "Nombre des candidats",
-          // tension: 0.4,
-          // borderWidth: 0,
-          // borderRadius: 4,
-          // borderSkipped: false,
           data:nombre,
           backgroundColor: [
             'rgba(255, 99, 132)',
