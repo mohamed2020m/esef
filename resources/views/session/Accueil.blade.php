@@ -69,7 +69,7 @@
               </p>
             </div>
             <div class="mb-4 text-sm mx-auto">
-              En cas de problème durant la postulation contacter  : help@esefj.ma
+              En cas de problème durant la postulation contacter  :<span class="text-info"> help@esefj.ma</span>
             </div>
           </div>
         </div>
