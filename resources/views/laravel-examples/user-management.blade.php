@@ -194,7 +194,7 @@
             }
         })
     });
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
     function calculePagination(data){
         let sections = [];
@@ -227,8 +227,8 @@
         }
         return table;  
     }
-=======
->>>>>>> 40add34b67bfd46524c57d4792cd0369eccd54bc
+//=======
+//>>>>>>> 40add34b67bfd46524c57d4792cd0369eccd54bc
 </script>
 
 @endsection
