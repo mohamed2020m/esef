@@ -204,7 +204,7 @@
 
     $("#month").on('change',function(){ 
         var myChart;
-        let month_id= $(this).val();
+        // let month_id= $(this).val();
         $.ajax({
             type:'get',
             url:'{{URL::to("NumberOfCandidatePerMonth")}}',
@@ -216,7 +216,7 @@
 
               var ctx2 = document.getElementById("chart-line").getContext("2d");
               var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
-              if(myChart){
+              if(myChart instanceof Chart){
                 myChart.destroy()
               }
               myChart = new Chart(ctx2, {
