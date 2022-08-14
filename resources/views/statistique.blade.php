@@ -137,7 +137,7 @@
         
         labels: noms_filieres,
         datasets: [{
-          label: "Nombre des candidats",
+          // label: "Nombre des candidats",
           data: nombre_filieres,
           backgroundColor: backgroundColorArr,
           borderColor: backgroundColorArr,
@@ -180,10 +180,10 @@
               beginAtZero: true,
               padding: 15,
               // display: true
-              title:{
-                display:true,
-                text:'Filières'
-              }
+              // title:{
+              //   display:true,
+              //   text:'Filières'
+              // }
               font: {
                 size: 14,
                 family: "Open Sans",
@@ -202,10 +202,10 @@
             },
             ticks: {
               // display: true
-              title:{
-                display:true,
-                text:'Nombre des candidats'
-              }
+              // title:{
+              //   display:true,
+              //   text:'Nombre des candidats'
+              // }
             },
           },
         },
