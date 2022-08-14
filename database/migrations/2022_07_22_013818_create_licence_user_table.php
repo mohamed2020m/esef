@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('licence_user', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned();
-            $table->integer('licence_id')->unsigned();
+            $table->unsignedBigInteger('user_id')->unsigned();
+            $table->unsignedBigInteger('licence_id')->unsigned();
             $table->string('type_licence');
             $table->string('annee_obtention');
             $table->string('etablissment_obtention');

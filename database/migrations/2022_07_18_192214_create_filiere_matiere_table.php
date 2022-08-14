@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('filiere_matiere', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('filiere_id')->unsigned();
-            $table->integer('matiere_id')->unsigned();
+            $table->unsignedBigInteger('filiere_id')->unsigned();
+            $table->unsignedBigInteger('matiere_id')->unsigned();
             $table->string('coefficient_matiere')->default('1');
             $table->foreign('filiere_id')->references('id')->on('filieres')->onDelete('cascade');
             $table->foreign('matiere_id')->references('id')->on('matieres')->onDelete('cascade');
