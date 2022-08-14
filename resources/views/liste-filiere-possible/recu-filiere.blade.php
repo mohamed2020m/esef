@@ -22,16 +22,39 @@
             text-align: center;
             margin-top: 50px;
         }
+
+        #logos{
+            display:grid;
+            grid-template-columns: 150px auto;
+        }
+        #logo_1{
+            display:grid;
+            justify-content: center;
+        }
+        #logo_2{
+            display:grid;
+            justify-content: end;
+        }
+        #logo_1_img{
+            width:80px; 
+            height: 80px
+        }
+        #logo_2_img{
+            width:600px;
+        }
+        .dt{
+            width:100px;
+        }
     </style>
 </head>
 
 <body>
-    <div style="display:grid;grid-template-columns: 150px auto;">
-        <div style="display:grid;justify-content: center;">
-            <img src="../assets/img/newLogo.png" style="width:80px; height: 80px" alt="ESEF Logo">
+    <div id="logos">
+        <div id="logo_1">
+            <img id="logo_1_img" src="../assets/img/newLogo.png" alt="ESEF Logo">
         </div>
-        <div style="display:grid;justify-content: end;">
-            <img src="../assets/img/esef.png"  style="width:600px;" alt="Logo de Université Chouaib Doukkali">
+        <div id="logo_2">
+            <img id="logo_2_img" src="../assets/img/esef.png" alt="Logo de Université Chouaib Doukkali">
         </div>
     </div>
     <div class="container">
@@ -42,19 +65,19 @@
             <div>
                 <div style="display:flex; flex-direction:column;justify-content:center;border:1px solid rgb(157, 157, 157); padding:10px">
                     @foreach ($user_data as $item)
-                    <p><span style="width:300px">Nom </span>:<strong style="text-transform: uppercase;margin-top:30px">{{$item->last_name}} </strong> </p>
-                    <p><span style="width:100px">Prénom</span>:<strong style="text-transform: uppercase;">{{$item->first_name}}</strong> </p>
-                    <p><span style="width:100px">CIN </span>:<strong> {{$item->cin}}</strong></p>
-                    <p><span style="width:100px">Email </span>:<strong> {{$item->email}}</strong></p>
-                    <p><span style="width:100px">Téléphone </span>:<strong> {{$item->phone}}</strong></p>
+                    <p><span class="dt">Nom </span>:<strong style="text-transform: uppercase;margin-top:30px">{{$item->last_name}} </strong> </p>
+                    <p><span class="dt">Prénom</span>:<strong style="text-transform: uppercase;">{{$item->first_name}}</strong> </p>
+                    <p><span class="dt">CIN </span>:<strong> {{$item->cin}}</strong></p>
+                    <p><span class="dt">Email </span>:<strong> {{$item->email}}</strong></p>
+                    <p><span class="dt">Téléphone </span>:<strong> {{$item->phone}}</strong></p>
                     @endforeach
                 </div>
                 
                 <div>
                     <p id="post_condidat" style="text-decoration: underline">CANDIDATURE à la FILIÈRE</p>
-                    <p>Etablissement :<strong> Ecole Supérieure d'Education et de Formation (ESEF) - EL JADIDA</strong></p>
-                    <p>Spécialité :<strong>{{$filiere_data[0]->name}}</strong></p>
-                    <p>Reçu LE : <strong>{{$register_in_filiere_at[0]->date}}</strong></p>
+                    <p><span class="dt">Etablissement </span>:<strong> Ecole Supérieure d'Education et de Formation (ESEF) - EL JADIDA</strong></p>
+                    <p><span class="dt">Spécialité</span> :<strong>{{$filiere_data[0]->name}}</strong></p>
+                    <p><span class="dt">Reçu LE :</span> <strong>{{$register_in_filiere_at[0]->date}}</strong></p>
                 </div>
             </div>
         </div>
