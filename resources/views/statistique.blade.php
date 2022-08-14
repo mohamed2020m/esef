@@ -205,16 +205,18 @@
     });
 
     
-    $("#month").on('change',function(){
+    $("#month").on('change',function(){ 
+        $('#chart-line').clear();
         let month_id= $(this).val();
         $.ajax({
             type:'get',
             url:'{{URL::to("NumberOfCandidatePerMonth")}}',
             data:{'id':month_id},
             success: function(data){
-              
+
               console.log("day: ", data[0]);
               console.log("Nombre Users: ", data[1]);
+
               var ctx2 = document.getElementById("chart-line").getContext("2d");
               var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
               new Chart(ctx2, {
