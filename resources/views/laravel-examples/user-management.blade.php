@@ -14,15 +14,12 @@
             <div class="row aling-items-center mb-3">
                 <div id="flt"></div>
                 <div class="col-10" id="select_tag">
-                    <form>
-                        @csrf
-                        <select class="form-select form-select-lg select_filiere" style="border-color:#0f233a !important; box-shadow:none !important" aria-label="Default select example"  name="filiere"  required>
-                            <option disabled selected>Sélectionner une filière</option>
-                            @foreach($data_filiere as $row)
-                            <option value="{{$row->id}}">{{$row->name}}</option>
-                            @endforeach
-                        </select>
-                    </form>
+                    <select class="form-select form-select-lg select_filiere" style="border-color:#0f233a !important; box-shadow:none !important" aria-label="Default select example"  name="filiere"  required>
+                        <option disabled selected>Sélectionner une filière</option>
+                        @foreach($data_filiere as $row)
+                        <option value="{{$row->id}}">{{$row->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="col-2 d-flex">
                     <button class="text-white font-weight-bold px-2 border-0 bg-secondary flex-grow-1 rounded " id="btn_export" type="button" data-bs-toggle="modal" data-bs-target="#export">
@@ -194,41 +191,6 @@
             }
         })
     });
-//<<<<<<< HEAD
-
-    function calculePagination(data){
-        let sections = [];
-        let n_sections = Math.ceil(data.length / 2);
-        let j = 0;
-        for(let i = 0; i < n_sections; i++){
-            sections.push(data.slice(j,j+2))
-            j += 2;
-        }
-        return sections;
-    }
-    function pagination(arr){
-        let table = ""; 
-        for(var i=0;i<arr.length;i++){
-            table += 
-            `<tr class="align-middle" style="font-size: 18px;">
-                <td class="text-center"><p class="font-weight-bold mb-0"> ${arr[i].id}</p></td>
-                <td class="text-center"><img src="../public/images/images_profiles/${arr[i].photo}" alt="avatar" class="avatar avatar-sm me-3"></td>
-                <td class="text-center"><p class="font-weight-bold mb-0">${arr[i].last_name}</p></td>
-                <td class="text-center"><p class="font-weight-bold mb-0">${arr[i].first_name}</p></td>
-                <td class="text-center"><p class="font-weight-bold mb-0">${arr[i].cin}</p></td>
-                <td class="text-center"><p class="font-weight-bold mb-0">${arr[i].cne}</p></td>
-                <td class="text-center"><p class="font-weight-bold mb-0">${arr[i].score}</p></td>
-                <td class="text-center">
-                    <a href="/server.php/user-management-${arr[i].id}" class="mr-3" data-bs-toggle="tooltip" data-bs-original-title="view condidature">
-                        <i class="fas fa-eye text-white bg-warning rounded-circle p-3" style="font-weight:normal"></i>
-                    </a>
-                </td>
-            </tr>`
-        }
-        return table;  
-    }
-//=======
-//>>>>>>> 40add34b67bfd46524c57d4792cd0369eccd54bc
 </script>
 
 @endsection
