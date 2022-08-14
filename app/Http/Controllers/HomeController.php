@@ -196,7 +196,11 @@ class HomeController extends Controller
         }
     }
 
-     public function numberOfCandidateCurrentMonth(Request $request){
+    public function monthsDB(){
+        $months = [];
+        return view('statistique', ['months' => months])
+    }
+    public function numberOfCandidateCurrentMonth(Request $request){
         if(Auth::user()->role =="admin"){
             
             $day = [];
