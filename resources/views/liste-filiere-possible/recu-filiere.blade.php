@@ -37,10 +37,10 @@
      --}}
     <div style="display:grid;grid-template-columns: 150px auto;">
         <div style="display:grid;justify-content: center;">
-            <img src="newLogo.png" style="width:80px; height: 80px" alt="ESEF Logo">
+            <img src="../assets/img/newLogo.png" style="width:80px; height: 80px" alt="ESEF Logo">
         </div>
         <div style="display:grid;justify-content: end;">
-            <img src="esef.png"  style="width:100%;" alt="Logo de Université Chouaib Doukkali">
+            <img src="../assets/img/esef.png"  style="width:100%;" alt="Logo de Université Chouaib Doukkali">
         </div>
     </div>
     <div class="container">
