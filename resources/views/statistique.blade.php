@@ -145,9 +145,6 @@
         }, ],
       },
       options: {
-        legend: {
-          display: false
-        }
         responsive: true,
         maintainAspectRatio: false,
         animations: {
@@ -157,6 +154,9 @@
           }
         },
         plugins: {
+          legend: {
+            display: false
+          },
           title: {
               display: true,
               text: 'Nombre des candidats par filière',
@@ -182,18 +182,11 @@
               suggestedMax: 500,
               beginAtZero: true,
               padding: 15,
-              // display: true
-              // title:{
-              //   display:true,
-              //   text:'Filières'
-              // }
               font: {
                 size: 14,
                 family: "Open Sans",
                 style: 'normal',
-                // lineHeight: 2
               },
-              // color: "#fff"
             },
           },
           x: {
@@ -204,11 +197,6 @@
               drawTicks: true
             },
             ticks: {
-              // display: true
-              // title:{
-              //   display:true,
-              //   text:'Nombre des candidats'
-              // }
             },
           },
         },
