@@ -215,6 +215,94 @@
               
               console.log("day: ", data[0]);
               console.log("Nombre Users: ", data[1]);
+              var ctx2 = document.getElementById("chart-line").getContext("2d");
+              var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+              new Chart(ctx2, {
+                type: "line",
+                data: {
+                  labels: data[0],
+                  datasets: [{
+                      label: "Nombre d'utilisateurs rejoints",
+                      tension: 0.4,
+                      borderWidth: 0,
+                      pointRadius: 0,
+                      borderColor: "#0f233a",
+                      borderWidth: 2,
+                      fill: true,
+                      data: data[1],
+                      maxBarThickness: 3
+                    }
+                  ],
+                },
+                options: {
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  plugins: {
+                    legend: {
+                      display: false
+                    },
+                    title: {
+                      display: true,
+                      text: 'Nombre des candidats inscrits par jour',
+                      font: {
+                        size: 18
+                      }
+                    }
+                  },
+                  interaction: {
+                    intersect: false,
+                    mode: 'index',
+                  },
+                  scales: {
+                    y: {
+                      grid: {
+                        drawBorder: false,
+                        display: true,
+                        drawOnChartArea: true,
+                        drawTicks: false,
+                      },
+                      ticks: {
+                        display: true,
+                        padding: 20,
+                        color: '#b2b9bf',
+                        font: {
+                          size: 11,
+                          family: "Open Sans",
+                          style: 'normal',
+                          lineHeight: 2
+                        },
+                      },
+                      title:{
+                        display:true,
+                        text:'Nombre des candidats'
+                      }
+                    },
+                    x: {
+                      grid: {
+                        drawBorder: true,
+                        display: true,
+                        drawOnChartArea: true,
+                        drawTicks: true,
+                      },
+                      ticks: {
+                        display: true,
+                        color: '#b2b9bf',
+                        padding: 20,
+                        font: {
+                          size: 11,
+                          family: "Open Sans",
+                          style: 'normal',
+                          lineHeight: 2
+                        },
+                      },
+                      title:{
+                        display:true,
+                        text:'Les jours du mois'
+                      }
+                    },
+                  },
+                },
+              });
             },
             error:function(err){
                 console.log(err.statusText)
@@ -222,100 +310,6 @@
         });
     });
 
-    var ctx2 = document.getElementById("chart-line").getContext("2d");
-    var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
-    new Chart(ctx2, {
-      type: "line",
-      data: {
-        labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", 
-                "12", "13", "14", "15", "16", "17", "18", "19", "20", 
-                "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" , "31"
-              ],
-        datasets: [{
-            label: "Nombre d'utilisateurs rejoints",
-            tension: 0.4,
-            borderWidth: 0,
-            pointRadius: 0,
-            borderColor: "#0f233a",
-            borderWidth: 2,
-            fill: true,
-            data: [50, 220, 500, 40, 300, 220, 500, 250, 400, 230, 40, 500, 50, 
-                  220, 500, 40, 300, 220, 500, 250, 400, 230, 40, 500, 34, 34,
-                  50, 220, 500, 40, 300],
-            maxBarThickness: 3
-
-          }
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            display: false
-          },
-          title: {
-            display: true,
-            text: 'Nombre des candidats inscrits par jour',
-            font: {
-              size: 18
-            }
-          }
-        },
-        interaction: {
-          intersect: false,
-          mode: 'index',
-        },
-        scales: {
-          y: {
-            grid: {
-              drawBorder: false,
-              display: true,
-              drawOnChartArea: true,
-              drawTicks: false,
-            },
-            ticks: {
-              display: true,
-              padding: 20,
-              color: '#b2b9bf',
-              font: {
-                size: 11,
-                family: "Open Sans",
-                style: 'normal',
-                lineHeight: 2
-              },
-            },
-            title:{
-              display:true,
-              text:'Nombre des candidats'
-            }
-          },
-          x: {
-            grid: {
-              drawBorder: true,
-              display: true,
-              drawOnChartArea: true,
-              drawTicks: true,
-            },
-            ticks: {
-              display: true,
-              color: '#b2b9bf',
-              padding: 20,
-              font: {
-                size: 11,
-                family: "Open Sans",
-                style: 'normal',
-                lineHeight: 2
-              },
-            },
-            title:{
-              display:true,
-              text:'Les jours du mois'
-            }
-          },
-        },
-      },
-    });
   }
 </script> 
 @endpush
