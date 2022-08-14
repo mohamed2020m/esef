@@ -28,7 +28,7 @@
             grid-template-columns: 150px auto;
         }
         #logo_1{
-            display:grid;
+            display:flex;
             justify-content: center;
         }
         #logo_2{
@@ -40,7 +40,7 @@
             height: 80px
         }
         #logo_2_img{
-            width:600px;
+            max-width: 100%;
         }
         .dt{
             width:100px;
@@ -50,11 +50,11 @@
 
 <body>
     <div id="logos">
-        <div id="logo_1">
-            <img id="logo_1_img" src="../assets/img/newLogo.png" alt="ESEF Logo">
-        </div>
         <div id="logo_2">
             <img id="logo_2_img" src="../assets/img/esef.png" alt="Logo de Université Chouaib Doukkali">
+        </div>
+        <div id="logo_1">
+            <img id="logo_1_img" src="../assets/img/newLogo.png" alt="ESEF Logo">
         </div>
     </div>
     <div class="container">
