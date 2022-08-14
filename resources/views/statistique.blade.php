@@ -216,18 +216,7 @@
               console.log("data: ", data)
             },
             error:function(err){
-                $('body').append(`
-                    <div aria-live="polite" aria-atomic="true" class="position-fixed bottom-0 end-0 p-3">
-                        <div class="toast-container">
-                            <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
-                                <div class="toast-header text-white bg-danger rounded-0">
-                                    <strong class="me-auto">${err.statusText}</strong>
-                                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `);
+                console.log(err.statusText)
             }
         });
     });
