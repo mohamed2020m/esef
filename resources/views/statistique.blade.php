@@ -66,13 +66,8 @@
           <div>
             <form action="" method="">
               @csrf
-              <select class="form-select form-select-lg" 
-                  {{-- select_filiere"  --}}
+              <select class="form-select form-select-lg" id="month"
                   style="border-color:#0f233a !important; box-shadow:none !important" aria-label="Default select example" name="mois" required>
-                  {{-- <option disabled selected>Sélectionner une filière</option>
-                  @foreach($data_filiere as $row)
-                  <option value="{{$row->id}}">{{$row->name}}</option>
-                  @endforeach --}}
                   <option disabled selected>Sélectionnez un mois</option>
                   <option value="1">Janvier</option>
                   <option value="2">Février</option>
@@ -124,8 +119,6 @@
     let B = Math.round(Math.random() * 255); 
     backgroundColorArr.push(`rgba(${R}, ${G}, ${B})`)
   }
-
-  // Chart.defaults.global.legend.display = false;
 
   window.onload = function() {
     var ctx = document.getElementById("chart-bars").getContext("2d");
@@ -211,11 +204,36 @@
       },
     });
 
+    
+    $("#month").on('change',function(){
+        let month_id= $(this).val();
+        $.ajax({
+            type:'get',
+            url:'{{URL::to("NumberOfCandidatePerMonth")}}',
+            data:{'id':month_id},
+            success: function(data){
+              
+              console.log("data: ", data)
+            },
+            error:function(err){
+                $('body').append(`
+                    <div aria-live="polite" aria-atomic="true" class="position-fixed bottom-0 end-0 p-3">
+                        <div class="toast-container">
+                            <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                                <div class="toast-header text-white bg-danger rounded-0">
+                                    <strong class="me-auto">${err.statusText}</strong>
+                                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `);
+            }
+        });
+    });
 
     var ctx2 = document.getElementById("chart-line").getContext("2d");
-
     var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
-
     new Chart(ctx2, {
       type: "line",
       data: {

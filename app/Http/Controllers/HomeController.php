@@ -172,11 +172,21 @@ class HomeController extends Controller
             return redirect('candidats');
         }else{
             return redirect('utilisateurs');
-
         }
-        
     }
 
+    public function showCandidats(Request $request){
+        if(Auth::user()->role =="admin"){
+
+
+            return response()->json($request->id);
+        }elseif(Auth::user()->role =="professeur"){
+            return redirect('candidats');
+        }else{
+            return redirect('utilisateurs');
+        }
+    }
+    
     public function verification($id){
         $user_id = Auth::user()->id;
         $user_data = DB::table('users')->where('id',$user_id)->get();

@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     /** les routes pour charafeddine */
     Route::get('/user-management',[HomeController::class,'userManagement'])->name('user-management');
+    Route::get('/NumberOfCandidatePerMonth',[HomeController::class,'dashboard'])->name('ncandidats');
     // Route::get('/user-management_{filiere_id}',[HomeController::class,'display_candidat'])->name('display_candidats');
     Route::get('/user-management-{id}',[InfoUserController::class,'detailUser'])->name('user-detail');
     Route::get('condidatures-export/{id}', [InfoUserController::class,'export'])->name('condidatures.export');
