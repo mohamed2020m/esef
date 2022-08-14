@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('filiere_licence', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('filiere_id')->unsigned();
-            $table->integer('licence_id')->unsigned();
+            $table->unsignedBigInteger('filiere_id')->unsigned();
+            $table->unsignedBigInteger('licence_id')->unsigned();
             $table->string('bonus_licence');
             $table->string('coefficient_licence');
             $table->foreign('filiere_id')->references('id')->on('filieres')->onDelete('cascade');
