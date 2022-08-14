@@ -144,31 +144,23 @@ class HomeController extends Controller
 
                 $nombre_inscrits_dans_SEP=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',$name->id)->count();
                 array_push($nombre_candidat_par_filiere,$nombre_inscrits_dans_SEP);
-
-
                 $abbr=[];
 
-                $test=explode(" ",$name->name);
+                $test=explode(" ", $name->name);
                 
                 for($i=0;$i<count($test);$i++){
-
                     if($i>=3){
-                        array_push($abbr,$test[$i]) ;
+                        array_push($abbr, ' ' . $test[$i]) ;
                     }else{
                         array_push($abbr,$test[$i][0]) ;
                     }
-                 
-                    
                 }
-                
                 array_push($names,join("",$abbr));
-                
-                
-
                 $abbr=[];
                 $test=[];
                 $nombre_inscrits_dans_SEP=[];
             }
+
             $nombre_candidats_inscrits=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->count();
             $nombre_inscrits_dans_SEP=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',1)->count();
             $nombre_inscrits_dans_SES_anglaise=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',2)->count();
