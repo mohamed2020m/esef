@@ -302,7 +302,7 @@
             },
             title:{
               display:true,
-              text:'Les jours'
+              text:'Les jours du mois'
             }
           },
         },
