@@ -187,7 +187,8 @@ class HomeController extends Controller
                 array_push($day, $ud->date);
                 array_push($number_of_users, $ud->total);
             }
-            return response()->json($usersData, $usersData);
+            $result = [$day, $number_of_users];
+            return response()->json($result);
         }elseif(Auth::user()->role =="professeur"){
             return redirect('candidats');
         }else{
