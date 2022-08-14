@@ -22,24 +22,11 @@
             text-align: center;
             margin-top: 50px;
         }
-
-        #logos{
-            display:grid;
-            grid-template-columns: 150px auto;
-        }
-        #logo_1{
-            display:flex;
-            justify-content: center;
-        }
-        #logo_2{
-            display:grid;
-            justify-content: end;
-        }
         #logo_1_img{
             width:80px; 
             height: 80px
         }
-        #logo_2_img{
+        #logo_img{
             max-width: 100%;
         }
         .dt{
@@ -49,15 +36,13 @@
 </head>
 
 <body>
-    <div id="logos">
-        <div id="logo_2">
-            <img id="logo_2_img" src="../assets/img/esef.png" alt="Logo de Université Chouaib Doukkali">
-        </div>
-        <div id="logo_1">
-            <img id="logo_1_img" src="../assets/img/newLogo.png" alt="ESEF Logo">
-        </div>
+    <div id="logo_2">
+        <img id="logo_img" src="../assets/img/esef.png" alt="Logo de Université Chouaib Doukkali">
     </div>
     <div class="container">
+        <div style="display: flex; justify-content:center;margin-top: 40px;">
+            <img id="logo_1_img" src="../assets/img/newLogo.png" alt="ESEF Logo">
+        </div>
         <div id="titre" style="display: flex; justify-content:center;margin-top: 40px;">
             <p style="text-decoration: underline; text-align:center">Fiche de pré-candidature </p>
         </div>
