@@ -158,9 +158,9 @@
           }
         },
         plugins: {
-          // legend: {
-          //   display: true,
-          // }
+          legend: {
+            display: false,
+          }
           title: {
               display: true,
               text: 'Nombre des candidats par filière',

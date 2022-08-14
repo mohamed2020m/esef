@@ -43,7 +43,7 @@
         <img id="logo_img" src="../assets/img/esef.png" alt="Logo de Université Chouaib Doukkali">
     </div>
     <div class="container">
-        <div style="display: flex; justify-content:center;margin-top: 40px; border:1px solid red;">
+        <div>
             <img id="logo_1_img" src="../assets/img/newLogo.png" alt="ESEF Logo">
         </div>
         <div id="titre" style="display: flex; justify-content:center;margin-top: 40px;">
