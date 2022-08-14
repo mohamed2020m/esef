@@ -204,7 +204,7 @@
 
     $("#month").on('change',function(){ 
         var myChart;
-        // let month_id= $(this).val();
+        let month_id= $(this).val();
         $.ajax({
             type:'get',
             url:'{{URL::to("NumberOfCandidatePerMonth")}}',
