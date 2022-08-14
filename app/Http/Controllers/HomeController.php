@@ -144,31 +144,23 @@ class HomeController extends Controller
 
                 $nombre_inscrits_dans_SEP=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',$name->id)->count();
                 array_push($nombre_candidat_par_filiere,$nombre_inscrits_dans_SEP);
-
-
                 $abbr=[];
 
-                $test=explode(" ",$name->name);
+                $test=explode(" ", $name->name);
                 
                 for($i=0;$i<count($test);$i++){
-
                     if($i>=3){
-                        array_push($abbr,$test[$i]) ;
+                        array_push($abbr, ' ' . $test[$i]) ;
                     }else{
                         array_push($abbr,$test[$i][0]) ;
                     }
-                 
-                    
                 }
-                
                 array_push($names,join("",$abbr));
-                
-                
-
                 $abbr=[];
                 $test=[];
                 $nombre_inscrits_dans_SEP=[];
             }
+
             $nombre_candidats_inscrits=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->count();
             $nombre_inscrits_dans_SEP=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',1)->count();
             $nombre_inscrits_dans_SES_anglaise=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',2)->count();
@@ -180,11 +172,77 @@ class HomeController extends Controller
             return redirect('candidats');
         }else{
             return redirect('utilisateurs');
-
         }
-        
     }
 
+    public function numberOfCandidate(Request $request){
+        if(Auth::user()->role =="admin"){
+            
+            $day = [];
+            $number_of_users = [];
+            $usersData = DB::table('users')->select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as total'))
+            ->groupBy('date')
+            ->havingRaw(DB::raw("YEAR(date) = YEAR(CURRENT_DATE()) AND EXTRACT(MONTH FROM date) = $request->id"))
+            ->get();
+            foreach($usersData as $ud){
+                array_push($day, $ud->date);
+                array_push($number_of_users, $ud->total);
+            }
+            $result = [$day, $number_of_users];
+            return response()->json($result);
+        }elseif(Auth::user()->role =="professeur"){
+            return redirect('candidats');
+        }else{
+            return redirect('utilisateurs');
+        }
+    }
+
+    public function monthsDB(){
+        $months = [
+            ['id' => 1, 'name' => 'Janvier'],
+            ['id' => 2, 'name' => 'Février'],
+            ['id' => 3, 'name' => 'Mars'],
+            ['id' => 4, 'name' => 'Avril'],
+            ['id' => 5, 'name' => 'Mai'],
+            ['id' => 6, 'name' => 'Juin'],
+            ['id' => 7, 'name' => 'Juillet'],
+            ['id' => 8, 'name' => 'Août'],
+            ['id' => 9, 'name' => 'Septembre'],
+            ['id' => 10, 'name' => 'Octobre'],
+            ['id' => 11, 'name' => 'Novembre'],
+            ['id' => 12, 'name' => 'Décembre']
+        ];
+        if(Auth::user()->role =="admin"){
+            return view('statistique', compact('months'));
+        }
+        elseif(Auth::user()->role =="professeur"){
+            return redirect('candidats');
+        }else{
+            return redirect('utilisateurs');
+        }
+    }
+    public function numberOfCandidateCurrentMonth(Request $request){
+        if(Auth::user()->role =="admin"){
+            
+            $day = [];
+            $number_of_users = [];
+            $usersData = DB::table('users')->select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as total'))
+            ->groupBy('date')
+            ->havingRaw(DB::raw('YEAR(date) = YEAR(CURRENT_DATE()) AND EXTRACT(MONTH FROM date) = EXTRACT(MONTH FROM CURRENT_DATE())'))
+            ->get();
+            foreach($usersData as $ud){
+                array_push($day, $ud->date);
+                array_push($number_of_users, $ud->total);
+            }
+            $result = [$day, $number_of_users];
+            return response()->json($result);
+        }elseif(Auth::user()->role =="professeur"){
+            return redirect('candidats');
+        }else{
+            return redirect('utilisateurs');
+        }
+    }
+    
     public function verification($id){
         $user_id = Auth::user()->id;
         $user_data = DB::table('users')->where('id',$user_id)->get();
