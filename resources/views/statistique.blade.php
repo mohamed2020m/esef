@@ -212,8 +212,7 @@
             url:'{{URL::to("NumberOfCandidatePerMonth")}}',
             data:{'id':month_id},
             success: function(data){
-              // let day = {!! json_encode($data[0] JSON_HEX_TAG) !!};
-              // let nombre_users = {!! json_encode({{data[1]}}, JSON_HEX_TAG) !!};
+              
               console.log("day: ", data[0]);
               console.log("Nombre Users: ", data[1]);
             },
