@@ -211,7 +211,14 @@ class HomeController extends Controller
             ['id' => 11, 'name' => 'Novembre'],
             ['id' => 12, 'name' => 'Décembre']
         ];
-        return view('statistique', compact('months'));
+        if(Auth::user()->role =="admin"){
+            return view('statistique', compact('months'));
+        }
+        elseif(Auth::user()->role =="professeur"){
+            return redirect('candidats');
+        }else{
+            return redirect('utilisateurs');
+        }
     }
     public function numberOfCandidateCurrentMonth(Request $request){
         if(Auth::user()->role =="admin"){
