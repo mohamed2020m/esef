@@ -68,8 +68,8 @@
                 <a href="inscription" class="font-weight-bold" style="color:#0f233a">S'inscrire</a>
               </p>
             </div>
-            <div class="text-center">
-              <p>En cas de problème durant la postulation contacter  :<p class="text-info"> help@esefj.ma</p></p>
+            <div class="mb-4 text-sm mx-auto">
+              <>En cas de problème durant la postulation contacter  : help@esefj.ma</p>
             </div>
           </div>
         </div>
