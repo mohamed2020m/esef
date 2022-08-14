@@ -199,16 +199,16 @@ class HomeController extends Controller
      public function numberOfCandidateCurrentMonth(Request $request){
         if(Auth::user()->role =="admin"){
             
-            // $day = [];
-            // $number_of_users = [];
-            // $usersData = DB::table('users')->select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as total'))
-            // ->groupBy('date')
-            // ->get();
-            // foreach($usersData as $ud){
-            //     array_push($day, $ud->date);
-            //     array_push($number_of_users, $ud->total);
-            // }
-            // $result = [$day, $number_of_users];
+            $day = [];
+            $number_of_users = [];
+            $usersData = DB::table('users')->select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as total'))
+            ->groupBy('date')
+            ->get();
+            foreach($usersData as $ud){
+                array_push($day, $ud->date);
+                array_push($number_of_users, $ud->total);
+            }
+            $result = [$day, $number_of_users];
             return response()->json($result);
         }elseif(Auth::user()->role =="professeur"){
             return redirect('candidats');
