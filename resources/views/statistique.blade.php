@@ -107,10 +107,25 @@
 @push('dashboard')
 <script>
   
-  var names = {!! json_encode($names, JSON_HEX_TAG) !!};
-  var nombre = {!! json_encode($nombre_candidat_par_filiere, JSON_HEX_TAG) !!};
+  let noms_filieres = {!! json_encode($names, JSON_HEX_TAG) !!};
+  let nombre = {!! json_encode($nombre_candidat_par_filiere, JSON_HEX_TAG) !!};
+  let backgroundColorArr = [
+    'rgba(255, 99, 132)',
+    'rgba(255, 159, 64)',
+    'rgba(255, 205, 86)',
+    'rgba(75, 192, 192)',
+    'rgba(54, 162, 235)',
+    'rgba(153, 102, 255)'
+  ];
+  // generating colors:
+  for(let i = 0; i< noms_filieres.length - 6 ;i++){
+    let R = Math.round(Math.random() * 255);
+    let G = Math.round(Math.random() * 255);
+    let B = Math.round(Math.random() * 255); 
+    backgroundColorArr.push(`rgba(${R}, ${G}, ${B})`)
+  }
 
-  Chart.defaults.global.legend.display = false;
+  // Chart.defaults.global.legend.display = false;
 
   window.onload = function() {
     var ctx = document.getElementById("chart-bars").getContext("2d");
@@ -120,26 +135,12 @@
       type: "bar",
       data: {
         
-        labels:names,
+        labels: noms_filieres,
         datasets: [{
           label: "Nombre des candidats",
-          data:nombre,
-          backgroundColor: [
-            'rgba(255, 99, 132)',
-            'rgba(255, 159, 64)',
-            'rgba(255, 205, 86)',
-            'rgba(75, 192, 192)',
-            'rgba(54, 162, 235)',
-            'rgba(153, 102, 255)'
-          ],
-          borderColor: [
-            'rgb(255, 99, 132)',
-            'rgb(255, 159, 64)',
-            'rgb(255, 205, 86)',
-            'rgb(75, 192, 192)',
-            'rgb(54, 162, 235)',
-            'rgb(153, 102, 255)'
-          ],
+          data: nombre_filieres,
+          backgroundColor: backgroundColorArr,
+          borderColor: backgroundColorArr,
           // maxBarThickness: 6
         }, ],
       },
