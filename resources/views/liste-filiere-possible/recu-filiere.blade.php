@@ -14,12 +14,12 @@
         body{
             font-family: Arial, Helvetica, sans-serif;
         }
-        header p {
+        /* header p {
             position: relative;
             margin-top: -90px;
             margin-left: -40px;
             text-align: center;
-        }
+        } */
         #fin {
             position: relative;
             margin-left: 400px;
@@ -55,17 +55,17 @@
             position: relative;
             margin-left: 350px;
         }
-        footer {
+        /* footer {
             text-align: center;
             font-style: oblique;
             font-size: large;
-        }
+        } */
     </style>
 </head>
 
 <body>
     <div>
-        <img src="../assets/img/esef.jpeg"  style="max-width:100%" alt="Logo de Université Chouaib Doukkali">
+        <img src="../assets/img/esef.png"  style="max-width:100%" alt="Logo de Université Chouaib Doukkali">
         {{-- <img id="fin" src="{{public_path('img/image_recu/universite.jpg')}}" > --}}
     </div>
     
@@ -74,26 +74,28 @@
             <p>Fiche de pré-candidature </p>
         </div>
         <div id="attestation">
-            <br><br>
-            @foreach ($user_data as $item)
-            <p id="paratest">Nom : <strong style="text-transform: uppercase;margin-top:30px">{{$item->last_name}} </strong> </p>
-            <p id="paratest">Prénom : <strong style="text-transform: uppercase;">{{$item->first_name}}</strong> </p>
-            <p id="paratest">CIN :<strong> {{$item->cin}}</strong></p>
-            <p id="paratest">Email :<strong> {{$item->email}}</strong></p>
-            <p id="paratest">Téléphone :<strong> {{$item->phone}}</strong></p>
-            @endforeach
-
-            <p id="post_condidat">-------CANDIDATURE à la FILIERE-------</p>
-
-            <p id="paratest">Etablissement :<strong> Ecole Supérieure d'Education et de Formation (ESEF) - EL JADIDA</strong></p>
-            <p id="paratest">Spécialité :<strong>{{$filiere_data[0]->name}}</strong></p>
-            <br>
-
-            <p id="signature">Reçu LE : {{$register_in_filiere_at[0]->date}}</p><br><br><br><br><br><br><br>
+            <div>
+                <div style="display:flex; flex-direction:column;justify-content-center;border:1px solid rgb(157, 157, 157); padding:10px">
+                    @foreach ($user_data as $item)
+                    <p id="paratest">Nom : <strong style="text-transform: uppercase;margin-top:30px">{{$item->last_name}} </strong> </p>
+                    <p id="paratest">Prénom : <strong style="text-transform: uppercase;">{{$item->first_name}}</strong> </p>
+                    <p id="paratest">CIN :<strong> {{$item->cin}}</strong></p>
+                    <p id="paratest">Email :<strong> {{$item->email}}</strong></p>
+                    <p id="paratest">Téléphone :<strong> {{$item->phone}}</strong></p>
+                    @endforeach
+                </div>
+                
+                <div>
+                    <p id="post_condidat">-------CANDIDATURE à la FILIERE-------</p>
+                    <p id="paratest">Etablissement :<strong> Ecole Supérieure d'Education et de Formation (ESEF) - EL JADIDA</strong></p>
+                    <p id="paratest">Spécialité :<strong>{{$filiere_data[0]->name}}</strong></p>
+                    <p id="signature">Reçu LE : {{$register_in_filiere_at[0]->date}}</p>
+                </div>
+            </div>
         </div>
     </div>
     <hr>
-    <footer>
+    <footer style="display:fixed;bottom:0;">
         <div style="font-size: 10; display:flex;flex-wrap: wrap;">Route Nationale N°1 (Route AZEMMOUR), Km6, HAOUZIA BP:5096 ElJadida Plateau 24002 Téléphone: 0523 39 56 79-0523 34 48 22 /fax : 0523 39 49 15</div>
     </footer>
 </body>
