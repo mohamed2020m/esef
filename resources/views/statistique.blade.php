@@ -68,7 +68,7 @@
               @csrf
               <select class="form-select form-select-lg" id="month"
                   style="border-color:#0f233a !important; box-shadow:none !important" aria-label="Default select example" name="mois" required>
-                  <option disabled selected>Sélectionnez un mois</option>
+                  <option disabled selected>Le mois En Cours</option>
                   <option value="1">Janvier</option>
                   <option value="2">Février</option>
                   <option value="3">Mars</option>
