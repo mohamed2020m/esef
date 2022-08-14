@@ -151,7 +151,7 @@ class UserController extends Controller
 
 
         public function createadmin(){
-            if(Auth::user()->role =="admin"){
+            if(Auth::user()->role =="admin" || Auth::user()->role =="super admin"){
 
                 return view('second-view/Admin/index');
             }
@@ -165,7 +165,7 @@ class UserController extends Controller
 
 
         public function storeadmin(Request $request){
-            if(Auth::user()->role =="admin"){
+            if(Auth::user()->role =="admin" || Auth::user()->role =="super admin"){
 
 
               

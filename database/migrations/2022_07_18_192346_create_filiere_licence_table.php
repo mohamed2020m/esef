@@ -20,6 +20,8 @@ return new class extends Migration
             $table->integer('licence_id')->unsigned();
             $table->string('bonus_licence');
             $table->string('coefficient_licence');
+            $table->foreign('filiere_id')->references('id')->on('filieres')->onDelete('cascade');
+            $table->foreign('licence_id')->references('id')->on('licences')->onDelete('cascade');
         });
     }
 

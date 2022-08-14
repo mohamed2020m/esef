@@ -18,6 +18,8 @@ return new class extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('filiere_id')->unsigned();
             $table->date('date');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('filiere_id')->references('id')->on('filieres')->onDelete('cascade');
             $table->timestamps();
         });
     }
