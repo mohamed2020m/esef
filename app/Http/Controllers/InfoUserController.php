@@ -75,11 +75,11 @@ class InfoUserController extends Controller
             $image  = time().'.'.$request->image_profile->extension();
             $request->image_profile->move(public_path('images/images_profiles'), $image);
         }
-        else if(Auth::user()->photo !="student_avatar.png"){
+        else if(Auth::user()->photo !="student_avatar.jpg"){
             $image = Auth::user()->photo;
         }
         else{
-            $image = "student_avatar.png";
+            $image = "student_avatar.jpg";
         }
 
         if($request->cin_first_face !=""){
