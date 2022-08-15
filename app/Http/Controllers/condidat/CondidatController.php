@@ -140,4 +140,9 @@ class CondidatController extends Controller
             return $recu->download('recu.pdf');
         }
     }
+
+    public function updateDonneeCondidat(Request $req){
+        $user_id = Auth::user()->id;
+        if()
+    }
 }

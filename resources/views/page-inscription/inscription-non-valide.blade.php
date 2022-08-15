@@ -258,23 +258,31 @@ p {
 
                             @foreach($data_bac as $key =>$item)
                             <label class="fieldlabels">Type du BAC : *</label>
-                            <input type="text" value="{{$item->type_bac}}" name="annee_bac" class="form-control" />
+                            <select class="form-control" name="type_bac" id="">
+                                @if($item->type_bac == "National")
+                                <option value="National" selected>National</option>
+                                @else
+                                <option value="Etranger" selected>Etranger</option>
+                                @endif
+                            </select>
 
                             <label class="fieldlabels">Année : *</label>
-                            <input type="text" value="{{$item->annee_obtention}}"  class="form-control" />
+                            <input type="text" value="{{$item->annee_obtention}}" name="annee_bac"  class="form-control" required />
 
 
                             <label class="fieldlabels">Etablissment : *</label>
-                            <input type="text" value="{{$item->etablissment_obtention}}"  class="form-control" />
+                            <input type="text" value="{{$item->etablissment_obtention}}" name="etablissment_bac"  class="form-control" required/>
 
                             <label class="fieldlabels">Ville : *</label>
-                            <input type="text" value="{{$item->ville_obtention}}"  class="form-control" />
+                            <input type="text" value="{{$item->ville_obtention}}" name="ville_bac" class="form-control" required/>
 
                             <label class="fieldlabels">Scan'Bac : *</label>
-                            <input type="file" name="scan_bac" class="form-control" />
+                            <input type="file" name="scan_bac" class="form-control" accept=".png, .jpg, .jpeg" />
                             <p class="text-success">un fichier du même type existe déjà</p>
+
+
                             <label class="fieldlabels">Scan relevé de notes : *</label>
-                            <input type="file" name="scan_releve_note" class="form-control" />
+                            <input type="file" name="scan_releve_note" class="form-control" accept=".png, .jpg, .jpeg"  />
                             <p class="text-success">un fichier du même type existe déjà</p>
                             @endforeach
                         </div>
@@ -295,27 +303,37 @@ p {
 
                             @foreach($data_licence as $key =>$item)
                             <label for="genre_licence" class="fieldlabels">Type du Licence : *</label>
-                            <input type="text" value="{{$item->type_licence}}" name="annee_bac" class="form-control" />
+                            <input type="text" value="{{}}" name="type_licence" id="genre_licence" class="form-control" />
+                            <select class="form-control" name="type_licence" id="genre_licence" required>
+                                @if($item->type_licence =="National")
+                                <option value="National" selected>National</option>
+                                @else
+                                <option value="Etranger" selected>Etranger</option>
+                                @endif
+                            </select>
 
                             <label class="fieldlabels">Année : *</label>
-                            <input type="text" value="{{$item->annee_obtention}}"  class="form-control" />
+                            <input type="text" value="{{$item->annee_obtention}}" name="annee_licence" class="form-control" required/>
 
                             <label class="fieldlabels">Etablissment : *</label>
-                            <input type="text" value="{{$item->etablissment_obtention}}"  class="form-control" />
+                            <input type="text" value="{{$item->etablissment_obtention}}" name="etablissment_licence"  class="form-control" required />
 
                             <label class="fieldlabels">Ville : *</label>
-                            <input type="text" value="{{$item->ville_obtention}}" class="form-control" />
+                            <input type="text" value="{{$item->ville_obtention}}" name="ville_licence" class="form-control" required/>
 
                             <label class="fieldlabels">Note S 1: *</label>
-                            <input type="text" value="{{$item->note_s1}}"  class="form-control" />
+                            <input type="text" value="{{$item->note_s1}}" name="note_s1" class="form-control" required/>
 
                             <label class="fieldlabels">Note S 2: *</label>
-                            <input type="text" value="{{$item->note_s2}}"  class="form-control" />
+                            <input type="text" value="{{$item->note_s2}}"  name="note_s2" class="form-control" required/>
 
                             <label class="fieldlabels"> Relevé de notes S 1: *</label>
+                            <font size="2" color="red">(Format png-jpg)</font>
                             <input type="file" name="releve_s1" class="form-control" />
                             <p class="text-success">un fichier du même type existe déjà</p>
+
                             <label class="fieldlabels"> Relevé de notes S 2: *</label>
+                            <font size="2" color="red">(Format png-jpg)</font>
                             <input type="file" name="releve_s2" class="form-control" />
                             <p class="text-success">un fichier du même type existe déjà</p>
                             @endforeach
