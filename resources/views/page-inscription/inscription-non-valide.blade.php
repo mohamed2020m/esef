@@ -233,7 +233,7 @@ p {
 <div class="container">
     <div class="">
         <div class="row setup-panel">
-            <form id="msform" action="/condidat/acadimiques/update" method="POST"  enctype="multipart/form-data">
+            <form id="msform" action="/server.php/condidat/acadimiques/update" method="POST"  enctype="multipart/form-data">
                     @csrf
                     <ul id="progressbar">
                         <li class="active" id="bac"><strong>--Information du Bac----</strong></li>
