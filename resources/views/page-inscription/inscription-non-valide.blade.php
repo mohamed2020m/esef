@@ -229,14 +229,12 @@ p {
     width: 100%;
     object-fit: cover;
 }
-
     </style>
 <div class="container">
     <div class="">
         <div class="row setup-panel">
-            <form id="msform" action="/server.php/condidat/acadimiques" method="POST"  enctype="multipart/form-data">
+            <form id="msform" action="/condidat/acadimiques" method="POST"  enctype="multipart/form-data">
                     @csrf
-
                     <ul id="progressbar">
                         <li class="active" id="bac"><strong>--Information du Bac----</strong></li>
                         <li id="licence"><strong>----Information de la Licence----</strong></li>
@@ -248,91 +246,64 @@ p {
                     <fieldset>
                         <div class="form-card">
                             <label for="type_bac" class="fieldlabels">Série du Bac : *</label>
-                            <select class="form-control" name="serie_bac" id="type_bac">
-                                @foreach($liste_bac as $key =>$item)
-                                <option value="{{$item->id}}">{{$item->name}}</option>
-                                @endforeach
-                            </select>
-
+                            <input type="text" value="{{$bac_name[0]->name}}" name="annee_bac" class="form-control" disabled/>
+                            @foreach($data_bac as $key =>$item)
                             <label class="fieldlabels">Type du BAC : *</label>
-                            <select class="form-control" name="type_bac" id="">
-                                <option value="National">National</option>
-                                <option value="Etranger">Etranger</option>
-                            </select>
+                            <input type="text" value="{{$item->type_bac}}" name="annee_bac" class="form-control" disabled/>
 
                             <label class="fieldlabels">Année : *</label>
-                            <input type="text" name="annee_bac" class="form-control" required/>
+                            <input type="text" value="{{$item->annee_obtention}}"  class="form-control" disabled/>
 
 
                             <label class="fieldlabels">Etablissment : *</label>
-                            <input type="text" name="etablissment_bac"  class="form-control" required/>
+                            <input type="text" value="{{$item->etablissment_obtention}}"  class="form-control" disabled/>
 
                             <label class="fieldlabels">Ville : *</label>
-                            <input type="text" name="ville_bac" class="form-control" required/>
+                            <input type="text" value="{{$item->ville_obtention}}"  class="form-control" disabled/>
 
                             <label class="fieldlabels">Scan'Bac : *</label>
-                            <font size="2" color="red">(Format png-jpg)</font>
-                            <input type="file" name="scan_bac" class="form-control" required accept=".png, .jpg, .jpeg" />
+                            <input type="file" name="scan_bac" class="form-control" disabled/>
+                            <p class="text-success">un fichier du même type existe déjà</p>
                             <label class="fieldlabels">Scan relevé de notes : *</label>
-                            <font size="2" color="red">(Format png-jpg)</font>
-                            <input type="file" name="scan_releve_note" class="form-control" required accept=".png, .jpg, .jpeg"/>
+                            <input type="file" name="scan_releve_note" class="form-control" disabled/>
+                            <p class="text-success">un fichier du même type existe déjà</p>
+                            @endforeach
                         </div>
                         <input type="button" name="next" class="next action-button" value="Suivant"/>
                     </fieldset>
                     <fieldset>
                         <div class="form-card">
-                            <div class="row">
-                                <div class="col">
-                                    <label class="fieldlabels">Spécialité : *</label>
-                                    <select class="form-control" name="genre_licence" id="genre_licence">
-                                        @foreach($liste_licence as $key =>$item)
-                                        <option value="{{$item->id}}">{{$item->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="col">
-                                    <label class="fieldlabels" >Equivalent:</label><br>
-                                    <input type="checkbox" name="licence_equivalent[]" value="" id="flexCheckDefault"/>
-                                    <label for="flexCheckDefault">
-                                        Cochez la case si vous avez un diplôme équivalent à la licence sélectionnée
-                                    </label>
-
-                                </div>
-                            </div>
-
+                            <label class="fieldlabels">Spécialité : *</label>
+                            <input type="text" value="{{$licence_name[0]->name}}" name="annee_bac" class="form-control" disabled/>
+                            @foreach($data_licence as $key =>$item)
                             <label for="genre_licence" class="fieldlabels">Type du Licence : *</label>
-                            <select class="form-control" name="type_licence" id="genre_licence" required>
-                                <option value="National">National</option>
-                                <option value="Etranger">Etranger</option>
-                            </select>
+                            <input type="text" value="{{$item->type_licence}}" name="annee_bac" class="form-control" disabled/>
 
                             <label class="fieldlabels">Année : *</label>
-                            <input type="text" name="annee_licence"  class="form-control" required/>
+                            <input type="text" value="{{$item->annee_obtention}}"  class="form-control" disabled/>
 
                             <label class="fieldlabels">Etablissment : *</label>
-                            <input type="text" name="etablissment_licence"  class="form-control" required/>
+                            <input type="text" value="{{$item->etablissment_obtention}}"  class="form-control" disabled/>
 
                             <label class="fieldlabels">Ville : *</label>
-                            <input type="text" name="ville_licence" class="form-control" required/>
+                            <input type="text" value="{{$item->ville_obtention}}" class="form-control" disabled/>
 
                             <label class="fieldlabels">Note S 1: *</label>
-                            <input type="text" name="note_s1" placeholder="Note S 1" class="form-control" required/>
+                            <input type="text" value="{{$item->note_s1}}"  class="form-control" disabled/>
 
                             <label class="fieldlabels">Note S 2: *</label>
-                            <input type="text" name="note_s2" placeholder="Note S 2" class="form-control" required/>
+                            <input type="text" value="{{$item->note_s2}}"  class="form-control" disabled/>
 
                             <label class="fieldlabels"> Relevé de notes S 1: *</label>
-                            <font size="2" color="red">(Format png-jpg)</font>
-                            <input type="file" name="releve_s1" class="form-control" required accept=".png, .jpg, .jpeg"/>
-
+                            <input type="file" name="releve_s1" class="form-control" disabled/>
+                            <p class="text-success">un fichier du même type existe déjà</p>
                             <label class="fieldlabels"> Relevé de notes S 2: *</label>
-                            <font size="2" color="red">(Format png-jpg)</font>
-                            <input type="file" name="releve_s2" class="form-control" required accept=".png, .jpg, .jpeg"/>
+                            <input type="file" name="releve_s2" class="form-control" disabled/>
+                            <p class="text-success">un fichier du même type existe déjà</p>
+                            @endforeach
                         </div>
-                        <input type="submit" name="submit" class="submit action-button" value="Valider"/>
                         <input type="button" name="previous" class="previous action-button-previous" value="Précédent"/>
                     </fieldset>
-                    </div>
                 </form>
         </div>
     </div>
