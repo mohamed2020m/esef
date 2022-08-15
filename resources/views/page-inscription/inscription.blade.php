@@ -303,7 +303,7 @@ input[type="checkbox"] {
                                 <div class="col">
                                     <label class="fieldlabels" >Equivalent:</label><br>
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                    <label for="flexCheckDefault">
                                         Cochez la case si vous avez un diplôme équivalent à la licence sélectionnée
                                     </label>
                                 </div>
