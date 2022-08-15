@@ -205,6 +205,12 @@ class CondidatController extends Controller
             DB::table('licence_user')->where('licence_user.user_id',$user_id)->update($updateS2);
         }
 
+        $equivalent =0;
+        if($req->licence_equivalent !=null){
+            $equivalent = 1;
+        }
+        DB::table('licence_user')->where('licence_user.user_id',$user_id)->update(['equivalent' => $equivalent]);
+
         return redirect('dashboard');
 
 
