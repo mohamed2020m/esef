@@ -229,6 +229,19 @@ p {
     width: 100%;
     object-fit: cover;
 }
+
+input[type="checkbox"] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+}
     </style>
 <div class="container">
     <div class="">
