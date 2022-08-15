@@ -248,7 +248,11 @@ p {
                             <label for="type_bac" class="fieldlabels">Série du Bac : *</label>
                             <select class="form-control" name="serie_bac" id="type_bac">
                                 @foreach($liste_bac as $key =>$item)
+                                @if($item->id == $bac_name[0]->id)
+                                <option value="{{$item->id}}" selected>{{$item->name}}</option>
+                                @else
                                 <option value="{{$item->id}}">{{$item->name}}</option>
+                                @endif
                                 @endforeach
                             </select>
 
@@ -281,7 +285,11 @@ p {
                             <label class="fieldlabels">Spécialité : *</label>
                             <select class="form-control" name="genre_licence" id="genre_licence">
                                 @foreach($liste_licence as $key =>$item)
+                                @if($item->id == $licence_name[0]->id)
+                                <option value="{{$item->id}}" selected>{{$item->name}}</option>
+                                @else
                                 <option value="{{$item->id}}">{{$item->name}}</option>
+                                @endif
                                 @endforeach
                             </select>
 
