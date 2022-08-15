@@ -231,7 +231,7 @@ p {
 }
 
 input[type="checkbox"] {
-  appearance: none;
+    appearance: none;
   background-color: #fff;
   margin: 0;
   font: inherit;
@@ -241,6 +241,17 @@ input[type="checkbox"] {
   border: 0.15em solid currentColor;
   border-radius: 0.15em;
   transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+}
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
 }
     </style>
 <div class="container">
