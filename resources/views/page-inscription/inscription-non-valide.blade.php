@@ -303,7 +303,6 @@ p {
 
                             @foreach($data_licence as $key =>$item)
                             <label for="genre_licence" class="fieldlabels">Type du Licence : *</label>
-                            <input type="text" value="{{}}" name="type_licence" id="genre_licence" class="form-control" />
                             <select class="form-control" name="type_licence" id="genre_licence" required>
                                 @if($item->type_licence =="National")
                                 <option value="National" selected>National</option>
