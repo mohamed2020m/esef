@@ -226,7 +226,7 @@ class HomeController extends Controller
             $usersData = DB::table('users')->select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as total'))
             ->groupBy('date')
             ->havingRaw(DB::raw('YEAR(date) = YEAR(CURRENT_DATE()) AND EXTRACT(MONTH FROM date) = EXTRACT(MONTH FROM CURRENT_DATE())'))
-            ->get();
+            ->where('role','like','normal user')->get();
             foreach($usersData as $ud){
                 array_push($day, $ud->date);
                 array_push($number_of_users, $ud->total);
