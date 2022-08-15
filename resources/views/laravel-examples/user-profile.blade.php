@@ -152,6 +152,7 @@
                     <div class="row mt-3">
                         <div class="col-sm-3">
                             <p class="mb-0">CIN (face 1)</p>
+                            <font size="2" color="red">(Format png-jpg)</font>
                         </div>
                         <div class="@error('email')border border-danger rounded-3 @enderror">
                             <input class="form-control" type="file"  name="cin_first_face" accept="image/png, image/gif, image/jpeg"/>
@@ -167,6 +168,7 @@
                     <div class="row mt-3">
                         <div class="col-sm-3">
                             <p class="mb-0">CIN (face 2)</p>
+                            <font size="2" color="red">(Format png-jpg)</font>
                         </div>
                         <div class="@error('email')border border-danger rounded-3 @enderror">
                             <input class="form-control" type="file"  name="cin_second_face" accept="image/png, image/gif, image/jpeg"/>
