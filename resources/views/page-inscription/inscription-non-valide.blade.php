@@ -308,7 +308,9 @@ p {
                             <select class="form-control" name="type_licence" id="genre_licence" required>
                                 @if($item->type_licence =="National")
                                 <option value="National" selected>National</option>
+                                <option value="Etranger" >Etranger</option>
                                 @else
+                                <option value="National">National</option>
                                 <option value="Etranger" selected>Etranger</option>
                                 @endif
                             </select>
