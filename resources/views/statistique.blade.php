@@ -98,7 +98,8 @@
 
 @push('dashboard')
 <script>
-  
+    let test = {!! json_encode($nombre_candidats_inscrits, JSON_HEX_TAG) !!};
+    console.log(test);
   let noms_filieres = {!! json_encode($names, JSON_HEX_TAG) !!};
   let nombre_filieres = {!! json_encode($nombre_candidat_par_filiere, JSON_HEX_TAG) !!};
   let backgroundColorArr = [
