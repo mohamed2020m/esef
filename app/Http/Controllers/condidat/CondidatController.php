@@ -175,7 +175,7 @@ class CondidatController extends Controller
 
         $updateLicence = [
             'licence_id' => $req->genre_licence,
-            'type_bac' =>$req->type_licence,
+            'type_licence' =>$req->type_licence,
             'annee_obtention' =>$req->annee_licence,
             'etablissment_obtention' =>$req->etablissment_licence,
             'ville_obtention' =>$req->ville_licence,
