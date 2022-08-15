@@ -287,12 +287,14 @@ p {
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="form-check col">
-                                    <label >Equivalent:</label>
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Cochez la case si vous avez un diplôme équivalent à la licence sélectionnée
-                                    </label>
+                                <div class="col">
+                                    <label class="fieldlabels" >Equivalent:</label>
+                                    <!-- <div> -->
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Cochez la case si vous avez un diplôme équivalent à la licence sélectionnée
+                                        </label>
+                                    <!-- </div> -->
                                 </div>
                             </div>
 
