@@ -292,7 +292,7 @@ p {
                                 </div>
                                 <div class="col">
                                     <label class="fieldlabels" >Equivalent:</label><br>
-                                    <input type="checkbox" name="licence_equivalent" value="" id="flexCheckDefault"/>
+                                    <input type="checkbox" name="licence_equivalent[]" value="" id="flexCheckDefault"/>
                                     <label for="flexCheckDefault">
                                         Cochez la case si vous avez un diplôme équivalent à la licence sélectionnée
                                     </label>
