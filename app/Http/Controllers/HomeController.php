@@ -161,7 +161,7 @@ class HomeController extends Controller
                 $nombre_inscrits_dans_SEP=[];
             }
 
-            $nombre_candidats_inscrits=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('users.role','like','normal user')->count();
+            $nombre_candidats_inscrits=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('role','like','normal user')->count();
            
 
             return view('statistique',compact('nombre_filieres','nombre_candidats_inscrits','nombre_candidat_par_filiere','names'));
