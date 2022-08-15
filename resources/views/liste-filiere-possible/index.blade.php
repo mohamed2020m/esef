@@ -22,13 +22,10 @@
                                         Intitule
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Nombre de postes
-                                    </th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Date limite de dépôt
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    
+
                                     </th>
                                 </tr>
                             </thead>
@@ -39,10 +36,7 @@
                                         <p class=" font-weight-bold mb-0">{{$item->name}}</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class=" font-weight-bold mb-0">12</p>
-                                    </td>
-                                    <td class="text-center">
-                                        <p class=" font-weight-bold mb-0">2022-8-21</p>
+                                        <p class=" font-weight-bold mb-0">15/09/2022</p>
                                     </td>
                                     <td class="text-center d-flex align-items-center">
                                         <button class="myModal btn mt-2" name="{{$item->name}}" id="{{$item->id}}" data-other-attr='XX' onClick="reply_click(this)" style="background-color: #0f233a !important;color:white">Postuler</button>
@@ -76,9 +70,6 @@
                                         Intitule
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Nombre de postes
-                                    </th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Reçu
                                     </th>
                                 </tr>
@@ -88,9 +79,6 @@
                                 <tr class="align-middle" style="font-size: 18px;">
                                     <td class="ps-4">
                                         <p class=" font-weight-bold mb-0">{{$item->name}}</p>
-                                    </td>
-                                    <td class="text-center">
-                                        <p class=" font-weight-bold mb-0">12</p>
                                     </td>
                                     <td class="text-center">
                                     <a href="{{url('/download/recu/'.$item->id)}}"><img src="#" alt="" width="50px" ><i class="fa fa-download"></i></a>
@@ -158,7 +146,7 @@
                         let container = document.getElementById('formModal');
                         container.insertAdjacentElement('beforeEnd',label);
                         container.insertAdjacentElement('beforeEnd',inpt);
-                        
+
                     }
                 }
             });
