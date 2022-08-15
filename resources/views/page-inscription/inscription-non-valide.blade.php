@@ -245,8 +245,8 @@ p {
                     <br>
                     <fieldset>
                         <div class="form-card">
-                            <label for="type_bac" class="fieldlabels">Série du Bac : *</label>
-                            <select class="form-control" name="serie_bac" id="type_bac">
+                            <label for="serie_bac" class="fieldlabels">Série du Bac : *</label>
+                            <select class="form-control" name="serie_bac" id="serie_bac">
                                 @foreach($liste_bac as $key =>$item)
                                 @if($item->id == $bac_name[0]->id)
                                 <option value="{{$item->id}}" selected>{{$item->name}}</option>

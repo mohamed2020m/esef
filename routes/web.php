@@ -58,6 +58,7 @@ Route::group(['middleware' => 'auth'], function () {
     /** les routes pour condidats */
     Route::get('condidat-academique',[CondidatController::class,'donneeCondidat']);
     Route::post('condidat/acadimiques',[CondidatController::class,'storeDonneCondidat']);
+    Route::post('/condidat/acadimiques/update',[CondidatController::class,'updateDonneeCondidat']);
     Route::get('dossier-personnelle',[CondidatController::class,'viewDossier']);
     Route::post('ps/filiere/pre-insc',[CondidatController::class,'inscription_in_filiere']);
     Route::get('/download/recu/{id}',[CondidatController::class,'downloadPdf']);
