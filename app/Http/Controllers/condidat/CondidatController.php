@@ -16,13 +16,21 @@ class CondidatController extends Controller
         if(Auth::user()->role == "normal user"){
             $user_id = Auth::user()->id;
             $if_user_has_bac     = DB::table('bacs')->selectRaw('bacs.id,bacs.name')->join('bac_user','bac_user.bac_id','=','bacs.id')->join('users','users.id','=','bac_user.user_id')->where('users.id',$user_id)->get();
+            $if_user_has_filiere = DB::table('filiere_user')->where('filiere_user.user_id',$user_id)->get();
 
-            if($if_user_has_bac->count() !=0){
+            if($if_user_has_filiere->count() !=0){
                 $bac_name = DB::table('bacs')->selectRaw('bacs.id,bacs.name')->join('bac_user','bac_user.bac_id','=','bacs.id')->join('users','users.id','=','bac_user.user_id')->where('users.id',$user_id)->get();
                 $data_bac = DB ::table('bac_user')->where('user_id',$user_id)->get();
                 $licence_name = DB::table('licences')->selectRaw('licences.id,licences.name')->join('licence_user','licence_user.licence_id','=','licences.id')->join('users','users.id','=','licence_user.user_id')->where('users.id',$user_id)->get();
                 $data_licence = DB::table('licence_user')->where('user_id',$user_id)->get();
                 return view('page-inscription/inscription-valide',compact('bac_name','data_bac','licence_name','data_licence'));
+            }
+            else if($if_user_has_bac->count() !=0){
+                $bac_name = DB::table('bacs')->selectRaw('bacs.id,bacs.name')->join('bac_user','bac_user.bac_id','=','bacs.id')->join('users','users.id','=','bac_user.user_id')->where('users.id',$user_id)->get();
+                $data_bac = DB ::table('bac_user')->where('user_id',$user_id)->get();
+                $licence_name = DB::table('licences')->selectRaw('licences.id,licences.name')->join('licence_user','licence_user.licence_id','=','licences.id')->join('users','users.id','=','licence_user.user_id')->where('users.id',$user_id)->get();
+                $data_licence = DB::table('licence_user')->where('user_id',$user_id)->get();
+                return view('page-inscription/inscription-non-valide',compact('bac_name','data_bac','licence_name','data_licence'));
             }
             else{
                 $liste_bac = DB::table('bacs')->get();
