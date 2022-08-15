@@ -292,18 +292,35 @@ p {
                     </fieldset>
                     <fieldset>
                         <div class="form-card">
-                            <label class="fieldlabels">Spécialité : *</label>
-                            <select class="form-control" name="genre_licence" id="genre_licence">
-                                @foreach($liste_licence as $key =>$item)
-                                @if($item->id == $licence_name[0]->id)
-                                <option value="{{$item->id}}" selected>{{$item->name}}</option>
-                                @else
-                                <option value="{{$item->id}}">{{$item->name}}</option>
-                                @endif
-                                @endforeach
-                            </select>
+                            <div class="row">
+                                <div class="col">
+                                    <label class="fieldlabels">Spécialité : *</label>
+                                    <select class="form-control" name="genre_licence" id="genre_licence">
+                                        @foreach($liste_licence as $key =>$item)
+                                        @if($item->id == $licence_name[0]->id)
+                                        <option value="{{$item->id}}" selected>{{$item->name}}</option>
+                                        @else
+                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                        @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                                @foreach($data_licence as $key =>$item)
+                                <div class="col">
+                                    <label class="fieldlabels" >Equivalent:</label><br>
+                                    @if($item->equivalent ==1)
+                                    <input type="checkbox" name="licence_equivalent[]" checked value="" id="flexCheckDefault"/>
+                                    @else
+                                    <input type="checkbox" name="licence_equivalent[]" value="" id="flexCheckDefault"/>
+                                    @endif
+                                    <label for="flexCheckDefault">
+                                        Cochez la case si vous avez un diplôme équivalent à la licence sélectionnée
+                                    </label>
 
-                            @foreach($data_licence as $key =>$item)
+                                </div>
+                            </div>
+
+
                             <label for="genre_licence" class="fieldlabels">Type du Licence : *</label>
                             <select class="form-control" name="type_licence" id="genre_licence" required>
                                 @if($item->type_licence =="National")
