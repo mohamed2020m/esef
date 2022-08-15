@@ -30,7 +30,10 @@ class CondidatController extends Controller
                 $data_bac = DB ::table('bac_user')->where('user_id',$user_id)->get();
                 $licence_name = DB::table('licences')->selectRaw('licences.id,licences.name')->join('licence_user','licence_user.licence_id','=','licences.id')->join('users','users.id','=','licence_user.user_id')->where('users.id',$user_id)->get();
                 $data_licence = DB::table('licence_user')->where('user_id',$user_id)->get();
-                return view('page-inscription/inscription-non-valide',compact('bac_name','data_bac','licence_name','data_licence'));
+
+                $liste_bac = DB::table('bacs')->get();
+                $liste_licence = DB::table('licences')->get();
+                return view('page-inscription/inscription-non-valide',compact('liste_bac','liste_licence','bac_name','data_bac','licence_name','data_licence'));
             }
             else{
                 $liste_bac = DB::table('bacs')->get();
