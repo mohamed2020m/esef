@@ -143,6 +143,72 @@ class CondidatController extends Controller
 
     public function updateDonneeCondidat(Request $req){
         $user_id = Auth::user()->id;
-        // if()
+
+        $updateBac = [
+            'bac_id' => $req->serie_bac,
+            'type_bac' =>$req->type_bac,
+            'annee_obtention' =>$req->annee_bac,
+            'etablissment_obtention' =>$req->etablissment_bac,
+            'ville_obtention' =>$req->ville_bac,
+        ];
+
+        DB::table('bac_user')->where('bac_user.user_id',$user_id)->update($updateBac);
+
+        if($req->scan_bac != ""){
+            $scan_bac  = time().'.'.$req->scan_bac->extension();
+            $req->scan_bac->move(public_path('images/scan_condidat/scan-bac'), $scan_bac);
+
+            $updateScanBac = [
+                'scan_bac' =>$scan_bac,
+            ];
+            DB::table('bac_user')->where('bac_user.user_id',$user_id)->update($updateScanBac);
+        }
+        if($req->scan_releve_note != ""){
+            $scan_releve_note =time().'.'.$req->scan_releve_note->extension();
+            $req->scan_releve_note->move(public_path('images/scan_condidat/scan-releve-note'), $scan_releve_note);
+
+            $updateNoteBac = [
+                'scan_releve_note' =>$scan_releve_note,
+            ];
+            DB::table('bac_user')->where('bac_user.user_id',$user_id)->update($updateNoteBac);
+        }
+
+        $updateLicence = [
+            'licence_id' => $req->genre_licence,
+            'type_bac' =>$req->type_licence,
+            'annee_obtention' =>$req->annee_licence,
+            'etablissment_obtention' =>$req->etablissment_licence,
+            'ville_obtention' =>$req->ville_licence,
+            'note_s1' => $req->note_s1,
+            'note_s2' => $req->note_s2,
+        ];
+
+        DB::table('licence_user')->where('licence_user.user_id',$user_id)->update($updateLicence);
+
+        if($req->releve_s1 != ""){
+            $scan_s1 = time().'.'.$req->releve_s1->extension();
+            $req->releve_s1->move(public_path('images/scan_condidat/scan-s1'), $scan_s1);
+
+            $updateS1 =[
+                'releve_s1' => $scan_s1
+            ];
+            DB::table('licence_user')->where('licence_user.user_id',$user_id)->update($updateS1);
+        }
+
+        if($req->releve_s2 !=""){
+            $scan_s2 = time().'.'.$req->releve_s2->extension();
+            $req->releve_s2->move(public_path('images/scan_condidat/scan-s2'), $scan_s2);
+
+            $updateS2 =[
+                'releve_s2' => $scan_s2
+            ];
+            DB::table('licence_user')->where('licence_user.user_id',$user_id)->update($updateS2);
+        }
+
+        return redirect('dashboard');
+
+
+
+
     }
 }
