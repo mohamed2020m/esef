@@ -15,14 +15,16 @@ return new class extends Migration
     {
         Schema::create('bac_user', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned();
-            $table->integer('bac_id')->unsigned();
+            $table->unsignedBigInteger('user_id')->unsigned();
+            $table->unsignedBigInteger('bac_id')->unsigned();
             $table->string('type_bac');
             $table->string('annee_obtention');
             $table->string('etablissment_obtention');
             $table->string('ville_obtention');
             $table->string('scan_bac');
             $table->string('scan_releve_note');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('bac_id')->references('id')->on('bacs')->onDelete('cascade');
 
 
             $table->timestamps();

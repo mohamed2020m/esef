@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('licence_user', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned();
-            $table->integer('licence_id')->unsigned();
+            $table->unsignedBigInteger('user_id')->unsigned();
+            $table->unsignedBigInteger('licence_id')->unsigned();
             $table->string('type_licence');
             $table->string('annee_obtention');
             $table->string('etablissment_obtention');
@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('note_s2');
             $table->string('releve_s1');
             $table->string('releve_s2');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('licence_id')->references('id')->on('licences')->onDelete('cascade');
             $table->timestamps();
         });
     }

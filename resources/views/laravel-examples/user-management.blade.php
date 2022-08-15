@@ -14,15 +14,12 @@
             <div class="row aling-items-center mb-3">
                 <div id="flt"></div>
                 <div class="col-10" id="select_tag">
-                    <form>
-                        @csrf
-                        <select class="form-select form-select-lg select_filiere" style="border-color:#0f233a !important; box-shadow:none !important" aria-label="Default select example"  name="filiere"  required>
-                            <option disabled selected>Sélectionner une filière</option>
-                            @foreach($data_filiere as $row)
-                            <option value="{{$row->id}}">{{$row->name}}</option>
-                            @endforeach
-                        </select>
-                    </form>
+                    <select class="form-select form-select-lg select_filiere" style="border-color:#0f233a !important; box-shadow:none !important" aria-label="Default select example"  name="filiere"  required>
+                        <option disabled selected>Sélectionner une filière</option>
+                        @foreach($data_filiere as $row)
+                        <option value="{{$row->id}}">{{$row->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="col-2 d-flex">
                     <button class="text-white font-weight-bold px-2 border-0 bg-secondary flex-grow-1 rounded " id="btn_export" type="button" data-bs-toggle="modal" data-bs-target="#export">

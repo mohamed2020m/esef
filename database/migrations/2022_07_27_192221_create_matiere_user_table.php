@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('matiere_user', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned();
-            $table->integer('matiere_id')->unsigned();
+            $table->unsignedBigInteger('user_id')->unsigned();
+            $table->unsignedBigInteger('matiere_id')->unsigned();
             $table->string('note');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('matiere_id')->references('id')->on('matieres')->onDelete('cascade');
             $table->timestamps();
         });
     }

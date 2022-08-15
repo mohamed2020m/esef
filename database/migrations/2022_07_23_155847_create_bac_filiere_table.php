@@ -15,10 +15,12 @@ return new class extends Migration
     {
         Schema::create('bac_filiere', function (Blueprint $table) {
             $table->id();
-            $table->integer('bac_id')->unsigned();
-            $table->integer('filiere_id')->unsigned();
+            $table->unsignedBigInteger('bac_id')->unsigned();
+            $table->unsignedBigInteger('filiere_id')->unsigned();
             $table->string('bonus_bac')->default('0');
             $table->string('coefficient_bac')->default('1');
+            $table->foreign('bac_id')->references('id')->on('bacs')->onDelete('cascade');
+            $table->foreign('filiere_id')->references('id')->on('filieres')->onDelete('cascade');
         });
     }
 

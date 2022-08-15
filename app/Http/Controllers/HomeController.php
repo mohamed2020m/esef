@@ -161,11 +161,8 @@ class HomeController extends Controller
                 $nombre_inscrits_dans_SEP=[];
             }
 
-            $nombre_candidats_inscrits=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->count();
-            $nombre_inscrits_dans_SEP=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',1)->count();
-            $nombre_inscrits_dans_SES_anglaise=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',2)->count();
-            $nombre_inscrits_dans_SES_Sc_ind=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',3)->count();
-            $nombre_inscrits_dans_SES_math=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('filiere_user.filiere_id',4)->count();
+            $nombre_candidats_inscrits=DB::table('users')->join('filiere_user','filiere_user.user_id','=','users.id')->where('users.role','like','normal user')->count();
+           
 
             return view('statistique',compact('nombre_filieres','nombre_candidats_inscrits','nombre_candidat_par_filiere','names'));
         }elseif(Auth::user()->role =="professeur"){
@@ -183,7 +180,7 @@ class HomeController extends Controller
             $usersData = DB::table('users')->select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as total'))
             ->groupBy('date')
             ->havingRaw(DB::raw("YEAR(date) = YEAR(CURRENT_DATE()) AND EXTRACT(MONTH FROM date) = $request->id"))
-            ->get();
+            ->where('role','like','normal user')->get();
             foreach($usersData as $ud){
                 array_push($day, $ud->date);
                 array_push($number_of_users, $ud->total);
@@ -229,7 +226,7 @@ class HomeController extends Controller
             $usersData = DB::table('users')->select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as total'))
             ->groupBy('date')
             ->havingRaw(DB::raw('YEAR(date) = YEAR(CURRENT_DATE()) AND EXTRACT(MONTH FROM date) = EXTRACT(MONTH FROM CURRENT_DATE())'))
-            ->get();
+            ->where('role','like','normal user')->get();
             foreach($usersData as $ud){
                 array_push($day, $ud->date);
                 array_push($number_of_users, $ud->total);

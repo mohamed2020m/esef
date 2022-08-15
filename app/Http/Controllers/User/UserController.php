@@ -123,13 +123,25 @@ class UserController extends Controller
                     $user->state,
                    
                 ];
-            }else{
+            }elseif($user->role == "normal user"){
                 $json['data'][] = [
                     $user->id,
                     $user->first_name,
                     $user->last_name,
                     $user->email,
                     "candidat",
+                    $user->state,
+                   
+                ];
+
+            }else{
+
+                $json['data'][] = [
+                    $user->id,
+                    $user->first_name,
+                    $user->last_name,
+                    $user->email,
+                    "super admin",
                     $user->state,
                    
                 ];
@@ -151,7 +163,7 @@ class UserController extends Controller
 
 
         public function createadmin(){
-            if(Auth::user()->role =="admin"){
+            if(Auth::user()->role =="admin" || Auth::user()->role =="super admin"){
 
                 return view('second-view/Admin/index');
             }
@@ -165,7 +177,7 @@ class UserController extends Controller
 
 
         public function storeadmin(Request $request){
-            if(Auth::user()->role =="admin"){
+            if(Auth::user()->role =="admin" || Auth::user()->role =="super admin"){
 
 
               
