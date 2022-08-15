@@ -246,26 +246,26 @@ p {
                     <fieldset>
                         <div class="form-card">
                             <label for="type_bac" class="fieldlabels">Série du Bac : *</label>
-                            <input type="text" value="{{$bac_name[0]->name}}" name="annee_bac" class="form-control" disabled/>
+                            <input type="text" value="{{$bac_name[0]->name}}" name="annee_bac" class="form-control" />
                             @foreach($data_bac as $key =>$item)
                             <label class="fieldlabels">Type du BAC : *</label>
-                            <input type="text" value="{{$item->type_bac}}" name="annee_bac" class="form-control" disabled/>
+                            <input type="text" value="{{$item->type_bac}}" name="annee_bac" class="form-control" />
 
                             <label class="fieldlabels">Année : *</label>
-                            <input type="text" value="{{$item->annee_obtention}}"  class="form-control" disabled/>
+                            <input type="text" value="{{$item->annee_obtention}}"  class="form-control" />
 
 
                             <label class="fieldlabels">Etablissment : *</label>
-                            <input type="text" value="{{$item->etablissment_obtention}}"  class="form-control" disabled/>
+                            <input type="text" value="{{$item->etablissment_obtention}}"  class="form-control" />
 
                             <label class="fieldlabels">Ville : *</label>
-                            <input type="text" value="{{$item->ville_obtention}}"  class="form-control" disabled/>
+                            <input type="text" value="{{$item->ville_obtention}}"  class="form-control" />
 
                             <label class="fieldlabels">Scan'Bac : *</label>
-                            <input type="file" name="scan_bac" class="form-control" disabled/>
+                            <input type="file" name="scan_bac" class="form-control" />
                             <p class="text-success">un fichier du même type existe déjà</p>
                             <label class="fieldlabels">Scan relevé de notes : *</label>
-                            <input type="file" name="scan_releve_note" class="form-control" disabled/>
+                            <input type="file" name="scan_releve_note" class="form-control" />
                             <p class="text-success">un fichier du même type existe déjà</p>
                             @endforeach
                         </div>
@@ -274,31 +274,31 @@ p {
                     <fieldset>
                         <div class="form-card">
                             <label class="fieldlabels">Spécialité : *</label>
-                            <input type="text" value="{{$licence_name[0]->name}}" name="annee_bac" class="form-control" disabled/>
+                            <input type="text" value="{{$licence_name[0]->name}}" name="annee_bac" class="form-control" />
                             @foreach($data_licence as $key =>$item)
                             <label for="genre_licence" class="fieldlabels">Type du Licence : *</label>
-                            <input type="text" value="{{$item->type_licence}}" name="annee_bac" class="form-control" disabled/>
+                            <input type="text" value="{{$item->type_licence}}" name="annee_bac" class="form-control" />
 
                             <label class="fieldlabels">Année : *</label>
-                            <input type="text" value="{{$item->annee_obtention}}"  class="form-control" disabled/>
+                            <input type="text" value="{{$item->annee_obtention}}"  class="form-control" />
 
                             <label class="fieldlabels">Etablissment : *</label>
-                            <input type="text" value="{{$item->etablissment_obtention}}"  class="form-control" disabled/>
+                            <input type="text" value="{{$item->etablissment_obtention}}"  class="form-control" />
 
                             <label class="fieldlabels">Ville : *</label>
-                            <input type="text" value="{{$item->ville_obtention}}" class="form-control" disabled/>
+                            <input type="text" value="{{$item->ville_obtention}}" class="form-control" />
 
                             <label class="fieldlabels">Note S 1: *</label>
-                            <input type="text" value="{{$item->note_s1}}"  class="form-control" disabled/>
+                            <input type="text" value="{{$item->note_s1}}"  class="form-control" />
 
                             <label class="fieldlabels">Note S 2: *</label>
-                            <input type="text" value="{{$item->note_s2}}"  class="form-control" disabled/>
+                            <input type="text" value="{{$item->note_s2}}"  class="form-control" />
 
                             <label class="fieldlabels"> Relevé de notes S 1: *</label>
-                            <input type="file" name="releve_s1" class="form-control" disabled/>
+                            <input type="file" name="releve_s1" class="form-control" />
                             <p class="text-success">un fichier du même type existe déjà</p>
                             <label class="fieldlabels"> Relevé de notes S 2: *</label>
-                            <input type="file" name="releve_s2" class="form-control" disabled/>
+                            <input type="file" name="releve_s2" class="form-control" />
                             <p class="text-success">un fichier du même type existe déjà</p>
                             @endforeach
                         </div>
