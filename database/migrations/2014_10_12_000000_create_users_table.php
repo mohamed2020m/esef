@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('cne')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->unique()->nullable();
-            $table->string('photo')->default('student_avatar.jpg');
+            $table->string('photo')->default('default_image.jpg');
             $table->string('cin_image_face1')->nullable();
             $table->string('cin_image_face2')->nullable();
             $table->string('code');
