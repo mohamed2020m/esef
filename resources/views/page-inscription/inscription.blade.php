@@ -235,6 +235,7 @@ p {
         <div class="row setup-panel">
             <form id="msform" action="/server.php/condidat/acadimiques" method="POST"  enctype="multipart/form-data">
                     @csrf
+
                     <ul id="progressbar">
                         <li class="active" id="bac"><strong>--Information du Bac----</strong></li>
                         <li id="licence"><strong>----Information de la Licence----</strong></li>
@@ -277,12 +278,23 @@ p {
                     </fieldset>
                     <fieldset>
                         <div class="form-card">
-                            <label class="fieldlabels">Spécialité : *</label>
-                            <select class="form-control" name="genre_licence" id="genre_licence">
-                                @foreach($liste_licence as $key =>$item)
-                                <option value="{{$item->id}}">{{$item->name}}</option>
-                                @endforeach
-                            </select>
+                            <div class="row">
+                                <div class="col">
+                                    <label class="fieldlabels">Spécialité : *</label>
+                                    <select class="form-control" name="genre_licence" id="genre_licence">
+                                        @foreach($liste_licence as $key =>$item)
+                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-check col">
+                                    <label >Equivalent:</label>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Cochez la case si vous avez un diplôme équivalent à la licence sélectionnée
+                                    </label>
+                                </div>
+                            </div>
 
                             <label for="genre_licence" class="fieldlabels">Type du Licence : *</label>
                             <select class="form-control" name="type_licence" id="genre_licence" required>
@@ -314,6 +326,7 @@ p {
                         <input type="submit" name="submit" class="submit action-button" value="Valider"/>
                         <input type="button" name="previous" class="previous action-button-previous" value="Précédent"/>
                     </fieldset>
+                    </div>
                 </form>
         </div>
     </div>
