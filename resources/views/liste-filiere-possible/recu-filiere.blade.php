@@ -26,7 +26,7 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
-            width:100px; 
+            width:100px;
             height: 100px;
         }
         #logo_img{
@@ -60,12 +60,12 @@
                     <p><span class="dt">Téléphone </span>:<strong> {{$item->phone}}</strong></p>
                     @endforeach
                 </div>
-                
+
                 <div>
                     <p id="post_condidat" style="text-decoration: underline">CANDIDATURE à la FILIÈRE</p>
                     <p><span class="dt">Etablissement </span>:<strong> Ecole Supérieure d'Education et de Formation (ESEF) - EL JADIDA</strong></p>
                     <p><span class="dt">Spécialité</span> :<strong>{{$filiere_data[0]->name}}</strong></p>
-                    <p><span class="dt">Reçu LE :</span> <strong>{{$register_in_filiere_at[0]->date}}</strong></p>
+                    <p><span class="dt">Reçu le :</span> <strong>{{$register_in_filiere_at[0]->date}}</strong></p>
                 </div>
             </div>
         </div>
