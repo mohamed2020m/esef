@@ -31,7 +31,7 @@
           <div class="d-flex">
             <div class="mx-3">
               <div class="numbers">
-                <p class="text-sm mb-0 font-weight-bold">Nombre des Candidats</p>
+                <p class="text-sm mb-0 font-weight-bold">Nombre des Candidatures</p>
                 <div class="font-weight-bolder text-center mb-0" style="font-size:25px">
                   {{$nombre_candidats_inscrits}}
                 </div>
