@@ -246,7 +246,15 @@ p {
                     <fieldset>
                         <div class="form-card">
                             <label for="type_bac" class="fieldlabels">Série du Bac : *</label>
-                            <input type="text" value="{{$bac_name[0]->name}}" name="annee_bac" class="form-control" />
+                            <select class="form-control" name="serie_bac" id="type_bac">
+                                @foreach($liste_bac as $key =>$item)
+                                @if($item->id == $bac_name[0]->id)
+                                <option value="{{$item->id}}" checked>{{$item->name}}</option>
+                                @endif
+                                <option value="{{$item->id}}">{{$item->name}}</option>
+                                @endforeach
+                            </select>
+
                             @foreach($data_bac as $key =>$item)
                             <label class="fieldlabels">Type du BAC : *</label>
                             <input type="text" value="{{$item->type_bac}}" name="annee_bac" class="form-control" />
@@ -274,7 +282,15 @@ p {
                     <fieldset>
                         <div class="form-card">
                             <label class="fieldlabels">Spécialité : *</label>
-                            <input type="text" value="{{$licence_name[0]->name}}" name="annee_bac" class="form-control" />
+                            <select class="form-control" name="genre_licence" id="genre_licence">
+                                @foreach($liste_licence as $key =>$item)
+                                @if($item->id == $licence_name[0]->id)
+                                <option value="{{$item->id}}" checked>{{$item->name}}</option>
+                                @endif
+                                <option value="{{$item->id}}">{{$item->name}}</option>
+                                @endforeach
+                            </select>
+
                             @foreach($data_licence as $key =>$item)
                             <label for="genre_licence" class="fieldlabels">Type du Licence : *</label>
                             <input type="text" value="{{$item->type_licence}}" name="annee_bac" class="form-control" />
