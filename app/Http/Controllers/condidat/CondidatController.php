@@ -58,11 +58,15 @@ class CondidatController extends Controller
         $user_id->bacs()->attach($bac_id,$data_bac);
 
         //pour la licence
+        $equivalent =0;
         $scan_s1 = time().'.'.$req->releve_s1->extension();
         $req->releve_s1->move(public_path('images/scan_condidat/scan-s1'), $scan_s1);
         $scan_s2 = time().'.'.$req->releve_s2->extension();
         $req->releve_s2->move(public_path('images/scan_condidat/scan-s2'), $scan_s2);
 
+        if($req->licence_equivalent !=null){
+            $equivalent = 1;
+        }
         $data_licence = [
             'type_licence' =>$req->type_licence,
             'annee_obtention' =>$req->annee_licence,
@@ -72,6 +76,7 @@ class CondidatController extends Controller
             'note_s2' => $req->note_s2,
             'releve_s1' => $scan_s1,
             'releve_s2' => $scan_s2,
+            'equivalent' => $equivalent
         ];
         $licence_id = $req->genre_licence;
         $user_id->licences()->attach($licence_id,$data_licence);

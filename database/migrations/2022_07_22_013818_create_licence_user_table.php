@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('note_s2');
             $table->string('releve_s1');
             $table->string('releve_s2');
+            $table->integer('equivalent');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('licence_id')->references('id')->on('licences')->onDelete('cascade');
             $table->timestamps();
