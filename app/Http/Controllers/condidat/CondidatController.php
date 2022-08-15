@@ -143,6 +143,6 @@ class CondidatController extends Controller
 
     public function updateDonneeCondidat(Request $req){
         $user_id = Auth::user()->id;
-        if()
+        // if()
     }
 }
