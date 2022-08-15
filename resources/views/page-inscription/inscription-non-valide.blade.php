@@ -233,7 +233,7 @@ p {
 <div class="container">
     <div class="">
         <div class="row setup-panel">
-            <form id="msform" action="/condidat/acadimiques" method="POST"  enctype="multipart/form-data">
+            <form id="msform" action="/condidat/acadimiques/update" method="POST"  enctype="multipart/form-data">
                     @csrf
                     <ul id="progressbar">
                         <li class="active" id="bac"><strong>--Information du Bac----</strong></li>
@@ -320,6 +320,7 @@ p {
                             <p class="text-success">un fichier du même type existe déjà</p>
                             @endforeach
                         </div>
+                        <input type="submit" name="submit" class="submit action-button" value="Valider"/>
                         <input type="button" name="previous" class="previous action-button-previous" value="Précédent"/>
                     </fieldset>
                 </form>
