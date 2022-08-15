@@ -261,7 +261,9 @@ p {
                             <select class="form-control" name="type_bac" id="">
                                 @if($item->type_bac == "National")
                                 <option value="National" selected>National</option>
+                                <option value="Etranger" >Etranger</option>
                                 @else
+                                <option value="National">National</option>
                                 <option value="Etranger" selected>Etranger</option>
                                 @endif
                             </select>
