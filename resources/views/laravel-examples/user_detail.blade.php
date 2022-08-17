@@ -12,8 +12,9 @@
                 <div class="card-body text-center">
                     @foreach($user_data as $key =>$item)
                     <img src="{{'../public/images/images_profiles/' . $item->photo}}" alt="avatar"
+
+                    class="rounded-circle img-fluid" style="width:200px;clip-path:ellipse(50% 50%);">
                     @endforeach
-                    class="rounded-circle img-fluid" style="width: 150px;">
                 </div>
             </div>
         </div>
@@ -104,9 +105,9 @@
                     @else
                     <p class="text-muted mb-0">non disponible</p>
                     @endisset
-                
-                    
-                   
+
+
+
                 </div>
                 </div>
                 <hr>
@@ -184,8 +185,8 @@
                     <p class="text-muted mb-0">non disponible</p>
 
                     @endisset
-                        
-                        
+
+
                     </div>
                 </div>
                 <hr>
