@@ -5,6 +5,9 @@
     <div class="row">
         <div class="col-12">
             <div class="card mb-4 mx-4">
+                <div class="text-center">
+                    <p class="text-danger">Attention : après la postulation, vous n’aurez plus le droit de modifier les informations de votre bac ni les informations de votre licence. Vérifier bien votre dossier personnel avant de postuler.</p>
+                </div>
                 <div class="card-header pb-0">
                     <div class="d-flex flex-row justify-content-center" >
                         <div>
