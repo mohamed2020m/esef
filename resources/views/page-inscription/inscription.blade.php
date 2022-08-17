@@ -271,11 +271,11 @@ p {
                             <input type="text" name="ville_bac" class="form-control" required/>
 
                             <label class="fieldlabels">Scan'Bac : *</label>
-                            <font size="2" color="red">(Format png-jpg)</font>
-                            <input type="file" name="scan_bac" class="form-control" required accept=".png, .jpg, .jpeg" />
+                            <font size="2" color="red">(Format png-jpg-pdf)</font>
+                            <input type="file" name="scan_bac" class="form-control" required accept=".png, .jpg, .jpeg, .pdf" />
                             <label class="fieldlabels">Scan relevé de notes : *</label>
-                            <font size="2" color="red">(Format png-jpg)</font>
-                            <input type="file" name="scan_releve_note" class="form-control" required accept=".png, .jpg, .jpeg"/>
+                            <font size="2" color="red">(Format png-jpg-pdf)</font>
+                            <input type="file" name="scan_releve_note" class="form-control" required accept=".png, .jpg, .jpeg, .pdf"/>
                         </div>
                         <input type="button" name="next" class="next action-button" value="Suivant"/>
                     </fieldset>
@@ -322,12 +322,12 @@ p {
                             <input type="text" name="note_s2" placeholder="Note S 2" class="form-control" required/>
 
                             <label class="fieldlabels"> Relevé de notes S 1: *</label>
-                            <font size="2" color="red">(Format png-jpg)</font>
-                            <input type="file" name="releve_s1" class="form-control" required accept=".png, .jpg, .jpeg"/>
+                            <font size="2" color="red">(Format png-jpg-pdf)</font>
+                            <input type="file" name="releve_s1" class="form-control" required accept=".png, .jpg, .jpeg, .pdf"/>
 
                             <label class="fieldlabels"> Relevé de notes S 2: *</label>
-                            <font size="2" color="red">(Format png-jpg)</font>
-                            <input type="file" name="releve_s2" class="form-control" required accept=".png, .jpg, .jpeg"/>
+                            <font size="2" color="red">(Format png-jpg-pdf)</font>
+                            <input type="file" name="releve_s2" class="form-control" required accept=".png, .jpg, .jpeg, .pdf"/>
                         </div>
                         <input type="submit" name="submit" class="submit action-button" value="Valider"/>
                         <input type="button" name="previous" class="previous action-button-previous" value="Précédent"/>
