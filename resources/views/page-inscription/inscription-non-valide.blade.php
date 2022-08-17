@@ -279,12 +279,14 @@ p {
                             <input type="text" value="{{$item->ville_obtention}}" name="ville_bac" class="form-control" required/>
 
                             <label class="fieldlabels">Scan'Bac : *</label>
-                            <input type="file" name="scan_bac" class="form-control" accept=".png, .jpg, .jpeg" />
+                            <font size="2" color="red">(Format png-jpg-pdf)</font>
+                            <input type="file" name="scan_bac" class="form-control" accept=".png, .jpg, .jpeg, .pdf" />
                             <p class="text-success">un fichier du même type existe déjà</p>
 
 
                             <label class="fieldlabels">Scan relevé de notes : *</label>
-                            <input type="file" name="scan_releve_note" class="form-control" accept=".png, .jpg, .jpeg"  />
+                            <font size="2" color="red">(Format png-jpg-pdf)</font>
+                            <input type="file" name="scan_releve_note" class="form-control" accept=".png, .jpg, .jpeg, .pdf"  />
                             <p class="text-success">un fichier du même type existe déjà</p>
                             @endforeach
                         </div>
@@ -348,13 +350,13 @@ p {
                             <input type="text" value="{{$item->note_s2}}"  name="note_s2" class="form-control" required/>
 
                             <label class="fieldlabels"> Relevé de notes S 1: *</label>
-                            <font size="2" color="red">(Format png-jpg)</font>
-                            <input type="file" name="releve_s1" class="form-control" />
+                            <font size="2" color="red">(Format png-jpg-pdf)</font>
+                            <input type="file" name="releve_s1" class="form-control" accept=".png, .jpg, .jpeg, .pdf" />
                             <p class="text-success">un fichier du même type existe déjà</p>
 
                             <label class="fieldlabels"> Relevé de notes S 2: *</label>
-                            <font size="2" color="red">(Format png-jpg)</font>
-                            <input type="file" name="releve_s2" class="form-control" />
+                            <font size="2" color="red">(Format png-jpg-pdf)</font>
+                            <input type="file" name="releve_s2" class="form-control" accept=".png, .jpg, .jpeg, .pdf" />
                             <p class="text-success">un fichier du même type existe déjà</p>
                             @endforeach
                         </div>
