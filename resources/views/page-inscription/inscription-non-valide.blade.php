@@ -268,7 +268,7 @@ p {
                                 @endif
                             </select>
 
-                            <label class="fieldlabels">Année : *</label>
+                            <label class="fieldlabels">Année : * <span class="text-danger">(ex : 2020)</span></label>
                             <input type="text" value="{{$item->annee_obtention}}" name="annee_bac"  class="form-control" required />
 
 
@@ -334,7 +334,7 @@ p {
                                 @endif
                             </select>
 
-                            <label class="fieldlabels">Année : *</label>
+                            <label class="fieldlabels">Année : * <span class="text-danger">(ex : 2020)</span></label>
                             <input type="text" value="{{$item->annee_obtention}}" name="annee_licence" class="form-control" required/>
 
                             <label class="fieldlabels">Etablissment : *</label>
