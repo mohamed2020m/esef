@@ -13,7 +13,7 @@
                     @foreach($user_data as $key =>$item)
                     <img src="{{'../public/images/images_profiles/' . $item->photo}}" alt="avatar"
 
-                    class="rounded-circle img-fluid" style="width:200px;clip-path:ellipse(50% 50%);">
+                    style="width:200px;clip-path:ellipse(50% 50%);">
                     @endforeach
                 </div>
             </div>
